@@ -97,6 +97,32 @@ and an in-line object for the set of properties.
    initialization is necessary because the construct occasionally needs contextual
    information from its parent, such as to which the region the stack is deployed.
 
+.. _why_constructor:
+
+Why Define a Construct in the Constructor?
+------------------------------------------
+
+Defining a construct in the constructor enables you to specify the default state of the object.
+This technique differs from how classes are typically defined,
+which usually entails a construct setting member variables
+and calling a method to do the actual work the class wraps.
+
+After much experimentation, the |cdk| team has determined
+that the constructor is the best place for
+defining your reusable components.
+It also has the advantage that the object's state is well-defined:
+after construction, it's complete and generally immutable.
+
+In some cases the construct needs to know the context,
+such as account ID, region, or availibility zones, in which it's deployed.
+To make this possible,
+you must associate the construct with an existing construct tree (parent).
+
+.. _inspecting_construct_tree:
+
+Inspecting the Construct Tree
+-----------------------------
+
 Use the following operations to inspect the construct tree.
 
 :py:attr:`aws-cdk.Construct.parent`
