@@ -4,7 +4,7 @@ set -euo pipefail
 export PATH=node_modules/.bin:$PATH
 
 # Making sure the bare minimum packages allowing be able to test-build the generated packages is available:
-lerna exec --scope=cfn2ts                           \
+lerna exec  --concurrency 1 --scope=cfn2ts                           \
            --scope=pkglint                          \
            --scope=@aws-cdk/cdk                     \
            --scope=@aws-cdk/assert              \
@@ -125,8 +125,8 @@ exports = testCase({
 EOM
 
         echo "⌛️ Bootstrapping & building ${P}"
-        lerna bootstrap --scope=${P}
-        lerna run build --scope=${P}
+        lerna bootstrap --concurrency 1 --scope=${P}
+        lerna run build --concurrency 1 --scope=${P}
 
         git add packages/${P}
 
