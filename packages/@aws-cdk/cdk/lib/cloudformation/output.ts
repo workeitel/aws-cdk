@@ -60,17 +60,19 @@ export class Output extends StackElement {
   public readonly value?: any;
 
   /**
-   * The name of the resource output to be exported for a cross-stack reference.
-   * By default, the logical ID of the Output element is used as it's export name.
-   */
-  public readonly export?: string;
-
-  /**
    * A condition from the "Conditions" section to associate with this output
    * value. If the condition evaluates to `false`, this output value will not
    * be included in the stack.
    */
   public readonly condition?: Condition;
+
+  /**
+   * The name of the resource output to be exported for a cross-stack reference.
+   * By default, the logical ID of the Output element is used as it's export name.
+   */
+  private _export?: string;
+
+  private readonly disableExport: boolean;
 
   /**
    * Creates an Output value for this stack.
@@ -83,28 +85,40 @@ export class Output extends StackElement {
     this.description = props.description;
     this.value = props.value;
     this.condition = props.condition;
+    this.disableExport = props.disableExport || false;
 
     if (props.export) {
       if (props.disableExport) {
         throw new Error('Cannot set `disableExport` and specify an export name');
       }
-      this.export = props.export;
-    } else if (!props.disableExport) {
-      // prefix export name with stack name since exports are global within account + region.
-      const stackName = Stack.find(this).id;
-      this.export = stackName ? stackName + ':' : '';
-      this.export += this.logicalId;
+      this._export = props.export;
     }
   }
 
   /**
+   * The name of the resource output to be exported for a cross-stack reference.
+   * By default, the logical ID of the Output element is used as it's export name.
+   */
+  public get export(): string | undefined {
+    return this._export;
+  }
+
+  /**
    * Returns an FnImportValue bound to this export name.
+   *
+   * Enables exporting with a unique name if that hadn't been done yet.
    */
   public makeImportValue() {
     if (!this.export) {
-      throw new Error('Cannot create an ImportValue without an export name');
+      if (this.disableExport) {
+        throw new Error('Cannot create an ImportValue; exporting has been disabled on this Output');
+      }
+
+      // prefix export name with stack name since exports are global within account + region.
+      const stackName = Stack.find(this).id;
+      this._export = (stackName ? stackName + ':' : '') + this.logicalId;
     }
-    return new FnImportValue(this.export);
+    return new FnImportValue(this.export!);
   }
 
   public toCloudFormation(): object {
