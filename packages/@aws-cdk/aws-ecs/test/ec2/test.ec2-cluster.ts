@@ -180,7 +180,7 @@ export = {
 
     new ecs.Ec2Cluster(stack, 'Ec2Cluster', {
       vpc,
-      size: 3
+      instanceCount: 3
     });
 
     // THEN
