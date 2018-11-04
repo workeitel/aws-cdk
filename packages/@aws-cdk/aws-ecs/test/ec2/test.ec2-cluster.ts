@@ -11,8 +11,12 @@ export = {
       // GIVEN
       const stack =  new cdk.Stack();
       const vpc = new ec2.VpcNetwork(stack, 'MyVpc', {});
-      new ecs.Ec2Cluster(stack, 'Ec2Cluster', {
+      const cluster = new ecs.Ec2Cluster(stack, 'Ec2Cluster', {
         vpc,
+      });
+
+      cluster.addDefaultAutoScalingGroupCapacity({
+        instanceType: new ec2.InstanceType('t2.micro')
       });
 
       expect(stack).to(haveResource("AWS::ECS::Cluster"));
@@ -34,12 +38,12 @@ export = {
         ImageId: "", // Should this not be the latest image ID?
         InstanceType: "t2.micro",
         IamInstanceProfile: {
-          Ref: "Ec2ClusterAutoScalingGroupInstanceProfile18B9D870"
+          Ref: "Ec2ClusterDefaultAutoScalingGroupInstanceProfileDB232471"
         },
         SecurityGroups: [
           {
             "Fn::GetAtt": [
-              "Ec2ClusterAutoScalingGroupInstanceSecurityGroup77BA7E37",
+              "Ec2ClusterDefaultAutoScalingGroupInstanceSecurityGroup149B0A9E",
               "GroupId"
             ]
           }
