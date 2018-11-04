@@ -70,13 +70,13 @@ export = {
         MinSize: "0",
         DesiredCapacity: "1",
         LaunchConfigurationName: {
-          Ref: "Ec2ClusterAutoScalingGroupLaunchConfig570E562A"
+          Ref: "Ec2ClusterDefaultAutoScalingGroupLaunchConfig7B2FED3A"
         },
         Tags: [
           {
             Key: "Name",
             PropagateAtLaunch: true,
-            Value: "Ec2Cluster/AutoScalingGroup"
+            Value: "Ec2Cluster/DefaultAutoScalingGroup"
           }
         ],
         VPCZoneIdentifier: [
@@ -93,7 +93,7 @@ export = {
       }));
 
       expect(stack).to(haveResource("AWS::EC2::SecurityGroup", {
-        GroupDescription: "Ec2Cluster/AutoScalingGroup/InstanceSecurityGroup",
+        GroupDescription: "Ec2Cluster/DefaultAutoScalingGroup/InstanceSecurityGroup",
         SecurityGroupEgress: [
           {
             CidrIp: "0.0.0.0/0",
@@ -105,7 +105,7 @@ export = {
         Tags: [
           {
             Key: "Name",
-            Value: "Ec2Cluster/AutoScalingGroup"
+            Value: "Ec2Cluster/DefaultAutoScalingGroup"
           }
         ],
         VpcId: {
@@ -129,29 +129,32 @@ export = {
       }));
 
       expect(stack).to(haveResource("AWS::IAM::Policy", {
-      PolicyDocument: {
-        Statement: [
-          {
-            Action: [
-              "ecs:CreateCluster",
-              "ecs:DeregisterContainerInstance",
-              "ecs:DiscoverPollEndpoint",
-              "ecs:Poll",
-              "ecs:RegisterContainerInstance",
-              "ecs:StartTelemetrySession",
-              "ecs:Submit*",
-              "ecr:GetAuthorizationToken",
-              "ecr:BatchCheckLayerAvailability",
-              "ecr:GetDownloadUrlForLayer",
-              "ecr:BatchGetImage",
-              "logs:CreateLogStream",
-              "logs:PutLogEvents"
-            ],
-            Effect: "Allow",
-            Resource: "*"
-          }
-        ],
-        Version: "2012-10-17"
+        PolicyDocument: {
+          Statement: [
+            {
+              Action: [
+                "ecs:CreateCluster",
+                "ecs:DeregisterContainerInstance",
+                "ecs:DiscoverPollEndpoint",
+                "ecs:Poll",
+                "ecs:RegisterContainerInstance",
+                "ecs:StartTelemetrySession",
+                "ecs:Submit*"
+              ],
+              Effect: "Allow",
+              Resource: { "Fn::GetAtt": [ "Ec2ClusterEE43E89D", "Arn" ] }
+            },
+            {
+              Action: [
+                "ecr:GetAuthorizationToken",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              Effect: "Allow",
+              Resource: "*"
+            }
+          ],
+          Version: "2012-10-17"
         }
       }));
 
