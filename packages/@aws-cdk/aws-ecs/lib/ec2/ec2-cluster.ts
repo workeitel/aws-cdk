@@ -77,9 +77,6 @@ export class Ec2Cluster extends BaseCluster implements IEc2Cluster {
       "ecs:RegisterContainerInstance",
       "ecs:StartTelemetrySession",
       "ecs:Submit*",
-    ).addResource(this.clusterArn));
-
-    autoScalingGroup.addToRolePolicy(new iam.PolicyStatement().addActions(
       "ecr:GetAuthorizationToken",
       "logs:CreateLogStream",
       "logs:PutLogEvents"

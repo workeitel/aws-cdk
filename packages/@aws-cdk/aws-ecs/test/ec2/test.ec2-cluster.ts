@@ -139,13 +139,7 @@ export = {
                 "ecs:Poll",
                 "ecs:RegisterContainerInstance",
                 "ecs:StartTelemetrySession",
-                "ecs:Submit*"
-              ],
-              Effect: "Allow",
-              Resource: { "Fn::GetAtt": [ "Ec2ClusterEE43E89D", "Arn" ] }
-            },
-            {
-              Action: [
+                "ecs:Submit*",
                 "ecr:GetAuthorizationToken",
                 "logs:CreateLogStream",
                 "logs:PutLogEvents"
