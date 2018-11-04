@@ -75,7 +75,7 @@ export class FargateService extends BaseService {
     }, props.cluster.clusterName);
 
     this.configureAwsVpcNetworking(props.cluster.vpc, props.assignPublicIp, props.vpcPlacement, props.securityGroup);
-    this.connections = new ec2.Connections({ securityGroup: this.securityGroup });
+    this.connections = new ec2.Connections({ securityGroups: [this.securityGroup] });
 
     if (!props.taskDefinition.defaultContainer) {
       throw new Error('A TaskDefinition must have at least one essential container');

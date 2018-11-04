@@ -427,9 +427,9 @@ class LambdaRefImport extends FunctionRef {
 
     if (props.securityGroupId) {
       this._connections = new ec2.Connections({
-        securityGroup: ec2.SecurityGroupRef.import(this, 'SecurityGroup', {
+        securityGroups: [ec2.SecurityGroupRef.import(this, 'SecurityGroup', {
           securityGroupId: props.securityGroupId
-        })
+        })]
       });
     }
   }

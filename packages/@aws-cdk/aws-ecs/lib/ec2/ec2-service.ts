@@ -100,7 +100,7 @@ export class Ec2Service extends BaseService implements elb.ILoadBalancerTarget {
 
     if (props.taskDefinition.networkMode === NetworkMode.AwsVpc) {
       this.configureAwsVpcNetworking(props.cluster.vpc, false, props.vpcPlacement, props.securityGroup);
-      this.connections = new ec2.Connections({ securityGroup: this.securityGroup });
+      this.connections = new ec2.Connections({ securityGroups: [this.securityGroup] });
     } else {
       // Either None, Bridge or Host networking. Copy SecurityGroup from ASG.
       validateNoNetworkingProps(props);
