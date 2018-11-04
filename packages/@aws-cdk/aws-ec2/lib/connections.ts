@@ -84,17 +84,13 @@ export class Connections implements IConnectable {
 
   private skip: boolean = false;
 
-  constructor(props: ConnectionsProps) {
+  constructor(props: ConnectionsProps = {}) {
     this.connections = this;
     this._securityGroups.push(...(props.securityGroups || []));
 
     this._securityGroupRules.push(...this._securityGroups.asArray());
     if (props.securityGroupRule) {
       this._securityGroupRules.push(props.securityGroupRule);
-    }
-
-    if (this._securityGroupRules.length === 0) {
-      throw new Error('Connections: require one of securityGroupRule or securityGroup');
     }
 
     this.defaultPortRange = props.defaultPortRange;
@@ -107,9 +103,11 @@ export class Connections implements IConnectable {
   /**
    * Add a security group to the list of security groups managed by this object
    */
-  public addSecurityGroup(securityGroup: SecurityGroupRef) {
-    this._securityGroups.push(securityGroup);
-    this._securityGroupRules.push(securityGroup);
+  public addSecurityGroup(...securityGroups: SecurityGroupRef[]) {
+    for (const securityGroup of securityGroups) {
+      this._securityGroups.push(securityGroup);
+      this._securityGroupRules.push(securityGroup);
+    }
   }
 
   /**

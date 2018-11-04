@@ -160,8 +160,8 @@ export = {
     const stack = new cdk.Stack();
     const vpc = new ec2.VpcNetwork(stack, 'MyVpc', {});
 
-    new ecs.Ec2Cluster(stack, 'Ec2Cluster', {
-      vpc,
+    const cluster = new ecs.Ec2Cluster(stack, 'Ec2Cluster', { vpc });
+    cluster.addDefaultAutoScalingGroupCapacity({
       instanceType: new InstanceType("m3.large")
     });
 
@@ -178,8 +178,9 @@ export = {
     const stack = new cdk.Stack();
     const vpc = new ec2.VpcNetwork(stack, 'MyVpc', {});
 
-    new ecs.Ec2Cluster(stack, 'Ec2Cluster', {
-      vpc,
+    const cluster = new ecs.Ec2Cluster(stack, 'Ec2Cluster', { vpc });
+    cluster.addDefaultAutoScalingGroupCapacity({
+      instanceType: new ec2.InstanceType('t2.micro'),
       instanceCount: 3
     });
 

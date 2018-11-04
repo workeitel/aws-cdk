@@ -241,7 +241,7 @@ export class ApplicationListener extends BaseListener implements IApplicationLis
   public export(): ApplicationListenerRefProps {
     return {
       listenerArn: new cdk.Output(this, 'ListenerArn', { value: this.listenerArn }).makeImportValue().toString(),
-      securityGroupId: this.connections.securityGroup!.export().securityGroupId,
+      securityGroupId: this.connections.securityGroups[0]!.export().securityGroupId,
       defaultPort: new cdk.Output(this, 'Port', { value: this.defaultPort }).makeImportValue().toString(),
     };
   }

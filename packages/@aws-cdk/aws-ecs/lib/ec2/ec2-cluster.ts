@@ -24,9 +24,9 @@ export class Ec2Cluster extends BaseCluster implements IEc2Cluster {
   }
 
   /**
-   * SecurityGroup(s) of the EC2 instances
+   * Connections manager for the EC2 cluster
    */
-  public readonly securityGroups = new Array<ec2.SecurityGroupRef>();
+  public readonly connections: ec2.Connections = new ec2.Connections();
 
   constructor(parent: cdk.Construct, name: string, props: Ec2ClusterProps) {
     super(parent, name, props);
@@ -53,7 +53,7 @@ export class Ec2Cluster extends BaseCluster implements IEc2Cluster {
    * Add compute capacity to this ECS cluster in the form of an AutoScalingGroup
    */
   public addAutoScalingGroupCapacity(autoScalingGroup: autoscaling.AutoScalingGroup, options: AddAutoScalingGroupCapacityOptions = {}) {
-    this.securityGroup = autoScalingGroup.connections.securityGroup!;
+    this.connections.connections.addSecurityGroup(...autoScalingGroup.connections.securityGroups);
 
     // Tie instances to cluster
     autoScalingGroup.addUserData(`echo ECS_CLUSTER=${this.clusterName} >> /etc/ecs/ecs.config`);
@@ -93,7 +93,7 @@ export class Ec2Cluster extends BaseCluster implements IEc2Cluster {
     return {
       clusterName: new cdk.Output(this, 'ClusterName', { value: this.clusterName }).makeImportValue().toString(),
       vpc: this.vpc.export(),
-      securityGroup: this.securityGroup.export(),
+      securityGroups: this.connections.securityGroups.map(sg => sg.export()),
     };
   }
 
@@ -164,9 +164,9 @@ export interface IEc2Cluster {
   readonly vpc: ec2.VpcNetworkRef;
 
   /**
-   * Security group of the cluster instances
+   * Connections manager of the cluster instances
    */
-  readonly securityGroup: ec2.SecurityGroupRef;
+  readonly connections: ec2.Connections;
 }
 
 /**
@@ -186,7 +186,7 @@ export interface ImportedEc2ClusterProps {
   /**
    * Security group of the cluster instances
    */
-  securityGroup: ec2.SecurityGroupRefProps;
+  securityGroups: ec2.SecurityGroupRefProps[];
 }
 
 /**
@@ -206,13 +206,18 @@ class ImportedEc2Cluster extends cdk.Construct implements IEc2Cluster {
   /**
    * Security group of the cluster instances
    */
-  public readonly securityGroup: ec2.SecurityGroupRef;
+  public readonly connections = new ec2.Connections();
 
   constructor(parent: cdk.Construct, name: string, props: ImportedEc2ClusterProps) {
     super(parent, name);
     this.clusterName = props.clusterName;
     this.vpc = ec2.VpcNetworkRef.import(this, "vpc", props.vpc);
-    this.securityGroup = ec2.SecurityGroupRef.import(this, "securityGroup", props.securityGroup);
+
+    let i = 1;
+    for (const sgProps of props.securityGroups) {
+      this.connections.addSecurityGroup(ec2.SecurityGroupRef.import(this, `SecurityGroup${i}`, sgProps));
+      i++;
+    }
   }
 }
 

@@ -63,11 +63,6 @@ export interface Ec2ServiceProps extends BaseServiceProps {
  */
 export class Ec2Service extends BaseService implements elb.ILoadBalancerTarget {
   /**
-   * Manage allowed network traffic for this construct
-   */
-  public readonly connections: ec2.Connections;
-
-  /**
    * Name of the cluster
    */
   public readonly clusterName: string;
@@ -100,12 +95,10 @@ export class Ec2Service extends BaseService implements elb.ILoadBalancerTarget {
 
     if (props.taskDefinition.networkMode === NetworkMode.AwsVpc) {
       this.configureAwsVpcNetworking(props.cluster.vpc, false, props.vpcPlacement, props.securityGroup);
-      this.connections = new ec2.Connections({ securityGroups: [this.securityGroup] });
     } else {
       // Either None, Bridge or Host networking. Copy SecurityGroup from ASG.
       validateNoNetworkingProps(props);
-      this._securityGroup = props.cluster.securityGroup!;
-      this.connections = props.cluster.connections;
+      this.connections.addSecurityGroup(...props.cluster.connections.securityGroups);
     }
 
     this.taskDefinition = props.taskDefinition;
