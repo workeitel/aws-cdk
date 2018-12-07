@@ -26,12 +26,34 @@ Setting up the |cdk|
 Prerequisites
 -------------
 
-You must install
-`Node.js (>= 8.11.x) <https://nodejs.org/en/download>`_ to use the command-line
+Toolkit
+~~~~~~~
+
+You must use
+`Node.js <https://nodejs.org/en/download>`_ version 8.11 or greater to use the command-line
 toolkit and language bindings.
 
-If you use Java, you must set the `JAVA_HOME` environment variable to the path to where you have
-installed the JDK on your machine to build an |cdk| app in Java.
+TypeScript
+~~~~~~~~~~
+
+You must use TypeScript version 2.7 or greater to support ES2018.
+
+Java
+~~~~
+
+You must use Maven version 3.5.4 or greater and Java version 8 or greater.
+
+You must set the `JAVA_HOME` environment variable to the path to where you have
+installed the JDK on your machine.
+
+C#/.NET
+~~~~~~~
+
+You must use ???.
+
+
+All
+~~~
 
 Specify your credentials and region with the
 `AWS CLI <https://aws.amazon.com/cli>`_.
