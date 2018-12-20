@@ -1,0 +1,1381 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>@aws-cdk/aws-cloudformation-codepipeline &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="@aws-cdk/aws-cloudfront" href="_aws-cdk_aws-cloudfront.html" />
+    <link rel="prev" title="@aws-cdk/aws-cloudformation" href="_aws-cdk_aws-cloudformation.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_assets.html">&#64;aws-cdk/assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appsync.html">&#64;aws-cdk/aws-appsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-athena.html">&#64;aws-cdk/aws-athena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling.html">&#64;aws-cdk/aws-autoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscalingplans.html">&#64;aws-cdk/aws-autoscalingplans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-batch.html">&#64;aws-cdk/aws-batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-budgets.html">&#64;aws-cdk/aws-budgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-certificatemanager.html">&#64;aws-cdk/aws-certificatemanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloud9.html">&#64;aws-cdk/aws-cloud9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation.html">&#64;aws-cdk/aws-cloudformation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&#64;aws-cdk/aws-cloudformation-codepipeline</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws-codepipline-actions-for-aws-cloudformation">AWS CodePipline Actions for AWS CloudFormation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#actions-defined-by-this-package">Actions defined by this package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-&#64;aws-cdk/aws-cloudformation-codepipeline">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cloudformationaction">CloudFormationAction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloudformationcapabilities-enum">CloudFormationCapabilities (enum)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloudformationcommonprops-interface">CloudFormationCommonProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloudformationdeploymentaction">CloudFormationDeploymentAction</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloudformationdeploymentactioncommonprops-interface">CloudFormationDeploymentActionCommonProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#createreplacechangeset">CreateReplaceChangeSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#createreplacechangesetprops-interface">CreateReplaceChangeSetProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#createupdateprops-interface">CreateUpdateProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#createupdatestack">CreateUpdateStack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deletestackonly">DeleteStackOnly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deletestackonlyprops-interface">DeleteStackOnlyProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#executechangeset">ExecuteChangeSet</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#executechangesetprops-interface">ExecuteChangeSetProps (interface)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudfront.html">&#64;aws-cdk/aws-cloudfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudtrail.html">&#64;aws-cdk/aws-cloudtrail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html">&#64;aws-cdk/aws-cloudwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild.html">&#64;aws-cdk/aws-codebuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild-codepipeline.html">&#64;aws-cdk/aws-codebuild-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit.html">&#64;aws-cdk/aws-codecommit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit-codepipeline.html">&#64;aws-cdk/aws-codecommit-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy.html">&#64;aws-cdk/aws-codedeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html">&#64;aws-cdk/aws-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cognito.html">&#64;aws-cdk/aws-cognito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-config.html">&#64;aws-cdk/aws-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-custom-resources.html">&#64;aws-cdk/aws-custom-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-datapipeline.html">&#64;aws-cdk/aws-datapipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dax.html">&#64;aws-cdk/aws-dax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-directoryservice.html">&#64;aws-cdk/aws-directoryservice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dms.html">&#64;aws-cdk/aws-dms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dynamodb.html">&#64;aws-cdk/aws-dynamodb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ec2.html">&#64;aws-cdk/aws-ec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecr.html">&#64;aws-cdk/aws-ecr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecs.html">&#64;aws-cdk/aws-ecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-efs.html">&#64;aws-cdk/aws-efs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-eks.html">&#64;aws-cdk/aws-eks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticache.html">&#64;aws-cdk/aws-elasticache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticbeanstalk.html">&#64;aws-cdk/aws-elasticbeanstalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancing.html">&#64;aws-cdk/aws-elasticloadbalancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancingv2.html">&#64;aws-cdk/aws-elasticloadbalancingv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticsearch.html">&#64;aws-cdk/aws-elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-emr.html">&#64;aws-cdk/aws-emr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-events.html">&#64;aws-cdk/aws-events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-gamelift.html">&#64;aws-cdk/aws-gamelift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-glue.html">&#64;aws-cdk/aws-glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-guardduty.html">&#64;aws-cdk/aws-guardduty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iam.html">&#64;aws-cdk/aws-iam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-inspector.html">&#64;aws-cdk/aws-inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot.html">&#64;aws-cdk/aws-iot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesis.html">&#64;aws-cdk/aws-kinesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisanalytics.html">&#64;aws-cdk/aws-kinesisanalytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisfirehose.html">&#64;aws-cdk/aws-kinesisfirehose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kms.html">&#64;aws-cdk/aws-kms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda.html">&#64;aws-cdk/aws-lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda-codepipeline.html">&#64;aws-cdk/aws-lambda-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-logs.html">&#64;aws-cdk/aws-logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-neptune.html">&#64;aws-cdk/aws-neptune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-opsworks.html">&#64;aws-cdk/aws-opsworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-quickstarts.html">&#64;aws-cdk/aws-quickstarts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-rds.html">&#64;aws-cdk/aws-rds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-redshift.html">&#64;aws-cdk/aws-redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-route53.html">&#64;aws-cdk/aws-route53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3.html">&#64;aws-cdk/aws-s3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sdb.html">&#64;aws-cdk/aws-sdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-serverless.html">&#64;aws-cdk/aws-serverless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicecatalog.html">&#64;aws-cdk/aws-servicecatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicediscovery.html">&#64;aws-cdk/aws-servicediscovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ses.html">&#64;aws-cdk/aws-ses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sns.html">&#64;aws-cdk/aws-sns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sqs.html">&#64;aws-cdk/aws-sqs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ssm.html">&#64;aws-cdk/aws-ssm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-stepfunctions.html">&#64;aws-cdk/aws-stepfunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-waf.html">&#64;aws-cdk/aws-waf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-wafregional.html">&#64;aws-cdk/aws-wafregional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-workspaces.html">&#64;aws-cdk/aws-workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cdk.html">&#64;aws-cdk/cdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cx-api.html">&#64;aws-cdk/cx-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_runtime-values.html">&#64;aws-cdk/runtime-values</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+        
+      <li>&#64;aws-cdk/aws-cloudformation-codepipeline</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/refs/_aws-cdk_aws-cloudformation-codepipeline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cdk-aws-cloudformation-codepipeline">
+<h1>&#64;aws-cdk/aws-cloudformation-codepipeline<a class="headerlink" href="#aws-cdk-aws-cloudformation-codepipeline" title="Permalink to this headline">¶</a></h1>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== active docutils container">
+<p>View in <a class="reference external" href="https://repo1.maven.org/maven2/software/amazon/awscdk/cloudformation-codepipeline/0.8.1/">Maven Central</a></p>
+<p><strong>Apache Buildr</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;software.amazon.awscdk:cloudformation-codepipeline:jar:0.8.1&#39;
+</pre></div>
+</div>
+<p><strong>Apache Ivy</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency</span> <span class="na">groupId=</span><span class="s">&quot;software.amazon.awscdk&quot;</span> <span class="na">name=</span><span class="s">&quot;cloudformation-codepipeline&quot;</span> <span class="na">rev=</span><span class="s">&quot;0.8.1&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>Apache Maven</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>software.amazon.awscdk<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cloudformation-codepipeline<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.8.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>Gradle / Grails</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>compile &#39;software.amazon.awscdk:cloudformation-codepipeline:0.8.1&#39;
+</pre></div>
+</div>
+<p><strong>Groovy Grape</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@Grapes(
+@Grab(group=&#39;software.amazon.awscdk&#39;, module=&#39;cloudformation-codepipeline&#39;, version=&#39;0.8.1&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-cloudformation-codepipeline/v/0.8.1">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-cloudformation-codepipeline@0.8.1
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-cloudformation-codepipeline&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.8.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-cloudformation-codepipeline@0.8.1
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-cloudformation-codepipeline/v/0.8.1">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-cloudformation-codepipeline@0.8.1
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-cloudformation-codepipeline&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.8.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-cloudformation-codepipeline@0.8.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="aws-codepipline-actions-for-aws-cloudformation">
+<h2>AWS CodePipline Actions for AWS CloudFormation<a class="headerlink" href="#aws-codepipline-actions-for-aws-cloudformation" title="Permalink to this headline">¶</a></h2>
+<p>This module contains Actions that allows you to deploy to AWS CloudFormation from AWS CodePipeline.</p>
+<p>For example, the following code fragment defines a pipeline that automatically deploys a CloudFormation template
+directly from a CodeCommit repository, with a manual approval step in between to confirm the changes:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">pipeline</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">Pipeline</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span> <span class="s1">&#39;Pipeline&#39;</span><span class="p">);</span>
+
+<span class="c1">// Source stage: read from repository</span>
+<span class="kr">const</span> <span class="nx">repo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codecommit</span><span class="p">.</span><span class="nx">Repository</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span> <span class="s1">&#39;TemplateRepo&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">repositoryName</span><span class="o">:</span> <span class="s1">&#39;template-repo&#39;</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">sourceStage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">Stage</span><span class="p">(</span><span class="nx">pipeline</span><span class="p">,</span> <span class="s1">&#39;Source&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">source</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codecommitpl</span><span class="p">.</span><span class="nx">PipelineSource</span><span class="p">(</span><span class="nx">sourceStage</span><span class="p">,</span> <span class="s1">&#39;Source&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">repository</span>: <span class="kt">repo</span><span class="p">,</span>
+    <span class="nx">artifactName</span><span class="o">:</span> <span class="s1">&#39;SourceArtifact&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="c1">// Deployment stage: create and deploy changeset with manual approval</span>
+<span class="kr">const</span> <span class="nx">prodStage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">Stage</span><span class="p">(</span><span class="nx">pipeline</span><span class="p">,</span> <span class="s1">&#39;Deploy&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">stackName</span> <span class="o">=</span> <span class="s1">&#39;OurStack&#39;</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">changeSetName</span> <span class="o">=</span> <span class="s1">&#39;StagedChangeSet&#39;</span><span class="p">;</span>
+
+<span class="k">new</span> <span class="nx">cfnpl</span><span class="p">.</span><span class="nx">CreateReplaceChangeSet</span><span class="p">(</span><span class="nx">prodStage</span><span class="p">,</span> <span class="s1">&#39;PrepareChanges&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">stackName</span><span class="p">,</span>
+    <span class="nx">changeSetName</span><span class="p">,</span>
+    <span class="nx">fullPermissions</span>: <span class="kt">true</span><span class="p">,</span>
+    <span class="nx">templatePath</span>: <span class="kt">source.artifact.subartifact</span><span class="p">(</span><span class="s1">&#39;template.yaml&#39;</span><span class="p">),</span>
+<span class="p">});</span>
+
+<span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">ApprovalAction</span><span class="p">(</span><span class="nx">prodStage</span><span class="p">,</span> <span class="s1">&#39;ApproveChanges&#39;</span><span class="p">);</span>
+
+<span class="k">new</span> <span class="nx">cfnpl</span><span class="p">.</span><span class="nx">ExecuteChangeSet</span><span class="p">(</span><span class="nx">prodStage</span><span class="p">,</span> <span class="s1">&#39;ExecuteChanges&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">stackName</span><span class="p">,</span>
+    <span class="nx">changeSetName</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline.html">the AWS documentation</a>
+for more details about using CloudFormation in CodePipeline.</p>
+<div class="section" id="actions-defined-by-this-package">
+<h3>Actions defined by this package<a class="headerlink" href="#actions-defined-by-this-package" title="Permalink to this headline">¶</a></h3>
+<p>This package defines the following actions:</p>
+<ul class="simple">
+<li><strong>CreateUpdateStack</strong> - Deploy a CloudFormation template directly from the pipeline. The indicated stack is created,
+or updated if it already exists. If the stack is in a failure state, deployment will fail (unless <code class="docutils literal notranslate"><span class="pre">replaceOnFailure</span></code>
+is set to <code class="docutils literal notranslate"><span class="pre">true</span></code>, in which case it will be destroyed and recreated).</li>
+<li><strong>DeleteStackOnly</strong> - Delete the stack with the given name.</li>
+<li><strong>CreateReplaceChangeSet</strong> - Prepare a change set to be applied later. You will typically use change sets if you want
+to manually verify the changes that are being staged, or if you want to separate the people (or system) preparing the
+changes from the people (or system) applying the changes.</li>
+<li><strong>ExecuteChangeSet</strong> - Execute a change set prepared previously.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-cloudformation-codepipeline">
+<span id="reference"></span><h2>Reference<a class="headerlink" href="#module-@aws-cdk/aws-cloudformation-codepipeline" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cloudformationaction">
+<h3>CloudFormationAction<a class="headerlink" href="#cloudformationaction" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CloudFormationAction</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em><span class="optional">[</span>, <em>configuration</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationAction</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">CloudFormationAction</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CloudFormationAction</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Base class for Actions that execute CloudFormation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.DeployAction" title="&#64;aws-cdk/aws-codepipeline.DeployAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.DeployAction</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Abstract:</th><td class="field-body"><p class="first">Yes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.Stage" title="&#64;aws-cdk/aws-codepipeline.Stage"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.Stage</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationCommonProps</span></code></a>) – </li>
+<li><strong>configuration</strong> (<em>any</em><em> or </em><em>undefined</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction.artifact">
+<code class="descname">artifact</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction.artifact" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output artifact containing the CloudFormation call response  Only present if configured by passing <cite>outputFileName</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.Artifact" title="&#64;aws-cdk/aws-codepipeline.Artifact"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.Artifact</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cloudformationcapabilities-enum">
+<h3>CloudFormationCapabilities (enum)<a class="headerlink" href="#cloudformationcapabilities-enum" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CloudFormationCapabilities</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationCapabilities</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">CloudFormationCapabilities</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CloudFormationCapabilities</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Capabilities that affect whether CloudFormation is allowed to change IAM resources</p>
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities.IAM">
+<code class="descname">IAM</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities.IAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities.NamedIAM">
+<code class="descname">NamedIAM</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities.NamedIAM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cloudformationcommonprops-interface">
+<h3>CloudFormationCommonProps (interface)<a class="headerlink" href="#cloudformationcommonprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CloudFormationCommonProps</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationCommonProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// CloudFormationCommonProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CloudFormationCommonProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Properties common to all CloudFormation actions</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps.stackName">
+<code class="descname">stackName</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps.stackName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the stack to apply this action to</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps.outputFileName">
+<code class="descname">outputFileName</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps.outputFileName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A name for the filename in the output artifact to store the AWS CloudFormation call’s result.  The file will contain the result of the call to AWS CloudFormation (for example the call to UpdateStack or CreateChangeSet).  AWS CodePipeline adds the file to the output artifact after performing the specified action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps.outputArtifactName">
+<code class="descname">outputArtifactName</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps.outputArtifactName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the output artifact to generate  Only applied if <cite>outputFileName</cite> is set as well.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cloudformationdeploymentaction">
+<h3>CloudFormationDeploymentAction<a class="headerlink" href="#cloudformationdeploymentaction" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CloudFormationDeploymentAction</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em>, <em>configuration</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationDeploymentAction</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">CloudFormationDeploymentAction</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CloudFormationDeploymentAction</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Base class for all CloudFormation actions that execute or stage deployments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationAction</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Abstract:</th><td class="field-body"><p class="first">Yes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.Stage" title="&#64;aws-cdk/aws-codepipeline.Stage"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.Stage</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationDeploymentActionCommonProps</span></code></a>) – </li>
+<li><strong>configuration</strong> (<em>any</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction.addToRolePolicy">
+<code class="descname">addToRolePolicy</code><span class="sig-paren">(</span><em>statement</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction.addToRolePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add statement to the service role assumed by CloudFormation while executing this action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>statement</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.PolicyStatement" title="&#64;aws-cdk/cdk.PolicyStatement"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.PolicyStatement</span></code></a>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction.role">
+<code class="descname">role</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction.role" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.Role" title="&#64;aws-cdk/aws-iam.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.Role</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cloudformationdeploymentactioncommonprops-interface">
+<h3>CloudFormationDeploymentActionCommonProps (interface)<a class="headerlink" href="#cloudformationdeploymentactioncommonprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CloudFormationDeploymentActionCommonProps</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationDeploymentActionCommonProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// CloudFormationDeploymentActionCommonProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CloudFormationDeploymentActionCommonProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Properties common to CloudFormation actions that stage deployments</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationCommonProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.role">
+<code class="descname">role</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.role" title="Permalink to this definition">¶</a></dt>
+<dd><p>IAM role to assume when deploying changes.  If not specified, a fresh role is created. The role is created with zero permissions unless <cite>trustTemplate</cite> is true, in which case the role will have full permissions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.Role" title="&#64;aws-cdk/aws-iam.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.Role</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.capabilities">
+<code class="descname">capabilities</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.capabilities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Acknowledge certain changes made as part of deployment  For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation might create or update those resources. For example, you must specify CAPABILITY_IAM if your stack template contains AWS Identity and Access Management (IAM) resources. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](<a class="reference external" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities</a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationCapabilities</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.fullPermissions">
+<code class="descname">fullPermissions</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.fullPermissions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether to grant full permissions to CloudFormation while deploying this template.  Setting this to <cite>true</cite> affects the defaults for <cite>role</cite> and <cite>capabilities</cite>, if you don’t specify any alternatives.  The default role that will be created for you will have full (i.e., <cite>*</cite>) permissions on all resources, and the deployment will have named IAM capabilities (i.e., able to create all IAM resources).  This is a shorthand that you can use if you fully trust the templates that are deployed in this pipeline. If you want more fine-grained permissions, use <cite>addToRolePolicy</cite> and <cite>capabilities</cite> to control what the CloudFormation deployment is allowed to do.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.templateConfiguration">
+<code class="descname">templateConfiguration</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.templateConfiguration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input artifact to use for template parameters values and stack policy.  The template configuration file should contain a JSON object that should look like this: <cite>{ “Parameters”: {…}, “Tags”: {…}, “StackPolicy”: {… }}</cite>. For more information, see [AWS CloudFormation Artifacts](<a class="reference external" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.html">https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.html</a>).  Note that if you include sensitive information, such as passwords, restrict access to this file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.ArtifactPath" title="&#64;aws-cdk/aws-codepipeline.ArtifactPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.ArtifactPath</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.parameterOverrides">
+<code class="descname">parameterOverrides</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps.parameterOverrides" title="Permalink to this definition">¶</a></dt>
+<dd><p>Additional template parameters.  Template parameters specified here take precedence over template parameters found in the artifact specified by the <cite>templateConfiguration</cite> property.  We recommend that you use the template configuration file to specify most of your parameter values. Use parameter overrides to specify only dynamic parameter values (values that are unknown until you run the pipeline).  All parameter names must be present in the stack template.  Note: the entire object cannot be more than 1kB.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">any or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="createreplacechangeset">
+<h3>CreateReplaceChangeSet<a class="headerlink" href="#createreplacechangeset" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSet">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CreateReplaceChangeSet</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSet" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CreateReplaceChangeSet</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">CreateReplaceChangeSet</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CreateReplaceChangeSet</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>CodePipeline action to prepare a change set.  Creates the change set if it doesn’t exist based on the stack name and template that you submit. If the change set exists, AWS CloudFormation deletes it, and then creates a new one.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationDeploymentAction</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.Stage" title="&#64;aws-cdk/aws-codepipeline.Stage"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.Stage</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CreateReplaceChangeSetProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="createreplacechangesetprops-interface">
+<h3>CreateReplaceChangeSetProps (interface)<a class="headerlink" href="#createreplacechangesetprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CreateReplaceChangeSetProps</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CreateReplaceChangeSetProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// CreateReplaceChangeSetProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CreateReplaceChangeSetProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Properties for the CreateReplaceChangeSet action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationDeploymentActionCommonProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps.changeSetName">
+<code class="descname">changeSetName</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps.changeSetName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the change set to create or update.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps.templatePath">
+<code class="descname">templatePath</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps.templatePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input artifact with the ChangeSet’s CloudFormation template</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.ArtifactPath" title="&#64;aws-cdk/aws-codepipeline.ArtifactPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.ArtifactPath</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="createupdateprops-interface">
+<h3>CreateUpdateProps (interface)<a class="headerlink" href="#createupdateprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CreateUpdateProps</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CreateUpdateProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// CreateUpdateProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CreateUpdateProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Properties for the CreateUpdate action</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationDeploymentActionCommonProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps.templatePath">
+<code class="descname">templatePath</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps.templatePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Input artifact with the CloudFormation template to deploy</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.ArtifactPath" title="&#64;aws-cdk/aws-codepipeline.ArtifactPath"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.ArtifactPath</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps.replaceOnFailure">
+<code class="descname">replaceOnFailure</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps.replaceOnFailure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace the stack if it’s in a failed state.  If this is set to true and the stack is in a failed state (one of ROLLBACK_COMPLETE, ROLLBACK_FAILED, CREATE_FAILED, DELETE_FAILED, or UPDATE_ROLLBACK_FAILED), AWS CloudFormation deletes the stack and then creates a new stack.  If this is not set to true and the stack is in a failed state, the deployment fails.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="createupdatestack">
+<h3>CreateUpdateStack<a class="headerlink" href="#createupdatestack" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateUpdateStack">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">CreateUpdateStack</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.CreateUpdateStack" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.CreateUpdateStack</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">CreateUpdateStack</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CreateUpdateStack</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>CodePipeline action to deploy a stack.  Creates the stack if the specified stack doesn’t exist. If the stack exists, AWS CloudFormation updates the stack. Use this action to update existing stacks.  AWS CodePipeline won’t replace the stack, and will fail deployment if the stack is in a failed state. Use <cite>ReplaceOnFailure</cite> for an action that will delete and recreate the stack to try and recover from failed states.  Use this action to automatically replace failed stacks without recovering or troubleshooting them. You would typically choose this mode for testing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationDeploymentAction</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.Stage" title="&#64;aws-cdk/aws-codepipeline.Stage"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.Stage</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CreateUpdateProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="deletestackonly">
+<h3>DeleteStackOnly<a class="headerlink" href="#deletestackonly" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.DeleteStackOnly">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">DeleteStackOnly</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.DeleteStackOnly" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.DeleteStackOnly</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">DeleteStackOnly</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">DeleteStackOnly</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>CodePipeline action to delete a stack.  Deletes a stack. If you specify a stack that doesn’t exist, the action completes successfully without deleting a stack.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationDeploymentAction</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.Stage" title="&#64;aws-cdk/aws-codepipeline.Stage"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.Stage</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.DeleteStackOnlyProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.DeleteStackOnlyProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeleteStackOnlyProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="deletestackonlyprops-interface">
+<h3>DeleteStackOnlyProps (interface)<a class="headerlink" href="#deletestackonlyprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.DeleteStackOnlyProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">DeleteStackOnlyProps</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.DeleteStackOnlyProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.DeleteStackOnlyProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// DeleteStackOnlyProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">DeleteStackOnlyProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Properties for the DeleteOnly action</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationDeploymentActionCommonProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="executechangeset">
+<h3>ExecuteChangeSet<a class="headerlink" href="#executechangeset" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSet">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">ExecuteChangeSet</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSet" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.ExecuteChangeSet</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">ExecuteChangeSet</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ExecuteChangeSet</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>CodePipeline action to execute a prepared change set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationAction</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_aws-codepipeline.html#&#64;aws-cdk/aws-codepipeline.Stage" title="&#64;aws-cdk/aws-codepipeline.Stage"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline.Stage</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSetProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSetProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExecuteChangeSetProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="executechangesetprops-interface">
+<h3>ExecuteChangeSetProps (interface)<a class="headerlink" href="#executechangesetprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSetProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudformation-codepipeline.</code><code class="descname">ExecuteChangeSetProps</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSetProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudformation.codepipeline.ExecuteChangeSetProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// ExecuteChangeSetProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ExecuteChangeSetProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudformation-codepipeline&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Properties for the ExecuteChangeSet action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps" title="&#64;aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudFormationCommonProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSetProps.changeSetName">
+<code class="descname">changeSetName</code><a class="headerlink" href="#@aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSetProps.changeSetName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the change set to execute.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_aws-cdk_aws-cloudfront.html" class="btn btn-neutral float-right" title="@aws-cdk/aws-cloudfront" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_aws-cdk_aws-cloudformation.html" class="btn btn-neutral" title="@aws-cdk/aws-cloudformation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

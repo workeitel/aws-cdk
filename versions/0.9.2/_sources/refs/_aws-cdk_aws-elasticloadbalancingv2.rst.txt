@@ -1,0 +1,3662 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"TAgq/3yK5ALu9joq0L4elrPRXQbkQ6hL+0vmLkbsTuI="}
+
+@aws-cdk/aws-elasticloadbalancingv2
+===================================
+
+.. mdinclude:: ./__aws-cdk_aws-elasticloadbalancingv2.README.md
+
+Reference
+---------
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.ElasticLoadBalancingV2/0.9.2>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.ElasticLoadBalancingV2" Version="0.9.2" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.ElasticLoadBalancingV2 --version 0.9.2
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.ElasticLoadBalancingV2" version="0.9.2" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/elasticloadbalancingv2/0.9.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:elasticloadbalancingv2:jar:0.9.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="elasticloadbalancingv2" rev="0.9.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>elasticloadbalancingv2</artifactId>
+           <version>0.9.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:elasticloadbalancingv2:0.9.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='elasticloadbalancingv2', version='0.9.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-elasticloadbalancingv2/v/0.9.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-elasticloadbalancingv2@0.9.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-elasticloadbalancingv2": "^0.9.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-elasticloadbalancingv2@0.9.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-elasticloadbalancingv2/v/0.9.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-elasticloadbalancingv2@0.9.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-elasticloadbalancingv2": "^0.9.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-elasticloadbalancingv2@0.9.2
+
+
+
+.. py:module:: @aws-cdk/aws-elasticloadbalancingv2
+
+LoadBalancerSecurityGroups
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LoadBalancerSecurityGroups([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.LoadBalancerSecurityGroups;
+
+      .. code-tab:: javascript
+
+         const { LoadBalancerSecurityGroups } = require('@aws-cdk/aws-elasticloadbalancingv2');
+
+      .. code-tab:: typescript
+
+         import { LoadBalancerSecurityGroups } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or ``undefined``
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or ``undefined``
+
+   .. py:method:: concat([left, [right]]) -> @aws-cdk/cdk.Token
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.CloudFormationToken <@aws-cdk/cdk.CloudFormationToken.concat>`
+
+      Return a concated version of this Token in a string context  The default implementation of this combines strings, but specialized implements of Token can return a more appropriate value.
+
+
+      :param left: 
+      :type left: any or ``undefined``
+      :param right: 
+      :type right: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:method:: resolve() -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.resolve>`
+
+      :return: The resolved value for this token.
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: toJSON() -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.toJSON>`
+
+      Turn this Token into JSON  This gets called by JSON.stringify(). We want to prohibit this, because it's not possible to do this properly, so we just throw an error here.
+
+
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.toString>`
+
+      Return a reversible string representation of this token  If the Token is initialized with a literal, the stringified value of the literal is returned. Otherwise, a special quoted string representation of the Token is returned that can be embedded into other strings.  Strings with quoted Tokens in them can be restored back into complex values with the Tokens restored by calling `resolve()` on the string.
+
+
+      :rtype: string
+
+
+   .. py:attribute:: displayName
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.displayName>`
+
+      A human-readable display hint for this Token
+
+
+      :type: string or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: valueOrFunction
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.valueOrFunction>`
+
+      What this token will evaluate to, literal or function.
+
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+TargetGroupLoadBalancerArns
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TargetGroupLoadBalancerArns([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.TargetGroupLoadBalancerArns;
+
+      .. code-tab:: javascript
+
+         const { TargetGroupLoadBalancerArns } = require('@aws-cdk/aws-elasticloadbalancingv2');
+
+      .. code-tab:: typescript
+
+         import { TargetGroupLoadBalancerArns } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or ``undefined``
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or ``undefined``
+
+   .. py:method:: concat([left, [right]]) -> @aws-cdk/cdk.Token
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.CloudFormationToken <@aws-cdk/cdk.CloudFormationToken.concat>`
+
+      Return a concated version of this Token in a string context  The default implementation of this combines strings, but specialized implements of Token can return a more appropriate value.
+
+
+      :param left: 
+      :type left: any or ``undefined``
+      :param right: 
+      :type right: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:method:: resolve() -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.resolve>`
+
+      :return: The resolved value for this token.
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: toJSON() -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.toJSON>`
+
+      Turn this Token into JSON  This gets called by JSON.stringify(). We want to prohibit this, because it's not possible to do this properly, so we just throw an error here.
+
+
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.toString>`
+
+      Return a reversible string representation of this token  If the Token is initialized with a literal, the stringified value of the literal is returned. Otherwise, a special quoted string representation of the Token is returned that can be embedded into other strings.  Strings with quoted Tokens in them can be restored back into complex values with the Tokens restored by calling `resolve()` on the string.
+
+
+      :rtype: string
+
+
+   .. py:attribute:: displayName
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.displayName>`
+
+      A human-readable display hint for this Token
+
+
+      :type: string or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: valueOrFunction
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Token <@aws-cdk/cdk.Token.valueOrFunction>`
+
+      What this token will evaluate to, literal or function.
+
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-elasticloadbalancingv2.cloudformation
+
+ListenerCertificateResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ListenerCertificateResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerCertificateResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.ListenerCertificateResource } = require('@aws-cdk/aws-elasticloadbalancingv2');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ListenerCertificateResource } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``ListenerCertificateResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ListenerCertificateResource``
+   :type properties: :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.ListenerCertificateResourceProps`\ 
+
+   .. py:method:: renderProperties() -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :rtype: string => (any or ``undefined``)
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: listenerCertificateArn
+
+      :type: string *(readonly)*
+
+   .. py:class:: CertificateProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerCertificateResource.CertificateProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ListenerCertificateResource.CertificateProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ListenerCertificateResource.CertificateProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: certificateArn
+
+         ``ListenerCertificateResource.CertificateProperty.CertificateArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource. Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility in case there is no generated attribute.
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties
+
+
+      *Protected property*
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions) that should be added when a resource "depends on" this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+ListenerCertificateResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ListenerCertificateResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerCertificateResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.ListenerCertificateResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ListenerCertificateResourceProps } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+   .. py:attribute:: certificates
+
+      ``AWS::ElasticLoadBalancingV2::ListenerCertificate.Certificates``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html#cfn-elasticloadbalancingv2-listenercertificate-certificates
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.ListenerCertificateResource.CertificateProperty`\ )[] *(abstract)*
+
+
+   .. py:attribute:: listenerArn
+
+      ``AWS::ElasticLoadBalancingV2::ListenerCertificate.ListenerArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html#cfn-elasticloadbalancingv2-listenercertificate-listenerarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+ListenerResource
+~~~~~~~~~~~~~~~~
+
+.. py:class:: ListenerResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.ListenerResource } = require('@aws-cdk/aws-elasticloadbalancingv2');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ListenerResource } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``ListenerResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ListenerResource``
+   :type properties: :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.ListenerResourceProps`\ 
+
+   .. py:method:: renderProperties() -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :rtype: string => (any or ``undefined``)
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: listenerArn
+
+      :type: string *(readonly)*
+
+   .. py:class:: ActionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerResource.ActionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ListenerResource.ActionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ListenerResource.ActionProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: targetGroupArn
+
+         ``ListenerResource.ActionProperty.TargetGroupArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-targetgrouparn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: type
+
+         ``ListenerResource.ActionProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html#cfn-elasticloadbalancingv2-listener-defaultactions-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:class:: CertificateProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerResource.CertificateProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ListenerResource.CertificateProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ListenerResource.CertificateProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: certificateArn
+
+         ``ListenerResource.CertificateProperty.CertificateArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html#cfn-elasticloadbalancingv2-listener-certificates-certificatearn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource. Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility in case there is no generated attribute.
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties
+
+
+      *Protected property*
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions) that should be added when a resource "depends on" this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+ListenerResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ListenerResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.ListenerResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ListenerResourceProps } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+   .. py:attribute:: defaultActions
+
+      ``AWS::ElasticLoadBalancingV2::Listener.DefaultActions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-defaultactions
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.ListenerResource.ActionProperty`\  or :py:class:`@aws-cdk/cdk.CloudFormationToken`\ )[] *(abstract)*
+
+
+   .. py:attribute:: loadBalancerArn
+
+      ``AWS::ElasticLoadBalancingV2::Listener.LoadBalancerArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-loadbalancerarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:attribute:: port
+
+      ``AWS::ElasticLoadBalancingV2::Listener.Port``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:attribute:: protocol
+
+      ``AWS::ElasticLoadBalancingV2::Listener.Protocol``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:attribute:: certificates
+
+      ``AWS::ElasticLoadBalancingV2::Listener.Certificates``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.ListenerResource.CertificateProperty`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: sslPolicy
+
+      ``AWS::ElasticLoadBalancingV2::Listener.SslPolicy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-sslpolicy
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+ListenerRuleResource
+~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ListenerRuleResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerRuleResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.ListenerRuleResource } = require('@aws-cdk/aws-elasticloadbalancingv2');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ListenerRuleResource } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``ListenerRuleResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ListenerRuleResource``
+   :type properties: :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.ListenerRuleResourceProps`\ 
+
+   .. py:method:: renderProperties() -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :rtype: string => (any or ``undefined``)
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: listenerRuleArn
+
+      :type: string *(readonly)*
+
+   .. py:class:: ActionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerRuleResource.ActionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ListenerRuleResource.ActionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ListenerRuleResource.ActionProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: targetGroupArn
+
+         ``ListenerRuleResource.ActionProperty.TargetGroupArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-targetgrouparn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: type
+
+         ``ListenerRuleResource.ActionProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-actions.html#cfn-elasticloadbalancingv2-listener-actions-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:class:: RuleConditionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerRuleResource.RuleConditionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ListenerRuleResource.RuleConditionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ListenerRuleResource.RuleConditionProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: field
+
+         ``ListenerRuleResource.RuleConditionProperty.Field``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-field
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: values
+
+         ``ListenerRuleResource.RuleConditionProperty.Values``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
+
+
+         :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\ )[] or ``undefined`` *(abstract)*
+
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource. Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility in case there is no generated attribute.
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties
+
+
+      *Protected property*
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions) that should be added when a resource "depends on" this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+ListenerRuleResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ListenerRuleResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.ListenerRuleResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.ListenerRuleResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ListenerRuleResourceProps } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+   .. py:attribute:: actions
+
+      ``AWS::ElasticLoadBalancingV2::ListenerRule.Actions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-actions
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.ListenerRuleResource.ActionProperty`\ )[] *(abstract)*
+
+
+   .. py:attribute:: conditions
+
+      ``AWS::ElasticLoadBalancingV2::ListenerRule.Conditions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-conditions
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.ListenerRuleResource.RuleConditionProperty`\ )[] *(abstract)*
+
+
+   .. py:attribute:: listenerArn
+
+      ``AWS::ElasticLoadBalancingV2::ListenerRule.ListenerArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-listenerarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:attribute:: priority
+
+      ``AWS::ElasticLoadBalancingV2::ListenerRule.Priority``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+LoadBalancerResource
+~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: LoadBalancerResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.LoadBalancerResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.LoadBalancerResource } = require('@aws-cdk/aws-elasticloadbalancingv2');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LoadBalancerResource } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``LoadBalancerResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``LoadBalancerResource``
+   :type properties: :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.LoadBalancerResourceProps`\  or ``undefined``
+
+   .. py:method:: renderProperties() -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :rtype: string => (any or ``undefined``)
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: loadBalancerArn
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: loadBalancerCanonicalHostedZoneId
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: loadBalancerDnsName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: loadBalancerFullName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: loadBalancerName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: loadBalancerSecurityGroups
+
+      :type: :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.LoadBalancerSecurityGroups`\  *(readonly)*
+
+   .. py:class:: LoadBalancerAttributeProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.LoadBalancerResource.LoadBalancerAttributeProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.LoadBalancerResource.LoadBalancerAttributeProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.LoadBalancerResource.LoadBalancerAttributeProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: key
+
+         ``LoadBalancerResource.LoadBalancerAttributeProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: value
+
+         ``LoadBalancerResource.LoadBalancerAttributeProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:class:: SubnetMappingProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.LoadBalancerResource.SubnetMappingProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.LoadBalancerResource.SubnetMappingProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.LoadBalancerResource.SubnetMappingProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: allocationId
+
+         ``LoadBalancerResource.SubnetMappingProperty.AllocationId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-allocationid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: subnetId
+
+         ``LoadBalancerResource.SubnetMappingProperty.SubnetId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmapping-subnetid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource. Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility in case there is no generated attribute.
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties
+
+
+      *Protected property*
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions) that should be added when a resource "depends on" this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+LoadBalancerResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: LoadBalancerResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.LoadBalancerResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.LoadBalancerResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LoadBalancerResourceProps } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+   .. py:attribute:: ipAddressType
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.IpAddressType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: loadBalancerAttributes
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.LoadBalancerAttributes``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.LoadBalancerResource.LoadBalancerAttributeProperty`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: loadBalancerName
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: scheme
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.Scheme``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-scheme
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: securityGroups
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.SecurityGroups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: subnetMappings
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.SubnetMappings``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmappings
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.LoadBalancerResource.SubnetMappingProperty`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: subnets
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.Subnets``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: tags
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`@aws-cdk/cdk.Tag`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: type
+
+      ``AWS::ElasticLoadBalancingV2::LoadBalancer.Type``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-type
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+TargetGroupResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: TargetGroupResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.TargetGroupResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.TargetGroupResource } = require('@aws-cdk/aws-elasticloadbalancingv2');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.TargetGroupResource } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``TargetGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``TargetGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.TargetGroupResourceProps`\ 
+
+   .. py:method:: renderProperties() -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :rtype: string => (any or ``undefined``)
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: targetGroupArn
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: targetGroupFullName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: targetGroupLoadBalancerArns
+
+      :type: :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.TargetGroupLoadBalancerArns`\  *(readonly)*
+
+
+   .. py:attribute:: targetGroupName
+
+      :type: string *(readonly)*
+
+   .. py:class:: MatcherProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.TargetGroupResource.MatcherProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TargetGroupResource.MatcherProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TargetGroupResource.MatcherProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: httpCode
+
+         ``TargetGroupResource.MatcherProperty.HttpCode``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html#cfn-elasticloadbalancingv2-targetgroup-matcher-httpcode
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:class:: TargetDescriptionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.TargetGroupResource.TargetDescriptionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TargetGroupResource.TargetDescriptionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TargetGroupResource.TargetDescriptionProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: id
+
+         ``TargetGroupResource.TargetDescriptionProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: availabilityZone
+
+         ``TargetGroupResource.TargetDescriptionProperty.AvailabilityZone``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-availabilityzone
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: port
+
+         ``TargetGroupResource.TargetDescriptionProperty.Port``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html#cfn-elasticloadbalancingv2-targetgroup-targetdescription-port
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:class:: TargetGroupAttributeProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.TargetGroupResource.TargetGroupAttributeProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TargetGroupResource.TargetGroupAttributeProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TargetGroupResource.TargetGroupAttributeProperty } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+      .. py:attribute:: key
+
+         ``TargetGroupResource.TargetGroupAttributeProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: value
+
+         ``TargetGroupResource.TargetGroupAttributeProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource. Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility in case there is no generated attribute.
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties
+
+
+      *Protected property*
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions) that should be added when a resource "depends on" this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+TargetGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: TargetGroupResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ElasticLoadBalancingV2;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.elasticloadbalancingv2.cloudformation.TargetGroupResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.TargetGroupResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.TargetGroupResourceProps } from '@aws-cdk/aws-elasticloadbalancingv2';
+
+
+
+
+
+   .. py:attribute:: port
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.Port``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-port
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:attribute:: protocol
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.Protocol``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-protocol
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:attribute:: vpcId
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.VpcId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-vpcid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:attribute:: healthCheckIntervalSeconds
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.HealthCheckIntervalSeconds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckintervalseconds
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: healthCheckPath
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.HealthCheckPath``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckpath
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: healthCheckPort
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.HealthCheckPort``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckport
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: healthCheckProtocol
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.HealthCheckProtocol``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckprotocol
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: healthCheckTimeoutSeconds
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.HealthCheckTimeoutSeconds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthchecktimeoutseconds
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: healthyThresholdCount
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.HealthyThresholdCount``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthythresholdcount
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: matcher
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.Matcher``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-matcher
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.TargetGroupResource.MatcherProperty`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: tags
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`@aws-cdk/cdk.Tag`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: targetGroupAttributes
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.TargetGroupAttributes``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.TargetGroupResource.TargetGroupAttributeProperty`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: targetGroupName
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: targets
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.Targets``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targets
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-elasticloadbalancingv2.cloudformation.TargetGroupResource.TargetDescriptionProperty`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: targetType
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.TargetType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targettype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: unhealthyThresholdCount
+
+      ``AWS::ElasticLoadBalancingV2::TargetGroup.UnhealthyThresholdCount``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-unhealthythresholdcount
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-elasticloadbalancingv2
+

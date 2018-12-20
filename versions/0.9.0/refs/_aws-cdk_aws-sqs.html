@@ -1,0 +1,2142 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>@aws-cdk/aws-sqs &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="@aws-cdk/aws-ssm" href="_aws-cdk_aws-ssm.html" />
+    <link rel="prev" title="@aws-cdk/aws-sns" href="_aws-cdk_aws-sns.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_assets.html">&#64;aws-cdk/assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appsync.html">&#64;aws-cdk/aws-appsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-athena.html">&#64;aws-cdk/aws-athena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling.html">&#64;aws-cdk/aws-autoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscalingplans.html">&#64;aws-cdk/aws-autoscalingplans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-batch.html">&#64;aws-cdk/aws-batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-budgets.html">&#64;aws-cdk/aws-budgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-certificatemanager.html">&#64;aws-cdk/aws-certificatemanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloud9.html">&#64;aws-cdk/aws-cloud9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation.html">&#64;aws-cdk/aws-cloudformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudfront.html">&#64;aws-cdk/aws-cloudfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudtrail.html">&#64;aws-cdk/aws-cloudtrail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html">&#64;aws-cdk/aws-cloudwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild.html">&#64;aws-cdk/aws-codebuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit.html">&#64;aws-cdk/aws-codecommit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy.html">&#64;aws-cdk/aws-codedeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html">&#64;aws-cdk/aws-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline-api.html">&#64;aws-cdk/aws-codepipeline-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cognito.html">&#64;aws-cdk/aws-cognito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-config.html">&#64;aws-cdk/aws-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-datapipeline.html">&#64;aws-cdk/aws-datapipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dax.html">&#64;aws-cdk/aws-dax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-directoryservice.html">&#64;aws-cdk/aws-directoryservice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dms.html">&#64;aws-cdk/aws-dms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dynamodb.html">&#64;aws-cdk/aws-dynamodb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ec2.html">&#64;aws-cdk/aws-ec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecr.html">&#64;aws-cdk/aws-ecr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecs.html">&#64;aws-cdk/aws-ecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-efs.html">&#64;aws-cdk/aws-efs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-eks.html">&#64;aws-cdk/aws-eks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticache.html">&#64;aws-cdk/aws-elasticache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticbeanstalk.html">&#64;aws-cdk/aws-elasticbeanstalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancing.html">&#64;aws-cdk/aws-elasticloadbalancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancingv2.html">&#64;aws-cdk/aws-elasticloadbalancingv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticsearch.html">&#64;aws-cdk/aws-elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-emr.html">&#64;aws-cdk/aws-emr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-events.html">&#64;aws-cdk/aws-events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-gamelift.html">&#64;aws-cdk/aws-gamelift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-glue.html">&#64;aws-cdk/aws-glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-guardduty.html">&#64;aws-cdk/aws-guardduty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iam.html">&#64;aws-cdk/aws-iam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-inspector.html">&#64;aws-cdk/aws-inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot.html">&#64;aws-cdk/aws-iot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesis.html">&#64;aws-cdk/aws-kinesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisanalytics.html">&#64;aws-cdk/aws-kinesisanalytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisfirehose.html">&#64;aws-cdk/aws-kinesisfirehose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kms.html">&#64;aws-cdk/aws-kms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda.html">&#64;aws-cdk/aws-lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-logs.html">&#64;aws-cdk/aws-logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-neptune.html">&#64;aws-cdk/aws-neptune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-opsworks.html">&#64;aws-cdk/aws-opsworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-quickstarts.html">&#64;aws-cdk/aws-quickstarts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-rds.html">&#64;aws-cdk/aws-rds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-redshift.html">&#64;aws-cdk/aws-redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-route53.html">&#64;aws-cdk/aws-route53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3.html">&#64;aws-cdk/aws-s3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3-notifications.html">&#64;aws-cdk/aws-s3-notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sagemaker.html">&#64;aws-cdk/aws-sagemaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sdb.html">&#64;aws-cdk/aws-sdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-serverless.html">&#64;aws-cdk/aws-serverless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicecatalog.html">&#64;aws-cdk/aws-servicecatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicediscovery.html">&#64;aws-cdk/aws-servicediscovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ses.html">&#64;aws-cdk/aws-ses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sns.html">&#64;aws-cdk/aws-sns</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&#64;aws-cdk/aws-sqs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws-sqs-construct-library">AWS SQS Construct Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#encryption">Encryption</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#first-in-first-out-fifo-queues">First-In-First-Out (FIFO) queues</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-&#64;aws-cdk/aws-sqs">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#deadletterqueue-interface">DeadLetterQueue (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queue">Queue</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queuearn">QueueArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queueencryption-enum">QueueEncryption (enum)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queuename">QueueName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queuepolicy">QueuePolicy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queuepolicyprops-interface">QueuePolicyProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queueprops-interface">QueueProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queueref">QueueRef</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queuerefprops-interface">QueueRefProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#queueurl">QueueUrl</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-&#64;aws-cdk/aws-sqs.cloudformation">cloudformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ssm.html">&#64;aws-cdk/aws-ssm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-stepfunctions.html">&#64;aws-cdk/aws-stepfunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-waf.html">&#64;aws-cdk/aws-waf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-wafregional.html">&#64;aws-cdk/aws-wafregional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-workspaces.html">&#64;aws-cdk/aws-workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cdk.html">&#64;aws-cdk/cdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cx-api.html">&#64;aws-cdk/cx-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_runtime-values.html">&#64;aws-cdk/runtime-values</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+        
+      <li>&#64;aws-cdk/aws-sqs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/refs/_aws-cdk_aws-sqs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cdk-aws-sqs">
+<h1>&#64;aws-cdk/aws-sqs<a class="headerlink" href="#aws-cdk-aws-sqs" title="Permalink to this headline">¶</a></h1>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-QyM= active docutils container">
+<p>View in <a class="reference external" href="https://www.nuget.org/packages/Amazon.CDK.AWS.SQS/0.9.0">Nuget</a></p>
+<p><strong>csproj</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">&quot;Amazon.CDK.AWS.SQS&quot;</span> <span class="na">Version=</span><span class="s">&quot;0.9.0&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>dotnet</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">dotnet add package Amazon.CDK.AWS.SQS --version 0.9.0</span>
+</pre></div>
+</div>
+<p><strong>packages.config</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;package</span> <span class="na">id=</span><span class="s">&quot;Amazon.CDK.AWS.SQS&quot;</span> <span class="na">version=</span><span class="s">&quot;0.9.0&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>View in <a class="reference external" href="https://repo1.maven.org/maven2/software/amazon/awscdk/sqs/0.9.0/">Maven Central</a></p>
+<p><strong>Apache Buildr</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;software.amazon.awscdk:sqs:jar:0.9.0&#39;
+</pre></div>
+</div>
+<p><strong>Apache Ivy</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency</span> <span class="na">groupId=</span><span class="s">&quot;software.amazon.awscdk&quot;</span> <span class="na">name=</span><span class="s">&quot;sqs&quot;</span> <span class="na">rev=</span><span class="s">&quot;0.9.0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>Apache Maven</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>software.amazon.awscdk<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>sqs<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.9.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>Gradle / Grails</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>compile &#39;software.amazon.awscdk:sqs:0.9.0&#39;
+</pre></div>
+</div>
+<p><strong>Groovy Grape</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@Grapes(
+@Grab(group=&#39;software.amazon.awscdk&#39;, module=&#39;sqs&#39;, version=&#39;0.9.0&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-sqs/v/0.9.0">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-sqs@0.9.0
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-sqs&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.9.0&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-sqs@0.9.0
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-sqs/v/0.9.0">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-sqs@0.9.0
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-sqs&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.9.0&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-sqs@0.9.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="aws-sqs-construct-library">
+<h2>AWS SQS Construct Library<a class="headerlink" href="#aws-sqs-construct-library" title="Permalink to this headline">¶</a></h2>
+<p>Here’s how to add a basic queue to your application:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">Queue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Queue&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="encryption">
+<h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h3>
+<p>If you want to encrypt the queue contents, set the <code class="docutils literal notranslate"><span class="pre">encryption</span></code> property. You can have
+the messages encrypted with a key that SQS manages for you, or a key that you
+can manage yourself.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// Use managed key</span>
+<span class="k">new</span> <span class="nx">Queue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Queue&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">encryption</span>: <span class="kt">QueueEncryption.Managed</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="c1">// Use custom key</span>
+<span class="kr">const</span> <span class="nx">myKey</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">EncryptionKey</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Key&#39;</span><span class="p">);</span>
+
+<span class="k">new</span> <span class="nx">Queue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Queue&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">encryption</span>: <span class="kt">QueueEncryption.Kms</span><span class="p">,</span>
+    <span class="nx">encryptionMasterKey</span>: <span class="kt">myKey</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="first-in-first-out-fifo-queues">
+<h3>First-In-First-Out (FIFO) queues<a class="headerlink" href="#first-in-first-out-fifo-queues" title="Permalink to this headline">¶</a></h3>
+<p>FIFO queues give guarantees on the order in which messages are dequeued, and have additional
+features in order to help guarantee exactly-once processing. For more information, see
+the SQS manual. Note that FIFO queues are not available in all AWS regions.</p>
+<p>A queue can be made a FIFO queue by either setting <code class="docutils literal notranslate"><span class="pre">fifo:</span> <span class="pre">true</span></code>, giving it a name which ends
+in <code class="docutils literal notranslate"><span class="pre">&quot;.fifo&quot;</span></code>, or enabling content-based deduplication (which requires FIFO queues).</p>
+</div>
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-sqs">
+<span id="reference"></span><h2>Reference<a class="headerlink" href="#module-@aws-cdk/aws-sqs" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="deadletterqueue-interface">
+<h3>DeadLetterQueue (interface)<a class="headerlink" href="#deadletterqueue-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.DeadLetterQueue">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">DeadLetterQueue</code><a class="headerlink" href="#@aws-cdk/aws-sqs.DeadLetterQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.DeadLetterQueue</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// DeadLetterQueue is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">DeadLetterQueue</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dead letter queue settings</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.DeadLetterQueue.maxReceiveCount">
+<code class="descname">maxReceiveCount</code><a class="headerlink" href="#@aws-cdk/aws-sqs.DeadLetterQueue.maxReceiveCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of times a message can be unsuccesfully dequeued before being moved to the dead-letter queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.DeadLetterQueue.queue">
+<code class="descname">queue</code><a class="headerlink" href="#@aws-cdk/aws-sqs.DeadLetterQueue.queue" title="Permalink to this definition">¶</a></dt>
+<dd><p>The dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueRef" title="&#64;aws-cdk/aws-sqs.QueueRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueRef</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queue">
+<h3>Queue<a class="headerlink" href="#queue" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.Queue">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">Queue</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.Queue" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.Queue</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">Queue</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Queue</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A new Amazon SQS queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueRef" title="&#64;aws-cdk/aws-sqs.QueueRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueRef</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueProps" title="&#64;aws-cdk/aws-sqs.QueueProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.Queue.autoCreatePolicy">
+<code class="descname">autoCreatePolicy</code><a class="headerlink" href="#@aws-cdk/aws-sqs.Queue.autoCreatePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls automatic creation of policy objects.  Set by subclasses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.Queue.queueArn">
+<code class="descname">queueArn</code><a class="headerlink" href="#@aws-cdk/aws-sqs.Queue.queueArn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ARN of this queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueArn" title="&#64;aws-cdk/aws-sqs.QueueArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.Queue.queueName">
+<code class="descname">queueName</code><a class="headerlink" href="#@aws-cdk/aws-sqs.Queue.queueName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of this queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueName" title="&#64;aws-cdk/aws-sqs.QueueName"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.Queue.queueUrl">
+<code class="descname">queueUrl</code><a class="headerlink" href="#@aws-cdk/aws-sqs.Queue.queueUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL of this queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueUrl" title="&#64;aws-cdk/aws-sqs.QueueUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueUrl</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.Queue.encryptionMasterKey">
+<code class="descname">encryptionMasterKey</code><a class="headerlink" href="#@aws-cdk/aws-sqs.Queue.encryptionMasterKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this queue is encrypted, this is the KMS key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-kms.html#&#64;aws-cdk/aws-kms.EncryptionKeyRef" title="&#64;aws-cdk/aws-kms.EncryptionKeyRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-kms.EncryptionKeyRef</span></code></a> or undefined <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queuearn">
+<h3>QueueArn<a class="headerlink" href="#queuearn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueueArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueueArn</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueueArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">QueueArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueueArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="queueencryption-enum">
+<h3>QueueEncryption (enum)<a class="headerlink" href="#queueencryption-enum" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueueEncryption">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueueEncryption</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueEncryption" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueueEncryption</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">QueueEncryption</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueueEncryption</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>What kind of encryption to apply to this queue</p>
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sqs.QueueEncryption.Unencrypted">
+<code class="descname">Unencrypted</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueEncryption.Unencrypted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Messages in the queue are not encrypted</p>
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sqs.QueueEncryption.KmsManaged">
+<code class="descname">KmsManaged</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueEncryption.KmsManaged" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Server-side KMS encryption with a master key managed by SQS.</p>
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sqs.QueueEncryption.Kms">
+<code class="descname">Kms</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueEncryption.Kms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Server-side encryption with a KMS key managed by the user.  If <cite>encryptionKey</cite> is specified, this key will be used, otherwise, one will be defined.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="queuename">
+<h3>QueueName<a class="headerlink" href="#queuename" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueueName">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueueName</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueName" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueueName</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">QueueName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueueName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="queuepolicy">
+<h3>QueuePolicy<a class="headerlink" href="#queuepolicy" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueuePolicy">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueuePolicy</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.QueuePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueuePolicy</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">QueuePolicy</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueuePolicy</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Applies a policy to SQS queues.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Implements:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.IDependable" title="&#64;aws-cdk/cdk.IDependable"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.IDependable</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueuePolicyProps" title="&#64;aws-cdk/aws-sqs.QueuePolicyProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueuePolicyProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueuePolicy.dependencyElements">
+<code class="descname">dependencyElements</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueuePolicy.dependencyElements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows adding QueuePolicy as a dependency.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">:py:class:<a href="#id2"><span class="problematic" id="id3">`</span></a>&#64;aws-cdk/cdk.IDependable`[] <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueuePolicy.document">
+<code class="descname">document</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueuePolicy.document" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IAM policy document for this policy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.PolicyDocument" title="&#64;aws-cdk/cdk.PolicyDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.PolicyDocument</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queuepolicyprops-interface">
+<h3>QueuePolicyProps (interface)<a class="headerlink" href="#queuepolicyprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueuePolicyProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueuePolicyProps</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueuePolicyProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueuePolicyProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// QueuePolicyProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueuePolicyProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueuePolicyProps.queues">
+<code class="descname">queues</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueuePolicyProps.queues" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of queues this policy applies to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">:py:class:<a href="#id4"><span class="problematic" id="id5">`</span></a><a class="reference external" href="mailto:~&#37;&#52;&#48;aws-cdk/aws-sqs">~<span>&#64;</span>aws-cdk/aws-sqs</a>.QueueRef`[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queueprops-interface">
+<h3>QueueProps (interface)<a class="headerlink" href="#queueprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueueProps</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueueProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// QueueProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueueProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Properties for creating a new Queue</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.contentBasedDeduplication">
+<code class="descname">contentBasedDeduplication</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.contentBasedDeduplication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specifies whether to enable content-based deduplication.  During the deduplication interval (5 minutes), Amazon SQS treats messages that are sent with identical content (excluding attributes) as duplicates and delivers only one copy of the message.  If you don’t enable content-based deduplication and you want to deduplicate messages, provide an explicit deduplication ID in your SendMessage() call.  (Only applies to FIFO queues.)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.dataKeyReuseSec">
+<code class="descname">dataKeyReuseSec</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.dataKeyReuseSec" title="Permalink to this definition">¶</a></dt>
+<dd><p>The length of time that Amazon SQS reuses a data key before calling KMS again.  The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.deadLetterQueue">
+<code class="descname">deadLetterQueue</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.deadLetterQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send messages to this queue if they were unsuccessfully dequeued a number of times.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.DeadLetterQueue" title="&#64;aws-cdk/aws-sqs.DeadLetterQueue"><code class="xref py py-class docutils literal notranslate"><span class="pre">DeadLetterQueue</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.deliveryDelaySec">
+<code class="descname">deliveryDelaySec</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.deliveryDelaySec" title="Permalink to this definition">¶</a></dt>
+<dd><p>The time in seconds that the delivery of all messages in the queue is delayed.  You can specify an integer value of 0 to 900 (15 minutes). The default value is 0.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.encryption">
+<code class="descname">encryption</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.encryption" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the contents of the queue are encrypted, and by what type of key.  Be aware that encryption is not available in all regions, please see the docs for current availability details.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueEncryption" title="&#64;aws-cdk/aws-sqs.QueueEncryption"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueEncryption</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.encryptionMasterKey">
+<code class="descname">encryptionMasterKey</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.encryptionMasterKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>External KMS master key to use for queue encryption.  Individual messages will be encrypted using data keys. The data keys in turn will be encrypted using this key, and reused for a maximum of <cite>dataKeyReuseSecs</cite> seconds.  The ‘encryption’ property must be either not specified or set to “Kms”. An error will be emitted if encryption is set to “Unencrypted” or “KmsManaged”.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-kms.html#&#64;aws-cdk/aws-kms.EncryptionKeyRef" title="&#64;aws-cdk/aws-kms.EncryptionKeyRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-kms.EncryptionKeyRef</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.fifo">
+<code class="descname">fifo</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.fifo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether this a first-in-first-out (FIFO) queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.maxMessageSizeBytes">
+<code class="descname">maxMessageSizeBytes</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.maxMessageSizeBytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>The limit of how many bytes that a message can contain before Amazon SQS rejects it.  You can specify an integer value from 1024 bytes (1 KiB) to 262144 bytes (256 KiB). The default value is 262144 (256 KiB).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.queueName">
+<code class="descname">queueName</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.queueName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A name for the queue.  If specified and this is a FIFO queue, must end in the string ‘.fifo’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.receiveMessageWaitTimeSec">
+<code class="descname">receiveMessageWaitTimeSec</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.receiveMessageWaitTimeSec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default wait time for ReceiveMessage calls.  Does not wait if set to 0, otherwise waits this amount of seconds by default for messages to arrive.  For more information, see Amazon SQS Long Poll.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.retentionPeriodSec">
+<code class="descname">retentionPeriodSec</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.retentionPeriodSec" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of seconds that Amazon SQS retains a message.  You can specify an integer value from 60 seconds (1 minute) to 1209600 seconds (14 days). The default value is 345600 seconds (4 days).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueProps.visibilityTimeoutSec">
+<code class="descname">visibilityTimeoutSec</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueProps.visibilityTimeoutSec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timeout of processing a single message.  After dequeuing, the processor has this much time to handle the message and delete it from the queue before it becomes visible again for dequeueing by another processor.  Values must be from 0 to 43200 seconds (12 hours). If you don’t specify a value, AWS CloudFormation uses the default value of 30 seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queueref">
+<h3>QueueRef<a class="headerlink" href="#queueref" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueueRef</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueueRef</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">QueueRef</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueueRef</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reference to a new or existing Amazon SQS queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Implements:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_aws-s3-notifications.html#&#64;aws-cdk/aws-s3-notifications.IBucketNotificationDestination" title="&#64;aws-cdk/aws-s3-notifications.IBucketNotificationDestination"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3-notifications.IBucketNotificationDestination</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Abstract:</th><td class="field-body"><p class="first">Yes</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – The parent construct</li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef.import">
+<em class="property">static </em><code class="descname">import</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef.import" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import an existing queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueRefProps" title="&#64;aws-cdk/aws-sqs.QueueRefProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueRefProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef.addToResourcePolicy">
+<code class="descname">addToResourcePolicy</code><span class="sig-paren">(</span><em>statement</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef.addToResourcePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a statement to the IAM resource policy associated with this queue.  If this queue was created in this stack (<cite>new Queue</cite>), a queue policy will be automatically created upon the first call to <cite>addToPolicy</cite>. If the queue is improted (<cite>Queue.import</cite>), then this is a no-op.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>statement</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.PolicyStatement" title="&#64;aws-cdk/cdk.PolicyStatement"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.PolicyStatement</span></code></a>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef.asBucketNotificationDestination">
+<code class="descname">asBucketNotificationDestination</code><span class="sig-paren">(</span><em>bucketArn</em>, <em>bucketId</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps<a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef.asBucketNotificationDestination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows using SQS queues as destinations for bucket notifications. Use <cite>bucket.onEvent(event, queue)</cite> to subscribe.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>bucketArn</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a>) – The ARN of the notifying bucket.</li>
+<li><strong>bucketId</strong> (<em>string</em>) – A unique ID for the notifying bucket.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-s3-notifications.html#&#64;aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps" title="&#64;aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef.export">
+<code class="descname">export</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-sqs.QueueRefProps<a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export a queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueRefProps" title="&#64;aws-cdk/aws-sqs.QueueRefProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueRefProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef.autoCreatePolicy">
+<code class="descname">autoCreatePolicy</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef.autoCreatePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls automatic creation of policy objects.  Set by subclasses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef.queueArn">
+<code class="descname">queueArn</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef.queueArn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ARN of this queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueArn" title="&#64;aws-cdk/aws-sqs.QueueArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueArn</span></code></a> <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef.queueUrl">
+<code class="descname">queueUrl</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef.queueUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL of this queue</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueUrl" title="&#64;aws-cdk/aws-sqs.QueueUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueUrl</span></code></a> <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRef.encryptionMasterKey">
+<code class="descname">encryptionMasterKey</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRef.encryptionMasterKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>If this queue is server-side encrypted, this is the KMS encryption key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-kms.html#&#64;aws-cdk/aws-kms.EncryptionKeyRef" title="&#64;aws-cdk/aws-kms.EncryptionKeyRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-kms.EncryptionKeyRef</span></code></a> or undefined <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queuerefprops-interface">
+<h3>QueueRefProps (interface)<a class="headerlink" href="#queuerefprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRefProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueueRefProps</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRefProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueueRefProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// QueueRefProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueueRefProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reference to a queue</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRefProps.queueArn">
+<code class="descname">queueArn</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRefProps.queueArn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ARN of the queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueArn" title="&#64;aws-cdk/aws-sqs.QueueArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueArn</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRefProps.queueUrl">
+<code class="descname">queueUrl</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRefProps.queueUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>The URL of the queue.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueUrl" title="&#64;aws-cdk/aws-sqs.QueueUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueUrl</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.QueueRefProps.keyArn">
+<code class="descname">keyArn</code><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueRefProps.keyArn" title="Permalink to this definition">¶</a></dt>
+<dd><p>KMS encryption key, if this queue is server-side encrypted by a KMS key.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-kms.html#&#64;aws-cdk/aws-kms.KeyArn" title="&#64;aws-cdk/aws-kms.KeyArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-kms.KeyArn</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queueurl">
+<h3>QueueUrl<a class="headerlink" href="#queueurl" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.QueueUrl">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.</code><code class="descname">QueueUrl</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.QueueUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.QueueUrl</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">QueueUrl</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">QueueUrl</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-sqs.cloudformation">
+<span id="cloudformation"></span><h3>cloudformation<a class="headerlink" href="#module-@aws-cdk/aws-sqs.cloudformation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="queuepolicyresource">
+<h4>QueuePolicyResource<a class="headerlink" href="#queuepolicyresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueuePolicyResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.cloudformation.</code><code class="descname">QueuePolicyResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueuePolicyResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.cloudformation.QueuePolicyResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueuePolicyResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueuePolicyResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">QueuePolicyResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps" title="&#64;aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueuePolicyResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">QueuePolicyResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueuePolicyResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueuePolicyResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string =&gt; any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueuePolicyResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueuePolicyResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queuepolicyresourceprops-interface">
+<h4>QueuePolicyResourceProps (interface)<a class="headerlink" href="#queuepolicyresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.cloudformation.</code><code class="descname">QueuePolicyResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.cloudformation.QueuePolicyResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.QueuePolicyResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueuePolicyResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps.policyDocument">
+<code class="descname">policyDocument</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps.policyDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::QueuePolicy.PolicyDocument</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-policydoc">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-policydoc</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">json or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps.queues">
+<code class="descname">queues</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps.queues" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::QueuePolicy.Queues</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a>)[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queueresource">
+<h4>QueueResource<a class="headerlink" href="#queueresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.cloudformation.</code><code class="descname">QueueResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em><span class="optional">[</span>, <em>properties</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.cloudformation.QueueResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueueResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueueResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">QueueResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps" title="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueResourceProps</span></code></a> or undefined) – the properties of this <code class="docutils literal notranslate"><span class="pre">QueueResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string =&gt; any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResource.queueArn">
+<code class="descname">queueArn</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResource.queueArn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueArn" title="&#64;aws-cdk/aws-sqs.QueueArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResource.queueName">
+<code class="descname">queueName</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResource.queueName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueName" title="&#64;aws-cdk/aws-sqs.QueueName"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResource.ref">
+<code class="descname">ref</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResource.ref" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sqs.QueueUrl" title="&#64;aws-cdk/aws-sqs.QueueUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">QueueUrl</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="queueresourceprops-interface">
+<h4>QueueResourceProps (interface)<a class="headerlink" href="#queueresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sqs.cloudformation.</code><code class="descname">QueueResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.SQS</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sqs.cloudformation.QueueResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.QueueResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueueResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.contentBasedDeduplication">
+<code class="descname">contentBasedDeduplication</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.contentBasedDeduplication" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.ContentBasedDeduplication</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-contentbaseddeduplication">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-contentbaseddeduplication</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.delaySeconds">
+<code class="descname">delaySeconds</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.delaySeconds" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.DelaySeconds</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.fifoQueue">
+<code class="descname">fifoQueue</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.fifoQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.FifoQueue</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifoqueue">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifoqueue</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.kmsDataKeyReusePeriodSeconds">
+<code class="descname">kmsDataKeyReusePeriodSeconds</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.kmsDataKeyReusePeriodSeconds" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.KmsDataKeyReusePeriodSeconds</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsdatakeyreuseperiodseconds">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsdatakeyreuseperiodseconds</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.kmsMasterKeyId">
+<code class="descname">kmsMasterKeyId</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.kmsMasterKeyId" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.KmsMasterKeyId</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsmasterkeyid">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsmasterkeyid</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.maximumMessageSize">
+<code class="descname">maximumMessageSize</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.maximumMessageSize" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.MaximumMessageSize</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-maxmesgsize">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-maxmesgsize</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.messageRetentionPeriod">
+<code class="descname">messageRetentionPeriod</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.messageRetentionPeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.MessageRetentionPeriod</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-msgretentionperiod">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-msgretentionperiod</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.queueName">
+<code class="descname">queueName</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.queueName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.QueueName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-name">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-name</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.receiveMessageWaitTimeSeconds">
+<code class="descname">receiveMessageWaitTimeSeconds</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.receiveMessageWaitTimeSeconds" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.ReceiveMessageWaitTimeSeconds</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-receivemsgwaittime">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-receivemsgwaittime</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.redrivePolicy">
+<code class="descname">redrivePolicy</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.redrivePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.RedrivePolicy</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redrive">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redrive</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">json or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.tags">
+<code class="descname">tags</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.Tags</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#cfn-sqs-queue-tags">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#cfn-sqs-queue-tags</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Tag" title="&#64;aws-cdk/cdk.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Tag</span></code></a>)[] or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sqs.cloudformation.QueueResourceProps.visibilityTimeout">
+<code class="descname">visibilityTimeout</code><a class="headerlink" href="#@aws-cdk/aws-sqs.cloudformation.QueueResourceProps.visibilityTimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SQS::Queue.VisibilityTimeout</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-visiblitytimeout">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-visiblitytimeout</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_aws-cdk_aws-ssm.html" class="btn btn-neutral float-right" title="@aws-cdk/aws-ssm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_aws-cdk_aws-sns.html" class="btn btn-neutral" title="@aws-cdk/aws-sns" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.9.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"Uc5GjdbrBmUPQ8kX/Htyn4UwwkkyQpoQ5R8mkxc2Hpg="}
+
+@aws-cdk/aws-servicediscovery
+=============================
+
+.. mdinclude:: ./__aws-cdk_aws-servicediscovery.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-servicediscovery
+
+PrivateDnsNamespaceArn
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PrivateDnsNamespaceArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+PrivateDnsNamespaceId
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PrivateDnsNamespaceId([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+PublicDnsNamespaceArn
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PublicDnsNamespaceArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+PublicDnsNamespaceId
+^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PublicDnsNamespaceId([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ServiceArn
+^^^^^^^^^^
+
+.. py:class:: ServiceArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ServiceId
+^^^^^^^^^
+
+.. py:class:: ServiceId([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ServiceName
+^^^^^^^^^^^
+
+.. py:class:: ServiceName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-servicediscovery.cloudformation
+
+InstanceResource
+~~~~~~~~~~~~~~~~
+
+.. py:class:: InstanceResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``InstanceResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``InstanceResource``
+   :type properties: :py:class:`~@aws-cdk/aws-servicediscovery.cloudformation.InstanceResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+InstanceResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: InstanceResourceProps
+
+
+
+   .. py:attribute:: instanceAttributes
+
+      ``AWS::ServiceDiscovery::Instance.InstanceAttributes``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceattributes
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: serviceId
+
+      ``AWS::ServiceDiscovery::Instance.ServiceId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-serviceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: instanceId
+
+      ``AWS::ServiceDiscovery::Instance.InstanceId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html#cfn-servicediscovery-instance-instanceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+PrivateDnsNamespaceResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PrivateDnsNamespaceResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``PrivateDnsNamespaceResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``PrivateDnsNamespaceResource``
+   :type properties: :py:class:`~@aws-cdk/aws-servicediscovery.cloudformation.PrivateDnsNamespaceResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: privateDnsNamespaceArn
+
+      :type: :py:class:`~@aws-cdk/aws-servicediscovery.PrivateDnsNamespaceArn` *(readonly)*
+
+
+   .. py:attribute:: privateDnsNamespaceId
+
+      :type: :py:class:`~@aws-cdk/aws-servicediscovery.PrivateDnsNamespaceId` *(readonly)*
+
+
+PrivateDnsNamespaceResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PrivateDnsNamespaceResourceProps
+
+
+
+   .. py:attribute:: privateDnsNamespaceName
+
+      ``AWS::ServiceDiscovery::PrivateDnsNamespace.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: vpc
+
+      ``AWS::ServiceDiscovery::PrivateDnsNamespace.Vpc``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-vpc
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: description
+
+      ``AWS::ServiceDiscovery::PrivateDnsNamespace.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+PublicDnsNamespaceResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PublicDnsNamespaceResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``PublicDnsNamespaceResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``PublicDnsNamespaceResource``
+   :type properties: :py:class:`~@aws-cdk/aws-servicediscovery.cloudformation.PublicDnsNamespaceResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: publicDnsNamespaceArn
+
+      :type: :py:class:`~@aws-cdk/aws-servicediscovery.PublicDnsNamespaceArn` *(readonly)*
+
+
+   .. py:attribute:: publicDnsNamespaceId
+
+      :type: :py:class:`~@aws-cdk/aws-servicediscovery.PublicDnsNamespaceId` *(readonly)*
+
+
+PublicDnsNamespaceResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PublicDnsNamespaceResourceProps
+
+
+
+   .. py:attribute:: publicDnsNamespaceName
+
+      ``AWS::ServiceDiscovery::PublicDnsNamespace.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: description
+
+      ``AWS::ServiceDiscovery::PublicDnsNamespace.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+ServiceResource
+~~~~~~~~~~~~~~~
+
+.. py:class:: ServiceResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ServiceResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ServiceResource``
+   :type properties: :py:class:`~@aws-cdk/aws-servicediscovery.cloudformation.ServiceResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: serviceArn
+
+      :type: :py:class:`~@aws-cdk/aws-servicediscovery.ServiceArn` *(readonly)*
+
+
+   .. py:attribute:: serviceId
+
+      :type: :py:class:`~@aws-cdk/aws-servicediscovery.ServiceId` *(readonly)*
+
+
+   .. py:attribute:: serviceName
+
+      :type: :py:class:`~@aws-cdk/aws-servicediscovery.ServiceName` *(readonly)*
+
+   .. py:class:: DnsConfigProperty
+
+
+
+      .. py:attribute:: dnsRecords
+
+         ``ServiceResource.DnsConfigProperty.DnsRecords``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-dnsrecords
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-servicediscovery.cloudformation.ServiceResource.DnsRecordProperty`
+
+
+      .. py:attribute:: namespaceId
+
+         ``ServiceResource.DnsConfigProperty.NamespaceId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: DnsRecordProperty
+
+
+
+      .. py:attribute:: ttl
+
+         ``ServiceResource.DnsRecordProperty.TTL``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: type
+
+         ``ServiceResource.DnsRecordProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: HealthCheckConfigProperty
+
+
+
+      .. py:attribute:: failureThreshold
+
+         ``ServiceResource.HealthCheckConfigProperty.FailureThreshold``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-failurethreshold
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: resourcePath
+
+         ``ServiceResource.HealthCheckConfigProperty.ResourcePath``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-resourcepath
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: type
+
+         ``ServiceResource.HealthCheckConfigProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-healthcheckconfig.html#cfn-servicediscovery-service-healthcheckconfig-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+ServiceResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ServiceResourceProps
+
+
+
+   .. py:attribute:: dnsConfig
+
+      ``AWS::ServiceDiscovery::Service.DnsConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-dnsconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-servicediscovery.cloudformation.ServiceResource.DnsConfigProperty`
+
+
+   .. py:attribute:: description
+
+      ``AWS::ServiceDiscovery::Service.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: healthCheckConfig
+
+      ``AWS::ServiceDiscovery::Service.HealthCheckConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-servicediscovery.cloudformation.ServiceResource.HealthCheckConfigProperty` or undefined
+
+
+   .. py:attribute:: serviceName
+
+      ``AWS::ServiceDiscovery::Service.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-servicediscovery
+

@@ -1,0 +1,369 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"D/1uoz2mTbqSCX6/7sBIFyfWn1jrHwF1r4gUxipUAa0="}
+
+@aws-cdk/aws-budgets
+====================
+
+.. mdinclude:: ./__aws-cdk_aws-budgets.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-budgets
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-budgets.cloudformation
+
+BudgetResource
+~~~~~~~~~~~~~~
+
+.. py:class:: BudgetResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``BudgetResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``BudgetResource``
+   :type properties: :py:class:`~@aws-cdk/aws-budgets.cloudformation.BudgetResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: BudgetDataProperty
+
+
+
+      .. py:attribute:: budgetLimit
+
+         ``BudgetResource.BudgetDataProperty.BudgetLimit``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetlimit
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-budgets.cloudformation.BudgetResource.SpendProperty` or undefined
+
+
+      .. py:attribute:: budgetName
+
+         ``BudgetResource.BudgetDataProperty.BudgetName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgetname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: budgetType
+
+         ``BudgetResource.BudgetDataProperty.BudgetType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-budgettype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: costFilters
+
+         ``BudgetResource.BudgetDataProperty.CostFilters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costfilters
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: costTypes
+
+         ``BudgetResource.BudgetDataProperty.CostTypes``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-budgets.cloudformation.BudgetResource.CostTypesProperty` or undefined
+
+
+      .. py:attribute:: timePeriod
+
+         ``BudgetResource.BudgetDataProperty.TimePeriod``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-budgets.cloudformation.BudgetResource.TimePeriodProperty` or undefined
+
+
+      .. py:attribute:: timeUnit
+
+         ``BudgetResource.BudgetDataProperty.TimeUnit``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeunit
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: CostTypesProperty
+
+
+
+      .. py:attribute:: includeCredit
+
+         ``BudgetResource.CostTypesProperty.IncludeCredit``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includecredit
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: includeDiscount
+
+         ``BudgetResource.CostTypesProperty.IncludeDiscount``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includediscount
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: includeOtherSubscription
+
+         ``BudgetResource.CostTypesProperty.IncludeOtherSubscription``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeothersubscription
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: includeRecurring
+
+         ``BudgetResource.CostTypesProperty.IncludeRecurring``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerecurring
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: includeRefund
+
+         ``BudgetResource.CostTypesProperty.IncludeRefund``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includerefund
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: includeSubscription
+
+         ``BudgetResource.CostTypesProperty.IncludeSubscription``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesubscription
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: includeSupport
+
+         ``BudgetResource.CostTypesProperty.IncludeSupport``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includesupport
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: includeTax
+
+         ``BudgetResource.CostTypesProperty.IncludeTax``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includetax
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: includeUpfront
+
+         ``BudgetResource.CostTypesProperty.IncludeUpfront``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-includeupfront
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: useAmortized
+
+         ``BudgetResource.CostTypesProperty.UseAmortized``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useamortized
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: useBlended
+
+         ``BudgetResource.CostTypesProperty.UseBlended``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costtypes.html#cfn-budgets-budget-costtypes-useblended
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: NotificationProperty
+
+
+
+      .. py:attribute:: comparisonOperator
+
+         ``BudgetResource.NotificationProperty.ComparisonOperator``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-comparisonoperator
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: notificationType
+
+         ``BudgetResource.NotificationProperty.NotificationType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-notificationtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: threshold
+
+         ``BudgetResource.NotificationProperty.Threshold``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-threshold
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: thresholdType
+
+         ``BudgetResource.NotificationProperty.ThresholdType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notification.html#cfn-budgets-budget-notification-thresholdtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: NotificationWithSubscribersProperty
+
+
+
+      .. py:attribute:: notification
+
+         ``BudgetResource.NotificationWithSubscribersProperty.Notification``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-notification
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-budgets.cloudformation.BudgetResource.NotificationProperty`
+
+
+      .. py:attribute:: subscribers
+
+         ``BudgetResource.NotificationWithSubscribersProperty.Subscribers``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-notificationwithsubscribers.html#cfn-budgets-budget-notificationwithsubscribers-subscribers
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-budgets.cloudformation.BudgetResource.SubscriberProperty`
+
+
+   .. py:class:: SpendProperty
+
+
+
+      .. py:attribute:: amount
+
+         ``BudgetResource.SpendProperty.Amount``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-amount
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: unit
+
+         ``BudgetResource.SpendProperty.Unit``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html#cfn-budgets-budget-spend-unit
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: SubscriberProperty
+
+
+
+      .. py:attribute:: address
+
+         ``BudgetResource.SubscriberProperty.Address``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-address
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: subscriptionType
+
+         ``BudgetResource.SubscriberProperty.SubscriptionType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-subscriber.html#cfn-budgets-budget-subscriber-subscriptiontype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: TimePeriodProperty
+
+
+
+      .. py:attribute:: end
+
+         ``BudgetResource.TimePeriodProperty.End``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-end
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: start
+
+         ``BudgetResource.TimePeriodProperty.Start``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-timeperiod.html#cfn-budgets-budget-timeperiod-start
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+BudgetResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: BudgetResourceProps
+
+
+
+   .. py:attribute:: budget
+
+      ``AWS::Budgets::Budget.Budget``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-budget
+
+
+      :type: :py:class:`~@aws-cdk/aws-budgets.cloudformation.BudgetResource.BudgetDataProperty` or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: notificationsWithSubscribers
+
+      ``AWS::Budgets::Budget.NotificationsWithSubscribers``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html#cfn-budgets-budget-notificationswithsubscribers
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-budgets.cloudformation.BudgetResource.NotificationWithSubscribersProperty` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-budgets
+

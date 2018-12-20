@@ -1,0 +1,624 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Apples Example &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AWS CDK Concepts" href="concepts.html" />
+    <link rel="prev" title="Amazon ECS Example" href="ecs_example.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.21.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="examples.html">Examples</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ecs_example.html">ECS Example</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Apples Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-create-a-cdk-app">Step 1: Create a AWS CDK App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-create-a-lam-function-to-list-all-widgets">Step 2: Create a Lambda Function to List all Widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-create-widgets-service">Step 3: Create Widgets Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-4-add-the-service-to-the-app">Step 4: Add the Service to the App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-5-deploy-and-test-the-app">Step 5: Deploy and Test the App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-6-add-the-individual-widget-functions">Step 6: Add the Individual Widget Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#creating-an-ecs-cdk-app">Creating an Amazon ECS AWS CDK App</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-constructs.html">Writing Constructs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="examples.html">AWS CDK Examples</a> &raquo;</li>
+        
+      <li>Apples Example</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/apples_example.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           ﻿<p style="background-color:#e47911; border-top:1px solid #ccc; margin-top:6px; padding-top:10px; padding-bottom:10px; padding-left:5px; font-weight:bold; font-style:italic; font-size:16px; color:white; vertical-align:middle">
+This documentation is for the developer preview release of the AWS CDK.
+Do not use this version of the AWS CDK in production.
+Subsequent releases of the AWS CDK will likely include breaking changes.
+</p>
+           <div itemprop="articleBody">
+            
+  <div class="section" id="apples-example">
+<span id="id1"></span><h1>Apples Example<a class="headerlink" href="#apples-example" title="Permalink to this headline">¶</a></h1>
+<p>This example walks you through creating the resources for a simple widget dispensing service.
+It includes:</p>
+<ul class="simple">
+<li>An AWS Lambda function</li>
+<li>An API Gateway API to call our Lambda function</li>
+<li>An Amazon S3 bucket that contains our Lambda function code</li>
+</ul>
+<div class="section" id="overview">
+<span id="id2"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial contains the following steps.</p>
+<ol class="arabic">
+<li><p class="first">Create a AWS CDK app</p>
+</li>
+<li><p class="first">Create a Lambda function that gets a list of widgets with: GET /</p>
+</li>
+<li><p class="first">Create the service that calls the Lambda function</p>
+</li>
+<li><p class="first">Add the service to the AWS CDK app</p>
+</li>
+<li><p class="first">Test the app</p>
+</li>
+<li><p class="first">Add Lambda functions to:</p>
+<blockquote>
+<div><ul class="simple">
+<li>create an widget based with: POST /{name}</li>
+<li>get an widget by name with: GET /{name}</li>
+<li>delete an widget by name with: DELETE /{name}</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="step-1-create-a-cdk-app">
+<span id="create-app"></span><h2>Step 1: Create a AWS CDK App<a class="headerlink" href="#step-1-create-a-cdk-app" title="Permalink to this headline">¶</a></h2>
+<p>Let’s create the TypeScript app <strong>MyWidgetService</strong> in in the current folder.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir MyWidgetService
+<span class="nb">cd</span> MyWidgetService
+cdk init --language typescript
+</pre></div>
+</div>
+<p>This creates <em>my_widget_service.ts</em> in the <em>bin</em> directory
+and <em>my_widget_service-stack.ts</em> in the <em>lib</em>.</p>
+<p>Make sure it builds and creates an empty stack.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+cdk synth
+</pre></div>
+</div>
+<p>You should see a stack like the following,
+where CDK-VERSION is the version of the CDK.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Resources:
+  CDKMetadata:
+    Type: AWS::CDK::Metadata
+    Properties:
+      Modules: <span class="s2">&quot;@aws-cdk/cdk=CDK-VERSION,@aws-cdk/cx-api=CDK-VERSION,my_widget_service=0.1.0&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-create-a-lam-function-to-list-all-widgets">
+<span id="create-lambda-functions"></span><h2>Step 2: Create a Lambda Function to List all Widgets<a class="headerlink" href="#step-2-create-a-lam-function-to-list-all-widgets" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to create a Lambda function to list all of the widgets in our
+Amazon S3 bucket.</p>
+<p>Create the directory <em>resources</em> at the same level as the <em>bin</em> directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir resources
+</pre></div>
+</div>
+<p>Create the following Javascript file, <em>widgets.js</em>,
+in the <em>resources</em> directory.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">AWS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">S3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">S3</span><span class="p">();</span>
+
+<span class="kr">const</span> <span class="nx">bucketName</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">BUCKET</span><span class="p">;</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="nx">async</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">method</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">httpMethod</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">method</span> <span class="o">===</span> <span class="s2">&quot;GET&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">path</span> <span class="o">===</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">S3</span><span class="p">.</span><span class="nx">listObjectsV2</span><span class="p">({</span> <span class="nx">Bucket</span><span class="o">:</span> <span class="nx">bucketName</span> <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">widgets</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">Contents</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Key</span> <span class="p">})</span>
+        <span class="p">};</span>
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+          <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+          <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+        <span class="p">};</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// We only accept GET for now</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+      <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;We only accept GET /&quot;</span>
+    <span class="p">};</span>
+  <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">error</span><span class="p">.</span><span class="nx">stack</span> <span class="o">||</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+        <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Save it and make sure it builds and creates an empty stack.
+Note that since we haven’t wired the function to our app,
+the Lambda file does not appear in the output.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+cdk synth
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-3-create-widgets-service">
+<span id="create-widgets-service"></span><h2>Step 3: Create Widgets Service<a class="headerlink" href="#step-3-create-widgets-service" title="Permalink to this headline">¶</a></h2>
+<p>Add the API Gateway, Lambda, and Amazon S3 packages to our app.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @aws-cdk/aws-apigateway @aws-cdk/aws-lambda @aws-cdk/aws-s3
+</pre></div>
+</div>
+<p>Create the following Typescript file, <em>widget_service.ts</em>,
+in the <em>lib</em> directory.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">apigateway</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-apigateway&#39;</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">lambda</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-lambda&#39;</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">s3</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-s3&#39;</span><span class="p">);</span>
+
+<span class="kr">export</span> <span class="kr">class</span> <span class="nx">WidgetService</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Construct</span> <span class="p">{</span>
+  <span class="kr">constructor</span><span class="p">(</span><span class="nx">parent</span>: <span class="kt">cdk.Construct</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">super</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+
+    <span class="c1">// Use S3 bucket to store our widgets</span>
+    <span class="kr">const</span> <span class="nx">bucket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;WidgetStore&#39;</span><span class="p">);</span>
+
+    <span class="c1">// Create a handler that calls the function main</span>
+    <span class="c1">// in the source file widgets(.js) in the resources directory</span>
+    <span class="c1">// to handle requests through API Gateway</span>
+    <span class="kr">const</span> <span class="nx">handler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">lambda</span><span class="p">.</span><span class="nb">Function</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;WidgetHandler&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">runtime</span>: <span class="kt">lambda.Runtime.NodeJS810</span><span class="p">,</span>
+      <span class="nx">code</span>: <span class="kt">lambda.Code.directory</span><span class="p">(</span><span class="s1">&#39;resources&#39;</span><span class="p">),</span>
+      <span class="nx">handler</span><span class="o">:</span> <span class="s1">&#39;widgets.main&#39;</span><span class="p">,</span>
+      <span class="nx">environment</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">BUCKET</span>: <span class="kt">bucket.bucketName</span> <span class="c1">// So runtime has the bucket name</span>
+      <span class="p">}</span>
+    <span class="p">});</span>
+
+    <span class="nx">bucket</span><span class="p">.</span><span class="nx">grantReadWrite</span><span class="p">(</span><span class="nx">handler</span><span class="p">.</span><span class="nx">role</span><span class="p">);</span>
+
+    <span class="c1">// Create an API Gateway REST API</span>
+    <span class="kr">const</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">apigateway</span><span class="p">.</span><span class="nx">RestApi</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;widgets-api&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="nx">restApiName</span><span class="o">:</span> <span class="s1">&#39;Widget Service&#39;</span><span class="p">,</span>
+      <span class="nx">description</span><span class="o">:</span> <span class="s1">&#39;This service serves widgets.&#39;</span>
+    <span class="p">});</span>
+
+    <span class="c1">// Pass the request to the handler</span>
+    <span class="kr">const</span> <span class="nx">getWidgetsIntegration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">apigateway</span><span class="p">.</span><span class="nx">LambdaIntegration</span><span class="p">(</span><span class="nx">handler</span><span class="p">);</span>
+
+    <span class="c1">// Use the getWidgetsIntegration when there is a GET request</span>
+    <span class="nx">api</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">addMethod</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="nx">getWidgetsIntegration</span><span class="p">);</span>   <span class="c1">// GET /</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Save it and make sure it builds and creates a (still empty) stack.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+cdk synth
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-4-add-the-service-to-the-app">
+<span id="add-service"></span><h2>Step 4: Add the Service to the App<a class="headerlink" href="#step-4-add-the-service-to-the-app" title="Permalink to this headline">¶</a></h2>
+<p>To add the service to our app,
+we need to first modify <em>my_widget_service-stack.ts</em>.
+Add the following line of code after the existing <strong>import</strong> statement.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">widget_service</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;../lib/widget_service&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Replace the comment in the constructor with the following line of code.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">widget_service</span><span class="p">.</span><span class="nx">WidgetService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Widgets&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Make sure it builds and creates a stack
+(we don’t show the stack as it’s over 250 lines).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+cdk synth
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-5-deploy-and-test-the-app">
+<span id="deploy-and-test"></span><h2>Step 5: Deploy and Test the App<a class="headerlink" href="#step-5-deploy-and-test-the-app" title="Permalink to this headline">¶</a></h2>
+<p>Before you can deploy your first AWS CDK app,
+you must bootstrap your deployment,
+which creates some AWS infracture that the AWS CDK
+needs.
+See the <strong>bootstrap</strong> section of the <a class="reference internal" href="tools.html"><span class="doc">AWS CDK Tools</span></a> topic for details
+(you’ll get a warning and nothing changes if you may have done this already).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk bootstrap
+</pre></div>
+</div>
+<p>Run the following command to deploy your app.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk deploy
+</pre></div>
+</div>
+<p>If the deployment is successfull,
+save the URL for your server, which appears in one of the last lines in the window,
+where GUID is an alpha-numeric GUID and REGION is your region.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>https://GUID.execute-REGION.amazonaws.com/prod/
+</pre></div>
+</div>
+<p>You can test your app by getting the list of widgets (currently empty) by navigating to this URL in a
+browser or use the following <strong>curl</strong> command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl -X GET <span class="s1">&#39;https://GUID.execute-REGION.amazonaws.com/prod&#39;</span>
+</pre></div>
+</div>
+<p>You can also open the AWS Management Console,
+navigate to the API Gateway service,
+find <strong>Widget Service</strong> in the list.
+Select <strong>GET</strong> and <strong>Test</strong> to test the function.
+Since we haven’t stored any widgets yet, the output should be similar to the following
+(there may be some slight differences in whitespace and quotation marks).</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">{</span> <span class="s2">&quot;widgets&quot;</span>: <span class="o">[]</span> <span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-6-add-the-individual-widget-functions">
+<span id="adding-functions"></span><h2>Step 6: Add the Individual Widget Functions<a class="headerlink" href="#step-6-add-the-individual-widget-functions" title="Permalink to this headline">¶</a></h2>
+<p>The next step is to create Lambda functions to create, show, and delete
+individual widgets.
+Replace the existing <strong>exports.main</strong> function in <em>widgets.js</em> with the following code.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="nx">exports</span><span class="p">.</span><span class="nx">main</span> <span class="o">=</span> <span class="nx">async</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">method</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">httpMethod</span><span class="p">;</span>
+    <span class="c1">// Get name, if present</span>
+    <span class="kd">var</span> <span class="nx">widgetName</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="nx">event</span><span class="p">.</span><span class="nx">path</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">path</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">method</span> <span class="o">===</span> <span class="s2">&quot;GET&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// GET / to get the names of all widgets</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">path</span> <span class="o">===</span> <span class="s2">&quot;/&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">S3</span><span class="p">.</span><span class="nx">listObjectsV2</span><span class="p">({</span> <span class="nx">Bucket</span><span class="o">:</span> <span class="nx">bucketName</span> <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">widgets</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">Contents</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">e</span><span class="p">.</span><span class="nx">Key</span> <span class="p">})</span>
+        <span class="p">};</span>
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+          <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+          <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+        <span class="p">};</span>
+      <span class="p">}</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">widgetName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// GET /name to get info on widget name</span>
+        <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">S3</span><span class="p">.</span><span class="nx">getObject</span><span class="p">({</span> <span class="nx">Bucket</span><span class="o">:</span> <span class="nx">bucketName</span><span class="p">,</span> <span class="nx">Key</span><span class="o">:</span> <span class="nx">widgetName</span><span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+        <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">data</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+          <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+          <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">body</span><span class="p">)</span>
+        <span class="p">};</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">method</span> <span class="o">===</span> <span class="s2">&quot;POST&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// POST /name</span>
+      <span class="c1">// Return error if we do not have a name</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">widgetName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+          <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+          <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;Widget name missing&quot;</span>
+        <span class="p">};</span>
+      <span class="p">}</span>
+
+      <span class="c1">// Create some dummy data to populate object</span>
+      <span class="kr">const</span> <span class="nx">now</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+      <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">widgetName</span> <span class="o">+</span> <span class="s2">&quot; created: &quot;</span> <span class="o">+</span> <span class="nx">now</span><span class="p">;</span>
+
+      <span class="kd">var</span> <span class="nx">base64data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Buffer</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="s1">&#39;binary&#39;</span><span class="p">);</span>
+
+      <span class="nx">await</span> <span class="nx">S3</span><span class="p">.</span><span class="nx">putObject</span><span class="p">({</span>
+        <span class="nx">Bucket</span><span class="o">:</span> <span class="nx">bucketName</span><span class="p">,</span>
+        <span class="nx">Key</span><span class="o">:</span> <span class="nx">widgetName</span><span class="p">,</span>
+        <span class="nx">Body</span><span class="o">:</span> <span class="nx">base64data</span><span class="p">,</span>
+        <span class="nx">ContentType</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span>
+      <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">widgets</span><span class="p">)</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">method</span> <span class="o">===</span> <span class="s2">&quot;DELETE&quot;</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// DELETE /name</span>
+      <span class="c1">// Return an error if we do not have a name</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">widgetName</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+          <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+          <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+          <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;Widget name missing&quot;</span>
+        <span class="p">};</span>
+      <span class="p">}</span>
+
+      <span class="nx">await</span> <span class="nx">S3</span><span class="p">.</span><span class="nx">deleteObject</span><span class="p">({</span>
+        <span class="nx">Bucket</span><span class="o">:</span> <span class="nx">bucketName</span><span class="p">,</span> <span class="nx">Key</span><span class="o">:</span> <span class="nx">widgetName</span>
+      <span class="p">}).</span><span class="nx">promise</span><span class="p">();</span>
+
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+        <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+        <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;Successfully deleted widget &quot;</span> <span class="o">+</span> <span class="nx">widgetName</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="c1">// We got something besides a GET, POST, or DELETE</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+      <span class="nx">body</span><span class="o">:</span> <span class="s2">&quot;We only accept GET, POST, and DELETE, not &quot;</span> <span class="o">+</span> <span class="nx">method</span>
+    <span class="p">};</span>
+  <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">error</span><span class="p">.</span><span class="nx">stack</span> <span class="o">||</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">error</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="nx">statusCode</span><span class="o">:</span> <span class="mi">400</span><span class="p">,</span>
+      <span class="nx">headers</span><span class="o">:</span> <span class="p">{},</span>
+      <span class="nx">body</span><span class="o">:</span> <span class="nx">body</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Wire these functions up to our API Gateway code in <em>widget_service.ts</em>
+by adding the following code at the end of the constructor.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">root</span><span class="p">.</span><span class="nx">addResource</span><span class="p">(</span><span class="s1">&#39;{name}&#39;</span><span class="p">);</span>
+
+<span class="c1">// Add new widget to bucket with: POST /{name}</span>
+<span class="kr">const</span> <span class="nx">postWidgetIntegration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">apigateway</span><span class="p">.</span><span class="nx">LambdaIntegration</span><span class="p">(</span><span class="nx">handler</span><span class="p">);</span>
+
+<span class="c1">// Get a specific widget from bucket with: GET /{name}</span>
+<span class="kr">const</span> <span class="nx">getWidgetIntegration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">apigateway</span><span class="p">.</span><span class="nx">LambdaIntegration</span><span class="p">(</span><span class="nx">handler</span><span class="p">);</span>
+
+<span class="c1">// Remove a specific widget from the bucket with: DELETE /{name}</span>
+<span class="kr">const</span> <span class="nx">deleteWidgetIntegration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">apigateway</span><span class="p">.</span><span class="nx">LambdaIntegration</span><span class="p">(</span><span class="nx">handler</span><span class="p">);</span>
+
+<span class="nx">widget</span><span class="p">.</span><span class="nx">addMethod</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="nx">postWidgetIntegration</span><span class="p">);</span>    <span class="c1">// POST /{name}</span>
+<span class="nx">widget</span><span class="p">.</span><span class="nx">addMethod</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="nx">getWidgetIntegration</span><span class="p">);</span>       <span class="c1">// GET /{name}</span>
+<span class="nx">widget</span><span class="p">.</span><span class="nx">addMethod</span><span class="p">(</span><span class="s1">&#39;DELETE&#39;</span><span class="p">,</span> <span class="nx">deleteWidgetIntegration</span><span class="p">);</span> <span class="c1">// DELETE /{name}</span>
+</pre></div>
+</div>
+<p>Save, build, and deploy the app.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+cdk deploy
+</pre></div>
+</div>
+<p>Now we should be able to store, show, or delete an individual widget.
+Use the following <strong>curl</strong> commands to list the widgets,
+create the widget <em>dummy</em>,
+list all of the widgets,
+show the contents of <em>dummy</em> (it should show today’s date),
+and delete <em>dummy</em>,
+and again show the list of widgets.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl -X GET <span class="s1">&#39;https://GUID.execute-REGION.amazonaws.com/prod&#39;</span>
+curl -X POST <span class="s1">&#39;https://GUID.execute-REGION.amazonaws.com/prod/dummy&#39;</span>
+curl -X GET <span class="s1">&#39;https://GUID.execute-REGION.amazonaws.com/prod&#39;</span>
+curl -X GET <span class="s1">&#39;https://GUID.execute-REGION.amazonaws.com/prod/dummy&#39;</span>
+curl -X DELETE <span class="s1">&#39;https://GUID.execute-REGION.amazonaws.com/prod/dummy&#39;</span>
+curl -X GET <span class="s1">&#39;https://GUID.execute-REGION.amazonaws.com/prod&#39;</span>
+</pre></div>
+</div>
+<p>You can also use the API Gateway console to test these functions.
+You’ll have to set the <strong>name</strong> entry to the name of an widget,
+such as <strong>dummy</strong>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="concepts.html" class="btn btn-neutral float-right" title="AWS CDK Concepts" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ecs_example.html" class="btn btn-neutral" title="Amazon ECS Example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.21.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

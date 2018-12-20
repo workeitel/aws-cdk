@@ -1,0 +1,180 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"KfR7lnf43UNapT4jTKA/j/2ZSLwoPOuVPAsGlZPKrvc="}
+
+@aws-cdk/aws-efs
+================
+
+.. mdinclude:: ./__aws-cdk_aws-efs.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-efs
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-efs.cloudformation
+
+FileSystemResource
+~~~~~~~~~~~~~~~~~~
+
+.. py:class:: FileSystemResource(parent, name, [properties])
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``FileSystemResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``FileSystemResource``
+   :type properties: :py:class:`~@aws-cdk/aws-efs.cloudformation.FileSystemResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: ElasticFileSystemTagProperty
+
+
+
+      .. py:attribute:: key
+
+         ``FileSystemResource.ElasticFileSystemTagProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html#cfn-efs-filesystem-filesystemtags-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: value
+
+         ``FileSystemResource.ElasticFileSystemTagProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html#cfn-efs-filesystem-filesystemtags-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+FileSystemResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: FileSystemResourceProps
+
+
+
+   .. py:attribute:: encrypted
+
+      ``AWS::EFS::FileSystem.Encrypted``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: fileSystemTags
+
+      ``AWS::EFS::FileSystem.FileSystemTags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-filesystemtags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-efs.cloudformation.FileSystemResource.ElasticFileSystemTagProperty` or undefined
+
+
+   .. py:attribute:: kmsKeyId
+
+      ``AWS::EFS::FileSystem.KmsKeyId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: performanceMode
+
+      ``AWS::EFS::FileSystem.PerformanceMode``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+MountTargetResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: MountTargetResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``MountTargetResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``MountTargetResource``
+   :type properties: :py:class:`~@aws-cdk/aws-efs.cloudformation.MountTargetResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+MountTargetResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: MountTargetResourceProps
+
+
+
+   .. py:attribute:: fileSystemId
+
+      ``AWS::EFS::MountTarget.FileSystemId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-filesystemid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: securityGroups
+
+      ``AWS::EFS::MountTarget.SecurityGroups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: subnetId
+
+      ``AWS::EFS::MountTarget.SubnetId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: ipAddress
+
+      ``AWS::EFS::MountTarget.IpAddress``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-ipaddress
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-efs
+

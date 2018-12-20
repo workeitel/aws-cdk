@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Constructs &mdash; AWS Cloud Development Kit 0.8.0+0eede70 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Stacks" href="stacks.html" />
+    <link rel="prev" title="AWS CDK Concepts" href="concepts.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0+0eede70
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Constructs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#construct-structure">Construct Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#construct-names">Construct Names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#construct-properties">Construct Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#construct-metadata">Construct Metadata</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="stacks.html">Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical-ids.html">Logical IDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environments.html">Environments and Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Environmental Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applets.html">Applets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="concepts.html">AWS CDK Concepts</a> &raquo;</li>
+        
+      <li>Constructs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/constructs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="constructs">
+<span id="id1"></span><h1>Constructs<a class="headerlink" href="#constructs" title="Permalink to this headline">¶</a></h1>
+<p>Constructs are the building blocks of AWS CDK applications. Constructs can have
+child constructs, which in turn can have child constructs, forming a
+hierarchical tree structure.</p>
+<p>The AWS CDK includes two different levels of constructs:</p>
+<p>CloudFormation Resource</p>
+<blockquote>
+<div><p>These constructs are low-level constructs that provide a direct, one-to-one,
+mapping to an AWS CloudFormation resource,
+as listed in the AWS CloudFormation topic <a class="reference external" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">AWS Resource Types Reference</a>.</p>
+<p>All CloudFormation Resource members are found in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">&#64;aws-cdk/resources</span></code> package.</p>
+</div></blockquote>
+<p>AWS Construct Library</p>
+<blockquote>
+<div><p>These constructs have been handwritten by AWS and come with
+convenient defaults and additional knowledge about the inner workings of the
+AWS resources they represent. In general, you will be able to express your
+intent without worrying about the details too much, and the correct resources
+will automatically be defined for you.</p>
+<p>AWS Construct Library members are found in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">&#64;aws-cdk/NAMESPACE</span></code> packages,
+where NAMESPACE is the short name for the associated service,
+such as SQS for the AWS Construct Library for the Amazon SQS service.
+See the <a class="reference internal" href="reference.html#reference"><span class="std std-ref">Reference</span></a> section for descriptions of the AWS CDK
+packages and constructs.</p>
+</div></blockquote>
+<div class="section" id="construct-structure">
+<span id="id2"></span><h2>Construct Structure<a class="headerlink" href="#construct-structure" title="Permalink to this headline">¶</a></h2>
+<p>The construct tree structure is a powerful design pattern for composing high-level
+abstractions. For example, you can define a <code class="docutils literal notranslate"><span class="pre">StorageLayer</span></code> construct that
+represents your application’s storage layer and include all the AWS resources,
+such as DynamoDB tables and Amazon S3 buckets, needed to implement your storage layer in
+this construct. When your higher-level code uses this construct, it only needs
+to instantiate the <code class="docutils literal notranslate"><span class="pre">StorageLayer</span></code> construct.</p>
+<p>When you initialize a construct,
+add the construct to the construct tree by specifying the parent construct as the first initializer parameter,
+an identifier for the construct as the second parameter,
+and an set of properties for the final parameter,
+as shown in the following example.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">SomeConstruct</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">name</span><span class="p">[,</span> <span class="nx">props</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>In almost all cases, you should pass the keyword <code class="docutils literal notranslate"><span class="pre">this</span></code> for the <code class="docutils literal notranslate"><span class="pre">parent</span></code>
+argument, because you will generally initialize new constructs in the context of
+the parent construct. Any descriptive string will do for the <code class="docutils literal notranslate"><span class="pre">name</span></code>
+argument,
+and an in-line object for the set of properties.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">BeautifulConstruct</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Foo&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">applicationName</span><span class="o">:</span> <span class="s1">&#39;myApp&#39;</span><span class="p">,</span>
+  <span class="nx">timeout</span><span class="o">:</span> <span class="mi">300</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Associating the construct to its parent as part of
+initialization is necessary because the construct occasionally needs contextual
+information from its parent, such as to which the region the stack is deployed.</p>
+</div>
+<p>Use the following operations to inspect the construct tree.</p>
+<dl class="docutils">
+<dt><code class="xref py py-attr docutils literal notranslate"><span class="pre">aws-cdk.Construct.parent</span></code></dt>
+<dd>Gets the construct’s parent construct.</dd>
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">aws-cdk.Construct.getChildren()</span></code></dt>
+<dd>Gets an array of all of the contruct’s children.</dd>
+<dt><code class="xref py py-meth docutils literal notranslate"><span class="pre">aws-cdk.Construct.getChild()</span></code></dt>
+<dd>Gets the child construct with the specified ID.</dd>
+</dl>
+<p><code class="xref py py-meth docutils literal notranslate"><span class="pre">aws-cdk.Construct.toTreeString()</span></code></p>
+<blockquote>
+<div>Gets a string representing the construct’s tree.</div></blockquote>
+</div>
+<div class="section" id="construct-names">
+<span id="id3"></span><h2>Construct Names<a class="headerlink" href="#construct-names" title="Permalink to this headline">¶</a></h2>
+<p>Every construct in a CDK app must have a <strong>name</strong> unique among its siblings.
+Names are used to track constructs in the construct hierarchy, and to allocate
+logical IDs so that AWS CloudFormation can keep track of the generated resources.</p>
+<p>When a construct is created, its name is specified as the second
+initializer argument:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyBeautifulConstruct</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;OneBeautiful&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">c2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MyBeautifulConstruct</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;TwoBeautiful&#39;</span><span class="p">);</span>
+<span class="nx">assert</span><span class="p">(</span><span class="nx">c1</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;OneBeautiful&#39;</span><span class="p">);</span>
+<span class="nx">assert</span><span class="p">(</span><span class="nx">c2</span><span class="p">.</span><span class="nx">name</span> <span class="o">===</span> <span class="s1">&#39;TwoBeautiful&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Use the <code class="xref py py-attr docutils literal notranslate"><span class="pre">aws-cdk.Construct.path</span></code> property to get the path of this
+construct from the root of the tree.</p>
+<p>Note that the name of a construct does not directly map onto the physical name
+of the resource when it is created! If you want to give a physical name to a bucket or table,
+specify the physical name using use the appropriate
+property, such as <code class="docutils literal notranslate"><span class="pre">bucketName</span></code> or <code class="docutils literal notranslate"><span class="pre">tableName</span></code>. Example:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyBucket&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">bucketName</span><span class="o">:</span> <span class="s1">&#39;physical-bucket-name&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Avoid specifying physical names. Instead, let
+AWS CloudFormation generate names for you.
+Use attributes, such as <strong>bucket.bucketName</strong>,
+to discover the generated names.</p>
+<p>When you synthesize an AWS CDK tree into an AWS CloudFormation template, the AWS CloudFormation logical ID
+for each resource in the template is allocated according to the path of that
+resource in the construct tree. For more information, see <a class="reference internal" href="logical-ids.html#logical-ids"><span class="std std-ref">Logical IDs</span></a>.</p>
+</div>
+<div class="section" id="construct-properties">
+<span id="id4"></span><h2>Construct Properties<a class="headerlink" href="#construct-properties" title="Permalink to this headline">¶</a></h2>
+<p>Customize constructs by passing a property object as the third
+parameter (<em>props</em>). Every construct has its own set of parameters, defined as an
+interface. You can pass a property object to your construct in two ways:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Inline (recommended)</span>
+<span class="k">new</span> <span class="nx">Queue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyQueue&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">visibilityTimeout</span><span class="o">:</span> <span class="mi">300</span>
+<span class="p">});</span>
+
+<span class="c1">// Instantiate separate property object</span>
+<span class="kr">const</span> <span class="nx">props</span><span class="o">:</span> <span class="nx">QueueProps</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">visibilityTimeout</span><span class="o">:</span> <span class="mi">300</span>
+<span class="p">};</span>
+
+<span class="k">new</span> <span class="nx">Queue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyQueue&#39;</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="construct-metadata">
+<span id="id5"></span><h2>Construct Metadata<a class="headerlink" href="#construct-metadata" title="Permalink to this headline">¶</a></h2>
+<p>You can attach metadata to a construct using the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">aws-cdk.Construct.addMetadata()</span></code> operation. Metadata entries
+automatically include the stack trace from which the metadata entry was added.
+Therefore, at any level of a construct you can find the code location, even if metadata
+was created by a lower-level library that you don’t own.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stacks.html" class="btn btn-neutral float-right" title="Stacks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="concepts.html" class="btn btn-neutral" title="AWS CDK Concepts" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.0+0eede70',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

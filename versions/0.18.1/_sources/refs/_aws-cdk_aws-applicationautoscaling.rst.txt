@@ -1,0 +1,6039 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"jDypYIMb4zslRqxh08YcN9vXe+QmNveF7GezK3GR51g="}
+
+@aws-cdk/aws-applicationautoscaling
+===================================
+
+.. mdinclude:: ./__aws-cdk_aws-applicationautoscaling.README.md
+
+Reference
+---------
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.ApplicationAutoScaling/0.18.1>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.ApplicationAutoScaling" Version="0.18.1" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.ApplicationAutoScaling --version 0.18.1
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.ApplicationAutoScaling" version="0.18.1" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/applicationautoscaling/0.18.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:applicationautoscaling:jar:0.18.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="applicationautoscaling" rev="0.18.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>applicationautoscaling</artifactId>
+           <version>0.18.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:applicationautoscaling:0.18.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='applicationautoscaling', version='0.18.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-applicationautoscaling/v/0.18.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-applicationautoscaling@0.18.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-applicationautoscaling": "^0.18.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-applicationautoscaling@0.18.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-applicationautoscaling/v/0.18.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-applicationautoscaling@0.18.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-applicationautoscaling": "^0.18.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-applicationautoscaling@0.18.1
+
+
+
+.. py:module:: @aws-cdk/aws-applicationautoscaling
+
+AdjustmentTier (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AdjustmentTier
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.AdjustmentTier;
+
+      .. code-tab:: javascript
+
+         // AdjustmentTier is an interface
+
+      .. code-tab:: typescript
+
+         import { AdjustmentTier } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   An adjustment
+
+
+
+
+
+   .. py:attribute:: adjustment
+
+      What number to adjust the capacity with
+
+      
+
+      The number is interpeted as an added capacity, a new fixed capacity or an
+
+      added percentage depending on the AdjustmentType value of the
+
+      StepScalingPolicy.
+
+      
+
+      Can be positive or negative.
+
+
+
+      :type: number
+
+
+   .. py:attribute:: lowerBound
+
+      Lower bound where this scaling tier applies.
+
+      
+
+      The scaling tier applies if the difference between the metric
+
+      value and its alarm threshold is higher than this value.
+
+
+
+      :type: number *(optional)*
+      :default: -Infinity if this is the first tier, otherwise the upperBound of the previous tier
+
+
+   .. py:attribute:: upperBound
+
+      Upper bound where this scaling tier applies
+
+      
+
+      The scaling tier applies if the difference between the metric
+
+      value and its alarm threshold is lower than this value.
+
+
+
+      :type: number *(optional)*
+      :default: +Infinity
+
+
+AdjustmentType (enum)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AdjustmentType
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.AdjustmentType;
+
+      .. code-tab:: javascript
+
+         const { AdjustmentType } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { AdjustmentType } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   How adjustment numbers are interpreted
+
+
+
+   .. py:data:: ChangeInCapacity
+
+   Add the adjustment number to the current capacity.
+
+   
+
+   A positive number increases capacity, a negative number decreases capacity.
+
+
+
+   .. py:data:: PercentChangeInCapacity
+
+   Add this percentage of the current capacity to itself.
+
+   
+
+   The number must be between -100 and 100; a positive number increases
+
+   capacity and a negative number decreases it.
+
+
+
+   .. py:data:: ExactCapacity
+
+   Make the capacity equal to the exact number given.
+
+
+
+
+BaseScalableAttribute
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BaseScalableAttribute(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.BaseScalableAttribute;
+
+      .. code-tab:: javascript
+
+         const { BaseScalableAttribute } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { BaseScalableAttribute } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Represent an attribute for which autoscaling can be configured
+
+   
+
+   This class is basically a light wrapper around ScalableTarget, but with
+
+   all methods protected instead of public so they can be selectively
+
+   exposed and/or more specific versions of them can be exposed by derived
+
+   classes for individual services support autoscaling.
+
+   
+
+   Typical use cases:
+
+   
+
+   - Hide away the PredefinedMetric enum for target tracking policies.
+
+   - Don't expose all scaling methods (for example Dynamo tables don't support
+
+      Step Scaling, so the Dynamo subclass won't expose this method).
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.BaseScalableAttributeProps`\ 
+
+   .. py:method:: doScaleOnMetric(id, props)
+
+      Scale out or in based on a metric value
+
+
+
+      *Protected method*
+
+      :param id: 
+      :type id: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps`\ 
+
+
+   .. py:method:: doScaleOnSchedule(id, props)
+
+      Scale out or in based on time
+
+
+
+      *Protected method*
+
+      :param id: 
+      :type id: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.ScalingSchedule`\ 
+
+
+   .. py:method:: doScaleToTrackMetric(id, props)
+
+      Scale out or in in order to keep a metric around a target value
+
+
+
+      *Protected method*
+
+      :param id: 
+      :type id: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps`\ 
+
+
+   .. py:attribute:: props
+
+      *Protected property*
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.BaseScalableAttributeProps`\  *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct.
+
+      The toolkit will fail synthesis when errors are reported.
+
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct.
+
+      The toolkit will display the info message when apps are synthesized.
+
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, data, [from]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct.
+
+      Entries are arbitrary values and will also include a stack trace to allow tracing back to
+
+      the code location for when the entry was added. It can be used, for example, to include source
+
+      mapping in CloudFormation templates to improve diagnostics.
+
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct.
+
+      The toolkit will display the warning when an app is synthesized, or fail
+
+      if run in --strict mode.
+
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path
+
+      
+
+      Throws an exception if the descendant is not found.
+
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.
+
+      
+
+      Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this
+
+      call, no more children can be added to this construct or to any children.
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context
+
+      
+
+      It is an error if the context object is not available.
+
+
+
+      :param key: 
+      :type key: string
+      :rtype: any
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`.
+
+      In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any
+
+
+   .. py:method:: setContext(key, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values.
+
+      Context must be set before any children are added, since children may consult context info during construction.
+
+      If the key already exists, it will be overridden.
+
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+
+      :param depth: 
+      :type depth: number *(optional)*
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform
+
+      validation logic. It is called on all constructs before synthesis.
+
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct.
+
+      This id is unique amongst its siblings.
+
+      To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are
+
+      locked.
+
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct.
+
+      This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree.
+
+      Components are separated by '/'.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct.
+
+      Includes all components of the tree.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)* *(readonly)*
+
+
+BaseScalableAttributeProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BaseScalableAttributeProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.BaseScalableAttributeProps;
+
+      .. code-tab:: javascript
+
+         // BaseScalableAttributeProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BaseScalableAttributeProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Properties for a ScalableTableAttribute
+
+
+
+   :extends: :py:class:`~@aws-cdk/aws-applicationautoscaling.EnableScalingProps`\ 
+
+
+   .. py:attribute:: dimension
+
+      Scalable dimension of the attribute
+
+
+
+      :type: string
+
+
+   .. py:attribute:: resourceId
+
+      Resource ID of the attribute
+
+
+
+      :type: string
+
+
+   .. py:attribute:: role
+
+      Role to use for scaling
+
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.IRole`\ 
+
+
+   .. py:attribute:: serviceNamespace
+
+      Service namespace of the scalable attribute
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.ServiceNamespace`\ 
+
+
+   .. py:attribute:: maxCapacity
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.EnableScalingProps <@aws-cdk/aws-applicationautoscaling.EnableScalingProps.maxCapacity>`
+
+      Maximum capacity to scale to
+
+
+
+      :type: number
+
+
+   .. py:attribute:: minCapacity
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.EnableScalingProps <@aws-cdk/aws-applicationautoscaling.EnableScalingProps.minCapacity>`
+
+      Minimum capacity to scale to
+
+
+
+      :type: number *(optional)*
+      :default: 1
+
+
+BaseTargetTrackingProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BaseTargetTrackingProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.BaseTargetTrackingProps;
+
+      .. code-tab:: javascript
+
+         // BaseTargetTrackingProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BaseTargetTrackingProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Base interface for target tracking props
+
+   
+
+   Contains the attributes that are common to target tracking policies,
+
+   except the ones relating to the metric and to the scalable target.
+
+   
+
+   This interface is reused by more specific target tracking props objects
+
+   in other services.
+
+
+
+
+
+   .. py:attribute:: disableScaleIn
+
+      Indicates whether scale in by the target tracking policy is disabled.
+
+      
+
+      If the value is true, scale in is disabled and the target tracking policy
+
+      won't remove capacity from the scalable resource. Otherwise, scale in is
+
+      enabled and the target tracking policy can remove capacity from the
+
+      scalable resource.
+
+
+
+      :type: boolean *(optional)*
+      :default: false
+
+
+   .. py:attribute:: policyName
+
+      A name for the scaling policy
+
+
+
+      :type: string *(optional)*
+      :default: Automatically generated name
+
+
+   .. py:attribute:: scaleInCooldownSec
+
+      Period after a scale in activity completes before another scale in activity can start.
+
+
+
+      :type: number *(optional)*
+      :default: No scale in cooldown
+
+
+   .. py:attribute:: scaleOutCooldownSec
+
+      Period after a scale out activity completes before another scale out activity can start.
+
+
+
+      :type: number *(optional)*
+      :default: No scale out cooldown
+
+
+BasicStepScalingPolicyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BasicStepScalingPolicyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.BasicStepScalingPolicyProps;
+
+      .. code-tab:: javascript
+
+         // BasicStepScalingPolicyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BasicStepScalingPolicyProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+   .. py:attribute:: metric
+
+      Metric to scale on.
+
+
+
+      :type: :py:class:`@aws-cdk/aws-cloudwatch.Metric`\ 
+
+
+   .. py:attribute:: scalingSteps
+
+      The intervals for scaling.
+
+      
+
+      Maps a range of metric values to a particular scaling behavior.
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.ScalingInterval`\ []
+
+
+   .. py:attribute:: adjustmentType
+
+      How the adjustment numbers inside 'intervals' are interpreted.
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.AdjustmentType`\  *(optional)*
+      :default: ChangeInCapacity
+
+
+   .. py:attribute:: cooldownSec
+
+      Grace period after scaling activity.
+
+      
+
+      Subsequent scale outs during the cooldown period are squashed so that only
+
+      the biggest scale out happens.
+
+      
+
+      Subsequent scale ins during the cooldown period are ignored.
+
+
+
+      :type: number *(optional)*
+      :default: No cooldown period
+
+
+   .. py:attribute:: minAdjustmentMagnitude
+
+      Minimum absolute number to adjust capacity with as result of percentage scaling.
+
+      
+
+      Only when using AdjustmentType = PercentChangeInCapacity, this number controls
+
+      the minimum absolute effect size.
+
+
+
+      :type: number *(optional)*
+      :default: No minimum scaling effect
+
+
+BasicTargetTrackingScalingPolicyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BasicTargetTrackingScalingPolicyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.BasicTargetTrackingScalingPolicyProps;
+
+      .. code-tab:: javascript
+
+         // BasicTargetTrackingScalingPolicyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BasicTargetTrackingScalingPolicyProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Properties for a Target Tracking policy that include the metric but exclude the target
+
+
+
+   :extends: :py:class:`~@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps`\ 
+
+
+   .. py:attribute:: targetValue
+
+      The target value for the metric.
+
+
+
+      :type: number
+
+
+   .. py:attribute:: customMetric
+
+      A custom metric for application autoscaling
+
+      
+
+      The metric must track utilization. Scaling out will happen if the metric is higher than
+
+      the target value, scaling in will happen in the metric is lower than the target value.
+
+      
+
+      Exactly one of customMetric or predefinedMetric must be specified.
+
+
+
+      :type: :py:class:`@aws-cdk/aws-cloudwatch.Metric`\  *(optional)*
+
+
+   .. py:attribute:: predefinedMetric
+
+      A predefined metric for application autoscaling
+
+      
+
+      The metric must track utilization. Scaling out will happen if the metric is higher than
+
+      the target value, scaling in will happen in the metric is lower than the target value.
+
+      
+
+      Exactly one of customMetric or predefinedMetric must be specified.
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.PredefinedMetric`\  *(optional)*
+
+
+   .. py:attribute:: resourceLabel
+
+      Identify the resource associated with the metric type.
+
+      
+
+      Only used for predefined metric ALBRequestCountPerTarget.
+
+
+
+      :type: string *(optional)*
+
+
+   .. py:attribute:: disableScaleIn
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps <@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps.disableScaleIn>`
+
+      Indicates whether scale in by the target tracking policy is disabled.
+
+      
+
+      If the value is true, scale in is disabled and the target tracking policy
+
+      won't remove capacity from the scalable resource. Otherwise, scale in is
+
+      enabled and the target tracking policy can remove capacity from the
+
+      scalable resource.
+
+
+
+      :type: boolean *(optional)*
+      :default: false
+
+
+   .. py:attribute:: policyName
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps <@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps.policyName>`
+
+      A name for the scaling policy
+
+
+
+      :type: string *(optional)*
+      :default: Automatically generated name
+
+
+   .. py:attribute:: scaleInCooldownSec
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps <@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps.scaleInCooldownSec>`
+
+      Period after a scale in activity completes before another scale in activity can start.
+
+
+
+      :type: number *(optional)*
+      :default: No scale in cooldown
+
+
+   .. py:attribute:: scaleOutCooldownSec
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps <@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps.scaleOutCooldownSec>`
+
+      Period after a scale out activity completes before another scale out activity can start.
+
+
+
+      :type: number *(optional)*
+      :default: No scale out cooldown
+
+
+Cron
+^^^^
+
+.. py:class:: Cron()
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.Cron;
+
+      .. code-tab:: javascript
+
+         const { Cron } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { Cron } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Helper class to generate Cron expressions
+
+
+
+
+   .. py:staticmethod:: dailyUtc(hour, [minute]) -> string
+
+      Return a cron expression to run every day at a particular time
+
+      
+
+      The time is specified in UTC.
+
+
+
+      :param hour: The hour in UTC to schedule this action
+      :type hour: number
+      :param minute: The minute in the our to schedule this action (defaults to 0)
+      :type minute: number *(optional)*
+      :rtype: string
+
+
+EnableScalingProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EnableScalingProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.EnableScalingProps;
+
+      .. code-tab:: javascript
+
+         // EnableScalingProps is an interface
+
+      .. code-tab:: typescript
+
+         import { EnableScalingProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Properties for enabling DynamoDB capacity scaling
+
+
+
+
+
+   .. py:attribute:: maxCapacity
+
+      Maximum capacity to scale to
+
+
+
+      :type: number
+
+
+   .. py:attribute:: minCapacity
+
+      Minimum capacity to scale to
+
+
+
+      :type: number *(optional)*
+      :default: 1
+
+
+MetricAggregationType (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MetricAggregationType
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.MetricAggregationType;
+
+      .. code-tab:: javascript
+
+         const { MetricAggregationType } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { MetricAggregationType } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   How the scaling metric is going to be aggregated
+
+
+
+   .. py:data:: Average
+
+   Average
+
+
+
+   .. py:data:: Minimum
+
+   Minimum
+
+
+
+   .. py:data:: Maximum
+
+   Maximum
+
+
+
+
+PredefinedMetric (enum)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PredefinedMetric
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.PredefinedMetric;
+
+      .. code-tab:: javascript
+
+         const { PredefinedMetric } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { PredefinedMetric } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   One of the predefined autoscaling metrics
+
+
+
+   .. py:data:: DynamoDBReadCapacityUtilization
+
+   .. py:data:: DynamoDBWriteCapacityUtilization
+
+   .. py:data:: ALBRequestCountPerTarget
+
+   .. py:data:: RDSReaderAverageCPUUtilization
+
+   .. py:data:: RDSReaderAverageDatabaseConnections
+
+   .. py:data:: EC2SpotFleetRequestAverageCPUUtilization
+
+   .. py:data:: EC2SpotFleetRequestAverageNetworkIn
+
+   .. py:data:: EC2SpotFleetRequestAverageNetworkOut
+
+   .. py:data:: SageMakerVariantInvocationsPerInstance
+
+   .. py:data:: ECSServiceAverageCPUUtilization
+
+   .. py:data:: ECSServiceAverageMemoryUtilization
+
+
+ScalableTarget
+^^^^^^^^^^^^^^
+
+.. py:class:: ScalableTarget(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.ScalableTarget;
+
+      .. code-tab:: javascript
+
+         const { ScalableTarget } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { ScalableTarget } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Define a scalable target
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.ScalableTargetProps`\ 
+
+   .. py:method:: addToRolePolicy(statement)
+
+      Add a policy statement to the role's policy
+
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/aws-iam.PolicyStatement`\ 
+
+
+   .. py:method:: scaleOnMetric(id, props) -> @aws-cdk/aws-applicationautoscaling.StepScalingPolicy
+
+      Scale out or in, in response to a metric
+
+
+
+      :param id: 
+      :type id: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps`\ 
+      :rtype: :py:class:`~@aws-cdk/aws-applicationautoscaling.StepScalingPolicy`\ 
+
+
+   .. py:method:: scaleOnSchedule(id, action)
+
+      Scale out or in based on time
+
+
+
+      :param id: 
+      :type id: string
+      :param action: 
+      :type action: :py:class:`~@aws-cdk/aws-applicationautoscaling.ScalingSchedule`\ 
+
+
+   .. py:method:: scaleToTrackMetric(id, props) -> @aws-cdk/aws-applicationautoscaling.TargetTrackingScalingPolicy
+
+      Scale out or in in order to keep a metric around a target value
+
+
+
+      :param id: 
+      :type id: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps`\ 
+      :rtype: :py:class:`~@aws-cdk/aws-applicationautoscaling.TargetTrackingScalingPolicy`\ 
+
+
+   .. py:attribute:: role
+
+      The role used to give AutoScaling permissions to your resource
+
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.IRole`\  *(readonly)*
+
+
+   .. py:attribute:: scalableTargetId
+
+      ID of the Scalable Target
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct.
+
+      The toolkit will fail synthesis when errors are reported.
+
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct.
+
+      The toolkit will display the info message when apps are synthesized.
+
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, data, [from]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct.
+
+      Entries are arbitrary values and will also include a stack trace to allow tracing back to
+
+      the code location for when the entry was added. It can be used, for example, to include source
+
+      mapping in CloudFormation templates to improve diagnostics.
+
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct.
+
+      The toolkit will display the warning when an app is synthesized, or fail
+
+      if run in --strict mode.
+
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path
+
+      
+
+      Throws an exception if the descendant is not found.
+
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.
+
+      
+
+      Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this
+
+      call, no more children can be added to this construct or to any children.
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context
+
+      
+
+      It is an error if the context object is not available.
+
+
+
+      :param key: 
+      :type key: string
+      :rtype: any
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`.
+
+      In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any
+
+
+   .. py:method:: setContext(key, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values.
+
+      Context must be set before any children are added, since children may consult context info during construction.
+
+      If the key already exists, it will be overridden.
+
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+
+      :param depth: 
+      :type depth: number *(optional)*
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform
+
+      validation logic. It is called on all constructs before synthesis.
+
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct.
+
+      This id is unique amongst its siblings.
+
+      To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are
+
+      locked.
+
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct.
+
+      This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree.
+
+      Components are separated by '/'.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct.
+
+      Includes all components of the tree.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)* *(readonly)*
+
+
+ScalableTargetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ScalableTargetProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.ScalableTargetProps;
+
+      .. code-tab:: javascript
+
+         // ScalableTargetProps is an interface
+
+      .. code-tab:: typescript
+
+         import { ScalableTargetProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Properties for a scalable target
+
+
+
+
+
+   .. py:attribute:: maxCapacity
+
+      The maximum value that Application Auto Scaling can use to scale a target during a scaling activity.
+
+
+
+      :type: number
+
+
+   .. py:attribute:: minCapacity
+
+      The minimum value that Application Auto Scaling can use to scale a target during a scaling activity.
+
+
+
+      :type: number
+
+
+   .. py:attribute:: resourceId
+
+      The resource identifier to associate with this scalable target.
+
+      
+
+      This string consists of the resource type and unique identifier.
+
+
+
+      :type: string
+
+
+   .. py:attribute:: scalableDimension
+
+      The scalable dimension that's associated with the scalable target.
+
+      
+
+      Specify the service namespace, resource type, and scaling property.
+
+
+
+      :type: string
+
+
+   .. py:attribute:: serviceNamespace
+
+      The namespace of the AWS service that provides the resource or
+
+      custom-resource for a resource provided by your own application or
+
+      service.
+
+      
+
+      For valid AWS service namespace values, see the RegisterScalableTarget
+
+      action in the Application Auto Scaling API Reference.
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.ServiceNamespace`\ 
+
+
+   .. py:attribute:: role
+
+      Role that allows Application Auto Scaling to modify your scalable target.
+
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.IRole`\  *(optional)*
+      :default: A role is automatically created
+
+
+ScalingInterval (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ScalingInterval
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.ScalingInterval;
+
+      .. code-tab:: javascript
+
+         // ScalingInterval is an interface
+
+      .. code-tab:: typescript
+
+         import { ScalingInterval } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   A range of metric values in which to apply a certain scaling operation
+
+
+
+
+
+   .. py:attribute:: change
+
+      The capacity adjustment to apply in this interval
+
+      
+
+      The number is interpreted differently based on AdjustmentType:
+
+      
+
+      - ChangeInCapacity: add the adjustment to the current capacity.
+
+        The number can be positive or negative.
+
+      - PercentChangeInCapacity: add or remove the given percentage of the current
+
+         capacity to itself. The number can be in the range [-100..100].
+
+      - ExactCapacity: set the capacity to this number. The number must
+
+         be positive.
+
+
+
+      :type: number
+
+
+   .. py:attribute:: lower
+
+      The lower bound of the interval.
+
+      
+
+      The scaling adjustment will be applied if the metric is higher than this value.
+
+
+
+      :type: number *(optional)*
+      :default: Threshold automatically derived from neighbouring intervals
+
+
+   .. py:attribute:: upper
+
+      The upper bound of the interval.
+
+      
+
+      The scaling adjustment will be applied if the metric is lower than this value.
+
+
+
+      :type: number *(optional)*
+      :default: Threshold automatically derived from neighbouring intervals
+
+
+ScalingSchedule (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ScalingSchedule
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.ScalingSchedule;
+
+      .. code-tab:: javascript
+
+         // ScalingSchedule is an interface
+
+      .. code-tab:: typescript
+
+         import { ScalingSchedule } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   A scheduled scaling action
+
+
+
+
+
+   .. py:attribute:: schedule
+
+      When to perform this action.
+
+      
+
+      Support formats:
+
+      - at(yyyy-mm-ddThh:mm:ss)
+
+      - rate(value unit)
+
+      - cron(fields)
+
+      
+
+      "At" expressions are useful for one-time schedules. Specify the time in
+
+      UTC.
+
+      
+
+      For "rate" expressions, value is a positive integer, and unit is minute,
+
+      minutes, hour, hours, day, or days.
+
+      
+
+      For more information about cron expressions, see https://en.wikipedia.org/wiki/Cron.
+
+
+
+      :type: string
+
+
+   .. py:attribute:: endTime
+
+      When this scheduled action expires.
+
+
+
+      :type: date *(optional)*
+      :default: The rule never expires.
+
+
+   .. py:attribute:: maxCapacity
+
+      The new maximum capacity.
+
+      
+
+      During the scheduled time, the current capacity is above the maximum
+
+      capacity, Application Auto Scaling scales in to the maximum capacity.
+
+      
+
+      At least one of maxCapacity and minCapacity must be supplied.
+
+
+
+      :type: number *(optional)*
+      :default: No new maximum capacity
+
+
+   .. py:attribute:: minCapacity
+
+      The new minimum capacity.
+
+      
+
+      During the scheduled time, if the current capacity is below the minimum
+
+      capacity, Application Auto Scaling scales out to the minimum capacity.
+
+      
+
+      At least one of maxCapacity and minCapacity must be supplied.
+
+
+
+      :type: number *(optional)*
+      :default: No new minimum capacity
+
+
+   .. py:attribute:: startTime
+
+      When this scheduled action becomes active.
+
+
+
+      :type: date *(optional)*
+      :default: The rule is activate immediately
+
+
+ServiceNamespace (enum)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ServiceNamespace
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.ServiceNamespace;
+
+      .. code-tab:: javascript
+
+         const { ServiceNamespace } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { ServiceNamespace } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   The service that supports Application AutoScaling
+
+
+
+   .. py:data:: Ecs
+
+   Elastic Container Service
+
+
+
+   .. py:data:: ElasticMapReduce
+
+   Elastic Map Reduce
+
+
+
+   .. py:data:: Ec2
+
+   Elastic Compute Cloud
+
+
+
+   .. py:data:: AppStream
+
+   App Stream
+
+
+
+   .. py:data:: DynamoDb
+
+   Dynamo DB
+
+
+
+   .. py:data:: Rds
+
+   Relational Database Service
+
+
+
+   .. py:data:: SageMaker
+
+   SageMaker
+
+
+
+   .. py:data:: CustomResource
+
+   Custom Resource
+
+
+
+
+StepScalingAction
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: StepScalingAction(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.StepScalingAction;
+
+      .. code-tab:: javascript
+
+         const { StepScalingAction } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { StepScalingAction } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Define a step scaling action
+
+   
+
+   This kind of scaling policy adjusts the target capacity in configurable
+
+   steps. The size of the step is configurable based on the metric's distance
+
+   to its alarm threshold.
+
+   
+
+   This Action must be used as the target of a CloudWatch alarm to take effect.
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :implements: :py:class:`@aws-cdk/aws-cloudwatch.IAlarmAction`\ 
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.StepScalingActionProps`\ 
+
+   .. py:method:: addAdjustment(adjustment)
+
+      Add an adjusment interval to the ScalingAction
+
+
+
+      :param adjustment: 
+      :type adjustment: :py:class:`~@aws-cdk/aws-applicationautoscaling.AdjustmentTier`\ 
+
+
+   .. py:attribute:: alarmActionArn
+
+      *Implements* :py:meth:`@aws-cdk/aws-cloudwatch.IAlarmAction.alarmActionArn`
+
+      ARN when this scaling policy is used as an Alarm action
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: scalingPolicyArn
+
+      ARN of the scaling policy
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct.
+
+      The toolkit will fail synthesis when errors are reported.
+
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct.
+
+      The toolkit will display the info message when apps are synthesized.
+
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, data, [from]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct.
+
+      Entries are arbitrary values and will also include a stack trace to allow tracing back to
+
+      the code location for when the entry was added. It can be used, for example, to include source
+
+      mapping in CloudFormation templates to improve diagnostics.
+
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct.
+
+      The toolkit will display the warning when an app is synthesized, or fail
+
+      if run in --strict mode.
+
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path
+
+      
+
+      Throws an exception if the descendant is not found.
+
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.
+
+      
+
+      Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this
+
+      call, no more children can be added to this construct or to any children.
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context
+
+      
+
+      It is an error if the context object is not available.
+
+
+
+      :param key: 
+      :type key: string
+      :rtype: any
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`.
+
+      In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any
+
+
+   .. py:method:: setContext(key, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values.
+
+      Context must be set before any children are added, since children may consult context info during construction.
+
+      If the key already exists, it will be overridden.
+
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+
+      :param depth: 
+      :type depth: number *(optional)*
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform
+
+      validation logic. It is called on all constructs before synthesis.
+
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct.
+
+      This id is unique amongst its siblings.
+
+      To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are
+
+      locked.
+
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct.
+
+      This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree.
+
+      Components are separated by '/'.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct.
+
+      Includes all components of the tree.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)* *(readonly)*
+
+
+StepScalingActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StepScalingActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.StepScalingActionProps;
+
+      .. code-tab:: javascript
+
+         // StepScalingActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { StepScalingActionProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Properties for a scaling policy
+
+
+
+
+
+   .. py:attribute:: scalingTarget
+
+      The scalable target
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.ScalableTarget`\ 
+
+
+   .. py:attribute:: adjustmentType
+
+      How the adjustment numbers are interpreted
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.AdjustmentType`\  *(optional)*
+      :default: ChangeInCapacity
+
+
+   .. py:attribute:: cooldownSec
+
+      Grace period after scaling activity.
+
+      
+
+      For scale out policies, multiple scale outs during the cooldown period are
+
+      squashed so that only the biggest scale out happens.
+
+      
+
+      For scale in policies, subsequent scale ins during the cooldown period are
+
+      ignored.
+
+
+
+      :type: number *(optional)*
+      :default: No cooldown period
+
+
+   .. py:attribute:: metricAggregationType
+
+      The aggregation type for the CloudWatch metrics.
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.MetricAggregationType`\  *(optional)*
+      :default: Average
+
+
+   .. py:attribute:: minAdjustmentMagnitude
+
+      Minimum absolute number to adjust capacity with as result of percentage scaling.
+
+      
+
+      Only when using AdjustmentType = PercentChangeInCapacity, this number controls
+
+      the minimum absolute effect size.
+
+
+
+      :type: number *(optional)*
+      :default: No minimum scaling effect
+
+
+   .. py:attribute:: policyName
+
+      A name for the scaling policy
+
+
+
+      :type: string *(optional)*
+      :default: Automatically generated name
+
+
+StepScalingPolicy
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: StepScalingPolicy(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.StepScalingPolicy;
+
+      .. code-tab:: javascript
+
+         const { StepScalingPolicy } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { StepScalingPolicy } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Define a acaling strategy which scales depending on absolute values of some metric.
+
+   
+
+   You can specify the scaling behavior for various values of the metric.
+
+   
+
+   Implemented using one or more CloudWatch alarms and Step Scaling Policies.
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.StepScalingPolicyProps`\ 
+
+   .. py:attribute:: lowerAction
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.StepScalingAction`\  *(optional)* *(readonly)*
+
+
+   .. py:attribute:: lowerAlarm
+
+      :type: :py:class:`@aws-cdk/aws-cloudwatch.Alarm`\  *(optional)* *(readonly)*
+
+
+   .. py:attribute:: upperAction
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.StepScalingAction`\  *(optional)* *(readonly)*
+
+
+   .. py:attribute:: upperAlarm
+
+      :type: :py:class:`@aws-cdk/aws-cloudwatch.Alarm`\  *(optional)* *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct.
+
+      The toolkit will fail synthesis when errors are reported.
+
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct.
+
+      The toolkit will display the info message when apps are synthesized.
+
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, data, [from]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct.
+
+      Entries are arbitrary values and will also include a stack trace to allow tracing back to
+
+      the code location for when the entry was added. It can be used, for example, to include source
+
+      mapping in CloudFormation templates to improve diagnostics.
+
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct.
+
+      The toolkit will display the warning when an app is synthesized, or fail
+
+      if run in --strict mode.
+
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path
+
+      
+
+      Throws an exception if the descendant is not found.
+
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.
+
+      
+
+      Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this
+
+      call, no more children can be added to this construct or to any children.
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context
+
+      
+
+      It is an error if the context object is not available.
+
+
+
+      :param key: 
+      :type key: string
+      :rtype: any
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`.
+
+      In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any
+
+
+   .. py:method:: setContext(key, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values.
+
+      Context must be set before any children are added, since children may consult context info during construction.
+
+      If the key already exists, it will be overridden.
+
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+
+      :param depth: 
+      :type depth: number *(optional)*
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform
+
+      validation logic. It is called on all constructs before synthesis.
+
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct.
+
+      This id is unique amongst its siblings.
+
+      To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are
+
+      locked.
+
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct.
+
+      This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree.
+
+      Components are separated by '/'.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct.
+
+      Includes all components of the tree.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)* *(readonly)*
+
+
+StepScalingPolicyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StepScalingPolicyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.StepScalingPolicyProps;
+
+      .. code-tab:: javascript
+
+         // StepScalingPolicyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { StepScalingPolicyProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   :extends: :py:class:`~@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps`\ 
+
+
+   .. py:attribute:: scalingTarget
+
+      The scaling target
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.ScalableTarget`\ 
+
+
+   .. py:attribute:: metric
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps.metric>`
+
+      Metric to scale on.
+
+
+
+      :type: :py:class:`@aws-cdk/aws-cloudwatch.Metric`\ 
+
+
+   .. py:attribute:: scalingSteps
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps.scalingSteps>`
+
+      The intervals for scaling.
+
+      
+
+      Maps a range of metric values to a particular scaling behavior.
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.ScalingInterval`\ []
+
+
+   .. py:attribute:: adjustmentType
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps.adjustmentType>`
+
+      How the adjustment numbers inside 'intervals' are interpreted.
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.AdjustmentType`\  *(optional)*
+      :default: ChangeInCapacity
+
+
+   .. py:attribute:: cooldownSec
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps.cooldownSec>`
+
+      Grace period after scaling activity.
+
+      
+
+      Subsequent scale outs during the cooldown period are squashed so that only
+
+      the biggest scale out happens.
+
+      
+
+      Subsequent scale ins during the cooldown period are ignored.
+
+
+
+      :type: number *(optional)*
+      :default: No cooldown period
+
+
+   .. py:attribute:: minAdjustmentMagnitude
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicStepScalingPolicyProps.minAdjustmentMagnitude>`
+
+      Minimum absolute number to adjust capacity with as result of percentage scaling.
+
+      
+
+      Only when using AdjustmentType = PercentChangeInCapacity, this number controls
+
+      the minimum absolute effect size.
+
+
+
+      :type: number *(optional)*
+      :default: No minimum scaling effect
+
+
+TargetTrackingScalingPolicy
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TargetTrackingScalingPolicy(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.TargetTrackingScalingPolicy;
+
+      .. code-tab:: javascript
+
+         const { TargetTrackingScalingPolicy } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { TargetTrackingScalingPolicy } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-applicationautoscaling.TargetTrackingScalingPolicyProps`\ 
+
+   .. py:attribute:: scalingPolicyArn
+
+      ARN of the scaling policy
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct.
+
+      The toolkit will fail synthesis when errors are reported.
+
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct.
+
+      The toolkit will display the info message when apps are synthesized.
+
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, data, [from]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct.
+
+      Entries are arbitrary values and will also include a stack trace to allow tracing back to
+
+      the code location for when the entry was added. It can be used, for example, to include source
+
+      mapping in CloudFormation templates to improve diagnostics.
+
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct.
+
+      The toolkit will display the warning when an app is synthesized, or fail
+
+      if run in --strict mode.
+
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path
+
+      
+
+      Throws an exception if the descendant is not found.
+
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.
+
+      
+
+      Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this
+
+      call, no more children can be added to this construct or to any children.
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context
+
+      
+
+      It is an error if the context object is not available.
+
+
+
+      :param key: 
+      :type key: string
+      :rtype: any
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`.
+
+      In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any
+
+
+   .. py:method:: setContext(key, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values.
+
+      Context must be set before any children are added, since children may consult context info during construction.
+
+      If the key already exists, it will be overridden.
+
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+
+      :param depth: 
+      :type depth: number *(optional)*
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform
+
+      validation logic. It is called on all constructs before synthesis.
+
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct.
+
+      This id is unique amongst its siblings.
+
+      To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are
+
+      locked.
+
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct.
+
+      This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree.
+
+      Components are separated by '/'.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct.
+
+      Includes all components of the tree.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)* *(readonly)*
+
+
+TargetTrackingScalingPolicyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TargetTrackingScalingPolicyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.TargetTrackingScalingPolicyProps;
+
+      .. code-tab:: javascript
+
+         // TargetTrackingScalingPolicyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { TargetTrackingScalingPolicyProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   Properties for a concrete TargetTrackingPolicy
+
+   
+
+   Adds the scalingTarget.
+
+
+
+   :extends: :py:class:`~@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps`\ 
+
+
+   .. py:attribute:: scalingTarget
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.ScalableTarget`\ 
+
+
+   .. py:attribute:: disableScaleIn
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps <@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps.disableScaleIn>`
+
+      Indicates whether scale in by the target tracking policy is disabled.
+
+      
+
+      If the value is true, scale in is disabled and the target tracking policy
+
+      won't remove capacity from the scalable resource. Otherwise, scale in is
+
+      enabled and the target tracking policy can remove capacity from the
+
+      scalable resource.
+
+
+
+      :type: boolean *(optional)*
+      :default: false
+
+
+   .. py:attribute:: policyName
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps <@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps.policyName>`
+
+      A name for the scaling policy
+
+
+
+      :type: string *(optional)*
+      :default: Automatically generated name
+
+
+   .. py:attribute:: scaleInCooldownSec
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps <@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps.scaleInCooldownSec>`
+
+      Period after a scale in activity completes before another scale in activity can start.
+
+
+
+      :type: number *(optional)*
+      :default: No scale in cooldown
+
+
+   .. py:attribute:: scaleOutCooldownSec
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps <@aws-cdk/aws-applicationautoscaling.BaseTargetTrackingProps.scaleOutCooldownSec>`
+
+      Period after a scale out activity completes before another scale out activity can start.
+
+
+
+      :type: number *(optional)*
+      :default: No scale out cooldown
+
+
+   .. py:attribute:: targetValue
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps.targetValue>`
+
+      The target value for the metric.
+
+
+
+      :type: number
+
+
+   .. py:attribute:: customMetric
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps.customMetric>`
+
+      A custom metric for application autoscaling
+
+      
+
+      The metric must track utilization. Scaling out will happen if the metric is higher than
+
+      the target value, scaling in will happen in the metric is lower than the target value.
+
+      
+
+      Exactly one of customMetric or predefinedMetric must be specified.
+
+
+
+      :type: :py:class:`@aws-cdk/aws-cloudwatch.Metric`\  *(optional)*
+
+
+   .. py:attribute:: predefinedMetric
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps.predefinedMetric>`
+
+      A predefined metric for application autoscaling
+
+      
+
+      The metric must track utilization. Scaling out will happen if the metric is higher than
+
+      the target value, scaling in will happen in the metric is lower than the target value.
+
+      
+
+      Exactly one of customMetric or predefinedMetric must be specified.
+
+
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.PredefinedMetric`\  *(optional)*
+
+
+   .. py:attribute:: resourceLabel
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps <@aws-cdk/aws-applicationautoscaling.BasicTargetTrackingScalingPolicyProps.resourceLabel>`
+
+      Identify the resource associated with the metric type.
+
+      
+
+      Only used for predefined metric ALBRequestCountPerTarget.
+
+
+
+      :type: string *(optional)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-applicationautoscaling.cloudformation
+
+ScalableTargetResource
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalableTargetResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalableTargetResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.ScalableTargetResource } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ScalableTargetResource } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``ScalableTargetResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ScalableTargetResource``
+   :type properties: :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalableTargetResourceProps`\ 
+
+   .. py:method:: renderProperties(properties) -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :param properties: 
+      :type properties: any
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: propertyOverrides
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalableTargetResourceProps`\  *(readonly)*
+
+
+   .. py:attribute:: scalableTargetId
+
+      :type: string *(readonly)*
+
+   .. py:class:: ScalableTargetActionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalableTargetResource.ScalableTargetActionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalableTargetResource.ScalableTargetActionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalableTargetResource.ScalableTargetActionProperty } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+      .. py:attribute:: maxCapacity
+
+         ``ScalableTargetResource.ScalableTargetActionProperty.MaxCapacity``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-maxcapacity
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+      .. py:attribute:: minCapacity
+
+         ``ScalableTargetResource.ScalableTargetActionProperty.MinCapacity``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-mincapacity
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+   .. py:class:: ScheduledActionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalableTargetResource.ScheduledActionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalableTargetResource.ScheduledActionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalableTargetResource.ScheduledActionProperty } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+      .. py:attribute:: schedule
+
+         ``ScalableTargetResource.ScheduledActionProperty.Schedule``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: scheduledActionName
+
+         ``ScalableTargetResource.ScheduledActionProperty.ScheduledActionName``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scheduledactionname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: endTime
+
+         ``ScalableTargetResource.ScheduledActionProperty.EndTime``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token`\  or date *(optional)*
+
+
+      .. py:attribute:: scalableTargetAction
+
+         ``ScalableTargetResource.ScheduledActionProperty.ScalableTargetAction``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scalabletargetaction
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token`\  or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalableTargetResource.ScalableTargetActionProperty`\  *(optional)*
+
+
+      .. py:attribute:: startTime
+
+         ``ScalableTargetResource.ScheduledActionProperty.StartTime``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-starttime
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token`\  or date *(optional)*
+
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct.
+
+      The toolkit will fail synthesis when errors are reported.
+
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct.
+
+      The toolkit will display the info message when apps are synthesized.
+
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, data, [from]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct.
+
+      Entries are arbitrary values and will also include a stack trace to allow tracing back to
+
+      the code location for when the entry was added. It can be used, for example, to include source
+
+      mapping in CloudFormation templates to improve diagnostics.
+
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct.
+
+      The toolkit will display the warning when an app is synthesized, or fail
+
+      if run in --strict mode.
+
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path
+
+      
+
+      Throws an exception if the descendant is not found.
+
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.
+
+      
+
+      Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this
+
+      call, no more children can be added to this construct or to any children.
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context
+
+      
+
+      It is an error if the context object is not available.
+
+
+
+      :param key: 
+      :type key: string
+      :rtype: any
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`.
+
+      In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any
+
+
+   .. py:method:: setContext(key, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values.
+
+      Context must be set before any children are added, since children may consult context info during construction.
+
+      If the key already exists, it will be overridden.
+
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+
+      :param depth: 
+      :type depth: number *(optional)*
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform
+
+      validation logic. It is called on all constructs before synthesis.
+
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct.
+
+      This id is unique amongst its siblings.
+
+      To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are
+
+      locked.
+
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct.
+
+      This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree.
+
+      Components are separated by '/'.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct.
+
+      Includes all components of the tree.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)* *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDeletionOverride(path)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDeletionOverride>`
+
+      Syntactic sugar for `addOverride(path, undefined)`.
+
+
+
+      :param path: The path of the value to delete
+      :type path: string
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: addOverride(path, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addOverride>`
+
+      Adds an override to the synthesized CloudFormation resource. To add a
+
+      property override, either use `addPropertyOverride` or prefix `path` with
+
+      "Properties." (i.e. `Properties.TopicName`).
+
+
+
+      :param path: The path of the property, you can use dot notation to override values in complex types. Any intermdediate keys will be created as needed.
+      :type path: string
+      :param value: The value. Could be primitive or complex.
+      :type value: any
+
+
+   .. py:method:: addPropertyDeletionOverride(propertyPath)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addPropertyDeletionOverride>`
+
+      Adds an override that deletes the value of a property from the resource definition.
+
+
+
+      :param propertyPath: The path to the property.
+      :type propertyPath: string
+
+
+   .. py:method:: addPropertyOverride(propertyPath, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addPropertyOverride>`
+
+      Adds an override to a resource property.
+
+      
+
+      Syntactic sugar for `addOverride("Properties.<...>", value)`.
+
+
+
+      :param propertyPath: The path of the property
+      :type propertyPath: string
+      :param value: The value
+      :type value: any
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource.
+
+      Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+
+      in case there is no generated attribute.
+
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties.
+
+      
+
+      This object is rendered via a call to "renderProperties(this.properties)".
+
+
+
+      *Protected property*
+
+      :type: any *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: untypedPropertyOverrides
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.untypedPropertyOverrides>`
+
+      AWS resource property overrides.
+
+      
+
+      During synthesis, the method "renderProperties(this.overrides)" is called
+
+      with this object, and merged on top of the output of
+
+      "renderProperties(this.properties)".
+
+      
+
+      Derived classes should expose a strongly-typed version of this object as
+
+      a public property called `propertyOverrides`.
+
+
+
+      *Protected property*
+
+      :type: any *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions)
+
+      that should be added when a resource "depends on" this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+ScalableTargetResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalableTargetResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalableTargetResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.ScalableTargetResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ScalableTargetResourceProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+   .. py:attribute:: maxCapacity
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.MaxCapacity``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:attribute:: minCapacity
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.MinCapacity``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-mincapacity
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:attribute:: resourceId
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.ResourceId``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:attribute:: roleArn
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.RoleARN``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-rolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:attribute:: scalableDimension
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.ScalableDimension``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scalabledimension
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:attribute:: serviceNamespace
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.ServiceNamespace``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:attribute:: scheduledActions
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.ScheduledActions``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scheduledactions
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token`\  or (:py:class:`@aws-cdk/cdk.Token`\  or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalableTargetResource.ScheduledActionProperty`\ )[] *(optional)*
+
+
+ScalingPolicyResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalingPolicyResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalingPolicyResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.ScalingPolicyResource } = require('@aws-cdk/aws-applicationautoscaling');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ScalingPolicyResource } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``ScalingPolicyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ScalingPolicyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResourceProps`\ 
+
+   .. py:method:: renderProperties(properties) -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :param properties: 
+      :type properties: any
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: propertyOverrides
+
+      :type: :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResourceProps`\  *(readonly)*
+
+
+   .. py:attribute:: scalingPolicyArn
+
+      :type: string *(readonly)*
+
+   .. py:class:: CustomizedMetricSpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+      .. py:attribute:: metricName
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.MetricName``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-metricname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: namespace
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Namespace``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-namespace
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: statistic
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Statistic``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-statistic
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: dimensions
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Dimensions``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-dimensions
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token`\  or (:py:class:`@aws-cdk/cdk.Token`\  or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.MetricDimensionProperty`\ )[] *(optional)*
+
+
+      .. py:attribute:: unit
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Unit``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-unit
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+   .. py:class:: MetricDimensionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalingPolicyResource.MetricDimensionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.MetricDimensionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.MetricDimensionProperty } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+      .. py:attribute:: name
+
+         ``ScalingPolicyResource.MetricDimensionProperty.Name``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html#cfn-applicationautoscaling-scalingpolicy-metricdimension-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: value
+
+         ``ScalingPolicyResource.MetricDimensionProperty.Value``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html#cfn-applicationautoscaling-scalingpolicy-metricdimension-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:class:: PredefinedMetricSpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+      .. py:attribute:: predefinedMetricType
+
+         ``ScalingPolicyResource.PredefinedMetricSpecificationProperty.PredefinedMetricType``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: resourceLabel
+
+         ``ScalingPolicyResource.PredefinedMetricSpecificationProperty.ResourceLabel``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+   .. py:class:: StepAdjustmentProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalingPolicyResource.StepAdjustmentProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.StepAdjustmentProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.StepAdjustmentProperty } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+      .. py:attribute:: scalingAdjustment
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.ScalingAdjustment``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment-scalingadjustment
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: metricIntervalLowerBound
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.MetricIntervalLowerBound``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment-metricintervallowerbound
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+      .. py:attribute:: metricIntervalUpperBound
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.MetricIntervalUpperBound``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment-metricintervalupperbound
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+   .. py:class:: StepScalingPolicyConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalingPolicyResource.StepScalingPolicyConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.StepScalingPolicyConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.StepScalingPolicyConfigurationProperty } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+      .. py:attribute:: adjustmentType
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.AdjustmentType``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-adjustmenttype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+      .. py:attribute:: cooldown
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.Cooldown``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-cooldown
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+      .. py:attribute:: metricAggregationType
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.MetricAggregationType``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-metricaggregationtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+      .. py:attribute:: minAdjustmentMagnitude
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.MinAdjustmentMagnitude``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-minadjustmentmagnitude
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+      .. py:attribute:: stepAdjustments
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.StepAdjustments``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustments
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token`\  or (:py:class:`@aws-cdk/cdk.Token`\  or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.StepAdjustmentProperty`\ )[] *(optional)*
+
+
+   .. py:class:: TargetTrackingScalingPolicyConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+      .. py:attribute:: targetValue
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.TargetValue``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-targetvalue
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+      .. py:attribute:: customizedMetricSpecification
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.CustomizedMetricSpecification``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-customizedmetricspecification
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token`\  or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty`\  *(optional)*
+
+
+      .. py:attribute:: disableScaleIn
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.DisableScaleIn``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-disablescalein
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+      .. py:attribute:: predefinedMetricSpecification
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.PredefinedMetricSpecification``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-predefinedmetricspecification
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token`\  or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty`\  *(optional)*
+
+
+      .. py:attribute:: scaleInCooldown
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.ScaleInCooldown``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-scaleincooldown
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+      .. py:attribute:: scaleOutCooldown
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.ScaleOutCooldown``
+
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-scaleoutcooldown
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct.
+
+      The toolkit will fail synthesis when errors are reported.
+
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct.
+
+      The toolkit will display the info message when apps are synthesized.
+
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, data, [from]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct.
+
+      Entries are arbitrary values and will also include a stack trace to allow tracing back to
+
+      the code location for when the entry was added. It can be used, for example, to include source
+
+      mapping in CloudFormation templates to improve diagnostics.
+
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct.
+
+      The toolkit will display the warning when an app is synthesized, or fail
+
+      if run in --strict mode.
+
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path
+
+      
+
+      Throws an exception if the descendant is not found.
+
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.
+
+      
+
+      Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this
+
+      call, no more children can be added to this construct or to any children.
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context
+
+      
+
+      It is an error if the context object is not available.
+
+
+
+      :param key: 
+      :type key: string
+      :rtype: any
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`.
+
+      In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any
+
+
+   .. py:method:: setContext(key, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values.
+
+      Context must be set before any children are added, since children may consult context info during construction.
+
+      If the key already exists, it will be overridden.
+
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+
+      :param depth: 
+      :type depth: number *(optional)*
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)*
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform
+
+      validation logic. It is called on all constructs before synthesis.
+
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct.
+
+      This id is unique amongst its siblings.
+
+      To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are
+
+      locked.
+
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct.
+
+      This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree.
+
+      Components are separated by '/'.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct.
+
+      Includes all components of the tree.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  *(optional)* *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDeletionOverride(path)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDeletionOverride>`
+
+      Syntactic sugar for `addOverride(path, undefined)`.
+
+
+
+      :param path: The path of the value to delete
+      :type path: string
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: addOverride(path, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addOverride>`
+
+      Adds an override to the synthesized CloudFormation resource. To add a
+
+      property override, either use `addPropertyOverride` or prefix `path` with
+
+      "Properties." (i.e. `Properties.TopicName`).
+
+
+
+      :param path: The path of the property, you can use dot notation to override values in complex types. Any intermdediate keys will be created as needed.
+      :type path: string
+      :param value: The value. Could be primitive or complex.
+      :type value: any
+
+
+   .. py:method:: addPropertyDeletionOverride(propertyPath)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addPropertyDeletionOverride>`
+
+      Adds an override that deletes the value of a property from the resource definition.
+
+
+
+      :param propertyPath: The path to the property.
+      :type propertyPath: string
+
+
+   .. py:method:: addPropertyOverride(propertyPath, value)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addPropertyOverride>`
+
+      Adds an override to a resource property.
+
+      
+
+      Syntactic sugar for `addOverride("Properties.<...>", value)`.
+
+
+
+      :param propertyPath: The path of the property
+      :type propertyPath: string
+      :param value: The value
+      :type value: any
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource.
+
+      Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+
+      in case there is no generated attribute.
+
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties.
+
+      
+
+      This object is rendered via a call to "renderProperties(this.properties)".
+
+
+
+      *Protected property*
+
+      :type: any *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: untypedPropertyOverrides
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.untypedPropertyOverrides>`
+
+      AWS resource property overrides.
+
+      
+
+      During synthesis, the method "renderProperties(this.overrides)" is called
+
+      with this object, and merged on top of the output of
+
+      "renderProperties(this.properties)".
+
+      
+
+      Derived classes should expose a strongly-typed version of this object as
+
+      a public property called `propertyOverrides`.
+
+
+
+      *Protected property*
+
+      :type: any *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions)
+
+      that should be added when a resource "depends on" this construct.
+
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+ScalingPolicyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalingPolicyResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ApplicationAutoScaling;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.applicationautoscaling.cloudformation.ScalingPolicyResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.ScalingPolicyResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ScalingPolicyResourceProps } from '@aws-cdk/aws-applicationautoscaling';
+
+
+
+
+
+   .. py:attribute:: policyName
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.PolicyName``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policyname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:attribute:: policyType
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.PolicyType``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policytype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\ 
+
+
+   .. py:attribute:: resourceId
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.ResourceId``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-resourceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+   .. py:attribute:: scalableDimension
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.ScalableDimension``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalabledimension
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+   .. py:attribute:: scalingTargetId
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.ScalingTargetId``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalingtargetid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+   .. py:attribute:: serviceNamespace
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.ServiceNamespace``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-servicenamespace
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`\  *(optional)*
+
+
+   .. py:attribute:: stepScalingPolicyConfiguration
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.StepScalingPolicyConfiguration``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token`\  or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.StepScalingPolicyConfigurationProperty`\  *(optional)*
+
+
+   .. py:attribute:: targetTrackingScalingPolicyConfiguration
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.TargetTrackingScalingPolicyConfiguration``
+
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token`\  or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty`\  *(optional)*
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-applicationautoscaling
+

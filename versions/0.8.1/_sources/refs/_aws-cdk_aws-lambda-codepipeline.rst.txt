@@ -1,0 +1,202 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"SVaWUVbX3Zro5RznVODujC6QXyaaUi5wcy0fffhICTE="}
+
+@aws-cdk/aws-lambda-codepipeline
+================================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/lambda-codepipeline/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:lambda-codepipeline:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="lambda-codepipeline" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>lambda-codepipeline</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:lambda-codepipeline:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='lambda-codepipeline', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-lambda-codepipeline/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-lambda-codepipeline@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-lambda-codepipeline": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-lambda-codepipeline@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-lambda-codepipeline/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-lambda-codepipeline@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-lambda-codepipeline": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-lambda-codepipeline@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-lambda-codepipeline.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-lambda-codepipeline
+
+PipelineInvokeAction
+^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineInvokeAction(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.lambda.codepipeline.PipelineInvokeAction;
+
+      .. code-tab:: javascript
+
+         const { PipelineInvokeAction } = require('@aws-cdk/aws-lambda-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { PipelineInvokeAction } from '@aws-cdk/aws-lambda-codepipeline';
+
+
+
+   CodePipeline invoke Action that is provided by an AWS Lambda function.
+
+
+   :extends: :py:class:`@aws-cdk/aws-codepipeline.Action`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-lambda-codepipeline.PipelineInvokeActionProps`
+
+   .. py:method:: addInputArtifact(artifact) -> @aws-cdk/aws-codepipeline.Action
+
+      Add an input artifact
+
+
+      :param artifact: 
+      :type artifact: :py:class:`@aws-cdk/aws-codepipeline.Artifact`
+      :rtype: :py:class:`@aws-cdk/aws-codepipeline.Action`
+
+
+PipelineInvokeActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineInvokeActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.lambda.codepipeline.PipelineInvokeActionProps;
+
+      .. code-tab:: javascript
+
+         // PipelineInvokeActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { PipelineInvokeActionProps } from '@aws-cdk/aws-lambda-codepipeline';
+
+
+
+   Construction properties of the {@link PipelineInvokeAction Lambda invoke CodePipeline Action}.
+
+
+
+
+   .. py:attribute:: lambda
+
+      The lambda function to invoke.
+
+
+      :type: :py:class:`@aws-cdk/aws-lambda.LambdaRef`
+
+
+   .. py:attribute:: userParameters
+
+      String to be used in the event data parameter passed to the Lambda function  See an example JSON event in the CodePipeline documentation.  https://docs.aws.amazon.com/codepipeline/latest/userguide/actions-invoke-lambda-function.html#actions-invoke-lambda-function-json-event-example
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: addPutJobResultPolicy
+
+      Adds the "codepipeline:PutJobSuccessResult" and "codepipeline:PutJobFailureResult" for '*' resource to the Lambda execution role policy.  NOTE: the reason we can't add the specific pipeline ARN as a resource is to avoid a cyclic dependency between the pipeline and the Lambda function (the pipeline references) the Lambda and the Lambda needs permissions on the pipeline.
+
+
+      :type: boolean or undefined
+
+

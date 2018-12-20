@@ -1,0 +1,957 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"4HxNXRp3/Ck5dimX1gLFuIkHIb41TlxXvyDFCJ9Rvx4="}
+
+@aws-cdk/aws-codepipeline-api
+=============================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/codepipeline-api/0.8.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:codepipeline-api:jar:0.8.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="codepipeline-api" rev="0.8.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>codepipeline-api</artifactId>
+           <version>0.8.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:codepipeline-api:0.8.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='codepipeline-api', version='0.8.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codepipeline-api/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codepipeline-api@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codepipeline-api": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codepipeline-api@0.8.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codepipeline-api/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codepipeline-api@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codepipeline-api": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codepipeline-api@0.8.2
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-codepipeline-api.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-codepipeline-api
+
+Action
+^^^^^^
+
+.. py:class:: Action(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.Action;
+
+      .. code-tab:: javascript
+
+         const { Action } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { Action } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Low-level class for generic CodePipeline Actions. It is recommended that concrete types are used instead, such as {@link codecommit.PipelineSource} or {@link codebuild.PipelineBuildAction}.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionProps`
+
+   .. py:method:: validate() -> string[]
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: addChild(child, name)
+
+      Adds a child construct to this node.
+
+
+      :param child: 
+      :type child: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: 
+      :type name: string
+
+
+   .. py:method:: addOutputArtifact(name) -> @aws-cdk/aws-codepipeline-api.Artifact
+
+      :param name: 
+      :type name: string
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`
+
+
+   .. py:method:: addInputArtifact(artifact) -> @aws-cdk/aws-codepipeline-api.Action
+
+      :param artifact: 
+      :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`
+
+
+   .. py:attribute:: category
+
+      The category of the action. The category defines which action type the owner (the entity that performs the action) performs.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionCategory` *(readonly)*
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or undefined *(readonly)*
+
+
+   .. py:attribute:: runOrder
+
+      The order in which AWS CodePipeline runs this action. For more information, see the AWS CodePipeline User Guide.  https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: number
+
+
+   .. py:attribute:: owner
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: version
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: inputArtifacts
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact` *(readonly)*
+
+
+   .. py:attribute:: outputArtifacts
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact` *(readonly)*
+
+
+ActionArtifactBounds (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionArtifactBounds
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ActionArtifactBounds;
+
+      .. code-tab:: javascript
+
+         // ActionArtifactBounds is an interface
+
+      .. code-tab:: typescript
+
+         import { ActionArtifactBounds } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Specifies the constraints on the number of input and output artifacts an action can have.  The constraints for each action type are documented on the {@link https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html Pipeline Structure Reference} page.
+
+
+
+
+   .. py:attribute:: minInputs
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: maxInputs
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: minOutputs
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: maxOutputs
+
+      :type: number *(readonly)*
+
+
+ActionCategory (enum)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionCategory
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ActionCategory;
+
+      .. code-tab:: javascript
+
+         const { ActionCategory } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { ActionCategory } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   .. py:data:: Source
+
+   .. py:data:: Build
+
+   .. py:data:: Test
+
+   .. py:data:: Approval
+
+   .. py:data:: Deploy
+
+   .. py:data:: Invoke
+
+
+ActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ActionProps;
+
+      .. code-tab:: javascript
+
+         // ActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { ActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Construction properties of the low-level {@link Action Action class}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionProps`
+
+
+   .. py:attribute:: category
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionCategory`
+
+
+   .. py:attribute:: provider
+
+      :type: string
+
+
+   .. py:attribute:: artifactBounds
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionArtifactBounds`
+
+
+   .. py:attribute:: configuration
+
+      :type: any or undefined
+
+
+   .. py:attribute:: version
+
+      :type: string or undefined
+
+
+   .. py:attribute:: owner
+
+      :type: string or undefined
+
+
+Artifact
+^^^^^^^^
+
+.. py:class:: Artifact(parent, name)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.Artifact;
+
+      .. code-tab:: javascript
+
+         const { Artifact } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { Artifact } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   An output artifact of an action. Artifacts can be used as input by some actions.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`
+   :param name: 
+   :type name: string
+
+   .. py:method:: subartifact(fileName) -> @aws-cdk/aws-codepipeline-api.ArtifactPath
+
+      Returns an ArtifactPath for a file within this artifact. Output is in the form "<artifact-name>::<file-name>"
+
+
+      :param fileName: The name of the file
+      :type fileName: string
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.ArtifactPath`
+
+
+   .. py:method:: getParam(jsonFile, keyName) -> @aws-cdk/aws-codepipeline-api.ArtifactGetParam
+
+      Returns a token for a value inside a JSON file within this artifact.
+
+
+      :param jsonFile: The JSON file name.
+      :type jsonFile: string
+      :param keyName: The hash key.
+      :type keyName: string
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.ArtifactGetParam`
+
+
+   .. py:method:: toString() -> string
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:attribute:: name
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: bucketName
+
+      The artifact attribute for the name of the S3 bucket where the artifact is stored.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ArtifactAttribute` *(readonly)*
+
+
+   .. py:attribute:: objectKey
+
+      The artifact attribute for The name of the .zip file that contains the artifact that is generated by AWS CodePipeline, such as 1ABCyZZ.zip.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ArtifactAttribute` *(readonly)*
+
+
+   .. py:attribute:: url
+
+      The artifact attribute of the Amazon Simple Storage Service (Amazon S3) URL of the artifact, such as https://s3-us-west-2.amazonaws.com/artifactstorebucket-yivczw8jma0c/test/TemplateSo/1ABCyZZ.zip.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ArtifactAttribute` *(readonly)*
+
+
+ArtifactAttribute
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: ArtifactAttribute(artifact, attributeName)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ArtifactAttribute;
+
+      .. code-tab:: javascript
+
+         const { ArtifactAttribute } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { ArtifactAttribute } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param artifact: 
+   :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`
+   :param attributeName: 
+   :type attributeName: string
+
+ArtifactGetParam
+^^^^^^^^^^^^^^^^
+
+.. py:class:: ArtifactGetParam(artifact, jsonFile, keyName)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ArtifactGetParam;
+
+      .. code-tab:: javascript
+
+         const { ArtifactGetParam } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { ArtifactGetParam } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param artifact: 
+   :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`
+   :param jsonFile: 
+   :type jsonFile: string
+   :param keyName: 
+   :type keyName: string
+
+ArtifactPath
+^^^^^^^^^^^^
+
+.. py:class:: ArtifactPath(artifact, fileName)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ArtifactPath;
+
+      .. code-tab:: javascript
+
+         const { ArtifactPath } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { ArtifactPath } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   A specific file within an output artifact.  The most common use case for this is specifying the template file for a CloudFormation action.
+
+
+   :param artifact: 
+   :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`
+   :param fileName: 
+   :type fileName: string
+
+   .. py:attribute:: artifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact` *(readonly)*
+
+
+   .. py:attribute:: fileName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: location
+
+      :type: string *(readonly)*
+
+
+BuildAction
+^^^^^^^^^^^
+
+.. py:class:: BuildAction(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.BuildAction;
+
+      .. code-tab:: javascript
+
+         const { BuildAction } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { BuildAction } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Low level class for build actions. It is recommended that concrete types are used instead, such as {@link codebuild.PipelineBuildAction}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline-api.BuildActionProps`
+
+   .. py:attribute:: artifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact` or undefined *(readonly)*
+
+
+BuildActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BuildActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.BuildActionProps;
+
+      .. code-tab:: javascript
+
+         // BuildActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BuildActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Construction properties of the low level {@link BuildAction build action}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionProps`
+
+
+   .. py:attribute:: inputArtifact
+
+      The source to use as input for this build.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls. For example, a valid provider for Source actions is CodeBuild.
+
+
+      :type: string
+
+
+   .. py:attribute:: artifactName
+
+      The name of the build's output artifact.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or undefined
+
+
+CommonActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CommonActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.CommonActionProps;
+
+      .. code-tab:: javascript
+
+         // CommonActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CommonActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Common properties shared by all Actions.
+
+
+
+
+   .. py:attribute:: stage
+
+      The Pipeline Stage to add this Action to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.IStage`
+
+
+DeployAction
+^^^^^^^^^^^^
+
+.. py:class:: DeployAction(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.DeployAction;
+
+      .. code-tab:: javascript
+
+         const { DeployAction } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { DeployAction } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline-api.DeployActionProps`
+
+DeployActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DeployActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.DeployActionProps;
+
+      .. code-tab:: javascript
+
+         // DeployActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { DeployActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionProps`
+
+
+   .. py:attribute:: provider
+
+      :type: string
+
+
+   .. py:attribute:: artifactBounds
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionArtifactBounds`
+
+
+   .. py:attribute:: configuration
+
+      :type: any or undefined
+
+
+IStage (interface)
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IStage
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.IStage;
+
+      .. code-tab:: javascript
+
+         // IStage is an interface
+
+      .. code-tab:: typescript
+
+         import { IStage } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   The abstract interface of a Pipeline Stage that is used by Actions.
+
+
+
+
+   .. py:attribute:: name
+
+      The physical, human-readable name of this Pipeline Stage.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: pipelineArn
+
+      The ARN of the Pipeline.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Arn` *(readonly)*
+
+
+   .. py:attribute:: pipelineRole
+
+      The service Role of the Pipeline.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` *(readonly)*
+
+
+   .. py:method:: grantPipelineBucketReadWrite(identity)
+
+      Grants read & write permissions to the Pipeline's S3 Bucket to the given Identity.
+
+
+      :param identity: the IAM Identity to grant the permissions to
+      :type identity: :py:class:`@aws-cdk/aws-iam.IPrincipal`
+
+
+SourceAction
+^^^^^^^^^^^^
+
+.. py:class:: SourceAction(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.SourceAction;
+
+      .. code-tab:: javascript
+
+         const { SourceAction } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { SourceAction } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Low-level class for source actions. It is recommended that concrete types are used instead, such as {@link codepipeline.AmazonS3Source} or {@link codecommit.PipelineSource}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline-api.SourceActionProps`
+
+   .. py:attribute:: artifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact` *(readonly)*
+
+
+SourceActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SourceActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.SourceActionProps;
+
+      .. code-tab:: javascript
+
+         // SourceActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { SourceActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Construction properties of the low-level {@link SourceAction source Action}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionProps`
+
+
+   .. py:attribute:: owner
+
+      The source action owner (could be "AWS", "ThirdParty" or "Custom").
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: version
+
+      The source action verison.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: artifactName
+
+      The name of the source's output artifact. Output artifacts are used by CodePipeline as inputs into other actions.
+
+
+      :type: string
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls. For example, a valid provider for Source actions is "S3".
+
+
+      :type: string
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or undefined
+
+

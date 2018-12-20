@@ -1,0 +1,2247 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>@aws-cdk/aws-codecommit &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="@aws-cdk/aws-codedeploy" href="_aws-cdk_aws-codedeploy.html" />
+    <link rel="prev" title="@aws-cdk/aws-codebuild" href="_aws-cdk_aws-codebuild.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_assets.html">&#64;aws-cdk/assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appsync.html">&#64;aws-cdk/aws-appsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-athena.html">&#64;aws-cdk/aws-athena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling.html">&#64;aws-cdk/aws-autoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscalingplans.html">&#64;aws-cdk/aws-autoscalingplans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-batch.html">&#64;aws-cdk/aws-batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-budgets.html">&#64;aws-cdk/aws-budgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-certificatemanager.html">&#64;aws-cdk/aws-certificatemanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloud9.html">&#64;aws-cdk/aws-cloud9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation.html">&#64;aws-cdk/aws-cloudformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudfront.html">&#64;aws-cdk/aws-cloudfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudtrail.html">&#64;aws-cdk/aws-cloudtrail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html">&#64;aws-cdk/aws-cloudwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild.html">&#64;aws-cdk/aws-codebuild</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&#64;aws-cdk/aws-codecommit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws-codecommit-construct-library">AWS CodeCommit Construct Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#codepipeline">CodePipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#events">Events</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-&#64;aws-cdk/aws-codecommit">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#commonpipelinesourceprops-interface">CommonPipelineSourceProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pipelinesource">PipelineSource</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pipelinesourceprops-interface">PipelineSourceProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repository">Repository</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositoryarn">RepositoryArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositorycloneurlhttp">RepositoryCloneUrlHttp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositorycloneurlssh">RepositoryCloneUrlSsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositoryeventtrigger-enum">RepositoryEventTrigger (enum)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositoryid">RepositoryId</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositoryname">RepositoryName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositoryprops-interface">RepositoryProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositoryref">RepositoryRef</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositoryrefprops-interface">RepositoryRefProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#repositorytriggeroptions-interface">RepositoryTriggerOptions (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-&#64;aws-cdk/aws-codecommit.cloudformation">cloudformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy.html">&#64;aws-cdk/aws-codedeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html">&#64;aws-cdk/aws-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline-api.html">&#64;aws-cdk/aws-codepipeline-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cognito.html">&#64;aws-cdk/aws-cognito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-config.html">&#64;aws-cdk/aws-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-datapipeline.html">&#64;aws-cdk/aws-datapipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dax.html">&#64;aws-cdk/aws-dax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-directoryservice.html">&#64;aws-cdk/aws-directoryservice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dms.html">&#64;aws-cdk/aws-dms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dynamodb.html">&#64;aws-cdk/aws-dynamodb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ec2.html">&#64;aws-cdk/aws-ec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecr.html">&#64;aws-cdk/aws-ecr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecs.html">&#64;aws-cdk/aws-ecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-efs.html">&#64;aws-cdk/aws-efs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-eks.html">&#64;aws-cdk/aws-eks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticache.html">&#64;aws-cdk/aws-elasticache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticbeanstalk.html">&#64;aws-cdk/aws-elasticbeanstalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancing.html">&#64;aws-cdk/aws-elasticloadbalancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancingv2.html">&#64;aws-cdk/aws-elasticloadbalancingv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticsearch.html">&#64;aws-cdk/aws-elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-emr.html">&#64;aws-cdk/aws-emr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-events.html">&#64;aws-cdk/aws-events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-gamelift.html">&#64;aws-cdk/aws-gamelift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-glue.html">&#64;aws-cdk/aws-glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-guardduty.html">&#64;aws-cdk/aws-guardduty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iam.html">&#64;aws-cdk/aws-iam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-inspector.html">&#64;aws-cdk/aws-inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot.html">&#64;aws-cdk/aws-iot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesis.html">&#64;aws-cdk/aws-kinesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisanalytics.html">&#64;aws-cdk/aws-kinesisanalytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisfirehose.html">&#64;aws-cdk/aws-kinesisfirehose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kms.html">&#64;aws-cdk/aws-kms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda.html">&#64;aws-cdk/aws-lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-logs.html">&#64;aws-cdk/aws-logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-neptune.html">&#64;aws-cdk/aws-neptune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-opsworks.html">&#64;aws-cdk/aws-opsworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-quickstarts.html">&#64;aws-cdk/aws-quickstarts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-rds.html">&#64;aws-cdk/aws-rds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-redshift.html">&#64;aws-cdk/aws-redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-route53.html">&#64;aws-cdk/aws-route53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3.html">&#64;aws-cdk/aws-s3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3-notifications.html">&#64;aws-cdk/aws-s3-notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sagemaker.html">&#64;aws-cdk/aws-sagemaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sam.html">&#64;aws-cdk/aws-sam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sdb.html">&#64;aws-cdk/aws-sdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicecatalog.html">&#64;aws-cdk/aws-servicecatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicediscovery.html">&#64;aws-cdk/aws-servicediscovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ses.html">&#64;aws-cdk/aws-ses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sns.html">&#64;aws-cdk/aws-sns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sqs.html">&#64;aws-cdk/aws-sqs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ssm.html">&#64;aws-cdk/aws-ssm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-stepfunctions.html">&#64;aws-cdk/aws-stepfunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-waf.html">&#64;aws-cdk/aws-waf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-wafregional.html">&#64;aws-cdk/aws-wafregional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-workspaces.html">&#64;aws-cdk/aws-workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cdk.html">&#64;aws-cdk/cdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cx-api.html">&#64;aws-cdk/cx-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_runtime-values.html">&#64;aws-cdk/runtime-values</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+        
+      <li>&#64;aws-cdk/aws-codecommit</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/refs/_aws-cdk_aws-codecommit.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cdk-aws-codecommit">
+<h1>&#64;aws-cdk/aws-codecommit<a class="headerlink" href="#aws-cdk-aws-codecommit" title="Permalink to this headline">¶</a></h1>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-QyM= active docutils container">
+<p>View in <a class="reference external" href="https://www.nuget.org/packages/Amazon.CDK.AWS.CodeCommit/0.9.1">Nuget</a></p>
+<p><strong>csproj</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">&quot;Amazon.CDK.AWS.CodeCommit&quot;</span> <span class="na">Version=</span><span class="s">&quot;0.9.1&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>dotnet</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">dotnet add package Amazon.CDK.AWS.CodeCommit --version 0.9.1</span>
+</pre></div>
+</div>
+<p><strong>packages.config</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;package</span> <span class="na">id=</span><span class="s">&quot;Amazon.CDK.AWS.CodeCommit&quot;</span> <span class="na">version=</span><span class="s">&quot;0.9.1&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>View in <a class="reference external" href="https://repo1.maven.org/maven2/software/amazon/awscdk/codecommit/0.9.1/">Maven Central</a></p>
+<p><strong>Apache Buildr</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;software.amazon.awscdk:codecommit:jar:0.9.1&#39;
+</pre></div>
+</div>
+<p><strong>Apache Ivy</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency</span> <span class="na">groupId=</span><span class="s">&quot;software.amazon.awscdk&quot;</span> <span class="na">name=</span><span class="s">&quot;codecommit&quot;</span> <span class="na">rev=</span><span class="s">&quot;0.9.1&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>Apache Maven</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>software.amazon.awscdk<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>codecommit<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.9.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>Gradle / Grails</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>compile &#39;software.amazon.awscdk:codecommit:0.9.1&#39;
+</pre></div>
+</div>
+<p><strong>Groovy Grape</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@Grapes(
+@Grab(group=&#39;software.amazon.awscdk&#39;, module=&#39;codecommit&#39;, version=&#39;0.9.1&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-codecommit/v/0.9.1">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-codecommit@0.9.1
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-codecommit&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.9.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-codecommit@0.9.1
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-codecommit/v/0.9.1">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-codecommit@0.9.1
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-codecommit&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.9.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-codecommit@0.9.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="aws-codecommit-construct-library">
+<h2>AWS CodeCommit Construct Library<a class="headerlink" href="#aws-codecommit-construct-library" title="Permalink to this headline">¶</a></h2>
+<p>To add a CodeCommit Repository to your stack:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">codecommit</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">repository</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codecommit</span><span class="p">.</span><span class="nx">Repository</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Repository&#39;</span> <span class="p">,{</span>
+    <span class="nx">repositoryName</span><span class="o">:</span> <span class="s1">&#39;MyRepositoryName&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>To add an SNS trigger to your repository:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">codecommit</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">repository</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codecommit</span><span class="p">.</span><span class="nx">Repository</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Repository&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">repositoryName</span><span class="o">:</span> <span class="s1">&#39;MyRepositoryName&#39;</span>
+<span class="p">});</span>
+
+<span class="c1">// trigger is established for all repository actions on all branches by default.</span>
+<span class="nx">repository</span><span class="p">.</span><span class="nx">notify</span><span class="p">(</span><span class="s1">&#39;arn:aws:sns:*:123456789012:my_topic&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="section" id="codepipeline">
+<h3>CodePipeline<a class="headerlink" href="#codepipeline" title="Permalink to this headline">¶</a></h3>
+<p>To use a CodeCommit Repository in a CodePipeline:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">codecommit</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">codepipeline</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codepipeline&#39;</span><span class="p">);</span>
+
+<span class="c1">// see above for the details...</span>
+<span class="kr">const</span> <span class="nx">repository</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codecommit</span><span class="p">.</span><span class="nx">Repository</span><span class="p">(</span> <span class="c1">// ...</span>
+<span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">pipeline</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">Pipeline</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyPipeline&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">pipelineName</span><span class="o">:</span> <span class="s1">&#39;MyPipeline&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">sourceStage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codepipeline</span><span class="p">.</span><span class="nx">Stage</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Source&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">pipeline</span><span class="p">,</span>
+<span class="p">}));</span>
+<span class="kr">const</span> <span class="nx">sourceAction</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">codecommit</span><span class="p">.</span><span class="nx">PipelineSource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;CodeCommit&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">stage</span>: <span class="kt">sourceStage</span><span class="p">,</span>
+    <span class="nx">artifactName</span><span class="o">:</span> <span class="s1">&#39;SourceOutput&#39;</span><span class="p">,</span> <span class="c1">// name can be arbitrary</span>
+    <span class="nx">repository</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="c1">// use sourceAction.artifact as the inputArtifact to later Actions...</span>
+</pre></div>
+</div>
+<p>You can also add the Repository to the Pipeline directly:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// equivalent to the code above:</span>
+<span class="kr">const</span> <span class="nx">sourceAction</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">addToPipeline</span><span class="p">(</span><span class="nx">sourceStage</span><span class="p">,</span> <span class="s1">&#39;CodeCommit&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">artifactName</span><span class="o">:</span> <span class="s1">&#39;SourceOutput&#39;</span><span class="p">,</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="events">
+<h3>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h3>
+<p>CodeCommit repositories emit CloudWatch events for certain activity.
+Use the <code class="docutils literal notranslate"><span class="pre">repo.onXxx</span></code> methods to define rules that trigger on these events
+and invoke targets as a result:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// starts a CodeBuild project when a commit is pushed to the &quot;master&quot; branch of the repo</span>
+<span class="nx">repo</span><span class="p">.</span><span class="nx">onCommit</span><span class="p">(</span><span class="s1">&#39;CommitToMaster&#39;</span><span class="p">,</span> <span class="nx">project</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span><span class="p">);</span>
+
+<span class="c1">// publishes a message to an SNS topic when a comment is made on a pull request</span>
+<span class="kr">const</span> <span class="nx">rule</span> <span class="o">=</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">onCommentOnPullRequest</span><span class="p">(</span><span class="s1">&#39;CommentOnPullRequest&#39;</span><span class="p">);</span>
+<span class="nx">rule</span><span class="p">.</span><span class="nx">addTarget</span><span class="p">(</span><span class="nx">myTopic</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-codecommit">
+<span id="reference"></span><h2>Reference<a class="headerlink" href="#module-@aws-cdk/aws-codecommit" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="commonpipelinesourceprops-interface">
+<h3>CommonPipelineSourceProps (interface)<a class="headerlink" href="#commonpipelinesourceprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.CommonPipelineSourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">CommonPipelineSourceProps</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.CommonPipelineSourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.CommonPipelineSourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// CommonPipelineSourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CommonPipelineSourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Common properties for creating <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> PipelineSource} - either directly, through its constructor, or through <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> RepositoryRef#addToPipeline}.</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.CommonPipelineSourceProps.artifactName">
+<code class="descname">artifactName</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.CommonPipelineSourceProps.artifactName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the source’s output artifact. Output artifacts are used by CodePipeline as inputs into other actions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.CommonPipelineSourceProps.branch">
+<code class="descname">branch</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.CommonPipelineSourceProps.branch" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.CommonPipelineSourceProps.pollForSourceChanges">
+<code class="descname">pollForSourceChanges</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.CommonPipelineSourceProps.pollForSourceChanges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not AWS CodePipeline should poll for source changes.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pipelinesource">
+<h3>PipelineSource<a class="headerlink" href="#pipelinesource" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.PipelineSource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">PipelineSource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.PipelineSource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.PipelineSource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">PipelineSource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">PipelineSource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>CodePipeline Source that is provided by an AWS CodeCommit repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_aws-codepipeline-api.html#&#64;aws-cdk/aws-codepipeline-api.SourceAction" title="&#64;aws-cdk/aws-codepipeline-api.SourceAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline-api.SourceAction</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.PipelineSourceProps" title="&#64;aws-cdk/aws-codecommit.PipelineSourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineSourceProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="pipelinesourceprops-interface">
+<h3>PipelineSourceProps (interface)<a class="headerlink" href="#pipelinesourceprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.PipelineSourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">PipelineSourceProps</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.PipelineSourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.PipelineSourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// PipelineSourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">PipelineSourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Construction properties of the <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> PipelineSource CodeCommit source CodePipeline Action}.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.CommonPipelineSourceProps" title="&#64;aws-cdk/aws-codecommit.CommonPipelineSourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommonPipelineSourceProps</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-codepipeline-api.html#&#64;aws-cdk/aws-codepipeline-api.CommonActionProps" title="&#64;aws-cdk/aws-codepipeline-api.CommonActionProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline-api.CommonActionProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.PipelineSourceProps.repository">
+<code class="descname">repository</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.PipelineSourceProps.repository" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CodeCommit repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryRef" title="&#64;aws-cdk/aws-codecommit.RepositoryRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryRef</span></code></a> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="repository">
+<h3>Repository<a class="headerlink" href="#repository" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.Repository">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">Repository</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.Repository" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.Repository</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">Repository</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Repository</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Provides a CodeCommit Repository</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryRef" title="&#64;aws-cdk/aws-codecommit.RepositoryRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryRef</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryProps" title="&#64;aws-cdk/aws-codecommit.RepositoryProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.Repository.notify">
+<code class="descname">notify</code><span class="sig-paren">(</span><em>arn</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-codecommit.Repository<a class="headerlink" href="#@aws-cdk/aws-codecommit.Repository.notify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a trigger to notify another service to run actions on repository events.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>arn</strong> (<em>string</em>) – Arn of the resource that repository events will notify</li>
+<li><strong>options</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryTriggerOptions" title="&#64;aws-cdk/aws-codecommit.RepositoryTriggerOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryTriggerOptions</span></code></a> or undefined) – Trigger options to run actions</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.Repository" title="&#64;aws-cdk/aws-codecommit.Repository"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repository</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.Repository.repositoryArn">
+<code class="descname">repositoryArn</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.Repository.repositoryArn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ARN of this Repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryArn" title="&#64;aws-cdk/aws-codecommit.RepositoryArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.Repository.repositoryCloneUrlHttp">
+<code class="descname">repositoryCloneUrlHttp</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.Repository.repositoryCloneUrlHttp" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlHttp" title="&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlHttp"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryCloneUrlHttp</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.Repository.repositoryCloneUrlSsh">
+<code class="descname">repositoryCloneUrlSsh</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.Repository.repositoryCloneUrlSsh" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlSsh" title="&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlSsh"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryCloneUrlSsh</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.Repository.repositoryName">
+<code class="descname">repositoryName</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.Repository.repositoryName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The human-visible name of this Repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryName" title="&#64;aws-cdk/aws-codecommit.RepositoryName"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="repositoryarn">
+<h3>RepositoryArn<a class="headerlink" href="#repositoryarn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryArn</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">RepositoryArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="repositorycloneurlhttp">
+<h3>RepositoryCloneUrlHttp<a class="headerlink" href="#repositorycloneurlhttp" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlHttp">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryCloneUrlHttp</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryCloneUrlHttp" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryCloneUrlHttp</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">RepositoryCloneUrlHttp</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryCloneUrlHttp</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="repositorycloneurlssh">
+<h3>RepositoryCloneUrlSsh<a class="headerlink" href="#repositorycloneurlssh" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlSsh">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryCloneUrlSsh</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryCloneUrlSsh" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryCloneUrlSsh</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">RepositoryCloneUrlSsh</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryCloneUrlSsh</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="repositoryeventtrigger-enum">
+<h3>RepositoryEventTrigger (enum)<a class="headerlink" href="#repositoryeventtrigger-enum" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryEventTrigger">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryEventTrigger</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryEventTrigger" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryEventTrigger</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">RepositoryEventTrigger</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryEventTrigger</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Repository events that will cause the trigger to run actions in another service.</p>
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryEventTrigger.All">
+<code class="descname">All</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryEventTrigger.All" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryEventTrigger.UpdateRef">
+<code class="descname">UpdateRef</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryEventTrigger.UpdateRef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryEventTrigger.CreateRef">
+<code class="descname">CreateRef</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryEventTrigger.CreateRef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryEventTrigger.DeleteRef">
+<code class="descname">DeleteRef</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryEventTrigger.DeleteRef" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="repositoryid">
+<h3>RepositoryId<a class="headerlink" href="#repositoryid" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryId">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryId</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryId" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryId</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">RepositoryId</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryId</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="repositoryname">
+<h3>RepositoryName<a class="headerlink" href="#repositoryname" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryName">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryName</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryName" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryName</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">RepositoryName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="repositoryprops-interface">
+<h3>RepositoryProps (interface)<a class="headerlink" href="#repositoryprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryProps</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// RepositoryProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryProps.repositoryName">
+<code class="descname">repositoryName</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryProps.repositoryName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of the repository. This property is required for all repositories.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryProps.description">
+<code class="descname">description</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryProps.description" title="Permalink to this definition">¶</a></dt>
+<dd><p>A description of the repository. Use the description to identify the purpose of the repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="repositoryref">
+<h3>RepositoryRef<a class="headerlink" href="#repositoryref" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryRef</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryRef</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">RepositoryRef</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryRef</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Represents a reference to a CodeCommit Repository.  If you want to create a new Repository managed alongside your CDK code, use the <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> Repository} class.  If you want to reference an already existing Repository, use the <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> RepositoryRef.import} method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Abstract:</th><td class="field-body"><p class="first">Yes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – The parent construct</li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.import">
+<em class="property">static </em><code class="descname">import</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-codecommit.RepositoryRef<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.import" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import a Repository defined either outside the CDK, or in a different Stack (exported with the <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> export} method).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the parent Construct for the Repository</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the Repository Construct</li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryRefProps" title="&#64;aws-cdk/aws-codecommit.RepositoryRefProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryRefProps</span></code></a>) – the properties used to identify the existing Repository</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">a reference to the existing Repository</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryRef" title="&#64;aws-cdk/aws-codecommit.RepositoryRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryRef</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.addToPipeline">
+<code class="descname">addToPipeline</code><span class="sig-paren">(</span><em>stage</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-codecommit.PipelineSource<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.addToPipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience method for creating a new <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> PipelineSource} Action, and adding it to the given Stage.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>stage</strong> (<a class="reference internal" href="_aws-cdk_aws-codepipeline-api.html#&#64;aws-cdk/aws-codepipeline-api.IStage" title="&#64;aws-cdk/aws-codepipeline-api.IStage"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-codepipeline-api.IStage</span></code></a>) – the Pipeline Stage to add the new Action to</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the newly created Action</li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.CommonPipelineSourceProps" title="&#64;aws-cdk/aws-codecommit.CommonPipelineSourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CommonPipelineSourceProps</span></code></a>) – the properties of the new Action</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">the newly created <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> PipelineSource} Action</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.PipelineSource" title="&#64;aws-cdk/aws-codecommit.PipelineSource"><code class="xref py py-class docutils literal notranslate"><span class="pre">PipelineSource</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.export">
+<code class="descname">export</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-codecommit.RepositoryRefProps<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exports this Repository. Allows the same Repository to be used in 2 different Stacks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryRefProps" title="&#64;aws-cdk/aws-codecommit.RepositoryRefProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryRefProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onCommentOnCommit">
+<code class="descname">onCommentOnCommit</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onCommentOnCommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers when a comment is made on a commit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – </li>
+<li><strong>options</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleProps" title="&#64;aws-cdk/aws-events.EventRuleProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onCommentOnPullRequest">
+<code class="descname">onCommentOnPullRequest</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onCommentOnPullRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers when a comment is made on a pull request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – </li>
+<li><strong>options</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleProps" title="&#64;aws-cdk/aws-events.EventRuleProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onCommit">
+<code class="descname">onCommit</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>branch</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onCommit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers when a commit is pushed to a branch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – The target of the event</li>
+<li><strong>branch</strong> (<em>string</em><em> or </em><em>undefined</em>) – The branch to monitor. Defaults to all branches.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onEvent">
+<code class="descname">onEvent</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers for repository events. Use <cite>rule.addEventPattern(pattern)</cite> to specify a filter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – </li>
+<li><strong>options</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleProps" title="&#64;aws-cdk/aws-events.EventRuleProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onPullRequestStateChange">
+<code class="descname">onPullRequestStateChange</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onPullRequestStateChange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers when a pull request state is changed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – </li>
+<li><strong>options</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleProps" title="&#64;aws-cdk/aws-events.EventRuleProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onReferenceCreated">
+<code class="descname">onReferenceCreated</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onReferenceCreated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers when a reference is created (i.e. a new brach/tag is created) to the repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – </li>
+<li><strong>options</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleProps" title="&#64;aws-cdk/aws-events.EventRuleProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onReferenceDeleted">
+<code class="descname">onReferenceDeleted</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onReferenceDeleted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers when a reference is delete (i.e. a branch/tag is deleted) from the repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – </li>
+<li><strong>options</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleProps" title="&#64;aws-cdk/aws-events.EventRuleProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onReferenceUpdated">
+<code class="descname">onReferenceUpdated</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onReferenceUpdated" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers when a reference is updated (i.e. a commit is pushed to an existig branch) from the repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – </li>
+<li><strong>options</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleProps" title="&#64;aws-cdk/aws-events.EventRuleProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.onStateChange">
+<code class="descname">onStateChange</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>target</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-events.EventRule<a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.onStateChange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a CloudWatch event rule which triggers when a “CodeCommit Repository State Change” event occurs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>target</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a> or undefined) – </li>
+<li><strong>options</strong> (<a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleProps" title="&#64;aws-cdk/aws-events.EventRuleProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRule" title="&#64;aws-cdk/aws-events.EventRule"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRule</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.repositoryArn">
+<code class="descname">repositoryArn</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.repositoryArn" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ARN of this Repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryArn" title="&#64;aws-cdk/aws-codecommit.RepositoryArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryArn</span></code></a> <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRef.repositoryName">
+<code class="descname">repositoryName</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRef.repositoryName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The human-visible name of this Repository.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryName" title="&#64;aws-cdk/aws-codecommit.RepositoryName"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryName</span></code></a> <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="repositoryrefprops-interface">
+<h3>RepositoryRefProps (interface)<a class="headerlink" href="#repositoryrefprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRefProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryRefProps</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRefProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryRefProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// RepositoryRefProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryRefProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Properties for the <a class="reference external" href="mailto:{&#37;&#52;&#48;link">{<span>&#64;</span>link</a> RepositoryRef.import} method.</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryRefProps.repositoryName">
+<code class="descname">repositoryName</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryRefProps.repositoryName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of an existing CodeCommit Repository that we are referencing. Must be in the same account and region as the root Stack.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryName" title="&#64;aws-cdk/aws-codecommit.RepositoryName"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryName</span></code></a> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="repositorytriggeroptions-interface">
+<h3>RepositoryTriggerOptions (interface)<a class="headerlink" href="#repositorytriggeroptions-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryTriggerOptions">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.</code><code class="descname">RepositoryTriggerOptions</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryTriggerOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.RepositoryTriggerOptions</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// RepositoryTriggerOptions is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">RepositoryTriggerOptions</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Creates for a repository trigger to an SNS topic or Lambda function.</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryTriggerOptions.branches">
+<code class="descname">branches</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryTriggerOptions.branches" title="Permalink to this definition">¶</a></dt>
+<dd><p>The names of the branches in the AWS CodeCommit repository that contain events that you want to include in the trigger. If you don’t specify at least one branch, the trigger applies to all branches.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string[] or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryTriggerOptions.customData">
+<code class="descname">customData</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryTriggerOptions.customData" title="Permalink to this definition">¶</a></dt>
+<dd><p>When an event is triggered, additional information that AWS CodeCommit includes when it sends information to the target.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryTriggerOptions.events">
+<code class="descname">events</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryTriggerOptions.events" title="Permalink to this definition">¶</a></dt>
+<dd><p>The repository events for which AWS CodeCommit sends information to the target, which you specified in the DestinationArn property.If you don’t specify events, the trigger runs for all repository events.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">:py:class:<a href="#id2"><span class="problematic" id="id3">`</span></a><a class="reference external" href="mailto:~&#37;&#52;&#48;aws-cdk/aws-codecommit">~<span>&#64;</span>aws-cdk/aws-codecommit</a>.RepositoryEventTrigger`[] or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.RepositoryTriggerOptions.name">
+<code class="descname">name</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.RepositoryTriggerOptions.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A name for the trigger.Triggers on a repository must have unique names</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-codecommit.cloudformation">
+<span id="cloudformation"></span><h3>cloudformation<a class="headerlink" href="#module-@aws-cdk/aws-codecommit.cloudformation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="repositoryresource">
+<h4>RepositoryResource<a class="headerlink" href="#repositoryresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.cloudformation.</code><code class="descname">RepositoryResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.cloudformation.RepositoryResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">RepositoryResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">RepositoryResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">RepositoryResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps" title="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">RepositoryResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string =&gt; any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.ref">
+<code class="descname">ref</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.ref" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryId" title="&#64;aws-cdk/aws-codecommit.RepositoryId"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryId</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.repositoryArn">
+<code class="descname">repositoryArn</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.repositoryArn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryArn" title="&#64;aws-cdk/aws-codecommit.RepositoryArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.repositoryCloneUrlHttp">
+<code class="descname">repositoryCloneUrlHttp</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.repositoryCloneUrlHttp" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlHttp" title="&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlHttp"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryCloneUrlHttp</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.repositoryCloneUrlSsh">
+<code class="descname">repositoryCloneUrlSsh</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.repositoryCloneUrlSsh" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlSsh" title="&#64;aws-cdk/aws-codecommit.RepositoryCloneUrlSsh"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryCloneUrlSsh</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.repositoryName">
+<code class="descname">repositoryName</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.repositoryName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.RepositoryName" title="&#64;aws-cdk/aws-codecommit.RepositoryName"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty">
+<em class="property">class </em><code class="descname">RepositoryTriggerProperty</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.RepositoryResource.RepositoryTriggerProperty is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">RepositoryResource</span><span class="p">.</span><span class="nx">RepositoryTriggerProperty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.branches">
+<code class="descname">branches</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.branches" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">RepositoryResource.RepositoryTriggerProperty.Branches</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-branches">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-branches</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a>)[] or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.customData">
+<code class="descname">customData</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.customData" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">RepositoryResource.RepositoryTriggerProperty.CustomData</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-customdata">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-customdata</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.destinationArn">
+<code class="descname">destinationArn</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.destinationArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">RepositoryResource.RepositoryTriggerProperty.DestinationArn</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-destinationarn">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-destinationarn</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.events">
+<code class="descname">events</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.events" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">RepositoryResource.RepositoryTriggerProperty.Events</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-events">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-events</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a>)[] or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.name">
+<code class="descname">name</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">RepositoryResource.RepositoryTriggerProperty.Name</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-name">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-name</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="repositoryresourceprops-interface">
+<h4>RepositoryResourceProps (interface)<a class="headerlink" href="#repositoryresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-codecommit.cloudformation.</code><code class="descname">RepositoryResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.CodeCommit</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.codecommit.cloudformation.RepositoryResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.RepositoryResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">RepositoryResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-codecommit&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps.repositoryName">
+<code class="descname">repositoryName</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps.repositoryName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CodeCommit::Repository.RepositoryName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositoryname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositoryname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps.repositoryDescription">
+<code class="descname">repositoryDescription</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps.repositoryDescription" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CodeCommit::Repository.RepositoryDescription</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositorydescription">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositorydescription</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps.triggers">
+<code class="descname">triggers</code><a class="headerlink" href="#@aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps.triggers" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CodeCommit::Repository.Triggers</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-triggers">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-triggers</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty" title="&#64;aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">RepositoryTriggerProperty</span></code></a>)[] or undefined <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_aws-cdk_aws-codedeploy.html" class="btn btn-neutral float-right" title="@aws-cdk/aws-codedeploy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_aws-cdk_aws-codebuild.html" class="btn btn-neutral" title="@aws-cdk/aws-codebuild" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.9.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

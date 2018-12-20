@@ -1,0 +1,336 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"rdA+k8DJhr3nUTEGb6B2KLxPjmLs3rA3iDwXxmlTHFU="}
+
+@aws-cdk/aws-quickstarts
+========================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/quickstarts/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:quickstarts:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="quickstarts" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>quickstarts</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:quickstarts:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='quickstarts', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-quickstarts/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-quickstarts@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-quickstarts": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-quickstarts@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-quickstarts/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-quickstarts@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-quickstarts": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-quickstarts@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-quickstarts.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-quickstarts
+
+RemoteDesktopGateway
+^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RemoteDesktopGateway(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.quickstarts.RemoteDesktopGateway;
+
+      .. code-tab:: javascript
+
+         const { RemoteDesktopGateway } = require('@aws-cdk/aws-quickstarts');
+
+      .. code-tab:: typescript
+
+         import { RemoteDesktopGateway } from '@aws-cdk/aws-quickstarts';
+
+
+
+   Embed the Remote Desktop Gateway AWS QuickStart
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-ec2.IDefaultConnectable`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-quickstarts.RemoteDesktopGatewayProps`
+
+   .. py:attribute:: connections
+
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)*
+
+
+   .. py:attribute:: defaultPortRange
+
+      :type: :py:class:`@aws-cdk/aws-ec2.IPortRange` *(readonly)*
+
+
+RemoteDesktopGatewayProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RemoteDesktopGatewayProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.quickstarts.RemoteDesktopGatewayProps;
+
+      .. code-tab:: javascript
+
+         // RemoteDesktopGatewayProps is an interface
+
+      .. code-tab:: typescript
+
+         import { RemoteDesktopGatewayProps } from '@aws-cdk/aws-quickstarts';
+
+
+
+
+
+   .. py:attribute:: rdgwCIDR
+
+      :type: string
+
+
+   .. py:attribute:: vpc
+
+      :type: :py:class:`@aws-cdk/aws-ec2.VpcNetworkRef`
+
+
+   .. py:attribute:: keyPairName
+
+      :type: string
+
+
+   .. py:attribute:: adminPassword
+
+      :type: string
+
+
+   .. py:attribute:: adminUser
+
+      :type: string or undefined
+
+
+   .. py:attribute:: domainDNSName
+
+      :type: string or undefined
+
+
+   .. py:attribute:: numberOfRDGWHosts
+
+      :type: number or undefined
+
+
+   .. py:attribute:: qss3BucketName
+
+      :type: string or undefined
+
+
+   .. py:attribute:: qss3KeyPrefix
+
+      :type: string or undefined
+
+
+   .. py:attribute:: rdgwInstanceType
+
+      :type: string or undefined
+
+
+SqlServer
+^^^^^^^^^
+
+.. py:class:: SqlServer(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.quickstarts.SqlServer;
+
+      .. code-tab:: javascript
+
+         const { SqlServer } = require('@aws-cdk/aws-quickstarts');
+
+      .. code-tab:: typescript
+
+         import { SqlServer } from '@aws-cdk/aws-quickstarts';
+
+
+
+   An instance of Microsoft SQL server with associated security groups
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-ec2.IConnectable`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-quickstarts.SqlServerProps`
+
+   .. py:attribute:: connections
+
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)*
+
+
+   .. py:attribute:: defaultPortRange
+
+      :type: :py:class:`@aws-cdk/aws-ec2.IPortRange` *(readonly)*
+
+
+SqlServerProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SqlServerProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.quickstarts.SqlServerProps;
+
+      .. code-tab:: javascript
+
+         // SqlServerProps is an interface
+
+      .. code-tab:: typescript
+
+         import { SqlServerProps } from '@aws-cdk/aws-quickstarts';
+
+
+
+
+
+   .. py:attribute:: instanceClass
+
+      :type: string or undefined
+
+
+   .. py:attribute:: engine
+
+      :type: string or undefined
+
+
+   .. py:attribute:: engineVersion
+
+      :type: string or undefined
+
+
+   .. py:attribute:: licenseModel
+
+      :type: string or undefined
+
+
+   .. py:attribute:: masterUsername
+
+      :type: string
+
+
+   .. py:attribute:: masterPassword
+
+      :type: string
+
+
+   .. py:attribute:: allocatedStorage
+
+      :type: number or undefined
+
+
+   .. py:attribute:: vpc
+
+      :type: :py:class:`@aws-cdk/aws-ec2.VpcNetworkRef`
+
+

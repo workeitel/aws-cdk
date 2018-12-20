@@ -1,0 +1,2155 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"ISlAWdz/5tcZmpbfhTGvFDFQPzSdDvocaBfXRtgk7os="}
+
+@aws-cdk/aws-events
+===================
+
+.. mdinclude:: ./__aws-cdk_aws-events.README.md
+
+Reference
+---------
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.Events/0.9.2>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.Events" Version="0.9.2" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.Events --version 0.9.2
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.Events" version="0.9.2" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/events/0.9.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:events:jar:0.9.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="events" rev="0.9.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>events</artifactId>
+           <version>0.9.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:events:0.9.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='events', version='0.9.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-events/v/0.9.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-events@0.9.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-events": "^0.9.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-events@0.9.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-events/v/0.9.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-events@0.9.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-events": "^0.9.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-events@0.9.2
+
+
+
+.. py:module:: @aws-cdk/aws-events
+
+EventPattern (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EventPattern
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.EventPattern;
+
+      .. code-tab:: javascript
+
+         // EventPattern is an interface
+
+      .. code-tab:: typescript
+
+         import { EventPattern } from '@aws-cdk/aws-events';
+
+
+
+   Events in Amazon CloudWatch Events are represented as JSON objects. For more information about JSON objects, see RFC 7159.  Rules use event patterns to select events and route them to targets. A pattern either matches an event or it doesn't. Event patterns are represented as JSON objects with a structure that is similar to that of events, for example:  It is important to remember the following about event pattern matching:  - For a pattern to match an event, the event must contain all the field names    listed in the pattern. The field names must appear in the event with the    same nesting structure.  - Other fields of the event not mentioned in the pattern are ignored;    effectively, there is a ``"*": "*"`` wildcard for fields not mentioned.  - The matching is exact (character-by-character), without case-folding or any    other string normalization.  - The values being matched follow JSON rules: Strings enclosed in quotes,    numbers, and the unquoted keywords true, false, and null.  - Number matching is at the string representation level. For example, 300,    300.0, and 3.0e2 are not considered equal.
+
+
+
+
+   .. py:attribute:: account
+
+      The 12-digit number identifying an AWS account.
+
+
+      :type: string[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: detail
+
+      A JSON object, whose content is at the discretion of the service originating the event.
+
+
+      :type: any or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: detailType
+
+      Identifies, in combination with the source field, the fields and values that appear in the detail field.  Represents the "detail-type" event field.
+
+
+      :type: string[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: id
+
+      A unique value is generated for every event. This can be helpful in tracing events as they move through rules to targets, and are processed.
+
+
+      :type: string[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: region
+
+      Identifies the AWS region where the event originated.
+
+
+      :type: string[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: resources
+
+      This JSON array contains ARNs that identify resources that are involved in the event. Inclusion of these ARNs is at the discretion of the service.  For example, Amazon EC2 instance state-changes include Amazon EC2 instance ARNs, Auto Scaling events include ARNs for both instances and Auto Scaling groups, but API calls with AWS CloudTrail do not include resource ARNs.
+
+
+      :type: string[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: source
+
+      Identifies the service that sourced the event. All events sourced from within AWS begin with "aws." Customer-generated events can have any value here, as long as it doesn't begin with "aws." We recommend the use of Java package-name style reverse domain-name strings.  To find the correct value for source for an AWS service, see the table in AWS Service Namespaces. For example, the source value for Amazon CloudFront is aws.cloudfront.
+
+
+      :type: string[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: time
+
+      The event timestamp, which can be specified by the service originating the event. If the event spans a time interval, the service might choose to report the start time, so this value can be noticeably before the time the event is actually received.
+
+
+      :type: string[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: version
+
+      By default, this is set to 0 (zero) in all events.
+
+
+      :type: string[] or ``undefined`` *(abstract)*
+
+
+EventRule
+^^^^^^^^^
+
+.. py:class:: EventRule(parent, name, [props])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.EventRule;
+
+      .. code-tab:: javascript
+
+         const { EventRule } = require('@aws-cdk/aws-events');
+
+      .. code-tab:: typescript
+
+         import { EventRule } from '@aws-cdk/aws-events';
+
+
+
+   Defines a CloudWatch Event Rule in this stack.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-events.EventRuleRef`\ 
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-events.EventRuleProps`\  or ``undefined``
+
+   .. py:method:: addEventPattern([eventPattern])
+
+      Adds an event pattern filter to this rule. If a pattern was already specified, these values are merged into the existing pattern.  For example, if the rule already contains the pattern:        {           "resources": [ "r1" ],           "detail": {               "hello": [ 1 ]           }       }  And `addEventPattern` is called with the pattern:        {           "resources": [ "r2" ],           "detail": {               "foo": [ "bar" ]           }       }  The resulting event pattern will be:        {           "resources": [ "r1", "r2" ],           "detail": {               "hello": [ 1 ],               "foo": [ "bar" ]           }       }
+
+
+      :param eventPattern: 
+      :type eventPattern: :py:class:`~@aws-cdk/aws-events.EventPattern`\  or ``undefined``
+
+
+   .. py:method:: addTarget([target, [inputOptions]])
+
+      Adds a target to the rule. The abstract class RuleTarget can be extended to define new targets.  No-op if target is undefined.
+
+
+      :param target: 
+      :type target: :py:class:`~@aws-cdk/aws-events.IEventRuleTarget`\  or ``undefined``
+      :param inputOptions: 
+      :type inputOptions: :py:class:`~@aws-cdk/aws-events.TargetInputTemplate`\  or ``undefined``
+
+
+   .. py:method:: validate() -> string[]
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Construct.validate`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string[]
+
+
+   .. py:attribute:: ruleArn
+
+      *Implements* :py:meth:`@aws-cdk/aws-events.EventRuleRef.ruleArn`
+
+      The value of the event rule Amazon Resource Name (ARN), such as arn:aws:events:us-east-2:123456789012:rule/example.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: export() -> @aws-cdk/aws-events.EventRuleRefProps
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-events.EventRuleRef <@aws-cdk/aws-events.EventRuleRef.export>`
+
+      Exports this rule resource from this stack and returns an import token.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-events.EventRuleRefProps`\ 
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+EventRuleProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EventRuleProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.EventRuleProps;
+
+      .. code-tab:: javascript
+
+         // EventRuleProps is an interface
+
+      .. code-tab:: typescript
+
+         import { EventRuleProps } from '@aws-cdk/aws-events';
+
+
+
+
+
+   .. py:attribute:: description
+
+      A description of the rule's purpose.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: enabled
+
+      Indicates whether the rule is enabled.
+
+
+      :type: boolean or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: eventPattern
+
+      Describes which events CloudWatch Events routes to the specified target. These routed events are matched events. For more information, see Events and Event Patterns in the Amazon CloudWatch User Guide.
+
+
+      :type: :py:class:`~@aws-cdk/aws-events.EventPattern`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: ruleName
+
+      A name for the rule. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the rule name. For more information, see Name Type.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: scheduleExpression
+
+      The schedule or rate (frequency) that determines when CloudWatch Events runs the rule. For more information, see Schedule Expression Syntax for Rules in the Amazon CloudWatch User Guide.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: targets
+
+      Targets to invoke when this rule matches an event.  Input will be the full matched event. If you wish to specify custom target input, use `addTarget(target[, inputOptions])`.
+
+
+      :type: :py:class:`~@aws-cdk/aws-events.IEventRuleTarget`\ [] or ``undefined`` *(abstract)*
+
+
+EventRuleRef
+^^^^^^^^^^^^
+
+.. py:class:: EventRuleRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.EventRuleRef;
+
+      .. code-tab:: javascript
+
+         const { EventRuleRef } = require('@aws-cdk/aws-events');
+
+      .. code-tab:: typescript
+
+         import { EventRuleRef } from '@aws-cdk/aws-events';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-events.EventRuleRef
+
+      Imports a rule by ARN into this stack.
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param name: 
+      :type name: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-events.EventRuleRefProps`\ 
+      :rtype: :py:class:`~@aws-cdk/aws-events.EventRuleRef`\ 
+
+
+   .. py:method:: export() -> @aws-cdk/aws-events.EventRuleRefProps
+
+      Exports this rule resource from this stack and returns an import token.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-events.EventRuleRefProps`\ 
+
+
+   .. py:attribute:: ruleArn
+
+      The value of the event rule Amazon Resource Name (ARN), such as arn:aws:events:us-east-2:123456789012:rule/example.
+
+
+      :type: string *(readonly)* *(abstract)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+EventRuleRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EventRuleRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.EventRuleRefProps;
+
+      .. code-tab:: javascript
+
+         // EventRuleRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { EventRuleRefProps } from '@aws-cdk/aws-events';
+
+
+
+
+
+   .. py:attribute:: eventRuleArn
+
+      The value of the event rule Amazon Resource Name (ARN), such as arn:aws:events:us-east-2:123456789012:rule/example.
+
+
+      :type: string *(abstract)*
+
+
+EventRuleTargetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EventRuleTargetProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.EventRuleTargetProps;
+
+      .. code-tab:: javascript
+
+         // EventRuleTargetProps is an interface
+
+      .. code-tab:: typescript
+
+         import { EventRuleTargetProps } from '@aws-cdk/aws-events';
+
+
+
+
+
+   .. py:attribute:: arn
+
+      The Amazon Resource Name (ARN) of the target.
+
+
+      :type: string *(abstract)*
+
+
+   .. py:attribute:: id
+
+      A unique, user-defined identifier for the target. Acceptable values include alphanumeric characters, periods (.), hyphens (-), and underscores (_).
+
+
+      :type: string *(abstract)*
+
+
+   .. py:attribute:: ecsParameters
+
+      The Amazon ECS task definition and task count to use, if the event target is an Amazon ECS task.
+
+
+      :type: :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.EcsParametersProperty`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: kinesisParameters
+
+      Settings that control shard assignment, when the target is a Kinesis stream. If you don't include this parameter, eventId is used as the partition key.
+
+
+      :type: :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.KinesisParametersProperty`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: roleArn
+
+      The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to use for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: runCommandParameters
+
+      Parameters used when the rule invokes Amazon EC2 Systems Manager Run Command.
+
+
+      :type: :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.RunCommandParametersProperty`\  or ``undefined`` *(abstract)*
+
+
+IEventRuleTarget (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IEventRuleTarget
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.IEventRuleTarget;
+
+      .. code-tab:: javascript
+
+         // IEventRuleTarget is an interface
+
+      .. code-tab:: typescript
+
+         import { IEventRuleTarget } from '@aws-cdk/aws-events';
+
+
+
+   An abstract target for EventRules.
+
+
+
+
+   .. py:method:: asEventRuleTarget(ruleArn, ruleUniqueId) -> @aws-cdk/aws-events.EventRuleTargetProps
+
+      Returns the rule target specification. NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
+
+
+      :param ruleArn: The ARN of the CloudWatch Event Rule that would trigger this target.
+      :type ruleArn: string
+      :param ruleUniqueId: A unique ID for this rule. Can be used to implement idempotency.
+      :type ruleUniqueId: string
+      :rtype: :py:class:`~@aws-cdk/aws-events.EventRuleTargetProps`\ 
+      :abstract: Yes
+
+
+TargetInputTemplate (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TargetInputTemplate
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.TargetInputTemplate;
+
+      .. code-tab:: javascript
+
+         // TargetInputTemplate is an interface
+
+      .. code-tab:: typescript
+
+         import { TargetInputTemplate } from '@aws-cdk/aws-events';
+
+
+
+   Specifies settings that provide custom input to an Amazon CloudWatch Events rule target based on certain event data.
+
+
+
+
+   .. py:attribute:: jsonTemplate
+
+      Input template where you can use the values of the keys from inputPathsMap to customize the data sent to the target. Enclose each InputPathsMaps value in brackets: <value>  This option is mutually exclusive with `textTemplate`.
+
+
+      :type: any or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: pathsMap
+
+      Map of JSON paths to be extracted from the event. These are key-value pairs, where each value is a JSON path. You must use JSON dot notation, not bracket notation.
+
+
+      :type: string => string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: textTemplate
+
+      Input template where you can use the values of the keys from inputPathsMap to customize the data sent to the target. Enclose each InputPathsMaps value in brackets: <value>  The value passed here will be double-quoted to indicate it's a string value. This option is mutually exclusive with `jsonTemplate`.
+
+
+      :type: any or ``undefined`` *(abstract)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-events.cloudformation
+
+RuleResource
+~~~~~~~~~~~~
+
+.. py:class:: RuleResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.cloudformation.RuleResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.RuleResource } = require('@aws-cdk/aws-events');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.RuleResource } from '@aws-cdk/aws-events';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``RuleResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``RuleResource``
+   :type properties: :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResourceProps`\  or ``undefined``
+
+   .. py:method:: renderProperties() -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :rtype: string => (any or ``undefined``)
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ruleArn
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: ruleId
+
+      :type: string *(readonly)*
+
+   .. py:class:: EcsParametersProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.Events;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.events.cloudformation.RuleResource.EcsParametersProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.RuleResource.EcsParametersProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.RuleResource.EcsParametersProperty } from '@aws-cdk/aws-events';
+
+
+
+
+
+      .. py:attribute:: taskDefinitionArn
+
+         ``RuleResource.EcsParametersProperty.TaskDefinitionArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-taskdefinitionarn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: taskCount
+
+         ``RuleResource.EcsParametersProperty.TaskCount``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-ecsparameters.html#cfn-events-rule-ecsparameters-taskcount
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:class:: InputTransformerProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.Events;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.events.cloudformation.RuleResource.InputTransformerProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.RuleResource.InputTransformerProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.RuleResource.InputTransformerProperty } from '@aws-cdk/aws-events';
+
+
+
+
+
+      .. py:attribute:: inputTemplate
+
+         ``RuleResource.InputTransformerProperty.InputTemplate``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.html#cfn-events-rule-inputtransformer-inputtemplate
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: inputPathsMap
+
+         ``RuleResource.InputTransformerProperty.InputPathsMap``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.html#cfn-events-rule-inputtransformer-inputpathsmap
+
+
+         :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or string => (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\ ) or ``undefined`` *(abstract)*
+
+
+   .. py:class:: KinesisParametersProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.Events;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.events.cloudformation.RuleResource.KinesisParametersProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.RuleResource.KinesisParametersProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.RuleResource.KinesisParametersProperty } from '@aws-cdk/aws-events';
+
+
+
+
+
+      .. py:attribute:: partitionKeyPath
+
+         ``RuleResource.KinesisParametersProperty.PartitionKeyPath``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-kinesisparameters.html#cfn-events-rule-kinesisparameters-partitionkeypath
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:class:: RunCommandParametersProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.Events;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.events.cloudformation.RuleResource.RunCommandParametersProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.RuleResource.RunCommandParametersProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.RuleResource.RunCommandParametersProperty } from '@aws-cdk/aws-events';
+
+
+
+
+
+      .. py:attribute:: runCommandTargets
+
+         ``RuleResource.RunCommandParametersProperty.RunCommandTargets``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandparameters.html#cfn-events-rule-runcommandparameters-runcommandtargets
+
+
+         :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.RunCommandTargetProperty`\ )[] *(abstract)*
+
+
+   .. py:class:: RunCommandTargetProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.Events;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.events.cloudformation.RuleResource.RunCommandTargetProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.RuleResource.RunCommandTargetProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.RuleResource.RunCommandTargetProperty } from '@aws-cdk/aws-events';
+
+
+
+
+
+      .. py:attribute:: key
+
+         ``RuleResource.RunCommandTargetProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: values
+
+         ``RuleResource.RunCommandTargetProperty.Values``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-runcommandtarget.html#cfn-events-rule-runcommandtarget-values
+
+
+         :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\ )[] *(abstract)*
+
+
+   .. py:class:: TargetProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.Events;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.events.cloudformation.RuleResource.TargetProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.RuleResource.TargetProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.RuleResource.TargetProperty } from '@aws-cdk/aws-events';
+
+
+
+
+
+      .. py:attribute:: arn
+
+         ``RuleResource.TargetProperty.Arn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: id
+
+         ``RuleResource.TargetProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+      .. py:attribute:: ecsParameters
+
+         ``RuleResource.TargetProperty.EcsParameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
+
+
+         :type: :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.EcsParametersProperty`\  or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: input
+
+         ``RuleResource.TargetProperty.Input``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-input
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: inputPath
+
+         ``RuleResource.TargetProperty.InputPath``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputpath
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: inputTransformer
+
+         ``RuleResource.TargetProperty.InputTransformer``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputtransformer
+
+
+         :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.InputTransformerProperty`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: kinesisParameters
+
+         ``RuleResource.TargetProperty.KinesisParameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-kinesisparameters
+
+
+         :type: :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.KinesisParametersProperty`\  or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: roleArn
+
+         ``RuleResource.TargetProperty.RoleArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+      .. py:attribute:: runCommandParameters
+
+         ``RuleResource.TargetProperty.RunCommandParameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters
+
+
+         :type: :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.RunCommandParametersProperty`\  or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource. Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility in case there is no generated attribute.
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties
+
+
+      *Protected property*
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions) that should be added when a resource "depends on" this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+RuleResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: RuleResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Events;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.events.cloudformation.RuleResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.RuleResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.RuleResourceProps } from '@aws-cdk/aws-events';
+
+
+
+
+
+   .. py:attribute:: description
+
+      ``AWS::Events::Rule.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: eventPattern
+
+      ``AWS::Events::Rule.EventPattern``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: roleArn
+
+      ``AWS::Events::Rule.RoleArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-rolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: ruleName
+
+      ``AWS::Events::Rule.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: scheduleExpression
+
+      ``AWS::Events::Rule.ScheduleExpression``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-scheduleexpression
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: state
+
+      ``AWS::Events::Rule.State``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: targets
+
+      ``AWS::Events::Rule.Targets``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`~@aws-cdk/aws-events.cloudformation.RuleResource.TargetProperty`\ )[] or ``undefined`` *(abstract)*
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-events
+

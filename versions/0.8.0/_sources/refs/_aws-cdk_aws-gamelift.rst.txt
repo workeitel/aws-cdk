@@ -1,0 +1,374 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"tEoX782Lse2XXQdmbmHY2n/mk3mOPs8pSerxpY5qflQ="}
+
+@aws-cdk/aws-gamelift
+=====================
+
+.. mdinclude:: ./__aws-cdk_aws-gamelift.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-gamelift
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-gamelift.cloudformation
+
+AliasResource
+~~~~~~~~~~~~~
+
+.. py:class:: AliasResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AliasResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AliasResource``
+   :type properties: :py:class:`~@aws-cdk/aws-gamelift.cloudformation.AliasResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: RoutingStrategyProperty
+
+
+
+      .. py:attribute:: fleetId
+
+         ``AliasResource.RoutingStrategyProperty.FleetId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: message
+
+         ``AliasResource.RoutingStrategyProperty.Message``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-message
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: type
+
+         ``AliasResource.RoutingStrategyProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+AliasResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AliasResourceProps
+
+
+
+   .. py:attribute:: aliasName
+
+      ``AWS::GameLift::Alias.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: routingStrategy
+
+      ``AWS::GameLift::Alias.RoutingStrategy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-routingstrategy
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-gamelift.cloudformation.AliasResource.RoutingStrategyProperty`
+
+
+   .. py:attribute:: description
+
+      ``AWS::GameLift::Alias.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html#cfn-gamelift-alias-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+BuildResource
+~~~~~~~~~~~~~
+
+.. py:class:: BuildResource(parent, name, [properties])
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``BuildResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``BuildResource``
+   :type properties: :py:class:`~@aws-cdk/aws-gamelift.cloudformation.BuildResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: S3LocationProperty
+
+
+
+      .. py:attribute:: bucket
+
+         ``BuildResource.S3LocationProperty.Bucket``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storage-bucket
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: key
+
+         ``BuildResource.S3LocationProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storage-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: roleArn
+
+         ``BuildResource.S3LocationProperty.RoleArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storage-rolearn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+BuildResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: BuildResourceProps
+
+
+
+   .. py:attribute:: buildName
+
+      ``AWS::GameLift::Build.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: storageLocation
+
+      ``AWS::GameLift::Build.StorageLocation``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-storagelocation
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-gamelift.cloudformation.BuildResource.S3LocationProperty` or undefined
+
+
+   .. py:attribute:: version
+
+      ``AWS::GameLift::Build.Version``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html#cfn-gamelift-build-version
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+FleetResource
+~~~~~~~~~~~~~
+
+.. py:class:: FleetResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``FleetResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``FleetResource``
+   :type properties: :py:class:`~@aws-cdk/aws-gamelift.cloudformation.FleetResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: IpPermissionProperty
+
+
+
+      .. py:attribute:: fromPort
+
+         ``FleetResource.IpPermissionProperty.FromPort``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: ipRange
+
+         ``FleetResource.IpPermissionProperty.IpRange``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: protocol
+
+         ``FleetResource.IpPermissionProperty.Protocol``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-protocol
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: toPort
+
+         ``FleetResource.IpPermissionProperty.ToPort``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+FleetResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: FleetResourceProps
+
+
+
+   .. py:attribute:: buildId
+
+      ``AWS::GameLift::Fleet.BuildId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-buildid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: desiredEc2Instances
+
+      ``AWS::GameLift::Fleet.DesiredEC2Instances``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: ec2InstanceType
+
+      ``AWS::GameLift::Fleet.EC2InstanceType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2instancetype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: fleetName
+
+      ``AWS::GameLift::Fleet.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: serverLaunchPath
+
+      ``AWS::GameLift::Fleet.ServerLaunchPath``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchpath
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: description
+
+      ``AWS::GameLift::Fleet.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: ec2InboundPermissions
+
+      ``AWS::GameLift::Fleet.EC2InboundPermissions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-gamelift.cloudformation.FleetResource.IpPermissionProperty` or undefined
+
+
+   .. py:attribute:: logPaths
+
+      ``AWS::GameLift::Fleet.LogPaths``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: maxSize
+
+      ``AWS::GameLift::Fleet.MaxSize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: minSize
+
+      ``AWS::GameLift::Fleet.MinSize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: serverLaunchParameters
+
+      ``AWS::GameLift::Fleet.ServerLaunchParameters``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-serverlaunchparameters
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-gamelift
+

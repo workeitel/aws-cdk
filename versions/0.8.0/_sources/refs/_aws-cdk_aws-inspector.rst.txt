@@ -1,0 +1,233 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"HdaYH+BejRMqQx/5VvjhDkdd5QVHUiQiyaq8RbwYPfU="}
+
+@aws-cdk/aws-inspector
+======================
+
+.. mdinclude:: ./__aws-cdk_aws-inspector.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-inspector
+
+AssessmentTargetArn
+^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AssessmentTargetArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+AssessmentTemplateArn
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AssessmentTemplateArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ResourceGroupArn
+^^^^^^^^^^^^^^^^
+
+.. py:class:: ResourceGroupArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-inspector.cloudformation
+
+AssessmentTargetResource
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AssessmentTargetResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AssessmentTargetResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AssessmentTargetResource``
+   :type properties: :py:class:`~@aws-cdk/aws-inspector.cloudformation.AssessmentTargetResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: assessmentTargetArn
+
+      :type: :py:class:`~@aws-cdk/aws-inspector.AssessmentTargetArn` *(readonly)*
+
+
+AssessmentTargetResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AssessmentTargetResourceProps
+
+
+
+   .. py:attribute:: resourceGroupArn
+
+      ``AWS::Inspector::AssessmentTarget.ResourceGroupArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html#cfn-inspector-assessmenttarget-resourcegrouparn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: assessmentTargetName
+
+      ``AWS::Inspector::AssessmentTarget.AssessmentTargetName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html#cfn-inspector-assessmenttarget-assessmenttargetname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+AssessmentTemplateResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AssessmentTemplateResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AssessmentTemplateResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AssessmentTemplateResource``
+   :type properties: :py:class:`~@aws-cdk/aws-inspector.cloudformation.AssessmentTemplateResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: assessmentTemplateArn
+
+      :type: :py:class:`~@aws-cdk/aws-inspector.AssessmentTemplateArn` *(readonly)*
+
+
+AssessmentTemplateResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AssessmentTemplateResourceProps
+
+
+
+   .. py:attribute:: assessmentTargetArn
+
+      ``AWS::Inspector::AssessmentTemplate.AssessmentTargetArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-assessmenttargetarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: durationInSeconds
+
+      ``AWS::Inspector::AssessmentTemplate.DurationInSeconds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-durationinseconds
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: rulesPackageArns
+
+      ``AWS::Inspector::AssessmentTemplate.RulesPackageArns``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-rulespackagearns
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: assessmentTemplateName
+
+      ``AWS::Inspector::AssessmentTemplate.AssessmentTemplateName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-assessmenttemplatename
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: userAttributesForFindings
+
+      ``AWS::Inspector::AssessmentTemplate.UserAttributesForFindings``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html#cfn-inspector-assessmenttemplate-userattributesforfindings
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+ResourceGroupResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ResourceGroupResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ResourceGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ResourceGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-inspector.cloudformation.ResourceGroupResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: resourceGroupArn
+
+      :type: :py:class:`~@aws-cdk/aws-inspector.ResourceGroupArn` *(readonly)*
+
+
+ResourceGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ResourceGroupResourceProps
+
+
+
+   .. py:attribute:: resourceGroupTags
+
+      ``AWS::Inspector::ResourceGroup.ResourceGroupTags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html#cfn-inspector-resourcegroup-resourcegrouptags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag`
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-inspector
+

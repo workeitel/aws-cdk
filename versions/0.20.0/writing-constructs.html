@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Writing AWS CDK Constructs &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reference" href="reference.html" />
+    <link rel="prev" title="AWS CDK Tools" href="tools.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Writing Constructs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-design-priciples">General Design Priciples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-details">Implementation Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-language">Implementation Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-organization">Code Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#readme">README</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#construct-ids">Construct IDs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Writing AWS CDK Constructs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/writing-constructs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           ﻿<p style="background-color:#e47911; border-top:1px solid #ccc; margin-top:6px; padding-top:10px; padding-bottom:10px; padding-left:5px; font-weight:bold; font-style:italic; font-size:16px; color:white; vertical-align:middle">
+This documentation is for the developer preview release of the AWS CDK.
+Do not use this version of the AWS CDK in production.
+Subsequent releases of the AWS CDK will likely include breaking changes.
+</p>
+           <div itemprop="articleBody">
+            
+  <div class="section" id="writing-cdk-constructs">
+<span id="writing-constructs"></span><h1>Writing AWS CDK Constructs<a class="headerlink" href="#writing-cdk-constructs" title="Permalink to this headline">¶</a></h1>
+<p>This topic provides some tips writing idiomatic new constructs for the AWS CDK.
+The tips here apply equally to constructs written for inclusion in the AWS
+Construct Library, purpose-built constructs to achieve a well-defined goal,
+or constructs that serve as building blocks for assembling your cloud
+applications.</p>
+<div class="section" id="general-design-priciples">
+<h2>General Design Priciples<a class="headerlink" href="#general-design-priciples" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Favor composition over inheritance; most of the constructs should directly
+extend the <strong>Construct</strong> class instead of some other construct. Inheritance
+should mainly be used to allow polymorphism. Typically, you’ll add a child
+construct and expose any of its APIs and properties in the parent construct.</li>
+<li>Provide defaults for everything that a reasonable guess can be made for;
+ideally, props should be optional and <strong>new MyAwesomeConstruct(this, “Foo”)</strong>
+should be enough to set up a reasonable variant of the construct. This does
+not mean that the user should not have the opportunity to customize! Rather,
+it means that the specific parameter should be optional and set to a
+reasonable value if not supplied. This may involve creating other resources as
+part of initializing this construct. For example, all resources that require a
+role allow passing in a <strong>Role</strong> object (specifically, a <strong>RoleRef</strong> object),
+but if the user does not supply one an appropriate <strong>Role</strong> object is
+defined in-place.</li>
+<li>Use contextual defaulting between properties; the value of one property may
+affect sensible defaults for other properties. <em>Example</em>:
+<strong>enableDnsHostnames</strong> and <strong>enableDnsSupport</strong>. <strong>dnsHostnames</strong> requires
+<strong>dnsSupport</strong>, only throw an error if the user has <em>explicitly</em> disabled DNS
+Support, but tried to enable DNS Hostnames. A user expects things to just
+work. If their intention is clear, we should do the right thing.</li>
+<li>Make the user think about intent, not implementation detail; for example,
+if establishing an association between two resources (such as a <strong>Topic</strong>
+and a <strong>Queue</strong>) requires multiple steps (in this case, creating a
+<strong>Subscription</strong> but also setting appropriate IAM permissions), make
+both things happen in a single call (to <strong>subscribeQueue()</strong>). The user
+should be mentally thinking about the result they’re trying to achieve,
+not the various steps necessary to get there.</li>
+<li>Make sure you are not renaming concepts or terminology. For example don’t be
+temped to replace SQS’s <strong>dataKeyReusePeriod</strong> with <strong>keyRotation</strong> because it
+will be hard for people to diagnose problems. They won’t be able to just
+search for <em>sqs dataKeyReuse</em> and find topics on it. It is sometimes okay
+to introduce a new concept that does not have a counterpart in CloudFormation,
+especially if it directly maps onto the mental model that users already
+have about a service.</li>
+<li>Optimize for the common case; example: <strong>AutoScalingGroup</strong> accepts a <strong>VPC</strong>
+and deploys in the private subnet by default because that’s the common case,
+but has an option to <strong>placementOptions</strong> for the special case.</li>
+<li>If a class can have multiple modes/behaviors: prefer values over polymorphism.
+Try switching behavior on property values first. Switch to multiple classes
+with a shared base class/interface only if there value to be had from having
+multiple classes (type safety, maybe one mode has different features/required
+parameters).</li>
+</ul>
+</div>
+<div class="section" id="implementation-details">
+<h2>Implementation Details<a class="headerlink" href="#implementation-details" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Every construct consists of an exported class (<strong>MyConstruct</strong>) and an
+exported interface (<strong>MyConstructProps</strong>) that defines the parameters for
+these classes. The props argument is the 3rd to the construct (after the
+mandatory <strong>parent</strong> and <strong>id</strong> arguments), and the entire parameter should be
+optional if all of the properties on the props object are optional.</p>
+</li>
+<li><p class="first">Most of the logic happens in the constructor; the constructor will build up
+the state of the construct (what children it has, which ones are always
+there and which ones are optional, etc.).</p>
+</li>
+<li><p class="first">Validate as early as possible; throw an <cite>Error</cite> in the constructor if the
+parameters don’t make sense. Only if you want to validate mutations that can
+occur after construction time, override the <cite>validate()</cite> method. The hierarchy
+of validation:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Best: Incorrect code won’t compile, because of type safety guarantees.</li>
+<li>Good: Runtime check everything the type checker can’t enforce and fail
+early (error in the constructor).</li>
+<li>Okay: Synth-time validate everything that can’t be checked at construction
+time (error in <code class="docutils literal notranslate"><span class="pre">validate()</span></code>).</li>
+<li>Not great: Fail with an error in CloudFormation (bad because the
+CloudFormation deploy operation may take a long while, and the error
+may take several minutes to surface).</li>
+<li>Very bad: Fail with a timeout during CloudFormation deployment (it may take
+up to an hour for resource stabilization to timeout!)</li>
+<li>Worst: Don’t fail the deployment at all, but fail at runtime.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Avoid unneeded hierarchy in props; try to keep the props interface flat to
+help discoverability.</p>
+</li>
+<li><p class="first">Constructs are classes that have a set of invariants they maintain over their
+lifetime (such as which members are initialized and relationships between
+properties as members are mutated).</p>
+</li>
+<li><p class="first">Constructs mostly have write-only scalar properties that are passed in the
+constructor, but mutating functions for collections (for example, there will
+be <code class="docutils literal notranslate"><span class="pre">construct.addElement()</span></code> or <code class="docutils literal notranslate"><span class="pre">construct.onEvent())</span></code> functions, but not
+<code class="docutils literal notranslate"><span class="pre">construct.setProperty()</span></code>. It is perfectly fine to deviate from this
+convention as it makes sense for your own constructs.</p>
+</li>
+<li><p class="first">Don’t expose <strong>Tokens</strong> to your consumers; tokens are an implementation
+mechanism for one of two purpose: representing CloudFormation intrinsic
+values, or representing lazily evaluated values. They can be used for
+implementation purposes, but use more specific types as part of your public
+API.</p>
+</li>
+<li><p class="first"><strong>Tokens</strong> are (mostly) only used in the implementation of an L2 to pass lazy
+values to other constructs. For example, if you have an array that can be
+mutated during the lifetime of your class, you pass it to an L1 construct
+like so: <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">cdk.Token(()</span> <span class="pre">=&gt;</span> <span class="pre">this.myList)</span></code>.</p>
+</li>
+<li><p class="first">Be aware that you might not be able to usefully inspect all strings. Any
+string passed into your construct may contain special markers that represent
+values that will only be known at deploy time (for example, the ARN of a
+resource that will be created during deployment). Those are <em>stringified
+Tokens</em> and they look like <code class="docutils literal notranslate"><span class="pre">&quot;${TOKEN[Token.123]}&quot;</span></code>. You will not be able to
+validate those against a regular expression, for example, as their “real”
+values are not known yet. To figure out if your string contains a special
+marker, use <code class="docutils literal notranslate"><span class="pre">cdk.unresolved(string)</span></code>.</p>
+</li>
+<li><p class="first">Indicate units of measurement in property names that don’t use a strong type.
+Use <strong>milli</strong>, <strong>sec</strong>, <strong>min</strong>, <strong>hr</strong>, <strong>Bytes</strong>, <strong>KiB</strong>, <strong>MiB</strong>, <strong>GiB</strong>,
+etc.</p>
+</li>
+<li><p class="first">Be sure to define an <strong>IMyResource</strong> interface for your resources which
+defines the API area that other constructs are going to use. Typical
+capabilities on this interface are querying for a resource ARN and adding
+resource permissions.</p>
+</li>
+<li><p class="first">Accept objects instead of ARNs or names; when accepting other resources as
+parameters, declare your property as <strong>resource: IMyResource</strong> instead of
+<strong>resourceArn: string</strong>.  This makes snapping objects together feel natural to
+consumers, and allows you to query/modify the incoming resource as well. The
+latter is particularly useful if something about IAM permissions need to be
+set, for example.</p>
+</li>
+<li><p class="first">Implement <strong>export()</strong> and <strong>import()</strong> functions for your resource; these
+make it possible to interoperate with resources that are not defined in the
+same CDK app (they may be manually created, created using raw CloudFormation,
+or created in a completely unrelated CDK app).</p>
+</li>
+<li><p class="first">If your construct wraps a single (or most prominent) other construct, give it
+an id of either <strong>“Resource”</strong> or <strong>“Default”</strong>; The “main” resource that an
+AWS Construct represents should use the ID <strong>Resource</strong>, for higher-level
+wrapping resources you will generally use <strong>Default</strong> (resources named
+<strong>Default</strong> will inherit their parent’s logical ID, while resources named
+<strong>Resource</strong> will have a distinct logical ID but the human-readable part of it
+will not show the “Resource” part).</p>
+</li>
+</ul>
+</div>
+<div class="section" id="implementation-language">
+<h2>Implementation Language<a class="headerlink" href="#implementation-language" title="Permalink to this headline">¶</a></h2>
+<p>In order for construct libraries to be reusable across programming languages,
+they, they need to be authored in a language that can compile to a jsii
+assembly.</p>
+<p>At the moment, the only supported language is TypeScript, so prefer TypeScript
+unless you are planning to specifically isolate your constructs to a single
+developer base.</p>
+</div>
+<div class="section" id="code-organization">
+<h2>Code Organization<a class="headerlink" href="#code-organization" title="Permalink to this headline">¶</a></h2>
+<p>Your package will roughly look like this:</p>
+<div class="code highlight-default notranslate"><div class="highlight"><pre><span></span>your-package
+├── package.json
+├── README.md
+├── lib
+│   ├── index.ts
+│   ├── some-resource.ts
+│   └── some-other-resource.ts
+└── test
+    ├── integ.everything.lit.ts
+    ├── test.some-resource.ts
+    └── test.some-other-resource.ts
+</pre></div>
+</div>
+<ul class="simple">
+<li>Your package is named <code class="docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-xxx</span></code> if it represents the canonical AWS
+Construct Library for this service; otherwise we recommend starting with
+<code class="docutils literal notranslate"><span class="pre">cdk-</span></code>, but you are free to pick a pleasing name.</li>
+<li>Code goes under <strong>lib/</strong>, tests go under <strong>test/</strong>.</li>
+<li>Entry point should be <strong>lib/index.ts</strong> and should only contain <code class="docutils literal notranslate"><span class="pre">export</span></code> s
+for other files.</li>
+<li>No need to put every class in a separate file. Try to think of a
+reader-friendly organization of your source files.</li>
+<li>If you want to make package-private utility functions, put them in a file
+that is <em>not exported</em> from <strong>index.ts</strong> and use that file as normal.</li>
+<li>Free-floating functions (functions that are not part of a class definition)
+cannot be accessed through <strong>jsii</strong> (i.e., from languages other than
+TypeScript and JavaScript). Don’t use them for public features of your
+construct library.</li>
+<li>Document all public APIs with doc comments (JSdoc syntax). Document defaults
+using the <strong>&#64;default</strong> marker in doc comments.</li>
+</ul>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Add unit tests for every construct (<strong>test.xxx.ts</strong>), relating the construct’s
+properties to the CloudFormation that gets generated. Use the
+<strong>&#64;aws-cdk/assert</strong> library to make it easier to write assertions on the
+CloudFormation output.</li>
+<li>Try to test one concern per unit test. Even if you <em>could</em> test more than one
+feature of the construct per test, it’s better to write multiple tests,
+one for each feature. A test should have one reason to break.</li>
+<li>Add integration tests (<strong>integ.xxx.ts</strong>) that are basically just CDK apps
+which exercise the features of the construct, then load your shell with
+credentials and run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">integ</span></code> to exercise them. You will also have to
+run this if the CloudFormation output of the construct changes.</li>
+<li>If there are packages that you only depend on for testing, add them to
+<strong>devDependencies</strong> (instead of regular <strong>dependencies</strong>). You’re still
+not allowed to create dependency cycles this way (from the root, run
+<code class="docutils literal notranslate"><span class="pre">scripts/find-cycles.sh</span></code> to figure out if you have created any cycles).</li>
+<li>Try to make your integ test literate (<strong>integ.xxx.lit.ts</strong>) if possible
+and link to it from the README.</li>
+</ul>
+</div>
+<div class="section" id="readme">
+<h2>README<a class="headerlink" href="#readme" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Header should include maturity level.</li>
+<li>Header should start at H2, not H1.</li>
+<li>Include some example code for the simple use case near the very top.</li>
+<li>If there are multiple common use cases, provide an example for each one and
+describe what happens under the hood at a high level (e.g. which resources are
+created).</li>
+<li>Reference docs are not needed.</li>
+<li>Use literate (.lit.ts) integration tests into README file.</li>
+</ul>
+</div>
+<div class="section" id="construct-ids">
+<h2>Construct IDs<a class="headerlink" href="#construct-ids" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All children’s construct IDs are part of your public contract; those IDs are
+used to generate CloudFormation logical names for resources. If they change,
+CloudFormation will replace the resource. This technically means that if you
+change any ID of a child construct you will have to major-version-bump your
+library.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="reference.html" class="btn btn-neutral float-right" title="Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tools.html" class="btn btn-neutral" title="AWS CDK Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.20.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

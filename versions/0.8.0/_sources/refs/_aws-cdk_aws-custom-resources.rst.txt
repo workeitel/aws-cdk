@@ -1,0 +1,148 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"5BoRG2lmDVNw05EjSqwdXKLhcQLZjh6fCUo0OT7cKB4="}
+
+@aws-cdk/aws-custom-resources
+=============================
+
+.. mdinclude:: ./__aws-cdk_aws-custom-resources.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-custom-resources
+
+CustomResource
+^^^^^^^^^^^^^^
+
+.. py:class:: CustomResource(parent, name, props)
+
+   Custom resource that is implemented using a Lambda  As a custom resource author, you should be publishing a subclass of this class that hides the choice of provider, and accepts a strongly-typed properties object with the properties your provider accepts.
+
+
+   :extends: :py:class:`@aws-cdk/aws-cloudformation.cloudformation.CustomResource`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-custom-resources.CustomResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      Override renderProperties to mix in the user-defined properties
+
+
+      :rtype: any
+
+
+CustomResourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CustomResourceProps
+
+   Properties to provide a Lambda-backed custom resource
+
+
+
+
+   .. py:attribute:: lambdaProvider
+
+      The Lambda provider that implements this custom resource.  We recommend using a SingletonLambda for this.  Optional, exactly one of lamdaProvider or topicProvider must be set.
+
+
+      :type: :py:class:`@aws-cdk/aws-lambda.LambdaRef` or undefined
+
+
+   .. py:attribute:: topicProvider
+
+      The SNS Topic for the provider that implements this custom resource.  Optional, exactly one of lamdaProvider or topicProvider must be set.
+
+
+      :type: :py:class:`@aws-cdk/aws-sns.TopicRef` or undefined
+
+
+   .. py:attribute:: properties
+
+      Properties to pass to the Lambda
+
+
+      :type: any or undefined
+
+
+SingletonLambda
+^^^^^^^^^^^^^^^
+
+.. py:class:: SingletonLambda(parent, name, props)
+
+   A Lambda that will only ever be added to a stack once.  The lambda is identified using the value of 'uuid'. Run 'uuidgen' for every SingletonLambda you create.
+
+
+   :extends: :py:class:`@aws-cdk/aws-lambda.LambdaRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-custom-resources.SingletonLambdaProps`
+
+   .. py:method:: addPermission(name, permission)
+
+      Adds a permission to the Lambda resource policy.
+
+
+      :param name: 
+      :type name: string
+      :param permission: 
+      :type permission: :py:class:`@aws-cdk/aws-lambda.LambdaPermission`
+
+
+   .. py:attribute:: functionName
+
+      The name of the function.
+
+
+      :type: :py:class:`@aws-cdk/aws-lambda.FunctionName`
+
+
+   .. py:attribute:: functionArn
+
+      The ARN fo the function.
+
+
+      :type: :py:class:`@aws-cdk/aws-lambda.FunctionArn`
+
+
+   .. py:attribute:: role
+
+      The IAM role associated with this function.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined
+
+
+   .. py:attribute:: canCreatePermissions
+
+      Whether the addPermission() call adds any permissions  True for new Lambdas, false for imported Lambdas (they might live in different accounts).
+
+
+      :type: boolean
+
+
+SingletonLambdaProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SingletonLambdaProps
+
+   Properties for a newly created singleton Lambda
+
+
+   :extends: :py:class:`@aws-cdk/aws-lambda.LambdaProps`
+
+
+   .. py:attribute:: uuid
+
+      A unique identifier to identify this lambda  The identifier should be unique across all custom resource providers. We recommend generating a UUID per provider.
+
+
+      :type: string
+
+

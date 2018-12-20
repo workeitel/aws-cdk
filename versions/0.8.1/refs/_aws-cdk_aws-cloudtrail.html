@@ -1,0 +1,1499 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>@aws-cdk/aws-cloudtrail &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="@aws-cdk/aws-cloudwatch" href="_aws-cdk_aws-cloudwatch.html" />
+    <link rel="prev" title="@aws-cdk/aws-cloudfront" href="_aws-cdk_aws-cloudfront.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_assets.html">&#64;aws-cdk/assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appsync.html">&#64;aws-cdk/aws-appsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-athena.html">&#64;aws-cdk/aws-athena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling.html">&#64;aws-cdk/aws-autoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscalingplans.html">&#64;aws-cdk/aws-autoscalingplans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-batch.html">&#64;aws-cdk/aws-batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-budgets.html">&#64;aws-cdk/aws-budgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-certificatemanager.html">&#64;aws-cdk/aws-certificatemanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloud9.html">&#64;aws-cdk/aws-cloud9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation.html">&#64;aws-cdk/aws-cloudformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation-codepipeline.html">&#64;aws-cdk/aws-cloudformation-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudfront.html">&#64;aws-cdk/aws-cloudfront</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&#64;aws-cdk/aws-cloudtrail</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws-cloudtrail-construct-library">AWS CloudTrail Construct Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-&#64;aws-cdk/aws-cloudtrail">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cloudtrail">CloudTrail</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloudtrailprops-interface">CloudTrailProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logretention-enum">LogRetention (enum)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#readwritetype-enum">ReadWriteType (enum)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trailarn">TrailArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#trailsnstopicarn">TrailSnsTopicArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-&#64;aws-cdk/aws-cloudtrail.cloudformation">cloudformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html">&#64;aws-cdk/aws-cloudwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild.html">&#64;aws-cdk/aws-codebuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild-codepipeline.html">&#64;aws-cdk/aws-codebuild-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit.html">&#64;aws-cdk/aws-codecommit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit-codepipeline.html">&#64;aws-cdk/aws-codecommit-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy.html">&#64;aws-cdk/aws-codedeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html">&#64;aws-cdk/aws-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cognito.html">&#64;aws-cdk/aws-cognito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-config.html">&#64;aws-cdk/aws-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-custom-resources.html">&#64;aws-cdk/aws-custom-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-datapipeline.html">&#64;aws-cdk/aws-datapipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dax.html">&#64;aws-cdk/aws-dax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-directoryservice.html">&#64;aws-cdk/aws-directoryservice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dms.html">&#64;aws-cdk/aws-dms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dynamodb.html">&#64;aws-cdk/aws-dynamodb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ec2.html">&#64;aws-cdk/aws-ec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecr.html">&#64;aws-cdk/aws-ecr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecs.html">&#64;aws-cdk/aws-ecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-efs.html">&#64;aws-cdk/aws-efs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-eks.html">&#64;aws-cdk/aws-eks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticache.html">&#64;aws-cdk/aws-elasticache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticbeanstalk.html">&#64;aws-cdk/aws-elasticbeanstalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancing.html">&#64;aws-cdk/aws-elasticloadbalancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancingv2.html">&#64;aws-cdk/aws-elasticloadbalancingv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticsearch.html">&#64;aws-cdk/aws-elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-emr.html">&#64;aws-cdk/aws-emr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-events.html">&#64;aws-cdk/aws-events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-gamelift.html">&#64;aws-cdk/aws-gamelift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-glue.html">&#64;aws-cdk/aws-glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-guardduty.html">&#64;aws-cdk/aws-guardduty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iam.html">&#64;aws-cdk/aws-iam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-inspector.html">&#64;aws-cdk/aws-inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot.html">&#64;aws-cdk/aws-iot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesis.html">&#64;aws-cdk/aws-kinesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisanalytics.html">&#64;aws-cdk/aws-kinesisanalytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisfirehose.html">&#64;aws-cdk/aws-kinesisfirehose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kms.html">&#64;aws-cdk/aws-kms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda.html">&#64;aws-cdk/aws-lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda-codepipeline.html">&#64;aws-cdk/aws-lambda-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-logs.html">&#64;aws-cdk/aws-logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-neptune.html">&#64;aws-cdk/aws-neptune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-opsworks.html">&#64;aws-cdk/aws-opsworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-quickstarts.html">&#64;aws-cdk/aws-quickstarts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-rds.html">&#64;aws-cdk/aws-rds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-redshift.html">&#64;aws-cdk/aws-redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-route53.html">&#64;aws-cdk/aws-route53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3.html">&#64;aws-cdk/aws-s3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sdb.html">&#64;aws-cdk/aws-sdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-serverless.html">&#64;aws-cdk/aws-serverless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicecatalog.html">&#64;aws-cdk/aws-servicecatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicediscovery.html">&#64;aws-cdk/aws-servicediscovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ses.html">&#64;aws-cdk/aws-ses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sns.html">&#64;aws-cdk/aws-sns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sqs.html">&#64;aws-cdk/aws-sqs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ssm.html">&#64;aws-cdk/aws-ssm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-stepfunctions.html">&#64;aws-cdk/aws-stepfunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-waf.html">&#64;aws-cdk/aws-waf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-wafregional.html">&#64;aws-cdk/aws-wafregional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-workspaces.html">&#64;aws-cdk/aws-workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cdk.html">&#64;aws-cdk/cdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cx-api.html">&#64;aws-cdk/cx-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_runtime-values.html">&#64;aws-cdk/runtime-values</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+        
+      <li>&#64;aws-cdk/aws-cloudtrail</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/refs/_aws-cdk_aws-cloudtrail.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cdk-aws-cloudtrail">
+<h1>&#64;aws-cdk/aws-cloudtrail<a class="headerlink" href="#aws-cdk-aws-cloudtrail" title="Permalink to this headline">¶</a></h1>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== active docutils container">
+<p>View in <a class="reference external" href="https://repo1.maven.org/maven2/software/amazon/awscdk/cloudtrail/0.8.1/">Maven Central</a></p>
+<p><strong>Apache Buildr</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;software.amazon.awscdk:cloudtrail:jar:0.8.1&#39;
+</pre></div>
+</div>
+<p><strong>Apache Ivy</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency</span> <span class="na">groupId=</span><span class="s">&quot;software.amazon.awscdk&quot;</span> <span class="na">name=</span><span class="s">&quot;cloudtrail&quot;</span> <span class="na">rev=</span><span class="s">&quot;0.8.1&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>Apache Maven</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>software.amazon.awscdk<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cloudtrail<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.8.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>Gradle / Grails</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>compile &#39;software.amazon.awscdk:cloudtrail:0.8.1&#39;
+</pre></div>
+</div>
+<p><strong>Groovy Grape</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@Grapes(
+@Grab(group=&#39;software.amazon.awscdk&#39;, module=&#39;cloudtrail&#39;, version=&#39;0.8.1&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-cloudtrail/v/0.8.1">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-cloudtrail@0.8.1
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-cloudtrail&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.8.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-cloudtrail@0.8.1
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-cloudtrail/v/0.8.1">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-cloudtrail@0.8.1
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-cloudtrail&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.8.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-cloudtrail@0.8.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="aws-cloudtrail-construct-library">
+<h2>AWS CloudTrail Construct Library<a class="headerlink" href="#aws-cloudtrail-construct-library" title="Permalink to this headline">¶</a></h2>
+<p>Add a CloudTrail construct - for ease of setting up CloudTrail logging in your account</p>
+<p>Example usage:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cloudtrail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">trail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cloudtrail</span><span class="p">.</span><span class="nx">CloudTrail</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span> <span class="s1">&#39;CloudTrail&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You can instantiate the CloudTrail construct with no arguments - this will by default:</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>* Create a new S3 Bucket and associated Policy that allows CloudTrail to write to it
+* Create a CloudTrail with the following configuration:
+    * Logging Enabled
+    * Log file validation enabled
+    * Multi Region set to true
+    * Global Service Events set to true
+    * The created S3 bucket
+    * CloudWatch Logging Disabled
+    * No SNS configuartion
+    * No tags
+    * No fixed name
+</pre></div>
+</div>
+<p>You can override any of these properties using the <code class="docutils literal notranslate"><span class="pre">CloudTrailProps</span></code> configuraiton object.</p>
+<p>For example, to log to CloudWatch Logs</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cloudtrail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">trail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cloudtrail</span><span class="p">.</span><span class="nx">CloudTrail</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span> <span class="s1">&#39;CloudTrail&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">sendToCloudWatchLogs</span>: <span class="kt">true</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>This creates the same setup as above - but also logs events to a created CloudWatch Log stream. By default, the created log group has a retention period of 365 Days, but this is also configurable.</p>
+<p>For using CloudTrail event selector to log specific S3 events, you can use the <code class="docutils literal notranslate"><span class="pre">CloudTrailProps</span></code> configuration object</p>
+<p>For example - this logs all ReadWriteEvents for the <code class="docutils literal notranslate"><span class="pre">magic-bucket</span></code> bucket:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cloudtrail</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">trail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cloudtrail</span><span class="p">.</span><span class="nx">CloudTrail</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span> <span class="s1">&#39;MyAmazingCloudTrail&#39;</span><span class="p">)</span>
+
+<span class="nx">trail</span><span class="p">.</span><span class="nx">addS3Filter</span><span class="p">(</span><span class="s2">&quot;arn:aws:s3:::magic-bucket/&quot;</span><span class="p">);</span> <span class="c1">// Adds an event selector to the bucket magic-bucket. By default, this includes management events and all operations (Read + Write)</span>
+
+<span class="kr">const</span> <span class="nx">configuration</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">includeManagementEvents</span> <span class="o">=</span> <span class="kc">false</span><span class="p">,</span> <span class="nx">readWriteType</span> <span class="o">=</span> <span class="nx">ReadWriteType</span><span class="p">.</span><span class="nx">All</span> <span class="p">};</span>
+<span class="nx">trail</span><span class="p">.</span><span class="nx">addS3Filter</span><span class="p">([</span><span class="s2">&quot;arn:aws:s3:::foo&quot;</span><span class="p">],</span> <span class="nx">configuration</span> <span class="p">);</span> <span class="c1">// Adds an event selector to the bucket foo, with a specific configuration</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-cloudtrail">
+<span id="reference"></span><h2>Reference<a class="headerlink" href="#module-@aws-cdk/aws-cloudtrail" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cloudtrail">
+<h3>CloudTrail<a class="headerlink" href="#cloudtrail" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrail">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudtrail.</code><code class="descname">CloudTrail</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em><span class="optional">[</span>, <em>props</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrail" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.CloudTrail</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">CloudTrail</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CloudTrail</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Cloud trail allows you to log events that happen in your AWS account For example:  import { CloudTrail } from <a class="reference external" href="mailto:'&#37;&#52;&#48;aws-cdk/aws-cloudtrail">‘<span>&#64;</span>aws-cdk/aws-cloudtrail</a>’  const cloudTrail = new CloudTrail(this, ‘MyTrail’);</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.CloudTrailProps" title="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">CloudTrailProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrail.addS3EventSelector">
+<code class="descname">addS3EventSelector</code><span class="sig-paren">(</span><em>prefixes</em>, <em>readWriteType</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrail.addS3EventSelector" title="Permalink to this definition">¶</a></dt>
+<dd><p>When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails. Only events that match your trail settings are delivered to your Amazon S3 bucket and Amazon CloudWatch Logs log group.  This method adds an S3 Data Event Selector for filtering events that match S3 operations.  Data events: These events provide insight into the resource operations performed on or within a resource. These are also known as data plane operations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>prefixes</strong> (<em>string</em>) – </li>
+<li><strong>readWriteType</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.ReadWriteType" title="&#64;aws-cdk/aws-cloudtrail.ReadWriteType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadWriteType</span></code></a>) – the configuration type to log for this data event Eg, ReadWriteType.ReadOnly will only log “read” events for S3 objects that match a filter)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrail.cloudTrailArn">
+<code class="descname">cloudTrailArn</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrail.cloudTrailArn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.TrailArn" title="&#64;aws-cdk/aws-cloudtrail.TrailArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrailArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cloudtrailprops-interface">
+<h3>CloudTrailProps (interface)<a class="headerlink" href="#cloudtrailprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudtrail.</code><code class="descname">CloudTrailProps</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.CloudTrailProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// CloudTrailProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">CloudTrailProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.includeGlobalServiceEvents">
+<code class="descname">includeGlobalServiceEvents</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.includeGlobalServiceEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>For most services, events are recorded in the region where the action occurred. For global services such as AWS Identity and Access Management (IAM), AWS STS, Amazon CloudFront, and Route 53, events are delivered to any trail that includes global services, and are logged as occurring in US East (N. Virginia) Region.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.isMultiRegionTrail">
+<code class="descname">isMultiRegionTrail</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.isMultiRegionTrail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether or not this trail delivers log files from multiple regions to a single S3 bucket for a single account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.managementEvents">
+<code class="descname">managementEvents</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.managementEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p>When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails. Only events that match your trail settings are delivered to your Amazon S3 bucket and Amazon CloudWatch Logs log group.  This method sets the management configuration for this trail.  Management events provide insight into management operations that are performed on resources in your AWS account. These are also known as control plane operations. Management events can also include non-API events that occur in your account. For example, when a user logs in to your account, CloudTrail logs the ConsoleLogin event.  If managementEvents is undefined, we’ll not log management events by default.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.ReadWriteType" title="&#64;aws-cdk/aws-cloudtrail.ReadWriteType"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReadWriteType</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.enableFileValidation">
+<code class="descname">enableFileValidation</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.enableFileValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p>To determine whether a log file was modified, deleted, or unchanged after CloudTrail delivered it, you can use CloudTrail log file integrity validation. This feature is built using industry standard algorithms: SHA-256 for hashing and SHA-256 with RSA for digital signing. This makes it computationally infeasible to modify, delete or forge CloudTrail log files without detection. You can use the AWS CLI to validate the files in the location where CloudTrail delivered them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.sendToCloudWatchLogs">
+<code class="descname">sendToCloudWatchLogs</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.sendToCloudWatchLogs" title="Permalink to this definition">¶</a></dt>
+<dd><p>If CloudTrail pushes logs to CloudWatch Logs in addition to S3. Disabled for cost out of the box.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.cloudWatchLogsRetentionTimeDays">
+<code class="descname">cloudWatchLogsRetentionTimeDays</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.cloudWatchLogsRetentionTimeDays" title="Permalink to this definition">¶</a></dt>
+<dd><p>How long to retain logs in CloudWatchLogs. Ignored if sendToCloudWatchLogs is false</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.LogRetention" title="&#64;aws-cdk/aws-cloudtrail.LogRetention"><code class="xref py py-class docutils literal notranslate"><span class="pre">LogRetention</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.kmsKey">
+<code class="descname">kmsKey</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.kmsKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>The AWS Key Management Service (AWS KMS) key ID that you want to use to encrypt CloudTrail logs.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-kms.html#&#64;aws-cdk/aws-kms.EncryptionKeyRef" title="&#64;aws-cdk/aws-kms.EncryptionKeyRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-kms.EncryptionKeyRef</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.snsTopic">
+<code class="descname">snsTopic</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.snsTopic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of an Amazon SNS topic that is notified when new log files are published.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.trailName">
+<code class="descname">trailName</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.trailName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The name of the trail. We recoomend customers do not set an explicit name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.CloudTrailProps.s3KeyPrefix">
+<code class="descname">s3KeyPrefix</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.CloudTrailProps.s3KeyPrefix" title="Permalink to this definition">¶</a></dt>
+<dd><p>An Amazon S3 object key prefix that precedes the name of all log files.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="logretention-enum">
+<h3>LogRetention (enum)<a class="headerlink" href="#logretention-enum" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudtrail.</code><code class="descname">LogRetention</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.LogRetention</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">LogRetention</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">LogRetention</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.OneDay">
+<code class="descname">OneDay</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.OneDay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.ThreeDays">
+<code class="descname">ThreeDays</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.ThreeDays" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.FiveDays">
+<code class="descname">FiveDays</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.FiveDays" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.OneWeek">
+<code class="descname">OneWeek</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.OneWeek" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.TwoWeeks">
+<code class="descname">TwoWeeks</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.TwoWeeks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.OneMonth">
+<code class="descname">OneMonth</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.OneMonth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.TwoMonths">
+<code class="descname">TwoMonths</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.TwoMonths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.ThreeMonths">
+<code class="descname">ThreeMonths</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.ThreeMonths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.FourMonths">
+<code class="descname">FourMonths</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.FourMonths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.FiveMonths">
+<code class="descname">FiveMonths</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.FiveMonths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.HalfYear">
+<code class="descname">HalfYear</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.HalfYear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.OneYear">
+<code class="descname">OneYear</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.OneYear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.FourHundredDays">
+<code class="descname">FourHundredDays</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.FourHundredDays" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.EighteenMonths">
+<code class="descname">EighteenMonths</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.EighteenMonths" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.TwoYears">
+<code class="descname">TwoYears</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.TwoYears" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.FiveYears">
+<code class="descname">FiveYears</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.FiveYears" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.LogRetention.TenYears">
+<code class="descname">TenYears</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.LogRetention.TenYears" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="readwritetype-enum">
+<h3>ReadWriteType (enum)<a class="headerlink" href="#readwritetype-enum" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.ReadWriteType">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudtrail.</code><code class="descname">ReadWriteType</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.ReadWriteType" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.ReadWriteType</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">ReadWriteType</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ReadWriteType</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.ReadWriteType.ReadOnly">
+<code class="descname">ReadOnly</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.ReadWriteType.ReadOnly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.ReadWriteType.WriteOnly">
+<code class="descname">WriteOnly</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.ReadWriteType.WriteOnly" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-cloudtrail.ReadWriteType.All">
+<code class="descname">All</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.ReadWriteType.All" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="trailarn">
+<h3>TrailArn<a class="headerlink" href="#trailarn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.TrailArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudtrail.</code><code class="descname">TrailArn</code><span class="sig-paren">(</span><span class="optional">[</span><em>valueOrFunction</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.TrailArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.TrailArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">TrailArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">TrailArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>valueOrFunction</strong> (<em>any</em><em> or </em><em>undefined</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="trailsnstopicarn">
+<h3>TrailSnsTopicArn<a class="headerlink" href="#trailsnstopicarn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.TrailSnsTopicArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudtrail.</code><code class="descname">TrailSnsTopicArn</code><span class="sig-paren">(</span><span class="optional">[</span><em>valueOrFunction</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.TrailSnsTopicArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.TrailSnsTopicArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">TrailSnsTopicArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">TrailSnsTopicArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>valueOrFunction</strong> (<em>any</em><em> or </em><em>undefined</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-cloudtrail.cloudformation">
+<span id="cloudformation"></span><h3>cloudformation<a class="headerlink" href="#module-@aws-cdk/aws-cloudtrail.cloudformation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="trailresource">
+<h4>TrailResource<a class="headerlink" href="#trailresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudtrail.cloudformation.</code><code class="descname">TrailResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.cloudformation.TrailResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">TrailResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">TrailResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">TrailResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps" title="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrailResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">TrailResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.trailArn">
+<code class="descname">trailArn</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.trailArn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.TrailArn" title="&#64;aws-cdk/aws-cloudtrail.TrailArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrailArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.trailSnsTopicArn">
+<code class="descname">trailSnsTopicArn</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.trailSnsTopicArn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.TrailSnsTopicArn" title="&#64;aws-cdk/aws-cloudtrail.TrailSnsTopicArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrailSnsTopicArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.DataResourceProperty">
+<em class="property">class </em><code class="descname">DataResourceProperty</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.DataResourceProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.cloudformation.TrailResource.DataResourceProperty</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.TrailResource.DataResourceProperty is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">TrailResource</span><span class="p">.</span><span class="nx">DataResourceProperty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.DataResourceProperty.type">
+<code class="descname">type</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.DataResourceProperty.type" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">TrailResource.DataResourceProperty.Type</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-type</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.DataResourceProperty.values">
+<code class="descname">values</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.DataResourceProperty.values" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">TrailResource.DataResourceProperty.Values</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-dataresource.html#cfn-cloudtrail-trail-dataresource-values</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty">
+<em class="property">class </em><code class="descname">EventSelectorProperty</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.cloudformation.TrailResource.EventSelectorProperty</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.TrailResource.EventSelectorProperty is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">TrailResource</span><span class="p">.</span><span class="nx">EventSelectorProperty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty.dataResources">
+<code class="descname">dataResources</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty.dataResources" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">TrailResource.EventSelectorProperty.DataResources</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-dataresources</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.DataResourceProperty" title="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.DataResourceProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataResourceProperty</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty.includeManagementEvents">
+<code class="descname">includeManagementEvents</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty.includeManagementEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">TrailResource.EventSelectorProperty.IncludeManagementEvents</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-includemanagementevents</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty.readWriteType">
+<code class="descname">readWriteType</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty.readWriteType" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">TrailResource.EventSelectorProperty.ReadWriteType</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-eventselector.html#cfn-cloudtrail-trail-eventselector-readwritetype</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="trailresourceprops-interface">
+<h4>TrailResourceProps (interface)<a class="headerlink" href="#trailresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-cloudtrail.cloudformation.</code><code class="descname">TrailResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== active docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.cloudtrail.cloudformation.TrailResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.TrailResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">TrailResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-cloudtrail&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.isLogging">
+<code class="descname">isLogging</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.isLogging" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.IsLogging</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-islogging">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-islogging</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.s3BucketName">
+<code class="descname">s3BucketName</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.s3BucketName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.S3BucketName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-s3bucketname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-s3bucketname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.cloudWatchLogsLogGroupArn">
+<code class="descname">cloudWatchLogsLogGroupArn</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.cloudWatchLogsLogGroupArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.CloudWatchLogsLogGroupArn</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsloggrouparn">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsloggrouparn</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.cloudWatchLogsRoleArn">
+<code class="descname">cloudWatchLogsRoleArn</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.cloudWatchLogsRoleArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.CloudWatchLogsRoleArn</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsrolearn">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsrolearn</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.enableLogFileValidation">
+<code class="descname">enableLogFileValidation</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.enableLogFileValidation" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.EnableLogFileValidation</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-enablelogfilevalidation">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-enablelogfilevalidation</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.eventSelectors">
+<code class="descname">eventSelectors</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.eventSelectors" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.EventSelectors</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-eventselectors">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-eventselectors</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty" title="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResource.EventSelectorProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">EventSelectorProperty</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.includeGlobalServiceEvents">
+<code class="descname">includeGlobalServiceEvents</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.includeGlobalServiceEvents" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.IncludeGlobalServiceEvents</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-includeglobalserviceevents">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-includeglobalserviceevents</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.isMultiRegionTrail">
+<code class="descname">isMultiRegionTrail</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.isMultiRegionTrail" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.IsMultiRegionTrail</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-ismultiregiontrail">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-ismultiregiontrail</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.kmsKeyId">
+<code class="descname">kmsKeyId</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.kmsKeyId" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.KMSKeyId</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.s3KeyPrefix">
+<code class="descname">s3KeyPrefix</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.s3KeyPrefix" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.S3KeyPrefix</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-s3keyprefix">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-s3keyprefix</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.snsTopicName">
+<code class="descname">snsTopicName</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.snsTopicName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.SnsTopicName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-snstopicname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-snstopicname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.tags">
+<code class="descname">tags</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.Tags</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-tags">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-tags</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Tag" title="&#64;aws-cdk/cdk.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Tag</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.trailName">
+<code class="descname">trailName</code><a class="headerlink" href="#@aws-cdk/aws-cloudtrail.cloudformation.TrailResourceProps.trailName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::CloudTrail::Trail.TrailName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-trailname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-trailname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_aws-cdk_aws-cloudwatch.html" class="btn btn-neutral float-right" title="@aws-cdk/aws-cloudwatch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_aws-cdk_aws-cloudfront.html" class="btn btn-neutral" title="@aws-cdk/aws-cloudfront" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

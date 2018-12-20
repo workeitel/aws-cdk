@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AWS CloudFormation Library &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AWS CDK Examples" href="examples.html" />
+    <link rel="prev" title="AWS Construct Library" href="aws-construct-lib.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AWS CloudFormation Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-attributes">Resource Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resource-options">Resource Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conditions">Conditions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#intrinsic-functions">Intrinsic Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pseudo-parameters">Pseudo Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-constructs.html">Writing Constructs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>AWS CloudFormation Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/cloudformation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           ﻿<p style="background-color:#e47911; border-top:1px solid #ccc; margin-top:6px; padding-top:10px; padding-bottom:10px; padding-left:5px; font-weight:bold; font-style:italic; font-size:16px; color:white; vertical-align:middle">
+This documentation is for the developer preview release of the AWS CDK.
+Do not use this version of the AWS CDK in production.
+Subsequent releases of the AWS CDK will likely include breaking changes.
+</p>
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cloudformation-library">
+<span id="cloudformation"></span><h1>AWS CloudFormation Library<a class="headerlink" href="#aws-cloudformation-library" title="Permalink to this headline">¶</a></h1>
+<p>The <a class="reference internal" href="aws-construct-lib.html"><span class="doc">AWS Construct Library</span></a> includes constructs with rich APIs
+for defining AWS infrastructure. For example, the
+<a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3.Bucket</span></code></a> construct can be used to define S3 Buckets,
+the <a class="reference internal" href="refs/_aws-cdk_aws-sns.html#&#64;aws-cdk/aws-sns.Topic" title="&#64;aws-cdk/aws-sns.Topic"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-sns.Topic</span></code></a> construct can be used to define SNS
+Topics, etc.</p>
+<p>Under the hood, these constructs are implemented using CloudFormation resources,
+which are available under the <strong>cloudformation</strong> namespace of each library. For
+example, the <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3.Bucket</span></code></a> construct uses the
+<a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.cloudformation.BucketResource" title="&#64;aws-cdk/aws-s3.cloudformation.BucketResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3.cloudformation.BucketResource</span></code></a> resource (as well as
+other resources, depending on what bucket APIs are used).</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Generally, when building CDK apps, you shouldn’t need to interact with
+CloudFormation directly. However, there might be advanced use cases and
+migration scenarios where this might be required. We are also aware that
+there might be gaps in capabilities in the AWS Construct Library over time.</p>
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>CloudFormation resource classes are automatically generated from the <a class="reference external" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html">AWS
+CloudFormation Resource Specification</a>
+and available under the <strong>cloudformation</strong> namespace of each AWS library. Their
+API matches 1:1 with how you would use these resources in CloudFormation.</p>
+<p>When defining CloudFormation resource, the <strong>props</strong> argument of the class
+initializer will match 1:1 to the resource’s properties in CloudFormation.</p>
+<p>For example, to define an
+<a class="reference external" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html">AWS::SQS::Queue</a>
+resource encrypted with an AWS managed key you can directly specify the
+<a class="reference external" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsmasterkeyid">KmsMasterKeyId</a>
+property.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+
+<span class="k">new</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueueResource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyQueueResource&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">kmsMasterKeyId</span><span class="o">:</span> <span class="s1">&#39;alias/aws/sqs&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>For reference, if you use the <a class="reference internal" href="refs/_aws-cdk_aws-sqs.html#&#64;aws-cdk/aws-sqs.Queue" title="&#64;aws-cdk/aws-sqs.Queue"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-sqs.Queue</span></code></a> construct, you
+can define managed queue encryption as follows:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">sqs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">);</span>
+
+<span class="k">new</span> <span class="nx">sqs</span><span class="p">.</span><span class="nx">Queue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyQueue&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">encryption</span><span class="o">:</span> <span class="nx">sqs</span><span class="p">.</span><span class="nx">QueueEncryption</span><span class="p">.</span><span class="nx">KmsManaged</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resource-attributes">
+<span id="construct-attributes"></span><h2>Resource Attributes<a class="headerlink" href="#resource-attributes" title="Permalink to this headline">¶</a></h2>
+<p>To reference the runtime attributes of CloudFormation resources,
+use one of the properties available on the resource object.</p>
+<p>The following example configures a Lambda function’s dead letter queue to use a
+the ARN of an Amazon SQS queue resource.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span> <span class="nx">as</span> <span class="nx">sqscfn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span> <span class="nx">as</span> <span class="nx">lambdacfn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-lambda&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">dlq</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sqscfn</span><span class="p">.</span><span class="nx">QueueResource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;DLQ&#39;</span> <span class="p">});</span>
+
+<span class="k">new</span> <span class="nx">lambdacfn</span><span class="p">.</span><span class="nx">FunctionResource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">deadLetterConfig</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">targetArn</span><span class="o">:</span> <span class="nx">dlq</span><span class="p">.</span><span class="nx">queueArn</span>
+   <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource.ref" title="&#64;aws-cdk/cdk.Resource.ref"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource.ref</span></code></a> attribute represents the AWS CloudFormation
+resource’s intrinsic reference (or “Return Value”). For example, for <cite>dlq.ref</cite>
+will also <a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-properties-sqs-queues-ref">refer</a>
+to the queue’s ARN. When possible, it is preferrable to use an explicitly named
+attribute instead of <em>ref</em>.</p>
+</div>
+<div class="section" id="resource-options">
+<span id="id1"></span><h2>Resource Options<a class="headerlink" href="#resource-options" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource.options" title="&#64;aws-cdk/cdk.Resource.options"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource.options</span></code></a> object includes AWS CloudFormation options, such
+as <code class="code docutils literal notranslate"><span class="pre">condition</span></code>, <code class="code docutils literal notranslate"><span class="pre">updatePolicy</span></code>, <code class="code docutils literal notranslate"><span class="pre">createPolicy</span></code> and
+<code class="code docutils literal notranslate"><span class="pre">metadata</span></code>, for a resource.</p>
+</div>
+<div class="section" id="parameters">
+<span id="id2"></span><h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sns&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">p</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Parameter</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyParam&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;String&#39;</span> <span class="p">});</span>
+<span class="k">new</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">TopicResource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyTopic&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">displayName</span><span class="o">:</span> <span class="nx">p</span><span class="p">.</span><span class="nx">ref</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="outputs">
+<span id="id3"></span><h2>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueueResource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyQueue&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">out</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Output</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyQueueArn&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">value</span><span class="o">:</span> <span class="nx">queue</span><span class="p">.</span><span class="nx">queueArn</span> <span class="p">});</span>
+
+<span class="kr">const</span> <span class="kr">import</span> <span class="o">=</span> <span class="nx">out</span><span class="p">.</span><span class="nx">makeImportValue</span><span class="p">();</span>
+<span class="nx">assert</span><span class="p">(</span><span class="kr">import</span> <span class="o">===</span> <span class="p">{</span> <span class="s2">&quot;Fn::ImportValue&quot;</span><span class="o">:</span> <span class="nx">out</span><span class="p">.</span><span class="nx">exportName</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conditions">
+<span id="id4"></span><h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sqs&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cond</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Condition</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyCondition&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">expression</span><span class="o">:</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">FnIf</span><span class="p">(...)</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">QueueResource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyQueue&#39;</span><span class="p">);</span>
+<span class="nx">queue</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">condition</span> <span class="o">=</span> <span class="nx">cond</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="intrinsic-functions">
+<span id="id5"></span><h2>Intrinsic Functions<a class="headerlink" href="#intrinsic-functions" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+<span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">FnJoin</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="p">[...])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="pseudo-parameters">
+<span id="id6"></span><h2>Pseudo Parameters<a class="headerlink" href="#pseudo-parameters" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+<span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">AwsRegion</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="examples.html" class="btn btn-neutral float-right" title="AWS CDK Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="aws-construct-lib.html" class="btn btn-neutral" title="AWS Construct Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.15.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

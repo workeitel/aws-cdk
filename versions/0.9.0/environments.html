@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Environments and Authentication &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Apps" href="apps.html" />
+    <link rel="prev" title="Logical IDs" href="logical-ids.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="constructs.html">Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stacks.html">Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical-ids.html">Logical IDs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Environments and Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Environmental Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applets.html">Applets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="concepts.html">AWS CDK Concepts</a> &raquo;</li>
+        
+      <li>Environments and Authentication</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/environments.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="environments-and-authentication">
+<span id="environments"></span><h1>Environments and Authentication<a class="headerlink" href="#environments-and-authentication" title="Permalink to this headline">¶</a></h1>
+<p>The AWS CDK refers to the combination of an account ID and a Region as an <em>environment</em>.
+The simplest environment is the one you get by default,
+which is the one you get when you have set up your credentials and a default Region as described in
+<a class="reference internal" href="getting-started.html#credentials"><span class="std std-ref">Configure the AWS CDK Toolkit</span></a>.</p>
+<p>When you create a <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Stack" title="&#64;aws-cdk/cdk.Stack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stack</span></code></a> instance, you can supply the target deployment environment
+for the stack using the <strong>env</strong> property, as shown in the following example,
+where REGION is the Region in which you want to create the stack and ACCOUNT is your account ID.</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new</span> <span class="n">MyStack</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="p">{</span> <span class="n">env</span><span class="p">:</span> <span class="p">{</span> <span class="n">region</span><span class="p">:</span> <span class="s1">&#39;REGION&#39;</span><span class="p">,</span> <span class="n">account</span><span class="p">:</span> <span class="s1">&#39;ACCOUNT&#39;</span> <span class="p">}</span> <span class="p">});</span>
+</pre></div>
+</div>
+<p>For each of the two arguments <strong>region</strong> and <strong>account</strong>, the AWS CDK uses the
+following lookup procedure:</p>
+<ul class="simple">
+<li>If <strong>region</strong> or <strong>account</strong> are provided directly as an property to the
+Stack, use that.</li>
+<li>Otherwise, read <strong>default-account</strong> and <strong>default-region</strong> from the application’s context.
+These can be set in the AWS CDK Toolkit in either the local <em>cdk.json</em> file or the global version in
+<em>$HOME/.cdk</em> on Linux or MacOS or <em>%USERPROFILE%.cdk</em> on Windows.</li>
+<li>If these are not defined, it will determine them as follows:<ul>
+<li><strong>account</strong>: use account from default SDK credentials. Environment
+variables are tried first (<strong>AWS_ACCESS_KEY_ID</strong> and <strong>AWS_SECRET_ACCESS_KEY</strong>),
+followed by credentials in <em>$HOME/.aws/credentials</em> on Linux or MacOS
+or <em>%USERPROFILE%.aws\credentials</em> on Windows.</li>
+<li><strong>region</strong>: use the default region configured in <em>$HOME/.aws/config</em> on
+Linux or MacOS or <em>%USERPROFILE%.aws\config</em> on Windows.</li>
+<li>You can set these defaults manually, but we recommend you use <code class="docutils literal notranslate"><span class="pre">aws</span>
+<span class="pre">configure</span></code>, as described in the <a class="reference internal" href="getting-started.html"><span class="doc">Hello, AWS CDK!</span></a> topic.</li>
+</ul>
+</li>
+</ul>
+<p>We recommend you use the default environment for development stacks,
+and explicitly specify accounts and Regions for production stacks.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Note that even though the region and account might explicitly be set on your
+Stack, if you run <code class="docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">deploy</span></code> the AWS CDK will still use the
+currently-configured SDK credentials, as provided via the <strong>AWS_</strong>
+environment variables or <code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code>. This means that if you want to
+deploy stacks to multiple accounts, you will have to set the correct
+credentials for each invocation to <code class="docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">deploy</span> <span class="pre">STACK</span></code>.</p>
+<p class="last">In the future, we will provide the ability to specify credential sources for
+individual accounts so that you can deploy to multiple accounts using one
+invocation of <code class="docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">deploy</span></code>, but this feature is not available yet.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="apps.html" class="btn btn-neutral float-right" title="Apps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="logical-ids.html" class="btn btn-neutral" title="Logical IDs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.9.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

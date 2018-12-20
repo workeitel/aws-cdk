@@ -1,0 +1,833 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>@aws-cdk/aws-autoscalingplans &mdash; AWS Cloud Development Kit 0.8.0+0eede70 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="@aws-cdk/aws-batch" href="_aws-cdk_aws-batch.html" />
+    <link rel="prev" title="@aws-cdk/aws-autoscaling" href="_aws-cdk_aws-autoscaling.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0+0eede70
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_assets.html">&#64;aws-cdk/assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appsync.html">&#64;aws-cdk/aws-appsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-athena.html">&#64;aws-cdk/aws-athena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling.html">&#64;aws-cdk/aws-autoscaling</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&#64;aws-cdk/aws-autoscalingplans</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-cdk-construct-library-for-aws-auto-scaling-plans">The CDK Construct Library for AWS Auto-Scaling Plans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-&#64;aws-cdk/aws-autoscalingplans">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-&#64;aws-cdk/aws-autoscalingplans.cloudformation">cloudformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-batch.html">&#64;aws-cdk/aws-batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-budgets.html">&#64;aws-cdk/aws-budgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-certificatemanager.html">&#64;aws-cdk/aws-certificatemanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloud9.html">&#64;aws-cdk/aws-cloud9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation.html">&#64;aws-cdk/aws-cloudformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudfront.html">&#64;aws-cdk/aws-cloudfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudtrail.html">&#64;aws-cdk/aws-cloudtrail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html">&#64;aws-cdk/aws-cloudwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild.html">&#64;aws-cdk/aws-codebuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit.html">&#64;aws-cdk/aws-codecommit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy.html">&#64;aws-cdk/aws-codedeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html">&#64;aws-cdk/aws-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cognito.html">&#64;aws-cdk/aws-cognito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-config.html">&#64;aws-cdk/aws-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-custom-resources.html">&#64;aws-cdk/aws-custom-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-datapipeline.html">&#64;aws-cdk/aws-datapipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dax.html">&#64;aws-cdk/aws-dax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-directoryservice.html">&#64;aws-cdk/aws-directoryservice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dms.html">&#64;aws-cdk/aws-dms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dynamodb.html">&#64;aws-cdk/aws-dynamodb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ec2.html">&#64;aws-cdk/aws-ec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecr.html">&#64;aws-cdk/aws-ecr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecs.html">&#64;aws-cdk/aws-ecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-efs.html">&#64;aws-cdk/aws-efs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-eks.html">&#64;aws-cdk/aws-eks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticache.html">&#64;aws-cdk/aws-elasticache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticbeanstalk.html">&#64;aws-cdk/aws-elasticbeanstalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancing.html">&#64;aws-cdk/aws-elasticloadbalancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancingv2.html">&#64;aws-cdk/aws-elasticloadbalancingv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticsearch.html">&#64;aws-cdk/aws-elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-emr.html">&#64;aws-cdk/aws-emr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-events.html">&#64;aws-cdk/aws-events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-gamelift.html">&#64;aws-cdk/aws-gamelift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-glue.html">&#64;aws-cdk/aws-glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-guardduty.html">&#64;aws-cdk/aws-guardduty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iam.html">&#64;aws-cdk/aws-iam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-inspector.html">&#64;aws-cdk/aws-inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot.html">&#64;aws-cdk/aws-iot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesis.html">&#64;aws-cdk/aws-kinesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisanalytics.html">&#64;aws-cdk/aws-kinesisanalytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisfirehose.html">&#64;aws-cdk/aws-kinesisfirehose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kms.html">&#64;aws-cdk/aws-kms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda.html">&#64;aws-cdk/aws-lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-logs.html">&#64;aws-cdk/aws-logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-neptune.html">&#64;aws-cdk/aws-neptune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-opsworks.html">&#64;aws-cdk/aws-opsworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-rds.html">&#64;aws-cdk/aws-rds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-redshift.html">&#64;aws-cdk/aws-redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-route53.html">&#64;aws-cdk/aws-route53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3.html">&#64;aws-cdk/aws-s3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sdb.html">&#64;aws-cdk/aws-sdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-serverless.html">&#64;aws-cdk/aws-serverless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicecatalog.html">&#64;aws-cdk/aws-servicecatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicediscovery.html">&#64;aws-cdk/aws-servicediscovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ses.html">&#64;aws-cdk/aws-ses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sns.html">&#64;aws-cdk/aws-sns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sqs.html">&#64;aws-cdk/aws-sqs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ssm.html">&#64;aws-cdk/aws-ssm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-stepfunctions.html">&#64;aws-cdk/aws-stepfunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-waf.html">&#64;aws-cdk/aws-waf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-wafregional.html">&#64;aws-cdk/aws-wafregional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-workspaces.html">&#64;aws-cdk/aws-workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cdk.html">&#64;aws-cdk/cdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cx-api.html">&#64;aws-cdk/cx-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_rtv.html">&#64;aws-cdk/rtv</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+        
+      <li>&#64;aws-cdk/aws-autoscalingplans</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/refs/_aws-cdk_aws-autoscalingplans.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cdk-aws-autoscalingplans">
+<h1>&#64;aws-cdk/aws-autoscalingplans<a class="headerlink" href="#aws-cdk-aws-autoscalingplans" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-cdk-construct-library-for-aws-auto-scaling-plans">
+<h2>The CDK Construct Library for AWS Auto-Scaling Plans<a class="headerlink" href="#the-cdk-construct-library-for-aws-auto-scaling-plans" title="Permalink to this headline">¶</a></h2>
+<p>This module is part of the <a class="reference external" href="https://github.com/awslabs/aws-cdk">AWS Cloud Development Kit</a> project.</p>
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-autoscalingplans">
+<span id="reference"></span><h2>Reference<a class="headerlink" href="#module-@aws-cdk/aws-autoscalingplans" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-&#64;aws-cdk/aws-autoscalingplans.cloudformation">
+<span id="cloudformation"></span><h3>cloudformation<a class="headerlink" href="#module-@aws-cdk/aws-autoscalingplans.cloudformation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="scalingplanresource">
+<h4>ScalingPlanResource<a class="headerlink" href="#scalingplanresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-autoscalingplans.cloudformation.</code><code class="descname">ScalingPlanResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">ScalingPlanResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResourceProps" title="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalingPlanResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">ScalingPlanResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ApplicationSourceProperty">
+<em class="property">class </em><code class="descname">ApplicationSourceProperty</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ApplicationSourceProperty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ApplicationSourceProperty.cloudFormationStackArn">
+<code class="descname">cloudFormationStackArn</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ApplicationSourceProperty.cloudFormationStackArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.ApplicationSourceProperty.CloudFormationStackARN</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-cloudformationstackarn">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-cloudformationstackarn</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ApplicationSourceProperty.tagFilters">
+<code class="descname">tagFilters</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ApplicationSourceProperty.tagFilters" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.ApplicationSourceProperty.TagFilters</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-tagfilters">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-applicationsource.html#cfn-autoscalingplans-scalingplan-applicationsource-tagfilters</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TagFilterProperty" title="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TagFilterProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">TagFilterProperty</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty">
+<em class="property">class </em><code class="descname">CustomizedScalingMetricSpecificationProperty</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.dimensions">
+<code class="descname">dimensions</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.dimensions" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.Dimensions</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-dimensions">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-dimensions</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.MetricDimensionProperty" title="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.MetricDimensionProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">MetricDimensionProperty</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.metricName">
+<code class="descname">metricName</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.metricName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.MetricName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-metricname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-metricname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.namespace">
+<code class="descname">namespace</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.namespace" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.Namespace</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-namespace">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-namespace</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.statistic">
+<code class="descname">statistic</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.statistic" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.Statistic</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-statistic">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-statistic</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.unit">
+<code class="descname">unit</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.unit" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.CustomizedScalingMetricSpecificationProperty.Unit</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-unit">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-customizedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-customizedscalingmetricspecification-unit</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.MetricDimensionProperty">
+<em class="property">class </em><code class="descname">MetricDimensionProperty</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.MetricDimensionProperty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.MetricDimensionProperty.name">
+<code class="descname">name</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.MetricDimensionProperty.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.MetricDimensionProperty.Name</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-metricdimension.html#cfn-autoscalingplans-scalingplan-metricdimension-name">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-metricdimension.html#cfn-autoscalingplans-scalingplan-metricdimension-name</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.MetricDimensionProperty.value">
+<code class="descname">value</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.MetricDimensionProperty.value" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.MetricDimensionProperty.Value</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-metricdimension.html#cfn-autoscalingplans-scalingplan-metricdimension-value">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-metricdimension.html#cfn-autoscalingplans-scalingplan-metricdimension-value</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.PredefinedScalingMetricSpecificationProperty">
+<em class="property">class </em><code class="descname">PredefinedScalingMetricSpecificationProperty</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.PredefinedScalingMetricSpecificationProperty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.PredefinedScalingMetricSpecificationProperty.predefinedScalingMetricType">
+<code class="descname">predefinedScalingMetricType</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.PredefinedScalingMetricSpecificationProperty.predefinedScalingMetricType" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.PredefinedScalingMetricSpecificationProperty.PredefinedScalingMetricType</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-predefinedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-predefinedscalingmetricspecification-predefinedscalingmetrictype">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-predefinedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-predefinedscalingmetricspecification-predefinedscalingmetrictype</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.PredefinedScalingMetricSpecificationProperty.resourceLabel">
+<code class="descname">resourceLabel</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.PredefinedScalingMetricSpecificationProperty.resourceLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.PredefinedScalingMetricSpecificationProperty.ResourceLabel</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-predefinedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-predefinedscalingmetricspecification-resourcelabel">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-predefinedscalingmetricspecification.html#cfn-autoscalingplans-scalingplan-predefinedscalingmetricspecification-resourcelabel</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty">
+<em class="property">class </em><code class="descname">ScalingInstructionProperty</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.maxCapacity">
+<code class="descname">maxCapacity</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.maxCapacity" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.ScalingInstructionProperty.MaxCapacity</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-maxcapacity">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-maxcapacity</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.minCapacity">
+<code class="descname">minCapacity</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.minCapacity" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.ScalingInstructionProperty.MinCapacity</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-mincapacity">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-mincapacity</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.resourceId">
+<code class="descname">resourceId</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.resourceId" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.ScalingInstructionProperty.ResourceId</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-resourceid">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-resourceid</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.scalableDimension">
+<code class="descname">scalableDimension</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.scalableDimension" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.ScalingInstructionProperty.ScalableDimension</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-scalabledimension">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-scalabledimension</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.serviceNamespace">
+<code class="descname">serviceNamespace</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.serviceNamespace" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.ScalingInstructionProperty.ServiceNamespace</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-servicenamespace">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-servicenamespace</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.targetTrackingConfigurations">
+<code class="descname">targetTrackingConfigurations</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty.targetTrackingConfigurations" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.ScalingInstructionProperty.TargetTrackingConfigurations</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-targettrackingconfigurations">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-scalinginstruction.html#cfn-autoscalingplans-scalingplan-scalinginstruction-targettrackingconfigurations</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty" title="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">TargetTrackingConfigurationProperty</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TagFilterProperty">
+<em class="property">class </em><code class="descname">TagFilterProperty</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TagFilterProperty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TagFilterProperty.key">
+<code class="descname">key</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TagFilterProperty.key" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TagFilterProperty.Key</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html#cfn-autoscalingplans-scalingplan-tagfilter-key">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html#cfn-autoscalingplans-scalingplan-tagfilter-key</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TagFilterProperty.values">
+<code class="descname">values</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TagFilterProperty.values" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TagFilterProperty.Values</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html#cfn-autoscalingplans-scalingplan-tagfilter-values">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-tagfilter.html#cfn-autoscalingplans-scalingplan-tagfilter-values</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty">
+<em class="property">class </em><code class="descname">TargetTrackingConfigurationProperty</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.customizedScalingMetricSpecification">
+<code class="descname">customizedScalingMetricSpecification</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.customizedScalingMetricSpecification" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TargetTrackingConfigurationProperty.CustomizedScalingMetricSpecification</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-customizedscalingmetricspecification">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-customizedscalingmetricspecification</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty" title="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.CustomizedScalingMetricSpecificationProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">CustomizedScalingMetricSpecificationProperty</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.disableScaleIn">
+<code class="descname">disableScaleIn</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.disableScaleIn" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TargetTrackingConfigurationProperty.DisableScaleIn</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-disablescalein">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-disablescalein</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.estimatedInstanceWarmup">
+<code class="descname">estimatedInstanceWarmup</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.estimatedInstanceWarmup" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TargetTrackingConfigurationProperty.EstimatedInstanceWarmup</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-estimatedinstancewarmup">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-estimatedinstancewarmup</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.predefinedScalingMetricSpecification">
+<code class="descname">predefinedScalingMetricSpecification</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.predefinedScalingMetricSpecification" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TargetTrackingConfigurationProperty.PredefinedScalingMetricSpecification</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-predefinedscalingmetricspecification">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-predefinedscalingmetricspecification</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.PredefinedScalingMetricSpecificationProperty" title="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.PredefinedScalingMetricSpecificationProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">PredefinedScalingMetricSpecificationProperty</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.scaleInCooldown">
+<code class="descname">scaleInCooldown</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.scaleInCooldown" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TargetTrackingConfigurationProperty.ScaleInCooldown</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-scaleincooldown">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-scaleincooldown</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.scaleOutCooldown">
+<code class="descname">scaleOutCooldown</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.scaleOutCooldown" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TargetTrackingConfigurationProperty.ScaleOutCooldown</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-scaleoutcooldown">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-scaleoutcooldown</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.targetValue">
+<code class="descname">targetValue</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.TargetTrackingConfigurationProperty.targetValue" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ScalingPlanResource.TargetTrackingConfigurationProperty.TargetValue</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-targetvalue">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscalingplans-scalingplan-targettrackingconfiguration.html#cfn-autoscalingplans-scalingplan-targettrackingconfiguration-targetvalue</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="scalingplanresourceprops-interface">
+<h4>ScalingPlanResourceProps (interface)<a class="headerlink" href="#scalingplanresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-autoscalingplans.cloudformation.</code><code class="descname">ScalingPlanResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResourceProps.applicationSource">
+<code class="descname">applicationSource</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResourceProps.applicationSource" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::AutoScalingPlans::ScalingPlan.ApplicationSource</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-applicationsource">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-applicationsource</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ApplicationSourceProperty" title="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ApplicationSourceProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationSourceProperty</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResourceProps.scalingInstructions">
+<code class="descname">scalingInstructions</code><a class="headerlink" href="#@aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResourceProps.scalingInstructions" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::AutoScalingPlans::ScalingPlan.ScalingInstructions</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-scalinginstructions">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html#cfn-autoscalingplans-scalingplan-scalinginstructions</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty" title="&#64;aws-cdk/aws-autoscalingplans.cloudformation.ScalingPlanResource.ScalingInstructionProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">ScalingInstructionProperty</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_aws-cdk_aws-batch.html" class="btn btn-neutral float-right" title="@aws-cdk/aws-batch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_aws-cdk_aws-autoscaling.html" class="btn btn-neutral" title="@aws-cdk/aws-autoscaling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.0+0eede70',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

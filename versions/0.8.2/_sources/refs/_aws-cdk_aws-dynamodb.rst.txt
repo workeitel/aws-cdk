@@ -1,0 +1,933 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"A5rkt73ppagKAZnGniRCilq2LtPk8FqXUZi0ihEQEOM="}
+
+@aws-cdk/aws-dynamodb
+=====================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/dynamodb/0.8.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:dynamodb:jar:0.8.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="dynamodb" rev="0.8.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>dynamodb</artifactId>
+           <version>0.8.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:dynamodb:0.8.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='dynamodb', version='0.8.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-dynamodb/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-dynamodb@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-dynamodb": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-dynamodb@0.8.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-dynamodb/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-dynamodb@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-dynamodb": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-dynamodb@0.8.2
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-dynamodb.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-dynamodb
+
+KeyAttributeType (enum)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: KeyAttributeType
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.dynamodb.KeyAttributeType;
+
+      .. code-tab:: javascript
+
+         const { KeyAttributeType } = require('@aws-cdk/aws-dynamodb');
+
+      .. code-tab:: typescript
+
+         import { KeyAttributeType } from '@aws-cdk/aws-dynamodb';
+
+
+
+   .. py:data:: Binary
+
+   .. py:data:: Number
+
+   .. py:data:: String
+
+
+Table
+^^^^^
+
+.. py:class:: Table(parent, name, [props])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.dynamodb.Table;
+
+      .. code-tab:: javascript
+
+         const { Table } = require('@aws-cdk/aws-dynamodb');
+
+      .. code-tab:: typescript
+
+         import { Table } from '@aws-cdk/aws-dynamodb';
+
+
+
+   Provides a DynamoDB table.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-dynamodb.TableProps` or undefined
+
+   .. py:method:: addPartitionKey(name, type) -> @aws-cdk/aws-dynamodb.Table
+
+      :param name: 
+      :type name: string
+      :param type: 
+      :type type: :py:class:`~@aws-cdk/aws-dynamodb.KeyAttributeType`
+      :rtype: :py:class:`~@aws-cdk/aws-dynamodb.Table`
+
+
+   .. py:method:: addSortKey(name, type) -> @aws-cdk/aws-dynamodb.Table
+
+      :param name: 
+      :type name: string
+      :param type: 
+      :type type: :py:class:`~@aws-cdk/aws-dynamodb.KeyAttributeType`
+      :rtype: :py:class:`~@aws-cdk/aws-dynamodb.Table`
+
+
+   .. py:method:: validate() -> string[]
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string
+
+
+   .. py:attribute:: tableArn
+
+      :type: :py:class:`~@aws-cdk/aws-dynamodb.TableArn` *(readonly)*
+
+
+   .. py:attribute:: tableName
+
+      :type: :py:class:`~@aws-cdk/aws-dynamodb.TableName` *(readonly)*
+
+
+   .. py:attribute:: tableStreamArn
+
+      :type: :py:class:`~@aws-cdk/aws-dynamodb.TableStreamArn` *(readonly)*
+
+
+TableArn
+^^^^^^^^
+
+.. py:class:: TableArn([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.dynamodb.TableArn;
+
+      .. code-tab:: javascript
+
+         const { TableArn } = require('@aws-cdk/aws-dynamodb');
+
+      .. code-tab:: typescript
+
+         import { TableArn } from '@aws-cdk/aws-dynamodb';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+TableName
+^^^^^^^^^
+
+.. py:class:: TableName([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.dynamodb.TableName;
+
+      .. code-tab:: javascript
+
+         const { TableName } = require('@aws-cdk/aws-dynamodb');
+
+      .. code-tab:: typescript
+
+         import { TableName } from '@aws-cdk/aws-dynamodb';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+TableProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TableProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.dynamodb.TableProps;
+
+      .. code-tab:: javascript
+
+         // TableProps is an interface
+
+      .. code-tab:: typescript
+
+         import { TableProps } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+   .. py:attribute:: readCapacity
+
+      The read capacity for the table. Careful if you add Global Secondary Indexes, as those will share the table's provisioned throughput.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: writeCapacity
+
+      The write capacity for the table. Careful if you add Global Secondary Indexes, as those will share the table's provisioned throughput.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: tableName
+
+      Enforces a particular physical table name.
+
+
+      :type: string or undefined
+
+
+TableStreamArn
+^^^^^^^^^^^^^^
+
+.. py:class:: TableStreamArn([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.dynamodb.TableStreamArn;
+
+      .. code-tab:: javascript
+
+         const { TableStreamArn } = require('@aws-cdk/aws-dynamodb');
+
+      .. code-tab:: typescript
+
+         import { TableStreamArn } from '@aws-cdk/aws-dynamodb';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-dynamodb.cloudformation
+
+TableResource
+~~~~~~~~~~~~~
+
+.. py:class:: TableResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.TableResource } = require('@aws-cdk/aws-dynamodb');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.TableResource } from '@aws-cdk/aws-dynamodb';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``TableResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``TableResource``
+   :type properties: :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: tableArn
+
+      :type: :py:class:`~@aws-cdk/aws-dynamodb.TableArn` *(readonly)*
+
+
+   .. py:attribute:: tableStreamArn
+
+      :type: :py:class:`~@aws-cdk/aws-dynamodb.TableStreamArn` *(readonly)*
+
+   .. py:class:: AttributeDefinitionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.AttributeDefinitionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.AttributeDefinitionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.AttributeDefinitionProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: attributeName
+
+         ``TableResource.AttributeDefinitionProperty.AttributeName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: attributeType
+
+         ``TableResource.AttributeDefinitionProperty.AttributeType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: GlobalSecondaryIndexProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.GlobalSecondaryIndexProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.GlobalSecondaryIndexProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.GlobalSecondaryIndexProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: indexName
+
+         ``TableResource.GlobalSecondaryIndexProperty.IndexName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-indexname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: keySchema
+
+         ``TableResource.GlobalSecondaryIndexProperty.KeySchema``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-keyschema
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.KeySchemaProperty`
+
+
+      .. py:attribute:: projection
+
+         ``TableResource.GlobalSecondaryIndexProperty.Projection``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-projection
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.ProjectionProperty`
+
+
+      .. py:attribute:: provisionedThroughput
+
+         ``TableResource.GlobalSecondaryIndexProperty.ProvisionedThroughput``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.ProvisionedThroughputProperty`
+
+
+   .. py:class:: KeySchemaProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.KeySchemaProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.KeySchemaProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.KeySchemaProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: attributeName
+
+         ``TableResource.KeySchemaProperty.AttributeName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-attributename
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: keyType
+
+         ``TableResource.KeySchemaProperty.KeyType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-keytype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: LocalSecondaryIndexProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.LocalSecondaryIndexProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.LocalSecondaryIndexProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.LocalSecondaryIndexProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: indexName
+
+         ``TableResource.LocalSecondaryIndexProperty.IndexName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-indexname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: keySchema
+
+         ``TableResource.LocalSecondaryIndexProperty.KeySchema``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-keyschema
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.KeySchemaProperty`
+
+
+      .. py:attribute:: projection
+
+         ``TableResource.LocalSecondaryIndexProperty.Projection``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html#cfn-dynamodb-lsi-projection
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.ProjectionProperty`
+
+
+   .. py:class:: PointInTimeRecoverySpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.PointInTimeRecoverySpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.PointInTimeRecoverySpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.PointInTimeRecoverySpecificationProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: pointInTimeRecoveryEnabled
+
+         ``TableResource.PointInTimeRecoverySpecificationProperty.PointInTimeRecoveryEnabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html#cfn-dynamodb-table-pointintimerecoveryspecification-pointintimerecoveryenabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ProjectionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.ProjectionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.ProjectionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.ProjectionProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: nonKeyAttributes
+
+         ``TableResource.ProjectionProperty.NonKeyAttributes``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-nonkeyatt
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: projectionType
+
+         ``TableResource.ProjectionProperty.ProjectionType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ProvisionedThroughputProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.ProvisionedThroughputProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.ProvisionedThroughputProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.ProvisionedThroughputProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: readCapacityUnits
+
+         ``TableResource.ProvisionedThroughputProperty.ReadCapacityUnits``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: writeCapacityUnits
+
+         ``TableResource.ProvisionedThroughputProperty.WriteCapacityUnits``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: SSESpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.SSESpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.SSESpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.SSESpecificationProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: sseEnabled
+
+         ``TableResource.SSESpecificationProperty.SSEEnabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ssespecification.html#cfn-dynamodb-table-ssespecification-sseenabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: StreamSpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.StreamSpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.StreamSpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.StreamSpecificationProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: streamViewType
+
+         ``TableResource.StreamSpecificationProperty.StreamViewType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: TimeToLiveSpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.dynamodb.cloudformation.TableResource.TimeToLiveSpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TableResource.TimeToLiveSpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TableResource.TimeToLiveSpecificationProperty } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+      .. py:attribute:: attributeName
+
+         ``TableResource.TimeToLiveSpecificationProperty.AttributeName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-attributename
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: enabled
+
+         ``TableResource.TimeToLiveSpecificationProperty.Enabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html#cfn-dynamodb-timetolivespecification-enabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+TableResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: TableResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.dynamodb.cloudformation.TableResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.TableResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.TableResourceProps } from '@aws-cdk/aws-dynamodb';
+
+
+
+
+
+   .. py:attribute:: keySchema
+
+      ``AWS::DynamoDB::Table.KeySchema``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.KeySchemaProperty`
+
+
+   .. py:attribute:: provisionedThroughput
+
+      ``AWS::DynamoDB::Table.ProvisionedThroughput``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.ProvisionedThroughputProperty`
+
+
+   .. py:attribute:: attributeDefinitions
+
+      ``AWS::DynamoDB::Table.AttributeDefinitions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.AttributeDefinitionProperty` or undefined
+
+
+   .. py:attribute:: globalSecondaryIndexes
+
+      ``AWS::DynamoDB::Table.GlobalSecondaryIndexes``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.GlobalSecondaryIndexProperty` or undefined
+
+
+   .. py:attribute:: localSecondaryIndexes
+
+      ``AWS::DynamoDB::Table.LocalSecondaryIndexes``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.LocalSecondaryIndexProperty` or undefined
+
+
+   .. py:attribute:: pointInTimeRecoverySpecification
+
+      ``AWS::DynamoDB::Table.PointInTimeRecoverySpecification``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-pointintimerecoveryspecification
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.PointInTimeRecoverySpecificationProperty` or undefined
+
+
+   .. py:attribute:: sseSpecification
+
+      ``AWS::DynamoDB::Table.SSESpecification``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.SSESpecificationProperty` or undefined
+
+
+   .. py:attribute:: streamSpecification
+
+      ``AWS::DynamoDB::Table.StreamSpecification``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.StreamSpecificationProperty` or undefined
+
+
+   .. py:attribute:: tableName
+
+      ``AWS::DynamoDB::Table.TableName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::DynamoDB::Table.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+   .. py:attribute:: timeToLiveSpecification
+
+      ``AWS::DynamoDB::Table.TimeToLiveSpecification``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-timetolivespecification
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-dynamodb.cloudformation.TableResource.TimeToLiveSpecificationProperty` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-dynamodb
+

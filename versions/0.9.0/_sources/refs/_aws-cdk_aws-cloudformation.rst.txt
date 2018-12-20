@@ -1,0 +1,1343 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"vGN9SPO1/vHm6FU2EwBYjcbmHUYr8tQFyZCPnULNeU0="}
+
+@aws-cdk/aws-cloudformation
+===========================
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.CloudFormation/0.9.0>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.CloudFormation" Version="0.9.0" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.CloudFormation --version 0.9.0
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.CloudFormation" version="0.9.0" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/cloudformation/0.9.0/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:cloudformation:jar:0.9.0'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="cloudformation" rev="0.9.0"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>cloudformation</artifactId>
+           <version>0.9.0</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:cloudformation:0.9.0'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='cloudformation', version='0.9.0')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-cloudformation/v/0.9.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-cloudformation@0.9.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-cloudformation": "^0.9.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-cloudformation@0.9.0
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-cloudformation/v/0.9.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-cloudformation@0.9.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-cloudformation": "^0.9.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-cloudformation@0.9.0
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-cloudformation.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-cloudformation
+
+CloudFormationAction
+^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationAction(parent, id, props, configuration)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CloudFormationAction;
+
+      .. code-tab:: javascript
+
+         const { CloudFormationAction } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { CloudFormationAction } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Base class for Actions that execute CloudFormation
+
+
+   :extends: :py:class:`@aws-cdk/aws-codepipeline-api.DeployAction`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationCommonProps`
+   :param configuration: 
+   :type configuration: any
+
+   .. py:attribute:: artifact
+
+      Output artifact containing the CloudFormation call response  Only present if configured by passing `outputFileName`.
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline-api.Artifact` or undefined
+
+
+CloudFormationCapabilities (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationCapabilities
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CloudFormationCapabilities;
+
+      .. code-tab:: javascript
+
+         const { CloudFormationCapabilities } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { CloudFormationCapabilities } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Capabilities that affect whether CloudFormation is allowed to change IAM resources
+
+
+   .. py:data:: IAM
+
+   Capability to create anonymous IAM resources  Pass this capability if you're only creating anonymous resources.
+
+
+   .. py:data:: NamedIAM
+
+   Capability to create named IAM resources.  Pass this capability if you're creating IAM resources that have physical names.  `CloudFormationCapabilities.NamedIAM` implies `CloudFormationCapabilities.IAM`; you don't have to pass both.
+
+
+
+CloudFormationCommonProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationCommonProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CloudFormationCommonProps;
+
+      .. code-tab:: javascript
+
+         // CloudFormationCommonProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CloudFormationCommonProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Properties common to all CloudFormation actions
+
+
+   :extends: :py:class:`@aws-cdk/aws-codepipeline-api.CommonActionProps`
+
+
+   .. py:attribute:: stackName
+
+      The name of the stack to apply this action to
+
+
+      :type: string
+
+
+   .. py:attribute:: outputArtifactName
+
+      The name of the output artifact to generate  Only applied if `outputFileName` is set as well.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: outputFileName
+
+      A name for the filename in the output artifact to store the AWS CloudFormation call's result.  The file will contain the result of the call to AWS CloudFormation (for example the call to UpdateStack or CreateChangeSet).  AWS CodePipeline adds the file to the output artifact after performing the specified action.
+
+
+      :type: string or undefined
+
+
+CloudFormationDeploymentAction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationDeploymentAction(parent, id, props, configuration)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CloudFormationDeploymentAction;
+
+      .. code-tab:: javascript
+
+         const { CloudFormationDeploymentAction } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { CloudFormationDeploymentAction } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Base class for all CloudFormation actions that execute or stage deployments.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationAction`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationDeploymentActionCommonProps`
+   :param configuration: 
+   :type configuration: any
+
+   .. py:method:: addToRolePolicy(statement)
+
+      Add statement to the service role assumed by CloudFormation while executing this action.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:attribute:: role
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` *(readonly)*
+
+
+CloudFormationDeploymentActionCommonProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationDeploymentActionCommonProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CloudFormationDeploymentActionCommonProps;
+
+      .. code-tab:: javascript
+
+         // CloudFormationDeploymentActionCommonProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CloudFormationDeploymentActionCommonProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Properties common to CloudFormation actions that stage deployments
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationCommonProps`
+
+
+   .. py:attribute:: capabilities
+
+      Acknowledge certain changes made as part of deployment  For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation might create or update those resources. For example, you must specify CAPABILITY_IAM if your stack template contains AWS Identity and Access Management (IAM) resources. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationCapabilities`[] or undefined
+
+
+   .. py:attribute:: fullPermissions
+
+      Whether to grant full permissions to CloudFormation while deploying this template.  Setting this to `true` affects the defaults for `role` and `capabilities`, if you don't specify any alternatives.  The default role that will be created for you will have full (i.e., `*`) permissions on all resources, and the deployment will have named IAM capabilities (i.e., able to create all IAM resources).  This is a shorthand that you can use if you fully trust the templates that are deployed in this pipeline. If you want more fine-grained permissions, use `addToRolePolicy` and `capabilities` to control what the CloudFormation deployment is allowed to do.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: parameterOverrides
+
+      Additional template parameters.  Template parameters specified here take precedence over template parameters found in the artifact specified by the `templateConfiguration` property.  We recommend that you use the template configuration file to specify most of your parameter values. Use parameter overrides to specify only dynamic parameter values (values that are unknown until you run the pipeline).  All parameter names must be present in the stack template.  Note: the entire object cannot be more than 1kB.
+
+
+      :type: string => any or undefined
+
+
+   .. py:attribute:: role
+
+      IAM role to assume when deploying changes.  If not specified, a fresh role is created. The role is created with zero permissions unless `trustTemplate` is true, in which case the role will have full permissions.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined
+
+
+   .. py:attribute:: templateConfiguration
+
+      Input artifact to use for template parameters values and stack policy.  The template configuration file should contain a JSON object that should look like this: `{ "Parameters": {...}, "Tags": {...}, "StackPolicy": {... }}`. For more information, see [AWS CloudFormation Artifacts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.html).  Note that if you include sensitive information, such as passwords, restrict access to this file.
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline-api.ArtifactPath` or undefined
+
+
+CreateReplaceChangeSet
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CreateReplaceChangeSet(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CreateReplaceChangeSet;
+
+      .. code-tab:: javascript
+
+         const { CreateReplaceChangeSet } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { CreateReplaceChangeSet } from '@aws-cdk/aws-cloudformation';
+
+
+
+   CodePipeline action to prepare a change set.  Creates the change set if it doesn't exist based on the stack name and template that you submit. If the change set exists, AWS CloudFormation deletes it, and then creates a new one.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationDeploymentAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation.CreateReplaceChangeSetProps`
+
+CreateReplaceChangeSetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CreateReplaceChangeSetProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CreateReplaceChangeSetProps;
+
+      .. code-tab:: javascript
+
+         // CreateReplaceChangeSetProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CreateReplaceChangeSetProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Properties for the CreateReplaceChangeSet action.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationDeploymentActionCommonProps`
+
+
+   .. py:attribute:: changeSetName
+
+      Name of the change set to create or update.
+
+
+      :type: string
+
+
+   .. py:attribute:: templatePath
+
+      Input artifact with the ChangeSet's CloudFormation template
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline-api.ArtifactPath`
+
+
+CreateUpdateProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CreateUpdateProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CreateUpdateProps;
+
+      .. code-tab:: javascript
+
+         // CreateUpdateProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CreateUpdateProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Properties for the CreateUpdate action
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationDeploymentActionCommonProps`
+
+
+   .. py:attribute:: templatePath
+
+      Input artifact with the CloudFormation template to deploy
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline-api.ArtifactPath`
+
+
+   .. py:attribute:: replaceOnFailure
+
+      Replace the stack if it's in a failed state.  If this is set to true and the stack is in a failed state (one of ROLLBACK_COMPLETE, ROLLBACK_FAILED, CREATE_FAILED, DELETE_FAILED, or UPDATE_ROLLBACK_FAILED), AWS CloudFormation deletes the stack and then creates a new stack.  If this is not set to true and the stack is in a failed state, the deployment fails.
+
+
+      :type: boolean or undefined
+
+
+CreateUpdateStack
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: CreateUpdateStack(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CreateUpdateStack;
+
+      .. code-tab:: javascript
+
+         const { CreateUpdateStack } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { CreateUpdateStack } from '@aws-cdk/aws-cloudformation';
+
+
+
+   CodePipeline action to deploy a stack.  Creates the stack if the specified stack doesn't exist. If the stack exists, AWS CloudFormation updates the stack. Use this action to update existing stacks.  AWS CodePipeline won't replace the stack, and will fail deployment if the stack is in a failed state. Use `ReplaceOnFailure` for an action that will delete and recreate the stack to try and recover from failed states.  Use this action to automatically replace failed stacks without recovering or troubleshooting them. You would typically choose this mode for testing.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationDeploymentAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation.CreateUpdateProps`
+
+CustomResource
+^^^^^^^^^^^^^^
+
+.. py:class:: CustomResource(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CustomResource;
+
+      .. code-tab:: javascript
+
+         const { CustomResource } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { CustomResource } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Custom resource that is implemented using a Lambda  As a custom resource author, you should be publishing a subclass of this class that hides the choice of provider, and accepts a strongly-typed properties object with the properties your provider accepts.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.cloudformation.CustomResource`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation.CustomResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      Override renderProperties to mix in the user-defined properties
+
+
+      :rtype: string => any
+
+
+CustomResourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CustomResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.CustomResourceProps;
+
+      .. code-tab:: javascript
+
+         // CustomResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CustomResourceProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Properties to provide a Lambda-backed custom resource
+
+
+
+
+   .. py:attribute:: lambdaProvider
+
+      The Lambda provider that implements this custom resource.  We recommend using a lambda.SingletonFunction for this.  Optional, exactly one of lamdaProvider or topicProvider must be set.
+
+
+      :type: :py:class:`@aws-cdk/aws-lambda.FunctionRef` or undefined
+
+
+   .. py:attribute:: properties
+
+      Properties to pass to the Lambda
+
+
+      :type: string => any or undefined
+
+
+   .. py:attribute:: topicProvider
+
+      The SNS Topic for the provider that implements this custom resource.  Optional, exactly one of lamdaProvider or topicProvider must be set.
+
+
+      :type: :py:class:`@aws-cdk/aws-sns.TopicRef` or undefined
+
+
+DeleteStackOnly
+^^^^^^^^^^^^^^^
+
+.. py:class:: DeleteStackOnly(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.DeleteStackOnly;
+
+      .. code-tab:: javascript
+
+         const { DeleteStackOnly } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { DeleteStackOnly } from '@aws-cdk/aws-cloudformation';
+
+
+
+   CodePipeline action to delete a stack.  Deletes a stack. If you specify a stack that doesn't exist, the action completes successfully without deleting a stack.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationDeploymentAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation.DeleteStackOnlyProps`
+
+DeleteStackOnlyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DeleteStackOnlyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.DeleteStackOnlyProps;
+
+      .. code-tab:: javascript
+
+         // DeleteStackOnlyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { DeleteStackOnlyProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Properties for the DeleteOnly action
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationDeploymentActionCommonProps`
+
+
+ExecuteChangeSet
+^^^^^^^^^^^^^^^^
+
+.. py:class:: ExecuteChangeSet(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.ExecuteChangeSet;
+
+      .. code-tab:: javascript
+
+         const { ExecuteChangeSet } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { ExecuteChangeSet } from '@aws-cdk/aws-cloudformation';
+
+
+
+   CodePipeline action to execute a prepared change set.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation.ExecuteChangeSetProps`
+
+ExecuteChangeSetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ExecuteChangeSetProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.ExecuteChangeSetProps;
+
+      .. code-tab:: javascript
+
+         // ExecuteChangeSetProps is an interface
+
+      .. code-tab:: typescript
+
+         import { ExecuteChangeSetProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+   Properties for the ExecuteChangeSet action.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation.CloudFormationCommonProps`
+
+
+   .. py:attribute:: changeSetName
+
+      Name of the change set to execute.
+
+
+      :type: string
+
+
+StackId
+^^^^^^^
+
+.. py:class:: StackId(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.StackId;
+
+      .. code-tab:: javascript
+
+         const { StackId } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { StackId } from '@aws-cdk/aws-cloudformation';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+WaitConditionData
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: WaitConditionData(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.WaitConditionData;
+
+      .. code-tab:: javascript
+
+         const { WaitConditionData } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { WaitConditionData } from '@aws-cdk/aws-cloudformation';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+WaitConditionHandleUrl
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: WaitConditionHandleUrl(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.WaitConditionHandleUrl;
+
+      .. code-tab:: javascript
+
+         const { WaitConditionHandleUrl } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { WaitConditionHandleUrl } from '@aws-cdk/aws-cloudformation';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+WaitConditionName
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: WaitConditionName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.WaitConditionName;
+
+      .. code-tab:: javascript
+
+         const { WaitConditionName } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { WaitConditionName } from '@aws-cdk/aws-cloudformation';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-cloudformation.cloudformation
+
+CustomResource
+~~~~~~~~~~~~~~
+
+.. py:class:: CustomResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.cloudformation.CustomResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.CustomResource } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.CustomResource } from '@aws-cdk/aws-cloudformation';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``CustomResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``CustomResource``
+   :type properties: :py:class:`~@aws-cdk/aws-cloudformation.cloudformation.CustomResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+CustomResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: CustomResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.cloudformation.CustomResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.CustomResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.CustomResourceProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+
+
+   .. py:attribute:: serviceToken
+
+      ``AWS::CloudFormation::CustomResource.ServiceToken``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#cfn-customresource-servicetoken
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+StackResource
+~~~~~~~~~~~~~
+
+.. py:class:: StackResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.cloudformation.StackResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.StackResource } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.StackResource } from '@aws-cdk/aws-cloudformation';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``StackResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``StackResource``
+   :type properties: :py:class:`~@aws-cdk/aws-cloudformation.cloudformation.StackResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-cloudformation.StackId` *(readonly)*
+
+
+StackResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: StackResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.cloudformation.StackResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.StackResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.StackResourceProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+
+
+   .. py:attribute:: templateUrl
+
+      ``AWS::CloudFormation::Stack.TemplateURL``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-templateurl
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: notificationArns
+
+      ``AWS::CloudFormation::Stack.NotificationARNs``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-notificationarns
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`)[] or undefined
+
+
+   .. py:attribute:: parameters
+
+      ``AWS::CloudFormation::Stack.Parameters``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-parameters
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or string => (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`) or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::CloudFormation::Stack.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (:py:class:`@aws-cdk/cdk.CloudFormationToken` or :py:class:`@aws-cdk/cdk.Tag`)[] or undefined
+
+
+   .. py:attribute:: timeoutInMinutes
+
+      ``AWS::CloudFormation::Stack.TimeoutInMinutes``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+WaitConditionHandleResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: WaitConditionHandleResource(parent, name)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.cloudformation.WaitConditionHandleResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.WaitConditionHandleResource } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.WaitConditionHandleResource } from '@aws-cdk/aws-cloudformation';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``WaitConditionHandleResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-cloudformation.WaitConditionHandleUrl` *(readonly)*
+
+
+WaitConditionResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: WaitConditionResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.cloudformation.WaitConditionResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.WaitConditionResource } = require('@aws-cdk/aws-cloudformation');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.WaitConditionResource } from '@aws-cdk/aws-cloudformation';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``WaitConditionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``WaitConditionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-cloudformation.cloudformation.WaitConditionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-cloudformation.WaitConditionName` *(readonly)*
+
+
+   .. py:attribute:: waitConditionData
+
+      :type: :py:class:`~@aws-cdk/aws-cloudformation.WaitConditionData` *(readonly)*
+
+
+WaitConditionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: WaitConditionResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CloudFormation;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.cloudformation.WaitConditionResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.WaitConditionResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.WaitConditionResourceProps } from '@aws-cdk/aws-cloudformation';
+
+
+
+
+
+   .. py:attribute:: handle
+
+      ``AWS::CloudFormation::WaitCondition.Handle``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: timeout
+
+      ``AWS::CloudFormation::WaitCondition.Timeout``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: count
+
+      ``AWS::CloudFormation::WaitCondition.Count``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-cloudformation
+

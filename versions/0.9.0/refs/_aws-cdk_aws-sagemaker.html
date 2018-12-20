@@ -1,0 +1,2637 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>@aws-cdk/aws-sagemaker &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="@aws-cdk/aws-sdb" href="_aws-cdk_aws-sdb.html" />
+    <link rel="prev" title="@aws-cdk/aws-s3-notifications" href="_aws-cdk_aws-s3-notifications.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_assets.html">&#64;aws-cdk/assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appsync.html">&#64;aws-cdk/aws-appsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-athena.html">&#64;aws-cdk/aws-athena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling.html">&#64;aws-cdk/aws-autoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscalingplans.html">&#64;aws-cdk/aws-autoscalingplans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-batch.html">&#64;aws-cdk/aws-batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-budgets.html">&#64;aws-cdk/aws-budgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-certificatemanager.html">&#64;aws-cdk/aws-certificatemanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloud9.html">&#64;aws-cdk/aws-cloud9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation.html">&#64;aws-cdk/aws-cloudformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudfront.html">&#64;aws-cdk/aws-cloudfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudtrail.html">&#64;aws-cdk/aws-cloudtrail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html">&#64;aws-cdk/aws-cloudwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild.html">&#64;aws-cdk/aws-codebuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit.html">&#64;aws-cdk/aws-codecommit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy.html">&#64;aws-cdk/aws-codedeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html">&#64;aws-cdk/aws-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline-api.html">&#64;aws-cdk/aws-codepipeline-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cognito.html">&#64;aws-cdk/aws-cognito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-config.html">&#64;aws-cdk/aws-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-datapipeline.html">&#64;aws-cdk/aws-datapipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dax.html">&#64;aws-cdk/aws-dax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-directoryservice.html">&#64;aws-cdk/aws-directoryservice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dms.html">&#64;aws-cdk/aws-dms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dynamodb.html">&#64;aws-cdk/aws-dynamodb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ec2.html">&#64;aws-cdk/aws-ec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecr.html">&#64;aws-cdk/aws-ecr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecs.html">&#64;aws-cdk/aws-ecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-efs.html">&#64;aws-cdk/aws-efs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-eks.html">&#64;aws-cdk/aws-eks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticache.html">&#64;aws-cdk/aws-elasticache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticbeanstalk.html">&#64;aws-cdk/aws-elasticbeanstalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancing.html">&#64;aws-cdk/aws-elasticloadbalancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancingv2.html">&#64;aws-cdk/aws-elasticloadbalancingv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticsearch.html">&#64;aws-cdk/aws-elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-emr.html">&#64;aws-cdk/aws-emr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-events.html">&#64;aws-cdk/aws-events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-gamelift.html">&#64;aws-cdk/aws-gamelift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-glue.html">&#64;aws-cdk/aws-glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-guardduty.html">&#64;aws-cdk/aws-guardduty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iam.html">&#64;aws-cdk/aws-iam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-inspector.html">&#64;aws-cdk/aws-inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot.html">&#64;aws-cdk/aws-iot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesis.html">&#64;aws-cdk/aws-kinesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisanalytics.html">&#64;aws-cdk/aws-kinesisanalytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisfirehose.html">&#64;aws-cdk/aws-kinesisfirehose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kms.html">&#64;aws-cdk/aws-kms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda.html">&#64;aws-cdk/aws-lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-logs.html">&#64;aws-cdk/aws-logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-neptune.html">&#64;aws-cdk/aws-neptune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-opsworks.html">&#64;aws-cdk/aws-opsworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-quickstarts.html">&#64;aws-cdk/aws-quickstarts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-rds.html">&#64;aws-cdk/aws-rds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-redshift.html">&#64;aws-cdk/aws-redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-route53.html">&#64;aws-cdk/aws-route53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3.html">&#64;aws-cdk/aws-s3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3-notifications.html">&#64;aws-cdk/aws-s3-notifications</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&#64;aws-cdk/aws-sagemaker</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws-sagemaker-construct-library">AWS SageMaker Construct Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-&#64;aws-cdk/aws-sagemaker">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#endpointarn">EndpointArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#endpointconfigarn">EndpointConfigArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#endpointconfigname">EndpointConfigName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#endpointname">EndpointName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelarn">ModelArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelname">ModelName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notebookinstancearn">NotebookInstanceArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notebookinstancelifecycleconfigarn">NotebookInstanceLifecycleConfigArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notebookinstancelifecycleconfigname">NotebookInstanceLifecycleConfigName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notebookinstancename">NotebookInstanceName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-&#64;aws-cdk/aws-sagemaker.cloudformation">cloudformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sdb.html">&#64;aws-cdk/aws-sdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-serverless.html">&#64;aws-cdk/aws-serverless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicecatalog.html">&#64;aws-cdk/aws-servicecatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicediscovery.html">&#64;aws-cdk/aws-servicediscovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ses.html">&#64;aws-cdk/aws-ses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sns.html">&#64;aws-cdk/aws-sns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sqs.html">&#64;aws-cdk/aws-sqs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ssm.html">&#64;aws-cdk/aws-ssm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-stepfunctions.html">&#64;aws-cdk/aws-stepfunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-waf.html">&#64;aws-cdk/aws-waf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-wafregional.html">&#64;aws-cdk/aws-wafregional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-workspaces.html">&#64;aws-cdk/aws-workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cdk.html">&#64;aws-cdk/cdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cx-api.html">&#64;aws-cdk/cx-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_runtime-values.html">&#64;aws-cdk/runtime-values</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+        
+      <li>&#64;aws-cdk/aws-sagemaker</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/refs/_aws-cdk_aws-sagemaker.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cdk-aws-sagemaker">
+<h1>&#64;aws-cdk/aws-sagemaker<a class="headerlink" href="#aws-cdk-aws-sagemaker" title="Permalink to this headline">¶</a></h1>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-QyM= active docutils container">
+<p>View in <a class="reference external" href="https://www.nuget.org/packages/Amazon.CDK.AWS.Sagemaker/0.9.0">Nuget</a></p>
+<p><strong>csproj</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">&quot;Amazon.CDK.AWS.Sagemaker&quot;</span> <span class="na">Version=</span><span class="s">&quot;0.9.0&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>dotnet</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">dotnet add package Amazon.CDK.AWS.Sagemaker --version 0.9.0</span>
+</pre></div>
+</div>
+<p><strong>packages.config</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;package</span> <span class="na">id=</span><span class="s">&quot;Amazon.CDK.AWS.Sagemaker&quot;</span> <span class="na">version=</span><span class="s">&quot;0.9.0&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>View in <a class="reference external" href="https://repo1.maven.org/maven2/software/amazon/awscdk/sagemaker/0.9.0/">Maven Central</a></p>
+<p><strong>Apache Buildr</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;software.amazon.awscdk:sagemaker:jar:0.9.0&#39;
+</pre></div>
+</div>
+<p><strong>Apache Ivy</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency</span> <span class="na">groupId=</span><span class="s">&quot;software.amazon.awscdk&quot;</span> <span class="na">name=</span><span class="s">&quot;sagemaker&quot;</span> <span class="na">rev=</span><span class="s">&quot;0.9.0&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>Apache Maven</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>software.amazon.awscdk<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>sagemaker<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.9.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>Gradle / Grails</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>compile &#39;software.amazon.awscdk:sagemaker:0.9.0&#39;
+</pre></div>
+</div>
+<p><strong>Groovy Grape</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@Grapes(
+@Grab(group=&#39;software.amazon.awscdk&#39;, module=&#39;sagemaker&#39;, version=&#39;0.9.0&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-sagemaker/v/0.9.0">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-sagemaker@0.9.0
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-sagemaker&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.9.0&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-sagemaker@0.9.0
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/aws-sagemaker/v/0.9.0">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/aws-sagemaker@0.9.0
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/aws-sagemaker&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.9.0&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/aws-sagemaker@0.9.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="aws-sagemaker-construct-library">
+<h2>AWS SageMaker Construct Library<a class="headerlink" href="#aws-sagemaker-construct-library" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">sagemaker</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-sagemaker">
+<span id="reference"></span><h2>Reference<a class="headerlink" href="#module-@aws-cdk/aws-sagemaker" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="endpointarn">
+<h3>EndpointArn<a class="headerlink" href="#endpointarn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.EndpointArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">EndpointArn</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.EndpointArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.EndpointArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">EndpointArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">EndpointArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="endpointconfigarn">
+<h3>EndpointConfigArn<a class="headerlink" href="#endpointconfigarn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.EndpointConfigArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">EndpointConfigArn</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.EndpointConfigArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.EndpointConfigArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">EndpointConfigArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">EndpointConfigArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="endpointconfigname">
+<h3>EndpointConfigName<a class="headerlink" href="#endpointconfigname" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.EndpointConfigName">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">EndpointConfigName</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.EndpointConfigName" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.EndpointConfigName</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">EndpointConfigName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">EndpointConfigName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="endpointname">
+<h3>EndpointName<a class="headerlink" href="#endpointname" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.EndpointName">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">EndpointName</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.EndpointName" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.EndpointName</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">EndpointName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">EndpointName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="modelarn">
+<h3>ModelArn<a class="headerlink" href="#modelarn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.ModelArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">ModelArn</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.ModelArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.ModelArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">ModelArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ModelArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="modelname">
+<h3>ModelName<a class="headerlink" href="#modelname" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.ModelName">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">ModelName</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.ModelName" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.ModelName</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">ModelName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ModelName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="notebookinstancearn">
+<h3>NotebookInstanceArn<a class="headerlink" href="#notebookinstancearn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.NotebookInstanceArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">NotebookInstanceArn</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.NotebookInstanceArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.NotebookInstanceArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">NotebookInstanceArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NotebookInstanceArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="notebookinstancelifecycleconfigarn">
+<h3>NotebookInstanceLifecycleConfigArn<a class="headerlink" href="#notebookinstancelifecycleconfigarn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.NotebookInstanceLifecycleConfigArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">NotebookInstanceLifecycleConfigArn</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.NotebookInstanceLifecycleConfigArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.NotebookInstanceLifecycleConfigArn</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">NotebookInstanceLifecycleConfigArn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NotebookInstanceLifecycleConfigArn</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="notebookinstancelifecycleconfigname">
+<h3>NotebookInstanceLifecycleConfigName<a class="headerlink" href="#notebookinstancelifecycleconfigname" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.NotebookInstanceLifecycleConfigName">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">NotebookInstanceLifecycleConfigName</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.NotebookInstanceLifecycleConfigName" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.NotebookInstanceLifecycleConfigName</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">NotebookInstanceLifecycleConfigName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NotebookInstanceLifecycleConfigName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="notebookinstancename">
+<h3>NotebookInstanceName<a class="headerlink" href="#notebookinstancename" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.NotebookInstanceName">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.</code><code class="descname">NotebookInstanceName</code><span class="sig-paren">(</span><em>valueOrFunction</em><span class="optional">[</span>, <em>displayName</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.NotebookInstanceName" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.NotebookInstanceName</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">NotebookInstanceName</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">NotebookInstanceName</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>valueOrFunction</strong> (<em>any</em>) – What this token will evaluate to, literal or function.</li>
+<li><strong>displayName</strong> (<em>string</em><em> or </em><em>undefined</em>) – A human-readable display hint for this Token</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-sagemaker.cloudformation">
+<span id="cloudformation"></span><h3>cloudformation<a class="headerlink" href="#module-@aws-cdk/aws-sagemaker.cloudformation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="endpointconfigresource">
+<h4>EndpointConfigResource<a class="headerlink" href="#endpointconfigresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">EndpointConfigResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.EndpointConfigResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">EndpointConfigResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">EndpointConfigResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">EndpointConfigResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps" title="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">EndpointConfigResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">EndpointConfigResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string =&gt; any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.endpointConfigName">
+<code class="descname">endpointConfigName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.endpointConfigName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.EndpointConfigName" title="&#64;aws-cdk/aws-sagemaker.EndpointConfigName"><code class="xref py py-class docutils literal notranslate"><span class="pre">EndpointConfigName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ref">
+<code class="descname">ref</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ref" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.EndpointConfigArn" title="&#64;aws-cdk/aws-sagemaker.EndpointConfigArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">EndpointConfigArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty">
+<em class="property">class </em><code class="descname">ProductionVariantProperty</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.EndpointConfigResource.ProductionVariantProperty is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">EndpointConfigResource</span><span class="p">.</span><span class="nx">ProductionVariantProperty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.initialInstanceCount">
+<code class="descname">initialInstanceCount</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.initialInstanceCount" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">EndpointConfigResource.ProductionVariantProperty.InitialInstanceCount</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.initialVariantWeight">
+<code class="descname">initialVariantWeight</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.initialVariantWeight" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">EndpointConfigResource.ProductionVariantProperty.InitialVariantWeight</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialvariantweight</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">number or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.instanceType">
+<code class="descname">instanceType</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.instanceType" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">EndpointConfigResource.ProductionVariantProperty.InstanceType</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-instancetype</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.modelName">
+<code class="descname">modelName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.modelName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">EndpointConfigResource.ProductionVariantProperty.ModelName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-modelname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.variantName">
+<code class="descname">variantName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty.variantName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">EndpointConfigResource.ProductionVariantProperty.VariantName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-variantname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="endpointconfigresourceprops-interface">
+<h4>EndpointConfigResourceProps (interface)<a class="headerlink" href="#endpointconfigresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">EndpointConfigResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.EndpointConfigResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.EndpointConfigResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">EndpointConfigResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps.productionVariants">
+<code class="descname">productionVariants</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps.productionVariants" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::EndpointConfig.ProductionVariants</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-productionvariants">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-productionvariants</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty" title="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResource.ProductionVariantProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProductionVariantProperty</span></code></a>)[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps.endpointConfigName">
+<code class="descname">endpointConfigName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps.endpointConfigName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::EndpointConfig.EndpointConfigName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps.kmsKeyId">
+<code class="descname">kmsKeyId</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps.kmsKeyId" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::EndpointConfig.KmsKeyId</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-kmskeyid">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-kmskeyid</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps.tags">
+<code class="descname">tags</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointConfigResourceProps.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::EndpointConfig.Tags</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-tags">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-tags</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Tag" title="&#64;aws-cdk/cdk.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Tag</span></code></a>)[] or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="endpointresource">
+<h4>EndpointResource<a class="headerlink" href="#endpointresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">EndpointResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.EndpointResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">EndpointResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">EndpointResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">EndpointResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps" title="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">EndpointResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">EndpointResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string =&gt; any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResource.endpointName">
+<code class="descname">endpointName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResource.endpointName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.EndpointName" title="&#64;aws-cdk/aws-sagemaker.EndpointName"><code class="xref py py-class docutils literal notranslate"><span class="pre">EndpointName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResource.ref">
+<code class="descname">ref</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResource.ref" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.EndpointArn" title="&#64;aws-cdk/aws-sagemaker.EndpointArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">EndpointArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="endpointresourceprops-interface">
+<h4>EndpointResourceProps (interface)<a class="headerlink" href="#endpointresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">EndpointResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.EndpointResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.EndpointResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">EndpointResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps.endpointConfigName">
+<code class="descname">endpointConfigName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps.endpointConfigName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::Endpoint.EndpointConfigName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointconfigname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointconfigname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps.endpointName">
+<code class="descname">endpointName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps.endpointName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::Endpoint.EndpointName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-endpointname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps.tags">
+<code class="descname">tags</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.EndpointResourceProps.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::Endpoint.Tags</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-tags">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html#cfn-sagemaker-endpoint-tags</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Tag" title="&#64;aws-cdk/cdk.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Tag</span></code></a>)[] or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="modelresource">
+<h4>ModelResource<a class="headerlink" href="#modelresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">ModelResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.ModelResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">ModelResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">ModelResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">ModelResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps" title="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">ModelResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string =&gt; any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.modelName">
+<code class="descname">modelName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.modelName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.ModelName" title="&#64;aws-cdk/aws-sagemaker.ModelName"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.ref">
+<code class="descname">ref</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.ref" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.ModelArn" title="&#64;aws-cdk/aws-sagemaker.ModelArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModelArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty">
+<em class="property">class </em><code class="descname">ContainerDefinitionProperty</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.ModelResource.ContainerDefinitionProperty is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">ModelResource</span><span class="p">.</span><span class="nx">ContainerDefinitionProperty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty.image">
+<code class="descname">image</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty.image" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ModelResource.ContainerDefinitionProperty.Image</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty.containerHostname">
+<code class="descname">containerHostname</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty.containerHostname" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ModelResource.ContainerDefinitionProperty.ContainerHostname</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-containerhostname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-containerhostname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty.environment">
+<code class="descname">environment</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty.environment" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ModelResource.ContainerDefinitionProperty.Environment</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-environment">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-environment</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">json or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty.modelDataUrl">
+<code class="descname">modelDataUrl</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty.modelDataUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ModelResource.ContainerDefinitionProperty.ModelDataUrl</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.VpcConfigProperty">
+<em class="property">class </em><code class="descname">VpcConfigProperty</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.VpcConfigProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.ModelResource.VpcConfigProperty</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.ModelResource.VpcConfigProperty is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">ModelResource</span><span class="p">.</span><span class="nx">VpcConfigProperty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.VpcConfigProperty.securityGroupIds">
+<code class="descname">securityGroupIds</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.VpcConfigProperty.securityGroupIds" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ModelResource.VpcConfigProperty.SecurityGroupIds</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-securitygroupids">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-securitygroupids</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a>)[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.VpcConfigProperty.subnets">
+<code class="descname">subnets</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResource.VpcConfigProperty.subnets" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">ModelResource.VpcConfigProperty.Subnets</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-subnets">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-vpcconfig.html#cfn-sagemaker-model-vpcconfig-subnets</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a>)[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="modelresourceprops-interface">
+<h4>ModelResourceProps (interface)<a class="headerlink" href="#modelresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">ModelResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.ModelResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.ModelResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">ModelResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.executionRoleArn">
+<code class="descname">executionRoleArn</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.executionRoleArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::Model.ExecutionRoleArn</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.primaryContainer">
+<code class="descname">primaryContainer</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.primaryContainer" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::Model.PrimaryContainer</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty" title="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.ContainerDefinitionProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">ContainerDefinitionProperty</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.modelName">
+<code class="descname">modelName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.modelName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::Model.ModelName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-modelname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.tags">
+<code class="descname">tags</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::Model.Tags</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Tag" title="&#64;aws-cdk/cdk.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Tag</span></code></a>)[] or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.vpcConfig">
+<code class="descname">vpcConfig</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.ModelResourceProps.vpcConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::Model.VpcConfig</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-vpcconfig</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.VpcConfigProperty" title="&#64;aws-cdk/aws-sagemaker.cloudformation.ModelResource.VpcConfigProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">VpcConfigProperty</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="notebookinstancelifecycleconfigresource">
+<h4>NotebookInstanceLifecycleConfigResource<a class="headerlink" href="#notebookinstancelifecycleconfigresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">NotebookInstanceLifecycleConfigResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em><span class="optional">[</span>, <em>properties</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">NotebookInstanceLifecycleConfigResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">NotebookInstanceLifecycleConfigResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">NotebookInstanceLifecycleConfigResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps" title="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotebookInstanceLifecycleConfigResourceProps</span></code></a> or undefined) – the properties of this <code class="docutils literal notranslate"><span class="pre">NotebookInstanceLifecycleConfigResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string =&gt; any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.notebookInstanceLifecycleConfigName">
+<code class="descname">notebookInstanceLifecycleConfigName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.notebookInstanceLifecycleConfigName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.NotebookInstanceLifecycleConfigName" title="&#64;aws-cdk/aws-sagemaker.NotebookInstanceLifecycleConfigName"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotebookInstanceLifecycleConfigName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.ref">
+<code class="descname">ref</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.ref" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.NotebookInstanceLifecycleConfigArn" title="&#64;aws-cdk/aws-sagemaker.NotebookInstanceLifecycleConfigArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotebookInstanceLifecycleConfigArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty">
+<em class="property">class </em><code class="descname">NotebookInstanceLifecycleHookProperty</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">NotebookInstanceLifecycleConfigResource</span><span class="p">.</span><span class="nx">NotebookInstanceLifecycleHookProperty</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty.content">
+<code class="descname">content</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty.content" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty.Content</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook-content">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook-content</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="notebookinstancelifecycleconfigresourceprops-interface">
+<h4>NotebookInstanceLifecycleConfigResourceProps (interface)<a class="headerlink" href="#notebookinstancelifecycleconfigresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">NotebookInstanceLifecycleConfigResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.NotebookInstanceLifecycleConfigResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">NotebookInstanceLifecycleConfigResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps.notebookInstanceLifecycleConfigName">
+<code class="descname">notebookInstanceLifecycleConfigName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps.notebookInstanceLifecycleConfigName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleConfigName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecycleconfigname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecycleconfigname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps.onCreate">
+<code class="descname">onCreate</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps.onCreate" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstanceLifecycleConfig.OnCreate</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-oncreate">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-oncreate</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty" title="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotebookInstanceLifecycleHookProperty</span></code></a>)[] or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps.onStart">
+<code class="descname">onStart</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResourceProps.onStart" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstanceLifecycleConfig.OnStart</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-onstart">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html#cfn-sagemaker-notebookinstancelifecycleconfig-onstart</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty" title="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceLifecycleConfigResource.NotebookInstanceLifecycleHookProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotebookInstanceLifecycleHookProperty</span></code></a>)[] or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="notebookinstanceresource">
+<h4>NotebookInstanceResource<a class="headerlink" href="#notebookinstanceresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">NotebookInstanceResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.NotebookInstanceResource</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">NotebookInstanceResource</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">NotebookInstanceResource</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">NotebookInstanceResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps" title="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotebookInstanceResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">NotebookInstanceResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string =&gt; any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource.notebookInstanceName">
+<code class="descname">notebookInstanceName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource.notebookInstanceName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.NotebookInstanceName" title="&#64;aws-cdk/aws-sagemaker.NotebookInstanceName"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotebookInstanceName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource.ref">
+<code class="descname">ref</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResource.ref" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sagemaker.NotebookInstanceArn" title="&#64;aws-cdk/aws-sagemaker.NotebookInstanceArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">NotebookInstanceArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="notebookinstanceresourceprops-interface">
+<h4>NotebookInstanceResourceProps (interface)<a class="headerlink" href="#notebookinstanceresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sagemaker.cloudformation.</code><code class="descname">NotebookInstanceResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.AWS.Sagemaker</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.sagemaker.cloudformation.NotebookInstanceResourceProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// cloudformation.NotebookInstanceResourceProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">cloudformation</span><span class="p">.</span><span class="nx">NotebookInstanceResourceProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/aws-sagemaker&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.instanceType">
+<code class="descname">instanceType</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.instanceType" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.InstanceType</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-instancetype">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-instancetype</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.roleArn">
+<code class="descname">roleArn</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.roleArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.RoleArn</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-rolearn">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-rolearn</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.directInternetAccess">
+<code class="descname">directInternetAccess</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.directInternetAccess" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.DirectInternetAccess</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-directinternetaccess">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-directinternetaccess</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.kmsKeyId">
+<code class="descname">kmsKeyId</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.kmsKeyId" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.KmsKeyId</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-kmskeyid">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-kmskeyid</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.lifecycleConfigName">
+<code class="descname">lifecycleConfigName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.lifecycleConfigName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.LifecycleConfigName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-lifecycleconfigname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-lifecycleconfigname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.notebookInstanceName">
+<code class="descname">notebookInstanceName</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.notebookInstanceName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.NotebookInstanceName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-notebookinstancename">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-notebookinstancename</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.securityGroupIds">
+<code class="descname">securityGroupIds</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.securityGroupIds" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.SecurityGroupIds</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-securitygroupids">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-securitygroupids</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a>)[] or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.subnetId">
+<code class="descname">subnetId</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.subnetId" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.SubnetId</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-subnetid">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-subnetid</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.tags">
+<code class="descname">tags</code><a class="headerlink" href="#@aws-cdk/aws-sagemaker.cloudformation.NotebookInstanceResourceProps.tags" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SageMaker::NotebookInstance.Tags</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-tags">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-tags</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.CloudFormationToken" title="&#64;aws-cdk/cdk.CloudFormationToken"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.CloudFormationToken</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Tag" title="&#64;aws-cdk/cdk.Tag"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Tag</span></code></a>)[] or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_aws-cdk_aws-sdb.html" class="btn btn-neutral float-right" title="@aws-cdk/aws-sdb" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_aws-cdk_aws-s3-notifications.html" class="btn btn-neutral" title="@aws-cdk/aws-s3-notifications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.9.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

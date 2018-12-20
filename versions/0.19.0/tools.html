@@ -1,0 +1,744 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AWS CDK Tools &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Writing AWS CDK Constructs" href="writing-constructs.html" />
+    <link rel="prev" title="AWS CDK Examples" href="examples.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.19.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-toolkit-cdk">Command-line Toolkit (cdk)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-reporting">Version Reporting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#opting-out-from-version-reporting">Opting-out from Version Reporting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plugins">Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#loading-plugins">Loading Plugins</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authoring-plugins">Authoring Plugins</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#credential-provider-plugins">Credential Provider Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-aws-cdk">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#credentialprovidersource-interface">CredentialProviderSource <em>(interface)</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mode-enum">Mode <em>(enum)</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plugin-interface">Plugin <em>(interface)</em></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pluginhost">PluginHost</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="writing-constructs.html">Writing Constructs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>AWS CDK Tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           ﻿<p style="background-color:#e47911; border-top:1px solid #ccc; margin-top:6px; padding-top:10px; padding-bottom:10px; padding-left:5px; font-weight:bold; font-style:italic; font-size:16px; color:white; vertical-align:middle">
+This documentation is for the developer preview release of the AWS CDK.
+Do not use this version of the AWS CDK in production.
+Subsequent releases of the AWS CDK will likely include breaking changes.
+</p>
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cdk-tools">
+<span id="tools"></span><h1>AWS CDK Tools<a class="headerlink" href="#cdk-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="command-line-toolkit-cdk">
+<span id="toolkit"></span><h2>Command-line Toolkit (cdk)<a class="headerlink" href="#command-line-toolkit-cdk" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cdk</span></code> (the AWS CDK Toolkit) is the main tool you use to interact with your <a href="#id2"><span class="problematic" id="id3">|*CDK App*|</span></a>. It executes
+the CDK app you have written and compiled, interrogates the application
+model you have defined, and produces and deploys the AWS CloudFormation templates
+generated by the AWS CDK.</p>
+<p>There are two ways that you can tell <code class="docutils literal notranslate"><span class="pre">cdk</span></code> what command to use to run your CDK app.
+The first way is to include an explicit <code class="docutils literal notranslate"><span class="pre">--app</span></code> option whenever you use a <code class="docutils literal notranslate"><span class="pre">cdk</span></code> command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk --app <span class="s1">&#39;node bin/main.js&#39;</span> synth
+</pre></div>
+</div>
+<p>The second way is to add the following entry to
+the file <em>cdk.json</em>:</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="s2">&quot;app&quot;</span><span class="o">:</span> <span class="s2">&quot;node bin/main.js&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Here are the actions you can take on your CDK app
+(this is the output of the <code class="docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">--help</span></code> command):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Usage: cdk -a &lt;cdk-app&gt; COMMAND
+
+Commands:
+  list                        Lists all stacks in the app          <span class="o">[</span>aliases: ls<span class="o">]</span>
+  synthesize <span class="o">[</span>STACKS..<span class="o">]</span>       Synthesizes and prints the CloudFormation template
+                              <span class="k">for</span> this stack                    <span class="o">[</span>aliases: synth<span class="o">]</span>
+  bootstrap <span class="o">[</span>ENVIRONMENTS..<span class="o">]</span>  Deploys the CDK toolkit stack into an AWS
+                              environment
+  deploy <span class="o">[</span>STACKS..<span class="o">]</span>           Deploys the stack<span class="o">(</span>s<span class="o">)</span> named STACKS into your AWS
+                              account
+  destroy <span class="o">[</span>STACKS..<span class="o">]</span>          Destroy the stack<span class="o">(</span>s<span class="o">)</span> named STACKS
+  diff <span class="o">[</span>STACK<span class="o">]</span>                Compares the specified stack with the deployed
+                              stack or a <span class="nb">local</span> template file
+  metadata <span class="o">[</span>STACK<span class="o">]</span>            Returns all metadata associated with this stack
+  init <span class="o">[</span>TEMPLATE<span class="o">]</span>             Create a new, empty CDK project from a template.
+                              Invoked without TEMPLATE, the app template will be
+                              used.
+  docs                        Opens the documentation in a browser<span class="o">[</span>aliases: doc<span class="o">]</span>
+  doctor                      Check your set-up <span class="k">for</span> potential problems
+
+Options:
+  --app, -a            REQUIRED: Command-line <span class="k">for</span> executing your CDK app <span class="o">(</span>e.g.
+                       <span class="s2">&quot;node bin/my-app.js&quot;</span><span class="o">)</span>                            <span class="o">[</span>string<span class="o">]</span>
+  --context, -c        Add contextual string parameter.                  <span class="o">[</span>array<span class="o">]</span>
+  --plugin, -p         Name or path of a node package that extend the CDK
+                       features. Can be specified multiple <span class="nb">times</span>         <span class="o">[</span>array<span class="o">]</span>
+  --rename             Rename stack name <span class="k">if</span> different <span class="k">then</span> the one defined in
+                       the cloud executable                             <span class="o">[</span>string<span class="o">]</span>
+  --trace              Print trace <span class="k">for</span> stack warnings                  <span class="o">[</span>boolean<span class="o">]</span>
+  --strict             Do not construct stacks with warnings           <span class="o">[</span>boolean<span class="o">]</span>
+  --ignore-errors      Ignores synthesis errors, which will likely produce an
+                       invalid output                 <span class="o">[</span>boolean<span class="o">]</span> <span class="o">[</span>default: false<span class="o">]</span>
+  --json, -j           Use JSON output instead of YAML                 <span class="o">[</span>boolean<span class="o">]</span>
+  --verbose, -v        Show debug logs                                 <span class="o">[</span>boolean<span class="o">]</span>
+  --profile            Use the indicated AWS profile as the default environment
+                                                                        <span class="o">[</span>string<span class="o">]</span>
+  --proxy              Use the indicated proxy. Will <span class="nb">read</span> from HTTPS_PROXY
+                       environment variable <span class="k">if</span> not specified.           <span class="o">[</span>string<span class="o">]</span>
+  --ec2creds, -i       Force trying to fetch EC2 instance credentials. Default:
+                       guess EC2 instance status.                      <span class="o">[</span>boolean<span class="o">]</span>
+  --version-reporting  Disable insersion of the CDKMetadata resource in
+                       synthesized templates                           <span class="o">[</span>boolean<span class="o">]</span>
+  --role-arn, -r       ARN of Role to use when invoking CloudFormation  <span class="o">[</span>string<span class="o">]</span>
+  --version            Show version number                             <span class="o">[</span>boolean<span class="o">]</span>
+  --help               Show <span class="nb">help</span>                                       <span class="o">[</span>boolean<span class="o">]</span>
+
+If your app has a single stack, there is no need to specify the stack name
+
+If one of cdk.json or ~/.cdk.json exists, options specified there will be used
+as defaults. Settings in cdk.json take precedence.
+</pre></div>
+</div>
+</div>
+<div class="section" id="version-reporting">
+<span id="id1"></span><h2>Version Reporting<a class="headerlink" href="#version-reporting" title="Permalink to this headline">¶</a></h2>
+<p>In order to gain insights in how the AWS CDK is used, the versions of libraries used by AWS CDK applications are collected
+and reported using a resource identified as <code class="docutils literal notranslate"><span class="pre">AWS::CDK::Metadata</span></code> that is added to CloudFormation templates, and can easily
+be reviewed. This information may also be used to identify stacks using a package with known serious security or
+reliability issues and contact their users with important information.</p>
+<p>The AWS CDK reports the name and version of npm modules that are loaded into the application at synthesis time, unless
+their <code class="docutils literal notranslate"><span class="pre">package.json</span></code> file contains the <code class="docutils literal notranslate"><span class="pre">&quot;private&quot;:</span> <span class="pre">true</span></code> attribute.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AWS::CDK::Metadata</span></code> resource looks like the following:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">CDKMetadata</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">Type</span><span class="p p-Indicator">:</span> <span class="s">&quot;AWS::CDK::Metadata&quot;</span>
+  <span class="l l-Scalar l-Scalar-Plain">Properties</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Modules</span><span class="p p-Indicator">:</span> <span class="s">&quot;@aws-cdk/core=0.7.2-beta,@aws-cdk/s3=0.7.2-beta,lodash=4.17.10&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="opting-out-from-version-reporting">
+<span id="version-reporting-opt-out"></span><h3>Opting-out from Version Reporting<a class="headerlink" href="#opting-out-from-version-reporting" title="Permalink to this headline">¶</a></h3>
+<p>To out-out, use one of the following methods:</p>
+<ul>
+<li><p class="first">Use the <code class="docutils literal notranslate"><span class="pre">--no-version-reporting</span></code> in <code class="docutils literal notranslate"><span class="pre">cdk</span></code> invocations:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk --no-version-reporting synth
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Set <code class="docutils literal notranslate"><span class="pre">versionReporting</span></code> to <code class="docutils literal notranslate"><span class="pre">false</span></code> in <strong>./cdk.json</strong> or <strong>~/cdk.json</strong>:</p>
+<blockquote>
+<div><div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;app&quot;</span><span class="o">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;versionReporting&quot;</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="plugins">
+<h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
+<p>The AWS CDK toolkit provides extension points that enable users to augment the features provided by
+the toolkit. There is currently only one extension point, allowing users to define custom AWS
+credential providers, but other extension points may be added in the future as the needs arise.</p>
+<div class="section" id="loading-plugins">
+<h3>Loading Plugins<a class="headerlink" href="#loading-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Plugins can be loaded by providing the Node module name (or path) to the CDK toolkit:</p>
+<ol class="arabic">
+<li><p class="first">Using the <code class="docutils literal notranslate"><span class="pre">--plugin</span></code> command line option (which can be specified multiple times):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> cdk list --plugin<span class="o">=</span>module
+<span class="gp">$</span> cdk deploy --plugin<span class="o">=</span>module_1 --plugin<span class="o">=</span>module_2
+</pre></div>
+</div>
+</li>
+<li><p class="first">Adding entries to the <code class="docutils literal notranslate"><span class="pre">~/.cdk.json</span></code> or <code class="docutils literal notranslate"><span class="pre">cdk.json</span></code> file:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="c1">// ...</span>
+  <span class="s2">&quot;plugin&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;module_1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;module_2&quot;</span>
+  <span class="p">],</span>
+  <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="authoring-plugins">
+<h3>Authoring Plugins<a class="headerlink" href="#authoring-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Plugins must be authored in TypeScript or Javascript, and are defined by implementing a Node module
+that implements the following protocol, and using <a class="reference internal" href="#aws-cdk.PluginHost" title="aws-cdk.PluginHost"><code class="xref js js-class docutils literal notranslate"><span class="pre">PluginHost()</span></code></a> methods:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== active docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-cdk&#39;</span><span class="p">);</span>
+
+<span class="kr">export</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="c1">// Version of the plugin infrastructure (currently always &#39;1&#39;)</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">host</span>: <span class="kt">cdk.PluginHost</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+        <span class="c1">// Your plugin initialization hook.</span>
+        <span class="c1">// Use methods of ``host`` to register custom code with the CDK toolkit</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">export</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="c1">// Version of the plugin infrastructure (currently always &#39;1&#39;)</span>
+    <span class="nx">init</span><span class="p">(</span><span class="nx">host</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Your plugin initialization hook.</span>
+        <span class="c1">// Use methods of ``host`` to register custom code with the CDK toolkit</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="credential-provider-plugins">
+<h4>Credential Provider Plugins<a class="headerlink" href="#credential-provider-plugins" title="Permalink to this headline">¶</a></h4>
+<p>Custom credential providers are classes implementing the
+<a class="reference internal" href="#aws-cdk.CredentialProviderSource" title="aws-cdk.CredentialProviderSource"><code class="xref js js-class docutils literal notranslate"><span class="pre">CredentialProviderSource()</span></code></a> interface, and registered to the toolkit using
+the <a class="reference internal" href="#aws-cdk.PluginHost.registerCredentialProviderSource" title="aws-cdk.PluginHost.registerCredentialProviderSource"><code class="xref js js-func docutils literal notranslate"><span class="pre">registerCredentialProviderSource()</span></code></a> method.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== active docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-cdk&#39;</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">aws</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;aws-sdk&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">CustomCredentialProviderSource</span> <span class="kr">implements</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">CredentialProviderSource</span> <span class="p">{</span>
+  <span class="kr">public</span> <span class="nx">async</span> <span class="nx">isAvailable</span><span class="p">()</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// Return ``false`` if the plugin could determine it cannot be used (for example,</span>
+    <span class="c1">// if it depends on files that are not present on this host).</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="nx">async</span> <span class="nx">canProvideCredentials</span><span class="p">(</span><span class="nx">accountId</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="kr">boolean</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// Return ``false`` if the plugin is unable to provide credentials for the</span>
+    <span class="c1">// requested account (for example if it&#39;s not managed by the credentials</span>
+    <span class="c1">// system that this plugin adds support for).</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="nx">async</span> <span class="nx">getProvider</span><span class="p">(</span><span class="nx">accountId</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">mode</span>: <span class="kt">cdk.Mode</span><span class="p">)</span><span class="o">:</span> <span class="nx">Promise</span><span class="o">&lt;</span><span class="nx">aws</span><span class="p">.</span><span class="nx">Credentials</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">credentials</span>: <span class="kt">aws.Credentials</span><span class="p">;</span>
+    <span class="c1">// Somehow obtain credentials in ``credentials``, and return those.</span>
+    <span class="k">return</span> <span class="nx">credentials</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">version</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+  <span class="nx">init</span><span class="p">(</span><span class="nx">host</span>: <span class="kt">cdk.PluginHost</span><span class="p">)</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="c1">// Register the credential provider to the PluginHost.</span>
+    <span class="nx">host</span><span class="p">.</span><span class="nx">registerCredentialProviderSource</span><span class="p">(</span><span class="k">new</span> <span class="nx">CustomCredentialProviderSource</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">CustomCredentialProviderSource</span> <span class="p">{</span>
+  <span class="nx">async</span> <span class="nx">isAvailable</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Return ``false`` if the plugin could determine it cannot be used (for example,</span>
+    <span class="c1">// if it depends on files that are not present on this host).</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">canProvideCredentials</span><span class="p">(</span><span class="nx">accountId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Return ``false`` if the plugin is unable to provide credentials for the</span>
+    <span class="c1">// requested account (for example if it&#39;s not managed by the credentials</span>
+    <span class="c1">// system that this plugin adds support for).</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nx">async</span> <span class="nx">getProvider</span><span class="p">(</span><span class="nx">accountId</span><span class="p">,</span> <span class="nx">mode</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">credentials</span><span class="p">;</span>
+    <span class="c1">// Somehow obtain credentials in ``credentials``, and return those.</span>
+    <span class="k">return</span> <span class="nx">credentials</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">version</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+  <span class="nx">init</span><span class="p">(</span><span class="nx">host</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Register the credential provider to the PluginHost.</span>
+    <span class="nx">host</span><span class="p">.</span><span class="nx">registerCredentialProviderSource</span><span class="p">(</span><span class="k">new</span> <span class="nx">CustomCredentialProviderSource</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the credentials obtained from the providers for a given account and mode will be cached,
+and as a consequence it is strongly advised that the credentials objects returned are self-refreshing,
+as descibed in the <a class="reference external" href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Credentials.html">AWS SDK for Javascript documentation</a>.</p>
+</div>
+</div>
+<div class="section" id="module-aws-cdk">
+<span id="reference"></span><h3>Reference<a class="headerlink" href="#module-aws-cdk" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="credentialprovidersource-interface">
+<h4>CredentialProviderSource <em>(interface)</em><a class="headerlink" href="#credentialprovidersource-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="aws-cdk.CredentialProviderSource">
+<em class="property">class </em><code class="descclassname">aws-cdk.</code><code class="descname">CredentialProviderSource</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.CredentialProviderSource" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="aws-cdk.CredentialProviderSource.name">
+<code class="descclassname">CredentialProviderSource.</code><code class="descname">name</code><a class="headerlink" href="#aws-cdk.CredentialProviderSource.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A friendly name for the provider, which will be used in error messages, for example.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aws-cdk.CredentialProviderSource.isAvailable">
+<code class="descclassname">CredentialProviderSource.</code><code class="descname">isAvailable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.CredentialProviderSource.isAvailable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the credential provider is even online. Guaranteed to be called before any of the other functions are called.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">Promise&lt;boolean&gt;</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aws-cdk.CredentialProviderSource.canProvideCredentials">
+<code class="descclassname">CredentialProviderSource.</code><code class="descname">canProvideCredentials</code><span class="sig-paren">(</span><em>accountId</em><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.CredentialProviderSource.canProvideCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Whether the credential provider can provide credentials for the given account.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountId</strong> (<em>string</em>) – the account ID for which credentials are needed.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">Promise&lt;boolean&gt;</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aws-cdk.CredentialProviderSource.getProvider">
+<code class="descclassname">CredentialProviderSource.</code><code class="descname">getProvider</code><span class="sig-paren">(</span><em>accountId</em>, <em>mode</em><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.CredentialProviderSource.getProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a credential provider for the given account and the given access mode.
+Guaranteed to be called only if canProvideCredentails() returned true at some point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>accountId</strong> (<em>string</em>) – the account ID for which credentials are needed.</li>
+<li><strong>mode</strong> (<a class="reference internal" href="#aws-cdk.Mode" title="aws-cdk.Mode"><em>aws-cdk.Mode</em></a>) – the kind of operations the credentials are intended to perform.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">Promise&lt;aws.Credentials&gt;</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="mode-enum">
+<h4>Mode <em>(enum)</em><a class="headerlink" href="#mode-enum" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="aws-cdk.Mode">
+<em class="property">class </em><code class="descclassname">aws-cdk.</code><code class="descname">Mode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.Mode" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="aws-cdk.Mode.ForReading">
+<code class="descclassname">Mode.</code><code class="descname">ForReading</code><a class="headerlink" href="#aws-cdk.Mode.ForReading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Credentials are inteded to be used for read-only scenarios.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="aws-cdk.Mode.ForWriting">
+<code class="descclassname">Mode.</code><code class="descname">ForWriting</code><a class="headerlink" href="#aws-cdk.Mode.ForWriting" title="Permalink to this definition">¶</a></dt>
+<dd><p>Credentials are intended to be used for read-write scenarios.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="plugin-interface">
+<h4>Plugin <em>(interface)</em><a class="headerlink" href="#plugin-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="aws-cdk.Plugin">
+<em class="property">class </em><code class="descclassname">aws-cdk.</code><code class="descname">Plugin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.Plugin" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="aws-cdk.Plugin.version">
+<code class="descclassname">Plugin.</code><code class="descname">version</code><a class="headerlink" href="#aws-cdk.Plugin.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>The version of the plug-in interface used by the plug-in. This will be used by
+the plug-in host to handle version changes. Currently, the only valid value for
+this attribute is <code class="docutils literal notranslate"><span class="pre">'1'</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">string</span></code></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aws-cdk.Plugin.init">
+<code class="descclassname">Plugin.</code><code class="descname">init</code><span class="sig-paren">(</span><em>host</em><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.Plugin.init" title="Permalink to this definition">¶</a></dt>
+<dd><p>When defined, this function is invoked right after the plug-in has been loaded,
+so that the plug-in is able to initialize itself. It may call methods of the
+<a class="reference internal" href="#aws-cdk.PluginHost" title="aws-cdk.PluginHost"><code class="xref js js-class docutils literal notranslate"><span class="pre">PluginHost()</span></code></a> instance it receives to register new
+<a class="reference internal" href="#aws-cdk.CredentialProviderSource" title="aws-cdk.CredentialProviderSource"><code class="xref js js-class docutils literal notranslate"><span class="pre">CredentialProviderSource()</span></code></a> instances.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>host</strong> (<a class="reference internal" href="#aws-cdk.PluginHost" title="aws-cdk.PluginHost"><em>aws-cdk.PluginHost</em></a>) – The AWS CDK plugin host</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">void</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="pluginhost">
+<h4>PluginHost<a class="headerlink" href="#pluginhost" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="aws-cdk.PluginHost">
+<em class="property">class </em><code class="descclassname">aws-cdk.</code><code class="descname">PluginHost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.PluginHost" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="aws-cdk.PluginHost.instance">
+<code class="descclassname">PluginHost.</code><code class="descname">instance</code><a class="headerlink" href="#aws-cdk.PluginHost.instance" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#aws-cdk.PluginHost" title="aws-cdk.PluginHost"><code class="xref js js-class docutils literal notranslate"><span class="pre">PluginHost()</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aws-cdk.PluginHost.load">
+<code class="descclassname">PluginHost.</code><code class="descname">load</code><span class="sig-paren">(</span><em>moduleSpec</em><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.PluginHost.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a plug-in into this PluginHost.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>moduleSpec</strong> (<em>string</em>) – the specification (path or name) of the plug-in module to be loaded.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first"><strong>Error</strong> – if the provided <code class="docutils literal notranslate"><span class="pre">moduleSpec</span></code> cannot be loaded or is not a valid <a class="reference internal" href="#aws-cdk.Plugin" title="aws-cdk.Plugin"><code class="xref js js-class docutils literal notranslate"><span class="pre">Plugin()</span></code></a>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">void</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="aws-cdk.PluginHost.registerCredentialProviderSource">
+<code class="descclassname">PluginHost.</code><code class="descname">registerCredentialProviderSource</code><span class="sig-paren">(</span><em>source</em><span class="sig-paren">)</span><a class="headerlink" href="#aws-cdk.PluginHost.registerCredentialProviderSource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows plug-ins to register new <code class="xref js js-class docutils literal notranslate"><span class="pre">CredentialProviderSources()</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>source</strong> (<em>aws-cdk.CredentialProviderSources</em>) – a new CredentialProviderSource to register.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">void</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="writing-constructs.html" class="btn btn-neutral float-right" title="Writing AWS CDK Constructs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="examples.html" class="btn btn-neutral" title="AWS CDK Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.19.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

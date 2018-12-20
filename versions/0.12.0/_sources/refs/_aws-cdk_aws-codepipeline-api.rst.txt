@@ -1,0 +1,2871 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"hLKJG5FoOOBpttau2V8fP/nDPbz0X2wx7aCOECdA/iA="}
+
+@aws-cdk/aws-codepipeline-api
+=============================
+
+.. mdinclude:: ./__aws-cdk_aws-codepipeline-api.README.md
+
+Reference
+---------
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.Codepipeline.Api/0.12.0>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.Codepipeline.Api" Version="0.12.0" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.Codepipeline.Api --version 0.12.0
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.Codepipeline.Api" version="0.12.0" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/codepipeline-api/0.12.0/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:codepipeline-api:jar:0.12.0'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="codepipeline-api" rev="0.12.0"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>codepipeline-api</artifactId>
+           <version>0.12.0</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:codepipeline-api:0.12.0'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='codepipeline-api', version='0.12.0')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codepipeline-api/v/0.12.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codepipeline-api@0.12.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codepipeline-api": "^0.12.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codepipeline-api@0.12.0
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codepipeline-api/v/0.12.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codepipeline-api@0.12.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codepipeline-api": "^0.12.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codepipeline-api@0.12.0
+
+
+
+.. py:module:: @aws-cdk/aws-codepipeline-api
+
+Action
+^^^^^^
+
+.. py:class:: Action(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.Action;
+
+      .. code-tab:: javascript
+
+         const { Action } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { Action } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Low-level class for generic CodePipeline Actions. It is recommended that concrete types are used instead, such as {@link codecommit.PipelineSourceAction} or {@link codebuild.PipelineBuildAction}.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionProps`\ 
+
+   .. py:method:: addInputArtifact([artifact]) -> @aws-cdk/aws-codepipeline-api.Action
+
+      *Protected method*
+
+      :param artifact: 
+      :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  or ``undefined``
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`\ 
+
+
+   .. py:method:: addOutputArtifact([name]) -> @aws-cdk/aws-codepipeline-api.Artifact
+
+      *Protected method*
+
+      :param name: 
+      :type name: string or ``undefined``
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\ 
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget`\  or ``undefined``
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`\ 
+
+
+   .. py:method:: validate() -> string[]
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Construct.validate`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string[]
+
+
+   .. py:attribute:: category
+
+      The category of the action. The category defines which action type the owner (the entity that performs the action) performs.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionCategory`\  *(readonly)*
+
+
+   .. py:attribute:: owner
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: runOrder
+
+      The order in which AWS CodePipeline runs this action. For more information, see the AWS CodePipeline User Guide.  https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: version
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+ActionArtifactBounds (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionArtifactBounds
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ActionArtifactBounds;
+
+      .. code-tab:: javascript
+
+         // ActionArtifactBounds is an interface
+
+      .. code-tab:: typescript
+
+         import { ActionArtifactBounds } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Specifies the constraints on the number of input and output artifacts an action can have.  The constraints for each action type are documented on the {@link https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html Pipeline Structure Reference} page.
+
+
+
+
+   .. py:attribute:: maxInputs
+
+      :type: number *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: maxOutputs
+
+      :type: number *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: minInputs
+
+      :type: number *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: minOutputs
+
+      :type: number *(readonly)* *(abstract)*
+
+
+ActionCategory (enum)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionCategory
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ActionCategory;
+
+      .. code-tab:: javascript
+
+         const { ActionCategory } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { ActionCategory } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   .. py:data:: Source
+
+   .. py:data:: Build
+
+   .. py:data:: Test
+
+   .. py:data:: Approval
+
+   .. py:data:: Deploy
+
+   .. py:data:: Invoke
+
+
+ActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ActionProps;
+
+      .. code-tab:: javascript
+
+         // ActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { ActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Construction properties of the low-level {@link Action Action class}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionProps`\ 
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionConstructProps`\ 
+
+
+   .. py:attribute:: artifactBounds
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionArtifactBounds`\  *(abstract)*
+
+
+   .. py:attribute:: category
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionCategory`\  *(abstract)*
+
+
+   .. py:attribute:: provider
+
+      :type: string *(abstract)*
+
+
+   .. py:attribute:: configuration
+
+      :type: any or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: owner
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: version
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: stage
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.CommonActionConstructProps <@aws-cdk/aws-codepipeline-api.CommonActionConstructProps.stage>`
+
+      The Pipeline Stage to add this Action to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.IStage`\  *(abstract)*
+
+
+   .. py:attribute:: runOrder
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.CommonActionProps <@aws-cdk/aws-codepipeline-api.CommonActionProps.runOrder>`
+
+      The runOrder property for this Action. RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+Artifact
+^^^^^^^^
+
+.. py:class:: Artifact(parent, name)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.Artifact;
+
+      .. code-tab:: javascript
+
+         const { Artifact } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { Artifact } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   An output artifact of an action. Artifacts can be used as input by some actions.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`\ 
+   :param name: 
+   :type name: string
+
+   .. py:method:: atPath(fileName) -> @aws-cdk/aws-codepipeline-api.ArtifactPath
+
+      Returns an ArtifactPath for a file within this artifact. Output is in the form "<artifact-name>::<file-name>"
+
+
+      :param fileName: The name of the file
+      :type fileName: string
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.ArtifactPath`\ 
+
+
+   .. py:method:: getParam(jsonFile, keyName) -> string
+
+      Returns a token for a value inside a JSON file within this artifact.
+
+
+      :param jsonFile: The JSON file name.
+      :type jsonFile: string
+      :param keyName: The hash key.
+      :type keyName: string
+      :rtype: string
+
+
+   .. py:method:: toString() -> string
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Construct.toString`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:attribute:: bucketName
+
+      The artifact attribute for the name of the S3 bucket where the artifact is stored.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: name
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: objectKey
+
+      The artifact attribute for The name of the .zip file that contains the artifact that is generated by AWS CodePipeline, such as 1ABCyZZ.zip.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: url
+
+      The artifact attribute of the Amazon Simple Storage Service (Amazon S3) URL of the artifact, such as https://s3-us-west-2.amazonaws.com/artifactstorebucket-yivczw8jma0c/test/TemplateSo/1ABCyZZ.zip.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+ArtifactPath
+^^^^^^^^^^^^
+
+.. py:class:: ArtifactPath(artifact, fileName)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.ArtifactPath;
+
+      .. code-tab:: javascript
+
+         const { ArtifactPath } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { ArtifactPath } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   A specific file within an output artifact.  The most common use case for this is specifying the template file for a CloudFormation action.
+
+
+   :param artifact: 
+   :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\ 
+   :param fileName: 
+   :type fileName: string
+
+   .. py:attribute:: artifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  *(readonly)*
+
+
+   .. py:attribute:: fileName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: location
+
+      :type: string *(readonly)*
+
+
+BuildAction
+^^^^^^^^^^^
+
+.. py:class:: BuildAction(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.BuildAction;
+
+      .. code-tab:: javascript
+
+         const { BuildAction } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { BuildAction } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Low level class for build actions. It is recommended that concrete types are used instead, such as {@link codebuild.PipelineBuildAction}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`\ 
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline-api.BuildActionProps`\ 
+
+   .. py:attribute:: outputArtifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  *(readonly)*
+
+
+   .. py:method:: addInputArtifact([artifact]) -> @aws-cdk/aws-codepipeline-api.Action
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.addInputArtifact>`
+
+      *Protected method*
+
+      :param artifact: 
+      :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  or ``undefined``
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`\ 
+
+
+   .. py:method:: addOutputArtifact([name]) -> @aws-cdk/aws-codepipeline-api.Artifact
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.addOutputArtifact>`
+
+      *Protected method*
+
+      :param name: 
+      :type name: string or ``undefined``
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\ 
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.onStateChange>`
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget`\  or ``undefined``
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`\ 
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string[]
+
+
+   .. py:attribute:: category
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.category>`
+
+      The category of the action. The category defines which action type the owner (the entity that performs the action) performs.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionCategory`\  *(readonly)*
+
+
+   .. py:attribute:: owner
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.owner>`
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: provider
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.provider>`
+
+      The service provider that the action calls.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: runOrder
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.runOrder>`
+
+      The order in which AWS CodePipeline runs this action. For more information, see the AWS CodePipeline User Guide.  https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: version
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.version>`
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: configuration
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.configuration>`
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+BuildActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BuildActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.BuildActionProps;
+
+      .. code-tab:: javascript
+
+         // BuildActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BuildActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Construction properties of the low level {@link BuildAction build action}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionProps`\ 
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionConstructProps`\ 
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls. For example, a valid provider for Source actions is CodeBuild.
+
+
+      :type: string *(abstract)*
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: inputArtifact
+
+      The source to use as input for this build.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: outputArtifactName
+
+      The name of the build's output artifact.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: owner
+
+      The source action owner (could be 'AWS', 'ThirdParty' or 'Custom').
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: stage
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.CommonActionConstructProps <@aws-cdk/aws-codepipeline-api.CommonActionConstructProps.stage>`
+
+      The Pipeline Stage to add this Action to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.IStage`\  *(abstract)*
+
+
+   .. py:attribute:: runOrder
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.CommonActionProps <@aws-cdk/aws-codepipeline-api.CommonActionProps.runOrder>`
+
+      The runOrder property for this Action. RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+CommonActionConstructProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CommonActionConstructProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.CommonActionConstructProps;
+
+      .. code-tab:: javascript
+
+         // CommonActionConstructProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CommonActionConstructProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Common properties shared by all Action Constructs.
+
+
+
+
+   .. py:attribute:: stage
+
+      The Pipeline Stage to add this Action to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.IStage`\  *(abstract)*
+
+
+CommonActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CommonActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.CommonActionProps;
+
+      .. code-tab:: javascript
+
+         // CommonActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CommonActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Common properties shared by all Actions.
+
+
+
+
+   .. py:attribute:: runOrder
+
+      The runOrder property for this Action. RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+DeployAction
+^^^^^^^^^^^^
+
+.. py:class:: DeployAction(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.DeployAction;
+
+      .. code-tab:: javascript
+
+         const { DeployAction } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { DeployAction } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`\ 
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline-api.DeployActionProps`\ 
+
+   .. py:method:: addInputArtifact([artifact]) -> @aws-cdk/aws-codepipeline-api.Action
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.addInputArtifact>`
+
+      *Protected method*
+
+      :param artifact: 
+      :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  or ``undefined``
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`\ 
+
+
+   .. py:method:: addOutputArtifact([name]) -> @aws-cdk/aws-codepipeline-api.Artifact
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.addOutputArtifact>`
+
+      *Protected method*
+
+      :param name: 
+      :type name: string or ``undefined``
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\ 
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.onStateChange>`
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget`\  or ``undefined``
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`\ 
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string[]
+
+
+   .. py:attribute:: category
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.category>`
+
+      The category of the action. The category defines which action type the owner (the entity that performs the action) performs.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionCategory`\  *(readonly)*
+
+
+   .. py:attribute:: owner
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.owner>`
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: provider
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.provider>`
+
+      The service provider that the action calls.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: runOrder
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.runOrder>`
+
+      The order in which AWS CodePipeline runs this action. For more information, see the AWS CodePipeline User Guide.  https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: version
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.version>`
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: configuration
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.configuration>`
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+DeployActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DeployActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.DeployActionProps;
+
+      .. code-tab:: javascript
+
+         // DeployActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { DeployActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionProps`\ 
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionConstructProps`\ 
+
+
+   .. py:attribute:: artifactBounds
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionArtifactBounds`\  *(abstract)*
+
+
+   .. py:attribute:: provider
+
+      :type: string *(abstract)*
+
+
+   .. py:attribute:: configuration
+
+      :type: any or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: inputArtifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: owner
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: stage
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.CommonActionConstructProps <@aws-cdk/aws-codepipeline-api.CommonActionConstructProps.stage>`
+
+      The Pipeline Stage to add this Action to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.IStage`\  *(abstract)*
+
+
+   .. py:attribute:: runOrder
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.CommonActionProps <@aws-cdk/aws-codepipeline-api.CommonActionProps.runOrder>`
+
+      The runOrder property for this Action. RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+IInternalStage (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IInternalStage
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.IInternalStage;
+
+      .. code-tab:: javascript
+
+         // IInternalStage is an interface
+
+      .. code-tab:: typescript
+
+         import { IInternalStage } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   The API of Stage used internally by the CodePipeline Construct. You should never need to call any of the methods inside of it yourself.
+
+
+
+
+IStage (interface)
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IStage
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.IStage;
+
+      .. code-tab:: javascript
+
+         // IStage is an interface
+
+      .. code-tab:: typescript
+
+         import { IStage } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   The abstract interface of a Pipeline Stage that is used by Actions.
+
+
+
+
+   .. py:attribute:: name
+
+      The physical, human-readable name of this Pipeline Stage.
+
+
+      :type: string *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: pipelineArn
+
+      The ARN of the Pipeline.
+
+
+      :type: string *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: pipelineRole
+
+      The service Role of the Pipeline.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role`\  *(readonly)* *(abstract)*
+
+
+   .. py:method:: grantPipelineBucketReadWrite(identity)
+
+      Grants read & write permissions to the Pipeline's S3 Bucket to the given Identity.
+
+
+      :param identity: the IAM Identity to grant the permissions to
+      :type identity: :py:class:`@aws-cdk/aws-iam.IPrincipal`\ 
+      :abstract: Yes
+
+
+SourceAction
+^^^^^^^^^^^^
+
+.. py:class:: SourceAction(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.SourceAction;
+
+      .. code-tab:: javascript
+
+         const { SourceAction } = require('@aws-cdk/aws-codepipeline-api');
+
+      .. code-tab:: typescript
+
+         import { SourceAction } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Low-level class for source actions. It is recommended that concrete types are used instead, such as {@link s3.PipelineSourceAction} or {@link codecommit.PipelineSourceAction}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`\ 
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline-api.SourceActionProps`\ 
+
+   .. py:attribute:: outputArtifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  *(readonly)*
+
+
+   .. py:method:: addInputArtifact([artifact]) -> @aws-cdk/aws-codepipeline-api.Action
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.addInputArtifact>`
+
+      *Protected method*
+
+      :param artifact: 
+      :type artifact: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\  or ``undefined``
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Action`\ 
+
+
+   .. py:method:: addOutputArtifact([name]) -> @aws-cdk/aws-codepipeline-api.Artifact
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.addOutputArtifact>`
+
+      *Protected method*
+
+      :param name: 
+      :type name: string or ``undefined``
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline-api.Artifact`\ 
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.onStateChange>`
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget`\  or ``undefined``
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`\ 
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string[]
+
+
+   .. py:attribute:: category
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.category>`
+
+      The category of the action. The category defines which action type the owner (the entity that performs the action) performs.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.ActionCategory`\  *(readonly)*
+
+
+   .. py:attribute:: owner
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.owner>`
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: provider
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.provider>`
+
+      The service provider that the action calls.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: runOrder
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.runOrder>`
+
+      The order in which AWS CodePipeline runs this action. For more information, see the AWS CodePipeline User Guide.  https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: version
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.version>`
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: configuration
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.Action <@aws-cdk/aws-codepipeline-api.Action.configuration>`
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+SourceActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SourceActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Codepipeline.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codepipeline.api.SourceActionProps;
+
+      .. code-tab:: javascript
+
+         // SourceActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { SourceActionProps } from '@aws-cdk/aws-codepipeline-api';
+
+
+
+   Construction properties of the low-level {@link SourceAction source Action}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionProps`\ 
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline-api.CommonActionConstructProps`\ 
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls. For example, a valid provider for Source actions is "S3".
+
+
+      :type: string *(abstract)*
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: outputArtifactName
+
+      The name of the source's output artifact. Output artifacts are used by CodePipeline as inputs into other actions.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: owner
+
+      The source action owner (could be "AWS", "ThirdParty" or "Custom").
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: version
+
+      The source action verison.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: stage
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.CommonActionConstructProps <@aws-cdk/aws-codepipeline-api.CommonActionConstructProps.stage>`
+
+      The Pipeline Stage to add this Action to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline-api.IStage`\  *(abstract)*
+
+
+   .. py:attribute:: runOrder
+
+      *Inherited from* :py:attr:`@aws-cdk/aws-codepipeline-api.CommonActionProps <@aws-cdk/aws-codepipeline-api.CommonActionProps.runOrder>`
+
+      The runOrder property for this Action. RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+

@@ -1,0 +1,3272 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"Dw6+aDBjKWPNiyk2kKkyXV64VpaZSHVbDPu19bJa/CE="}
+
+@aws-cdk/aws-s3
+===============
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/s3/0.8.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:s3:jar:0.8.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="s3" rev="0.8.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>s3</artifactId>
+           <version>0.8.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:s3:0.8.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='s3', version='0.8.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-s3/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-s3@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-s3": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-s3@0.8.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-s3/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-s3@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-s3": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-s3@0.8.2
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-s3.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-s3
+
+Bucket
+^^^^^^
+
+.. py:class:: Bucket(parent, name, [props])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.Bucket;
+
+      .. code-tab:: javascript
+
+         const { Bucket } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { Bucket } from '@aws-cdk/aws-s3';
+
+
+
+   An S3 bucket with associated policy objects  This bucket does not yet have all features that exposed by the underlying BucketResource.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-s3.BucketRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-s3.BucketProps` or undefined
+
+   .. py:method:: addLifecycleRule(rule)
+
+      Add a lifecycle rule to the bucket
+
+
+      :param rule: The rule to add
+      :type rule: :py:class:`~@aws-cdk/aws-s3.LifecycleRule`
+
+
+   .. py:method:: onEvent(event, dest, *filters)
+
+      Adds a bucket notification event destination.
+
+
+      :param event: The event to trigger the notification
+      :type event: :py:class:`~@aws-cdk/aws-s3.EventType`
+      :param dest: The notification destination (Lambda, SNS Topic or SQS Queue)
+      :type dest: :py:class:`@aws-cdk/aws-s3-notifications.IBucketNotificationDestination`
+      :param \*filters: S3 object key filter rules to determine which objects trigger this event. Each filter must include a `prefix` and/or `suffix` that will be matched against the s3 object key. Refer to the S3 Developer Guide for details about allowed filter rules.
+      :type \*filters: :py:class:`~@aws-cdk/aws-s3.NotificationKeyFilter`
+
+
+   .. py:method:: onObjectCreated(dest, *filters)
+
+      Subscribes a destination to receive notificatins when an object is created in the bucket. This is identical to calling `onEvent(EventType.ObjectCreated)`.
+
+
+      :param dest: The notification destination (see onEvent)
+      :type dest: :py:class:`@aws-cdk/aws-s3-notifications.IBucketNotificationDestination`
+      :param \*filters: Filters (see onEvent)
+      :type \*filters: :py:class:`~@aws-cdk/aws-s3.NotificationKeyFilter`
+
+
+   .. py:method:: onObjectRemoved(dest, *filters)
+
+      Subscribes a destination to receive notificatins when an object is removed from the bucket. This is identical to calling `onEvent(EventType.ObjectRemoved)`.
+
+
+      :param dest: The notification destination (see onEvent)
+      :type dest: :py:class:`@aws-cdk/aws-s3-notifications.IBucketNotificationDestination`
+      :param \*filters: Filters (see onEvent)
+      :type \*filters: :py:class:`~@aws-cdk/aws-s3.NotificationKeyFilter`
+
+
+   .. py:attribute:: bucketArn
+
+      The ARN of the bucket.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketArn` *(readonly)*
+
+
+   .. py:attribute:: bucketName
+
+      The name of the bucket.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketName` *(readonly)*
+
+
+   .. py:attribute:: domainName
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketDomainName` *(readonly)*
+
+
+   .. py:attribute:: dualstackDomainName
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketDualStackDomainName` *(readonly)*
+
+
+   .. py:attribute:: encryptionKey
+
+      Optional KMS encryption key associated with this bucket.
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef` or undefined *(readonly)*
+
+
+   .. py:attribute:: policy
+
+      The resource policy assoicated with this bucket.  If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the first call to addToResourcePolicy(s).
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketPolicy` or undefined
+
+
+   .. py:attribute:: autoCreatePolicy
+
+      Indicates if a bucket resource policy should automatically created upon the first call to `addToResourcePolicy`.
+
+
+      :type: boolean
+
+
+BucketArn
+^^^^^^^^^
+
+.. py:class:: BucketArn([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketArn;
+
+      .. code-tab:: javascript
+
+         const { BucketArn } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { BucketArn } from '@aws-cdk/aws-s3';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+BucketDomainName
+^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketDomainName([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketDomainName;
+
+      .. code-tab:: javascript
+
+         const { BucketDomainName } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { BucketDomainName } from '@aws-cdk/aws-s3';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+BucketDualStackDomainName
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketDualStackDomainName([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketDualStackDomainName;
+
+      .. code-tab:: javascript
+
+         const { BucketDualStackDomainName } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { BucketDualStackDomainName } from '@aws-cdk/aws-s3';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+BucketEncryption (enum)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketEncryption
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketEncryption;
+
+      .. code-tab:: javascript
+
+         const { BucketEncryption } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { BucketEncryption } from '@aws-cdk/aws-s3';
+
+
+
+   What kind of server-side encryption to apply to this bucket
+
+
+   .. py:data:: Unencrypted
+
+   .. py:data:: KmsManaged
+
+   .. py:data:: S3Managed
+
+   .. py:data:: Kms
+
+
+BucketName
+^^^^^^^^^^
+
+.. py:class:: BucketName([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketName;
+
+      .. code-tab:: javascript
+
+         const { BucketName } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { BucketName } from '@aws-cdk/aws-s3';
+
+
+
+   The name of the bucket.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+BucketPolicy
+^^^^^^^^^^^^
+
+.. py:class:: BucketPolicy(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketPolicy;
+
+      .. code-tab:: javascript
+
+         const { BucketPolicy } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { BucketPolicy } from '@aws-cdk/aws-s3';
+
+
+
+   Applies an Amazon S3 bucket policy to an Amazon S3 bucket.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-s3.BucketPolicyProps`
+
+   .. py:attribute:: document
+
+      A policy document containing permissions to add to the specified bucket. For more information, see Access Policy Language Overview in the Amazon Simple Storage Service Developer Guide.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument` *(readonly)*
+
+
+BucketPolicyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketPolicyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketPolicyProps;
+
+      .. code-tab:: javascript
+
+         // BucketPolicyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BucketPolicyProps } from '@aws-cdk/aws-s3';
+
+
+
+
+
+   .. py:attribute:: bucket
+
+      The Amazon S3 bucket that the policy applies to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketRef`
+
+
+BucketProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketProps;
+
+      .. code-tab:: javascript
+
+         // BucketProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BucketProps } from '@aws-cdk/aws-s3';
+
+
+
+
+
+   .. py:attribute:: encryption
+
+      The kind of server-side encryption to apply to this bucket.  If you choose KMS, you can specify a KMS key via `encryptionKey`. If encryption key is not specified, a key will automatically be created.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketEncryption` or undefined
+
+
+   .. py:attribute:: encryptionKey
+
+      External KMS key to use for bucket encryption.  The 'encryption' property must be either not specified or set to "Kms". An error will be emitted if encryption is set to "Unencrypted" or "Managed".
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef` or undefined
+
+
+   .. py:attribute:: bucketName
+
+      Physical name of this bucket.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: removalPolicy
+
+      Policy to apply when the bucket is removed from this stack.
+
+
+      :type: :py:class:`@aws-cdk/cdk.RemovalPolicy` or undefined
+
+
+   .. py:attribute:: policy
+
+      The bucket policy associated with this bucket.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketPolicy` or undefined
+
+
+   .. py:attribute:: versioned
+
+      Whether this bucket should have versioning turned on or not.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: lifecycleRules
+
+      Rules that define how Amazon S3 manages objects during their lifetime.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.LifecycleRule` or undefined
+
+
+BucketRef
+^^^^^^^^^
+
+.. py:class:: BucketRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketRef;
+
+      .. code-tab:: javascript
+
+         const { BucketRef } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { BucketRef } from '@aws-cdk/aws-s3';
+
+
+
+   Represents an S3 Bucket.  Buckets can be either defined within this stack:       new Bucket(this, 'MyBucket', { props });  Or imported from an existing bucket:       BucketRef.import(this, 'MyImportedBucket', { bucketArn: ... });  You can also export a bucket and import it into another stack:       const ref = myBucket.export();      BucketRef.import(this, 'MyImportedBucket', ref);
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-s3.BucketRef
+
+      Creates a Bucket construct that represents an external bucket.
+
+
+      :param parent: The parent creating construct (usually `this`).
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: The construct's name.
+      :type name: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-s3.BucketRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-s3.BucketRef`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-s3.BucketRefProps
+
+      Exports this bucket from the stack.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-s3.BucketRefProps`
+
+
+   .. py:method:: addToResourcePolicy(permission)
+
+      Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or it's contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
+
+
+      :param permission: 
+      :type permission: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: urlForObject([key]) -> @aws-cdk/aws-s3.S3Url
+
+      The https URL of an S3 object. For example:
+
+
+      :param key: The S3 key of the object. If not specified, the URL of the bucket is returned.
+      :type key: any or undefined
+      :return: an ObjectS3Url token
+      :rtype: :py:class:`~@aws-cdk/aws-s3.S3Url`
+
+
+   .. py:method:: arnForObjects(*keyPattern) -> @aws-cdk/cdk.Arn
+
+      Returns an ARN that represents all objects within the bucket that match the key pattern specified. To represent all keys, specify ``"*"``.  If you specify multiple components for keyPattern, they will be concatenated::       arnForObjects('home/', team, '/', user, '/*')
+
+
+      :param \*keyPattern: 
+      :type \*keyPattern: any
+      :rtype: :py:class:`@aws-cdk/cdk.Arn`
+
+
+   .. py:method:: grantRead([identity, [objectsKeyPattern]])
+
+      Temporary API for granting read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).  If an encryption key is used, permission to ues the key to decrypt the contents of the bucket will also be granted.
+
+
+      :param identity: 
+      :type identity: :py:class:`@aws-cdk/aws-iam.IPrincipal` or undefined
+      :param objectsKeyPattern: 
+      :type objectsKeyPattern: any or undefined
+
+
+   .. py:method:: grantReadWrite([identity, [objectsKeyPattern]])
+
+      Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).  If an encryption key is used, permission to use the key for encrypt/decrypt will also be granted.
+
+
+      :param identity: 
+      :type identity: :py:class:`@aws-cdk/aws-iam.IPrincipal` or undefined
+      :param objectsKeyPattern: 
+      :type objectsKeyPattern: any or undefined
+
+
+   .. py:attribute:: bucketArn
+
+      The ARN of the bucket.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: bucketName
+
+      The name of the bucket.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketName` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: encryptionKey
+
+      Optional KMS encryption key associated with this bucket.
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef` or undefined *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: policy
+
+      The resource policy assoicated with this bucket.  If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the first call to addToResourcePolicy(s).
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketPolicy` or undefined *(abstract)*
+
+
+   .. py:attribute:: autoCreatePolicy
+
+      Indicates if a bucket resource policy should automatically created upon the first call to `addToResourcePolicy`.
+
+
+      :type: boolean *(abstract)*
+
+
+   .. py:attribute:: bucketUrl
+
+      The https:// URL of this bucket.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.S3Url` *(readonly)*
+
+
+BucketRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketRefProps;
+
+      .. code-tab:: javascript
+
+         // BucketRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BucketRefProps } from '@aws-cdk/aws-s3';
+
+
+
+   A reference to a bucket. The easiest way to instantiate is to call `bucket.export()`. Then, the consumer can use `Bucket.import(this, ref)` and get a `Bucket`.
+
+
+
+
+   .. py:attribute:: bucketArn
+
+      The ARN fo the bucket. At least one of bucketArn or bucketName must be defined in order to initialize a bucket ref.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketArn` or undefined
+
+
+   .. py:attribute:: bucketName
+
+      The name of the bucket. If the underlying value of ARN is a string, the name will be parsed from the ARN. Otherwise, the name is optional, but some features that require the bucket name such as auto-creating a bucket policy, won't work.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketName` or undefined
+
+
+BucketWebsiteUrl
+^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketWebsiteUrl([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.BucketWebsiteUrl;
+
+      .. code-tab:: javascript
+
+         const { BucketWebsiteUrl } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { BucketWebsiteUrl } from '@aws-cdk/aws-s3';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+EventType (enum)
+^^^^^^^^^^^^^^^^
+
+.. py:class:: EventType
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.EventType;
+
+      .. code-tab:: javascript
+
+         const { EventType } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { EventType } from '@aws-cdk/aws-s3';
+
+
+
+   Notification event types.
+
+
+   .. py:data:: ObjectCreated
+
+   .. py:data:: ObjectCreatedPut
+
+   .. py:data:: ObjectCreatedPost
+
+   .. py:data:: ObjectCreatedCopy
+
+   .. py:data:: ObjectCreatedCompleteMultipartUpload
+
+   .. py:data:: ObjectRemoved
+
+   .. py:data:: ObjectRemovedDelete
+
+   .. py:data:: ObjectRemovedDeleteMarkerCreated
+
+   .. py:data:: ReducedRedundancyLostObject
+
+
+LifecycleRule (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LifecycleRule
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.LifecycleRule;
+
+      .. code-tab:: javascript
+
+         // LifecycleRule is an interface
+
+      .. code-tab:: typescript
+
+         import { LifecycleRule } from '@aws-cdk/aws-s3';
+
+
+
+   Declaration of a Life cycle rule
+
+
+
+
+   .. py:attribute:: id
+
+      A unique identifier for this rule. The value cannot be more than 255 characters.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: enabled
+
+      Whether this rule is enabled.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: abortIncompleteMultipartUploadAfterDays
+
+      Specifies a lifecycle rule that aborts incomplete multipart uploads to an Amazon S3 bucket.  The AbortIncompleteMultipartUpload property type creates a lifecycle rule that aborts incomplete multipart uploads to an Amazon S3 bucket. When Amazon S3 aborts a multipart upload, it deletes all parts associated with the multipart upload.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: expirationDate
+
+      Indicates when objects are deleted from Amazon S3 and Amazon Glacier.  The date value must be in ISO 8601 format. The time is always midnight UTC.  If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+
+
+      :type: date or undefined
+
+
+   .. py:attribute:: expirationInDays
+
+      Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon Glacier.  If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: noncurrentVersionExpirationInDays
+
+      Time between when a new version of the object is uploaded to the bucket and when old versions of the object expire.  For buckets with versioning enabled (or suspended), specifies the time, in days, between when a new version of the object is uploaded to the bucket and when old versions of the object expire. When object versions expire, Amazon S3 permanently deletes them. If you specify a transition and expiration time, the expiration time must be later than the transition time.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: noncurrentVersionTransitions
+
+      One or more transition rules that specify when non-current objects transition to a specified storage class.  Only for for buckets with versioning enabled (or suspended).  If you specify a transition and expiration time, the expiration time must be later than the transition time.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.NoncurrentVersionTransition` or undefined
+
+
+   .. py:attribute:: transitions
+
+      One or more transition rules that specify when an object transitions to a specified storage class.  If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.Transition` or undefined
+
+
+   .. py:attribute:: prefix
+
+      Object key prefix that identifies one or more objects to which this rule applies.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: tagFilters
+
+      The TagFilter property type specifies tags to use to identify a subset of objects for an Amazon S3 bucket.
+
+
+      :type: any or undefined
+
+
+NoncurrentVersionTransition (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: NoncurrentVersionTransition
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.NoncurrentVersionTransition;
+
+      .. code-tab:: javascript
+
+         // NoncurrentVersionTransition is an interface
+
+      .. code-tab:: typescript
+
+         import { NoncurrentVersionTransition } from '@aws-cdk/aws-s3';
+
+
+
+   Describes when noncurrent versions transition to a specified storage class.
+
+
+
+
+   .. py:attribute:: storageClass
+
+      The storage class to which you want the object to transition.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.StorageClass`
+
+
+   .. py:attribute:: transitionInDays
+
+      Indicates the number of days after creation when objects are transitioned to the specified storage class.
+
+
+      :type: number
+
+
+NotificationKeyFilter (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: NotificationKeyFilter
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.NotificationKeyFilter;
+
+      .. code-tab:: javascript
+
+         // NotificationKeyFilter is an interface
+
+      .. code-tab:: typescript
+
+         import { NotificationKeyFilter } from '@aws-cdk/aws-s3';
+
+
+
+
+
+   .. py:attribute:: prefix
+
+      S3 keys must have the specified prefix.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: suffix
+
+      S3 keys must have the specified suffix.
+
+
+      :type: string or undefined
+
+
+ObjectKey
+^^^^^^^^^
+
+.. py:class:: ObjectKey([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.ObjectKey;
+
+      .. code-tab:: javascript
+
+         const { ObjectKey } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { ObjectKey } from '@aws-cdk/aws-s3';
+
+
+
+   A key to an S3 object.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+S3Url
+^^^^^
+
+.. py:class:: S3Url([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.S3Url;
+
+      .. code-tab:: javascript
+
+         const { S3Url } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { S3Url } from '@aws-cdk/aws-s3';
+
+
+
+   The web URL (https://s3.us-west-1.amazonaws.com/bucket/key) of an S3 object.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+StorageClass (enum)
+^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StorageClass
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.StorageClass;
+
+      .. code-tab:: javascript
+
+         const { StorageClass } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { StorageClass } from '@aws-cdk/aws-s3';
+
+
+
+   Storage class to move an object to
+
+
+   .. py:data:: InfrequentAccess
+
+   .. py:data:: OneZoneInfrequentAccess
+
+   .. py:data:: Glacier
+
+
+Transition (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: Transition
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.Transition;
+
+      .. code-tab:: javascript
+
+         // Transition is an interface
+
+      .. code-tab:: typescript
+
+         import { Transition } from '@aws-cdk/aws-s3';
+
+
+
+   Describes when an object transitions to a specified storage class.
+
+
+
+
+   .. py:attribute:: storageClass
+
+      The storage class to which you want the object to transition.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3.StorageClass`
+
+
+   .. py:attribute:: transitionDate
+
+      Indicates when objects are transitioned to the specified storage class.  The date value must be in ISO 8601 format. The time is always midnight UTC.
+
+
+      :type: date or undefined
+
+
+   .. py:attribute:: transitionInDays
+
+      Indicates the number of days after creation when objects are transitioned to the specified storage class.
+
+
+      :type: number or undefined
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-s3.cloudformation
+
+BucketPolicyResource
+~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: BucketPolicyResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.cloudformation.BucketPolicyResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.BucketPolicyResource } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.BucketPolicyResource } from '@aws-cdk/aws-s3';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``BucketPolicyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``BucketPolicyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketPolicyResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+BucketPolicyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: BucketPolicyResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.cloudformation.BucketPolicyResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.BucketPolicyResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.BucketPolicyResourceProps } from '@aws-cdk/aws-s3';
+
+
+
+
+
+   .. py:attribute:: bucket
+
+      ``AWS::S3::BucketPolicy.Bucket``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#aws-properties-s3-policy-bucket
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: policyDocument
+
+      ``AWS::S3::BucketPolicy.PolicyDocument``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#aws-properties-s3-policy-policydocument
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+BucketResource
+~~~~~~~~~~~~~~
+
+.. py:class:: BucketResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.cloudformation.BucketResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.BucketResource } = require('@aws-cdk/aws-s3');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.BucketResource } from '@aws-cdk/aws-s3';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``BucketResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``BucketResource``
+   :type properties: :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: bucketArn
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketArn` *(readonly)*
+
+
+   .. py:attribute:: bucketDomainName
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketDomainName` *(readonly)*
+
+
+   .. py:attribute:: bucketDualStackDomainName
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketDualStackDomainName` *(readonly)*
+
+
+   .. py:attribute:: bucketWebsiteUrl
+
+      :type: :py:class:`~@aws-cdk/aws-s3.BucketWebsiteUrl` *(readonly)*
+
+   .. py:class:: AbortIncompleteMultipartUploadProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.AbortIncompleteMultipartUploadProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.AbortIncompleteMultipartUploadProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.AbortIncompleteMultipartUploadProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: daysAfterInitiation
+
+         ``BucketResource.AbortIncompleteMultipartUploadProperty.DaysAfterInitiation``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html#cfn-s3-bucket-abortincompletemultipartupload-daysafterinitiation
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: AccelerateConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.AccelerateConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.AccelerateConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.AccelerateConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: accelerationStatus
+
+         ``BucketResource.AccelerateConfigurationProperty.AccelerationStatus``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html#cfn-s3-bucket-accelerateconfiguration-accelerationstatus
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: AccessControlTranslationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.AccessControlTranslationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.AccessControlTranslationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.AccessControlTranslationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: owner
+
+         ``BucketResource.AccessControlTranslationProperty.Owner``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html#cfn-s3-bucket-accesscontroltranslation-owner
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: AnalyticsConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.AnalyticsConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.AnalyticsConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.AnalyticsConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: id
+
+         ``BucketResource.AnalyticsConfigurationProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: prefix
+
+         ``BucketResource.AnalyticsConfigurationProperty.Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: storageClassAnalysis
+
+         ``BucketResource.AnalyticsConfigurationProperty.StorageClassAnalysis``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-storageclassanalysis
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.StorageClassAnalysisProperty`
+
+
+      .. py:attribute:: tagFilters
+
+         ``BucketResource.AnalyticsConfigurationProperty.TagFilters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html#cfn-s3-bucket-analyticsconfiguration-tagfilters
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.TagFilterProperty` or undefined
+
+
+   .. py:class:: BucketEncryptionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.BucketEncryptionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.BucketEncryptionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.BucketEncryptionProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: serverSideEncryptionConfiguration
+
+         ``BucketResource.BucketEncryptionProperty.ServerSideEncryptionConfiguration``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html#cfn-s3-bucket-bucketencryption-serversideencryptionconfiguration
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.ServerSideEncryptionRuleProperty`
+
+
+   .. py:class:: CorsConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.CorsConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.CorsConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.CorsConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: corsRules
+
+         ``BucketResource.CorsConfigurationProperty.CorsRules``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html#cfn-s3-bucket-cors-corsrule
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.CorsRuleProperty`
+
+
+   .. py:class:: CorsRuleProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.CorsRuleProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.CorsRuleProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.CorsRuleProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: allowedHeaders
+
+         ``BucketResource.CorsRuleProperty.AllowedHeaders``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedheaders
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: allowedMethods
+
+         ``BucketResource.CorsRuleProperty.AllowedMethods``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedmethods
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: allowedOrigins
+
+         ``BucketResource.CorsRuleProperty.AllowedOrigins``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-allowedorigins
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: exposedHeaders
+
+         ``BucketResource.CorsRuleProperty.ExposedHeaders``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-exposedheaders
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: id
+
+         ``BucketResource.CorsRuleProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: maxAge
+
+         ``BucketResource.CorsRuleProperty.MaxAge``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-maxage
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: DataExportProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.DataExportProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.DataExportProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.DataExportProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: destination
+
+         ``BucketResource.DataExportProperty.Destination``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-destination
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.DestinationProperty`
+
+
+      .. py:attribute:: outputSchemaVersion
+
+         ``BucketResource.DataExportProperty.OutputSchemaVersion``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html#cfn-s3-bucket-dataexport-outputschemaversion
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: DestinationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.DestinationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.DestinationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.DestinationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: bucketAccountId
+
+         ``BucketResource.DestinationProperty.BucketAccountId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketaccountid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: bucketArn
+
+         ``BucketResource.DestinationProperty.BucketArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-bucketarn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: format
+
+         ``BucketResource.DestinationProperty.Format``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-format
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: prefix
+
+         ``BucketResource.DestinationProperty.Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html#cfn-s3-bucket-destination-prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: EncryptionConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.EncryptionConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.EncryptionConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.EncryptionConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: replicaKmsKeyId
+
+         ``BucketResource.EncryptionConfigurationProperty.ReplicaKmsKeyID``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html#cfn-s3-bucket-encryptionconfiguration-replicakmskeyid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: FilterRuleProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.FilterRuleProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.FilterRuleProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.FilterRuleProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: name
+
+         ``BucketResource.FilterRuleProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: value
+
+         ``BucketResource.FilterRuleProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: InventoryConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.InventoryConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.InventoryConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.InventoryConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: destination
+
+         ``BucketResource.InventoryConfigurationProperty.Destination``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-destination
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.DestinationProperty`
+
+
+      .. py:attribute:: enabled
+
+         ``BucketResource.InventoryConfigurationProperty.Enabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-enabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: id
+
+         ``BucketResource.InventoryConfigurationProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: includedObjectVersions
+
+         ``BucketResource.InventoryConfigurationProperty.IncludedObjectVersions``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-includedobjectversions
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: optionalFields
+
+         ``BucketResource.InventoryConfigurationProperty.OptionalFields``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-optionalfields
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: prefix
+
+         ``BucketResource.InventoryConfigurationProperty.Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: scheduleFrequency
+
+         ``BucketResource.InventoryConfigurationProperty.ScheduleFrequency``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html#cfn-s3-bucket-inventoryconfiguration-schedulefrequency
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: LambdaConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.LambdaConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.LambdaConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.LambdaConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: event
+
+         ``BucketResource.LambdaConfigurationProperty.Event``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-event
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: filter
+
+         ``BucketResource.LambdaConfigurationProperty.Filter``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-filter
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.NotificationFilterProperty` or undefined
+
+
+      .. py:attribute:: function
+
+         ``BucketResource.LambdaConfigurationProperty.Function``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig-function
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: LifecycleConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.LifecycleConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.LifecycleConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.LifecycleConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: rules
+
+         ``BucketResource.LifecycleConfigurationProperty.Rules``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html#cfn-s3-bucket-lifecycleconfig-rules
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.RuleProperty`
+
+
+   .. py:class:: LoggingConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.LoggingConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.LoggingConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.LoggingConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: destinationBucketName
+
+         ``BucketResource.LoggingConfigurationProperty.DestinationBucketName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-destinationbucketname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: logFilePrefix
+
+         ``BucketResource.LoggingConfigurationProperty.LogFilePrefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html#cfn-s3-bucket-loggingconfig-logfileprefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: MetricsConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.MetricsConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.MetricsConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.MetricsConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: id
+
+         ``BucketResource.MetricsConfigurationProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: prefix
+
+         ``BucketResource.MetricsConfigurationProperty.Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: tagFilters
+
+         ``BucketResource.MetricsConfigurationProperty.TagFilters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html#cfn-s3-bucket-metricsconfiguration-tagfilters
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.TagFilterProperty` or undefined
+
+
+   .. py:class:: NoncurrentVersionTransitionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.NoncurrentVersionTransitionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.NoncurrentVersionTransitionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.NoncurrentVersionTransitionProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: storageClass
+
+         ``BucketResource.NoncurrentVersionTransitionProperty.StorageClass``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-storageclass
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: transitionInDays
+
+         ``BucketResource.NoncurrentVersionTransitionProperty.TransitionInDays``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-transitionindays
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: NotificationConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.NotificationConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.NotificationConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.NotificationConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: lambdaConfigurations
+
+         ``BucketResource.NotificationConfigurationProperty.LambdaConfigurations``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-lambdaconfig
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.LambdaConfigurationProperty` or undefined
+
+
+      .. py:attribute:: queueConfigurations
+
+         ``BucketResource.NotificationConfigurationProperty.QueueConfigurations``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-queueconfig
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.QueueConfigurationProperty` or undefined
+
+
+      .. py:attribute:: topicConfigurations
+
+         ``BucketResource.NotificationConfigurationProperty.TopicConfigurations``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html#cfn-s3-bucket-notificationconfig-topicconfig
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.TopicConfigurationProperty` or undefined
+
+
+   .. py:class:: NotificationFilterProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.NotificationFilterProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.NotificationFilterProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.NotificationFilterProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: s3Key
+
+         ``BucketResource.NotificationFilterProperty.S3Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.S3KeyFilterProperty`
+
+
+   .. py:class:: QueueConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.QueueConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.QueueConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.QueueConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: event
+
+         ``BucketResource.QueueConfigurationProperty.Event``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-event
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: filter
+
+         ``BucketResource.QueueConfigurationProperty.Filter``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-filter
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.NotificationFilterProperty` or undefined
+
+
+      .. py:attribute:: queue
+
+         ``BucketResource.QueueConfigurationProperty.Queue``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html#cfn-s3-bucket-notificationconfig-queueconfig-queue
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: RedirectAllRequestsToProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.RedirectAllRequestsToProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.RedirectAllRequestsToProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.RedirectAllRequestsToProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: hostName
+
+         ``BucketResource.RedirectAllRequestsToProperty.HostName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-hostname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: protocol
+
+         ``BucketResource.RedirectAllRequestsToProperty.Protocol``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html#cfn-s3-websiteconfiguration-redirectallrequeststo-protocol
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: RedirectRuleProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.RedirectRuleProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.RedirectRuleProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.RedirectRuleProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: hostName
+
+         ``BucketResource.RedirectRuleProperty.HostName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-hostname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: httpRedirectCode
+
+         ``BucketResource.RedirectRuleProperty.HttpRedirectCode``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-httpredirectcode
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: protocol
+
+         ``BucketResource.RedirectRuleProperty.Protocol``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-protocol
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: replaceKeyPrefixWith
+
+         ``BucketResource.RedirectRuleProperty.ReplaceKeyPrefixWith``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeyprefixwith
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: replaceKeyWith
+
+         ``BucketResource.RedirectRuleProperty.ReplaceKeyWith``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html#cfn-s3-websiteconfiguration-redirectrule-replacekeywith
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ReplicationConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.ReplicationConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.ReplicationConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.ReplicationConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: role
+
+         ``BucketResource.ReplicationConfigurationProperty.Role``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-role
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: rules
+
+         ``BucketResource.ReplicationConfigurationProperty.Rules``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html#cfn-s3-bucket-replicationconfiguration-rules
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.ReplicationRuleProperty`
+
+
+   .. py:class:: ReplicationDestinationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.ReplicationDestinationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.ReplicationDestinationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.ReplicationDestinationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: accessControlTranslation
+
+         ``BucketResource.ReplicationDestinationProperty.AccessControlTranslation``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-accesscontroltranslation
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.AccessControlTranslationProperty` or undefined
+
+
+      .. py:attribute:: account
+
+         ``BucketResource.ReplicationDestinationProperty.Account``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-account
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: bucket
+
+         ``BucketResource.ReplicationDestinationProperty.Bucket``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-bucket
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: encryptionConfiguration
+
+         ``BucketResource.ReplicationDestinationProperty.EncryptionConfiguration``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationdestination-encryptionconfiguration
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.EncryptionConfigurationProperty` or undefined
+
+
+      .. py:attribute:: storageClass
+
+         ``BucketResource.ReplicationDestinationProperty.StorageClass``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html#cfn-s3-bucket-replicationconfiguration-rules-destination-storageclass
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ReplicationRuleProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.ReplicationRuleProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.ReplicationRuleProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.ReplicationRuleProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: destination
+
+         ``BucketResource.ReplicationRuleProperty.Destination``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-destination
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.ReplicationDestinationProperty`
+
+
+      .. py:attribute:: id
+
+         ``BucketResource.ReplicationRuleProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: prefix
+
+         ``BucketResource.ReplicationRuleProperty.Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: sourceSelectionCriteria
+
+         ``BucketResource.ReplicationRuleProperty.SourceSelectionCriteria``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationrule-sourceselectioncriteria
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.SourceSelectionCriteriaProperty` or undefined
+
+
+      .. py:attribute:: status
+
+         ``BucketResource.ReplicationRuleProperty.Status``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html#cfn-s3-bucket-replicationconfiguration-rules-status
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: RoutingRuleConditionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.RoutingRuleConditionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.RoutingRuleConditionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.RoutingRuleConditionProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: httpErrorCodeReturnedEquals
+
+         ``BucketResource.RoutingRuleConditionProperty.HttpErrorCodeReturnedEquals``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-httperrorcodereturnedequals
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: keyPrefixEquals
+
+         ``BucketResource.RoutingRuleConditionProperty.KeyPrefixEquals``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition-keyprefixequals
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: RoutingRuleProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.RoutingRuleProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.RoutingRuleProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.RoutingRuleProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: redirectRule
+
+         ``BucketResource.RoutingRuleProperty.RedirectRule``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-redirectrule
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.RedirectRuleProperty`
+
+
+      .. py:attribute:: routingRuleCondition
+
+         ``BucketResource.RoutingRuleProperty.RoutingRuleCondition``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html#cfn-s3-websiteconfiguration-routingrules-routingrulecondition
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.RoutingRuleConditionProperty` or undefined
+
+
+   .. py:class:: RuleProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.RuleProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.RuleProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.RuleProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: abortIncompleteMultipartUpload
+
+         ``BucketResource.RuleProperty.AbortIncompleteMultipartUpload``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-abortincompletemultipartupload
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.AbortIncompleteMultipartUploadProperty` or undefined
+
+
+      .. py:attribute:: expirationDate
+
+         ``BucketResource.RuleProperty.ExpirationDate``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationdate
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or date or undefined
+
+
+      .. py:attribute:: expirationInDays
+
+         ``BucketResource.RuleProperty.ExpirationInDays``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationindays
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: id
+
+         ``BucketResource.RuleProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: noncurrentVersionExpirationInDays
+
+         ``BucketResource.RuleProperty.NoncurrentVersionExpirationInDays``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversionexpirationindays
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: noncurrentVersionTransition
+
+         ``BucketResource.RuleProperty.NoncurrentVersionTransition``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.NoncurrentVersionTransitionProperty` or undefined
+
+
+      .. py:attribute:: noncurrentVersionTransitions
+
+         ``BucketResource.RuleProperty.NoncurrentVersionTransitions``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransitions
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.NoncurrentVersionTransitionProperty` or undefined
+
+
+      .. py:attribute:: prefix
+
+         ``BucketResource.RuleProperty.Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: status
+
+         ``BucketResource.RuleProperty.Status``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-status
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: tagFilters
+
+         ``BucketResource.RuleProperty.TagFilters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-tagfilters
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.TagFilterProperty` or undefined
+
+
+      .. py:attribute:: transition
+
+         ``BucketResource.RuleProperty.Transition``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transition
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.TransitionProperty` or undefined
+
+
+      .. py:attribute:: transitions
+
+         ``BucketResource.RuleProperty.Transitions``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transitions
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.TransitionProperty` or undefined
+
+
+   .. py:class:: S3KeyFilterProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.S3KeyFilterProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.S3KeyFilterProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.S3KeyFilterProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: rules
+
+         ``BucketResource.S3KeyFilterProperty.Rules``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html#cfn-s3-bucket-notificationconfiguraiton-config-filter-s3key-rules
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.FilterRuleProperty`
+
+
+   .. py:class:: ServerSideEncryptionByDefaultProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.ServerSideEncryptionByDefaultProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.ServerSideEncryptionByDefaultProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.ServerSideEncryptionByDefaultProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: kmsMasterKeyId
+
+         ``BucketResource.ServerSideEncryptionByDefaultProperty.KMSMasterKeyID``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-kmsmasterkeyid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: sseAlgorithm
+
+         ``BucketResource.ServerSideEncryptionByDefaultProperty.SSEAlgorithm``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html#cfn-s3-bucket-serversideencryptionbydefault-ssealgorithm
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: ServerSideEncryptionRuleProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.ServerSideEncryptionRuleProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.ServerSideEncryptionRuleProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.ServerSideEncryptionRuleProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: serverSideEncryptionByDefault
+
+         ``BucketResource.ServerSideEncryptionRuleProperty.ServerSideEncryptionByDefault``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html#cfn-s3-bucket-serversideencryptionrule-serversideencryptionbydefault
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.ServerSideEncryptionByDefaultProperty` or undefined
+
+
+   .. py:class:: SourceSelectionCriteriaProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.SourceSelectionCriteriaProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.SourceSelectionCriteriaProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.SourceSelectionCriteriaProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: sseKmsEncryptedObjects
+
+         ``BucketResource.SourceSelectionCriteriaProperty.SseKmsEncryptedObjects``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html#cfn-s3-bucket-sourceselectioncriteria-ssekmsencryptedobjects
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.SseKmsEncryptedObjectsProperty`
+
+
+   .. py:class:: SseKmsEncryptedObjectsProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.SseKmsEncryptedObjectsProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.SseKmsEncryptedObjectsProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.SseKmsEncryptedObjectsProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: status
+
+         ``BucketResource.SseKmsEncryptedObjectsProperty.Status``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html#cfn-s3-bucket-ssekmsencryptedobjects-status
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: StorageClassAnalysisProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.StorageClassAnalysisProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.StorageClassAnalysisProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.StorageClassAnalysisProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: dataExport
+
+         ``BucketResource.StorageClassAnalysisProperty.DataExport``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html#cfn-s3-bucket-storageclassanalysis-dataexport
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.DataExportProperty` or undefined
+
+
+   .. py:class:: TagFilterProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.TagFilterProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.TagFilterProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.TagFilterProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: key
+
+         ``BucketResource.TagFilterProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: value
+
+         ``BucketResource.TagFilterProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html#cfn-s3-bucket-tagfilter-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: TopicConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.TopicConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.TopicConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.TopicConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: event
+
+         ``BucketResource.TopicConfigurationProperty.Event``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-event
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: filter
+
+         ``BucketResource.TopicConfigurationProperty.Filter``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-filter
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.NotificationFilterProperty` or undefined
+
+
+      .. py:attribute:: topic
+
+         ``BucketResource.TopicConfigurationProperty.Topic``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html#cfn-s3-bucket-notificationconfig-topicconfig-topic
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: TransitionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.TransitionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.TransitionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.TransitionProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: storageClass
+
+         ``BucketResource.TransitionProperty.StorageClass``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-storageclass
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: transitionDate
+
+         ``BucketResource.TransitionProperty.TransitionDate``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitiondate
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or date or undefined
+
+
+      .. py:attribute:: transitionInDays
+
+         ``BucketResource.TransitionProperty.TransitionInDays``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitionindays
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: VersioningConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.VersioningConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.VersioningConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.VersioningConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: status
+
+         ``BucketResource.VersioningConfigurationProperty.Status``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html#cfn-s3-bucket-versioningconfig-status
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: WebsiteConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.s3.cloudformation.BucketResource.WebsiteConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.BucketResource.WebsiteConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.BucketResource.WebsiteConfigurationProperty } from '@aws-cdk/aws-s3';
+
+
+
+
+
+      .. py:attribute:: errorDocument
+
+         ``BucketResource.WebsiteConfigurationProperty.ErrorDocument``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-errordocument
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: indexDocument
+
+         ``BucketResource.WebsiteConfigurationProperty.IndexDocument``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-indexdocument
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: redirectAllRequestsTo
+
+         ``BucketResource.WebsiteConfigurationProperty.RedirectAllRequestsTo``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-redirectallrequeststo
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.RedirectAllRequestsToProperty` or undefined
+
+
+      .. py:attribute:: routingRules
+
+         ``BucketResource.WebsiteConfigurationProperty.RoutingRules``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html#cfn-s3-websiteconfiguration-routingrules
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.RoutingRuleProperty` or undefined
+
+
+
+BucketResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: BucketResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.cloudformation.BucketResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.BucketResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.BucketResourceProps } from '@aws-cdk/aws-s3';
+
+
+
+
+
+   .. py:attribute:: accelerateConfiguration
+
+      ``AWS::S3::Bucket.AccelerateConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accelerateconfiguration
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.AccelerateConfigurationProperty` or undefined
+
+
+   .. py:attribute:: accessControl
+
+      ``AWS::S3::Bucket.AccessControl``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: analyticsConfigurations
+
+      ``AWS::S3::Bucket.AnalyticsConfigurations``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.AnalyticsConfigurationProperty` or undefined
+
+
+   .. py:attribute:: bucketEncryption
+
+      ``AWS::S3::Bucket.BucketEncryption``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-bucketencryption
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.BucketEncryptionProperty` or undefined
+
+
+   .. py:attribute:: bucketName
+
+      ``AWS::S3::Bucket.BucketName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: corsConfiguration
+
+      ``AWS::S3::Bucket.CorsConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.CorsConfigurationProperty` or undefined
+
+
+   .. py:attribute:: inventoryConfigurations
+
+      ``AWS::S3::Bucket.InventoryConfigurations``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.InventoryConfigurationProperty` or undefined
+
+
+   .. py:attribute:: lifecycleConfiguration
+
+      ``AWS::S3::Bucket.LifecycleConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.LifecycleConfigurationProperty` or undefined
+
+
+   .. py:attribute:: loggingConfiguration
+
+      ``AWS::S3::Bucket.LoggingConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.LoggingConfigurationProperty` or undefined
+
+
+   .. py:attribute:: metricsConfigurations
+
+      ``AWS::S3::Bucket.MetricsConfigurations``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-metricsconfigurations
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.MetricsConfigurationProperty` or undefined
+
+
+   .. py:attribute:: notificationConfiguration
+
+      ``AWS::S3::Bucket.NotificationConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-notification
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.NotificationConfigurationProperty` or undefined
+
+
+   .. py:attribute:: replicationConfiguration
+
+      ``AWS::S3::Bucket.ReplicationConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-replicationconfiguration
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.ReplicationConfigurationProperty` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::S3::Bucket.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+   .. py:attribute:: versioningConfiguration
+
+      ``AWS::S3::Bucket.VersioningConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-versioning
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.VersioningConfigurationProperty` or undefined
+
+
+   .. py:attribute:: websiteConfiguration
+
+      ``AWS::S3::Bucket.WebsiteConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-websiteconfiguration
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-s3.cloudformation.BucketResource.WebsiteConfigurationProperty` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-s3
+

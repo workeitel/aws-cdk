@@ -1,0 +1,1318 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"/GVYHmCCP52LSRynNea/jZq66xn+OISDDyAN8pHhzUI="}
+
+@aws-cdk/aws-sns
+================
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.SNS/0.9.1>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.SNS" Version="0.9.1" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.SNS --version 0.9.1
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.SNS" version="0.9.1" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/sns/0.9.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:sns:jar:0.9.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="sns" rev="0.9.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>sns</artifactId>
+           <version>0.9.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:sns:0.9.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='sns', version='0.9.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-sns/v/0.9.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-sns@0.9.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-sns": "^0.9.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-sns@0.9.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-sns/v/0.9.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-sns@0.9.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-sns": "^0.9.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-sns@0.9.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-sns.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-sns
+
+EmailSubscriptionOptions (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EmailSubscriptionOptions
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.EmailSubscriptionOptions;
+
+      .. code-tab:: javascript
+
+         // EmailSubscriptionOptions is an interface
+
+      .. code-tab:: typescript
+
+         import { EmailSubscriptionOptions } from '@aws-cdk/aws-sns';
+
+
+
+   Options for email subscriptions.
+
+
+
+
+   .. py:attribute:: json
+
+      Indicates if the full notification JSON should be sent to the email address or just the message text.
+
+
+      :type: boolean or undefined *(abstract)*
+
+
+Subscription
+^^^^^^^^^^^^
+
+.. py:class:: Subscription(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.Subscription;
+
+      .. code-tab:: javascript
+
+         const { Subscription } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { Subscription } from '@aws-cdk/aws-sns';
+
+
+
+   A new subscription.  Prefer to use the `TopicRef.subscribeXxx()` methods to creating instances of this class.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-sns.SubscriptionProps`
+
+SubscriptionArn
+^^^^^^^^^^^^^^^
+
+.. py:class:: SubscriptionArn(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.SubscriptionArn;
+
+      .. code-tab:: javascript
+
+         const { SubscriptionArn } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { SubscriptionArn } from '@aws-cdk/aws-sns';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+SubscriptionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SubscriptionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.SubscriptionProps;
+
+      .. code-tab:: javascript
+
+         // SubscriptionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { SubscriptionProps } from '@aws-cdk/aws-sns';
+
+
+
+   Properties for creating a new subscription
+
+
+
+
+   .. py:attribute:: endpoint
+
+      The subscription endpoint.  The meaning of this value depends on the value for 'protocol'.
+
+
+      :type: any *(abstract)*
+
+
+   .. py:attribute:: protocol
+
+      What type of subscription to add.
+
+
+      :type: :py:class:`~@aws-cdk/aws-sns.SubscriptionProtocol` *(abstract)*
+
+
+   .. py:attribute:: topic
+
+      The topic to subscribe to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicRef` *(abstract)*
+
+
+SubscriptionProtocol (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SubscriptionProtocol
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.SubscriptionProtocol;
+
+      .. code-tab:: javascript
+
+         const { SubscriptionProtocol } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { SubscriptionProtocol } from '@aws-cdk/aws-sns';
+
+
+
+   The type of subscription, controlling the type of the endpoint parameter.
+
+
+   .. py:data:: Http
+
+   JSON-encoded message is POSTED to an HTTP url.
+
+
+   .. py:data:: Https
+
+   JSON-encoded message is POSTed to an HTTPS url.
+
+
+   .. py:data:: Email
+
+   Notifications are sent via email.
+
+
+   .. py:data:: EmailJson
+
+   Notifications are JSON-encoded and sent via mail.
+
+
+   .. py:data:: Sms
+
+   Notification is delivered by SMS
+
+
+   .. py:data:: Sqs
+
+   Notifications are enqueued into an SQS queue.
+
+
+   .. py:data:: Application
+
+   JSON-encoded notifications are sent to a mobile app endpoint.
+
+
+   .. py:data:: Lambda
+
+   Notifications trigger a Lambda function.
+
+
+
+Topic
+^^^^^
+
+.. py:class:: Topic(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.Topic;
+
+      .. code-tab:: javascript
+
+         const { Topic } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { Topic } from '@aws-cdk/aws-sns';
+
+
+
+   A new SNS topic
+
+
+   :extends: :py:class:`~@aws-cdk/aws-sns.TopicRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-sns.TopicProps`
+
+   .. py:attribute:: autoCreatePolicy
+
+      Controls automatic creation of policy objects.  Set by subclasses.
+
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: topicArn
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicArn` *(readonly)*
+
+
+   .. py:attribute:: topicName
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicName` *(readonly)*
+
+
+TopicArn
+^^^^^^^^
+
+.. py:class:: TopicArn(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.TopicArn;
+
+      .. code-tab:: javascript
+
+         const { TopicArn } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { TopicArn } from '@aws-cdk/aws-sns';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+TopicName
+^^^^^^^^^
+
+.. py:class:: TopicName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.TopicName;
+
+      .. code-tab:: javascript
+
+         const { TopicName } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { TopicName } from '@aws-cdk/aws-sns';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+TopicPolicy
+^^^^^^^^^^^
+
+.. py:class:: TopicPolicy(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.TopicPolicy;
+
+      .. code-tab:: javascript
+
+         const { TopicPolicy } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { TopicPolicy } from '@aws-cdk/aws-sns';
+
+
+
+   Applies a policy to SNS topics.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/cdk.IDependable`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-sns.TopicPolicyProps`
+
+   .. py:attribute:: dependencyElements
+
+      Allows topic policy to be added as a dependency.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`[] *(readonly)*
+
+
+   .. py:attribute:: document
+
+      The IAM policy document for this policy.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument` *(readonly)*
+
+
+TopicPolicyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TopicPolicyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.TopicPolicyProps;
+
+      .. code-tab:: javascript
+
+         // TopicPolicyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { TopicPolicyProps } from '@aws-cdk/aws-sns';
+
+
+
+
+
+   .. py:attribute:: topics
+
+      The set of topics this policy applies to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicRef`[] *(abstract)*
+
+
+TopicProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TopicProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.TopicProps;
+
+      .. code-tab:: javascript
+
+         // TopicProps is an interface
+
+      .. code-tab:: typescript
+
+         import { TopicProps } from '@aws-cdk/aws-sns';
+
+
+
+   Properties for a new SNS topic
+
+
+
+
+   .. py:attribute:: displayName
+
+      A developer-defined string that can be used to identify this SNS topic.
+
+
+      :type: string or undefined *(abstract)*
+
+
+   .. py:attribute:: topicName
+
+      A name for the topic.  If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.
+
+
+      :type: string or undefined *(abstract)*
+
+
+TopicRef
+^^^^^^^^
+
+.. py:class:: TopicRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.TopicRef;
+
+      .. code-tab:: javascript
+
+         const { TopicRef } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { TopicRef } from '@aws-cdk/aws-sns';
+
+
+
+   Either a new or imported Topic
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-events.IEventRuleTarget`
+   :implements: :py:class:`@aws-cdk/aws-cloudwatch.IAlarmAction`
+   :implements: :py:class:`@aws-cdk/aws-s3-notifications.IBucketNotificationDestination`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-sns.TopicRef
+
+      Import a Topic defined elsewhere
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: 
+      :type name: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-sns.TopicRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-sns.TopicRef`
+
+
+   .. py:method:: addToResourcePolicy(statement)
+
+      Adds a statement to the IAM resource policy associated with this topic.  If this topic was created in this stack (`new Topic`), a topic policy will be automatically created upon the first call to `addToPolicy`. If the topic is improted (`Topic.import`), then this is a no-op.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: asBucketNotificationDestination(bucketArn, bucketId) -> @aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps
+
+      Implements the IBucketNotificationDestination interface, allowing topics to be used as bucket notification destinations.
+
+
+      :param bucketArn: The ARN of the bucket sending the notifications
+      :type bucketArn: :py:class:`@aws-cdk/cdk.Arn`
+      :param bucketId: A unique ID of the bucket
+      :type bucketId: string
+      :rtype: :py:class:`@aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps`
+
+
+   .. py:method:: asEventRuleTarget(_ruleArn, _ruleId) -> @aws-cdk/aws-events.EventRuleTargetProps
+
+      Returns a RuleTarget that can be used to trigger this SNS topic as a result from a CloudWatch event.
+
+
+      :param _ruleArn: 
+      :type _ruleArn: :py:class:`@aws-cdk/aws-events.RuleArn`
+      :param _ruleId: 
+      :type _ruleId: string
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRuleTargetProps`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-sns.TopicRefProps
+
+      Export this Topic
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-sns.TopicRefProps`
+
+
+   .. py:method:: grantPublish([identity])
+
+      Grant topic publishing permissions to the given identity
+
+
+      :param identity: 
+      :type identity: :py:class:`@aws-cdk/aws-iam.IIdentityResource` or undefined
+
+
+   .. py:method:: metric(metricName, [props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Construct a Metric object for the current topic for the given metric
+
+
+      :param metricName: 
+      :type metricName: string
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricNumberOfMessagesDelivered([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of messages that were successfully delivered through this topic
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricNumberOfMessagesFailed([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of messages that failed to publish through this topic
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricNumberOfMessagesPublished([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of messages published through this topic
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricPublishSize([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the size of messages published through this topic
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: subscribe(name, endpoint, protocol)
+
+      Subscribe some endpoint to this topic
+
+
+      :param name: 
+      :type name: string
+      :param endpoint: 
+      :type endpoint: string
+      :param protocol: 
+      :type protocol: :py:class:`~@aws-cdk/aws-sns.SubscriptionProtocol`
+
+
+   .. py:method:: subscribeEmail(name, emailAddress, [options]) -> @aws-cdk/aws-sns.Subscription
+
+      Defines a subscription from this SNS topic to an email address.
+
+
+      :param name: A name for the subscription
+      :type name: string
+      :param emailAddress: The email address to use.
+      :type emailAddress: string
+      :param options: 
+      :type options: :py:class:`~@aws-cdk/aws-sns.EmailSubscriptionOptions` or undefined
+      :rtype: :py:class:`~@aws-cdk/aws-sns.Subscription`
+
+
+   .. py:method:: subscribeLambda(lambdaFunction) -> @aws-cdk/aws-sns.Subscription
+
+      Defines a subscription from this SNS Topic to a Lambda function.  The Lambda's resource policy will be updated to allow this topic to invoke the function.
+
+
+      :param lambdaFunction: The Lambda function to invoke
+      :type lambdaFunction: :py:class:`@aws-cdk/aws-lambda.FunctionRef`
+      :rtype: :py:class:`~@aws-cdk/aws-sns.Subscription`
+
+
+   .. py:method:: subscribeQueue(queue) -> @aws-cdk/aws-sns.Subscription
+
+      Defines a subscription from this SNS topic to an SQS queue.  The queue resource policy will be updated to allow this SNS topic to send messages to the queue.  TODO: change to QueueRef.
+
+
+      :param queue: The target queue
+      :type queue: :py:class:`@aws-cdk/aws-sqs.QueueRef`
+      :rtype: :py:class:`~@aws-cdk/aws-sns.Subscription`
+
+
+   .. py:method:: subscribeUrl(name, url) -> @aws-cdk/aws-sns.Subscription
+
+      Defines a subscription from this SNS topic to an http:// or https:// URL.
+
+
+      :param name: A name for the subscription
+      :type name: string
+      :param url: The URL to invoke
+      :type url: string
+      :rtype: :py:class:`~@aws-cdk/aws-sns.Subscription`
+
+
+   .. py:attribute:: alarmActionArn
+
+      Return the ARN that should be used for a CloudWatch Alarm action
+
+
+      :type: :py:class:`@aws-cdk/cdk.Arn` *(readonly)*
+
+
+   .. py:attribute:: autoCreatePolicy
+
+      Controls automatic creation of policy objects.  Set by subclasses.
+
+
+      :type: boolean *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: topicArn
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: topicName
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicName` *(readonly)* *(abstract)*
+
+
+TopicRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TopicRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.TopicRefProps;
+
+      .. code-tab:: javascript
+
+         // TopicRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { TopicRefProps } from '@aws-cdk/aws-sns';
+
+
+
+   Reference to an external topic.
+
+
+
+
+   .. py:attribute:: topicArn
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicArn` *(abstract)*
+
+
+   .. py:attribute:: topicName
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicName` *(abstract)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-sns.cloudformation
+
+SubscriptionResource
+~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: SubscriptionResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.cloudformation.SubscriptionResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.SubscriptionResource } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.SubscriptionResource } from '@aws-cdk/aws-sns';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``SubscriptionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``SubscriptionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-sns.SubscriptionArn` *(readonly)*
+
+
+SubscriptionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: SubscriptionResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.cloudformation.SubscriptionResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.SubscriptionResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.SubscriptionResourceProps } from '@aws-cdk/aws-sns';
+
+
+
+
+
+   .. py:attribute:: deliveryPolicy
+
+      ``AWS::SNS::Subscription.DeliveryPolicy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-deliverypolicy
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: endpoint
+
+      ``AWS::SNS::Subscription.Endpoint``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-endpoint
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: filterPolicy
+
+      ``AWS::SNS::Subscription.FilterPolicy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-filterpolicy
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: protocol
+
+      ``AWS::SNS::Subscription.Protocol``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: rawMessageDelivery
+
+      ``AWS::SNS::Subscription.RawMessageDelivery``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-rawmessagedelivery
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: region
+
+      ``AWS::SNS::Subscription.Region``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: topicArn
+
+      ``AWS::SNS::Subscription.TopicArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+TopicPolicyResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: TopicPolicyResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.cloudformation.TopicPolicyResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.TopicPolicyResource } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.TopicPolicyResource } from '@aws-cdk/aws-sns';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``TopicPolicyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``TopicPolicyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+TopicPolicyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: TopicPolicyResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.cloudformation.TopicPolicyResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.TopicPolicyResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.TopicPolicyResourceProps } from '@aws-cdk/aws-sns';
+
+
+
+
+
+   .. py:attribute:: policyDocument
+
+      ``AWS::SNS::TopicPolicy.PolicyDocument``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.CloudFormationToken` *(abstract)*
+
+
+   .. py:attribute:: topics
+
+      ``AWS::SNS::TopicPolicy.Topics``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`)[] *(abstract)*
+
+
+TopicResource
+~~~~~~~~~~~~~
+
+.. py:class:: TopicResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.cloudformation.TopicResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.TopicResource } = require('@aws-cdk/aws-sns');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.TopicResource } from '@aws-cdk/aws-sns';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``TopicResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``TopicResource``
+   :type properties: :py:class:`~@aws-cdk/aws-sns.cloudformation.TopicResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicArn` *(readonly)*
+
+
+   .. py:attribute:: topicName
+
+      :type: :py:class:`~@aws-cdk/aws-sns.TopicName` *(readonly)*
+
+   .. py:class:: SubscriptionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.SNS;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.sns.cloudformation.TopicResource.SubscriptionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.TopicResource.SubscriptionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.TopicResource.SubscriptionProperty } from '@aws-cdk/aws-sns';
+
+
+
+
+
+      .. py:attribute:: endpoint
+
+         ``TopicResource.SubscriptionProperty.Endpoint``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html#cfn-sns-topic-subscription-endpoint
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` *(abstract)*
+
+
+      .. py:attribute:: protocol
+
+         ``TopicResource.SubscriptionProperty.Protocol``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html#cfn-sns-topic-subscription-protocol
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` *(abstract)*
+
+
+
+TopicResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: TopicResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SNS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sns.cloudformation.TopicResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.TopicResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.TopicResourceProps } from '@aws-cdk/aws-sns';
+
+
+
+
+
+   .. py:attribute:: displayName
+
+      ``AWS::SNS::Topic.DisplayName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-displayname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: subscription
+
+      ``AWS::SNS::Topic.Subscription``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-subscription
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (:py:class:`@aws-cdk/cdk.CloudFormationToken` or :py:class:`~@aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty`)[] or undefined *(abstract)*
+
+
+   .. py:attribute:: topicName
+
+      ``AWS::SNS::Topic.TopicName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-topicname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-sns
+

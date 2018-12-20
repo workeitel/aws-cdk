@@ -1,0 +1,156 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"ut38iaaFtaKdLHu8ttR8Wri4sSYuRRq7ahS5R5whZe8="}
+
+@aws-cdk/aws-neptune
+====================
+
+.. mdinclude:: ./__aws-cdk_aws-neptune.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-neptune
+
+NeptuneDatabase
+^^^^^^^^^^^^^^^
+
+.. py:class:: NeptuneDatabase(parent, name, props)
+
+   Neptune Graph Database cluster  Creates a new Neptune database cluster with a given number of replicas.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-ec2.IConnectable`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-neptune.NeptuneDatabaseProps`
+
+   .. py:attribute:: clusterIdentifier
+
+      Identifier of the cluster
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.ClusterIdentifier` *(readonly)*
+
+
+   .. py:attribute:: instanceIdentifiers
+
+      Identifiers of the replicas
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.InstanceIdentifier` *(readonly)*
+
+
+   .. py:attribute:: clusterEndpoint
+
+      The endpoint to use for read/write operations
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.Endpoint` *(readonly)*
+
+
+   .. py:attribute:: readerEndpoint
+
+      Endpoint to use for load-balanced read-only operations.
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.Endpoint` *(readonly)*
+
+
+   .. py:attribute:: instanceEndpoints
+
+      Endpoints which address each individual replica.
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.Endpoint` *(readonly)*
+
+
+   .. py:attribute:: connections
+
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)*
+
+
+NeptuneDatabaseProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: NeptuneDatabaseProps
+
+   Properties for a Neptune Graph Database Cluster
+
+
+
+
+   .. py:attribute:: instances
+
+      How many replicas/instances to create  Has to be at least 1. Default is 2.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: instanceProps
+
+      Settings for the individual instances that are launched
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.InstanceProps`
+
+
+   .. py:attribute:: masterUser
+
+      Username and password for the administrative user
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.Login`
+
+
+   .. py:attribute:: port
+
+      What port to listen on
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: clusterIdentifier
+
+      An optional identifier for the cluster  If not given, a name is generated.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: instanceIdentifierBase
+
+      Base identifier for instances  Every replica is named by appending the replica number to this string, 1-based.  If not given, the clusterIdentifier is used with the word "Instance" appended.  If clusterIdentifier is also not given, the identifier is automatically generated.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: defaultDatabaseName
+
+      Name of a database which is automatically created inside the cluster  If not given, no database is created.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: kmsKeyArn
+
+      ARN of KMS key if you want to enable storage encryption
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.KeyArn` or undefined
+
+
+   .. py:attribute:: preferredMaintenanceWindow
+
+      A daily time range in 24-hours UTC format in which backups preferably execute.  Must be at least 30 minutes long.  Example: '01:00-02:00'  If not given, an window is randomly.
+
+
+      :type: string or undefined
+
+

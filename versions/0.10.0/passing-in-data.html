@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Passing in External Values to Your AWS CDK App &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Environmental Context" href="context.html" />
+    <link rel="prev" title="Apps" href="apps.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="constructs.html">Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stacks.html">Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical-ids.html">Logical IDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environments.html">Environments and Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Passing in External Values to Your AWS CDK App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getting-a-value-from-a-context-variable">Getting a Value from a Context Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-a-value-from-an-environment-variable">Getting a Value from an Environment Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-a-value-from-an-ssm-store-variable">Getting a Value from an SSM Store Variable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passing-in-a-value-from-another-stack">Passing in a Value From Another Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-an-cfn-parameter">Using an AWS CloudFormation Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-an-existing-cfn-template">Using an Existing AWS CloudFormation Template</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Environmental Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applets.html">Applets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="concepts.html">AWS CDK Concepts</a> &raquo;</li>
+        
+      <li>Passing in External Values to Your AWS CDK App</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/passing-in-data.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="passing-in-external-values-to-your-cdk-app">
+<span id="passing-in-values"></span><h1>Passing in External Values to Your AWS CDK App<a class="headerlink" href="#passing-in-external-values-to-your-cdk-app" title="Permalink to this headline">¶</a></h1>
+<p>There may be cases where you want to parameterize one or more of your stack resources.
+Therefore, you want to be able to pass values into your app from outside your app.
+Currently, you can get values into your app from outside your app through any of the following.</p>
+<ul class="simple">
+<li>Using a context variable</li>
+<li>Using an environment variable</li>
+<li>Using an SSM Parameter Store variable</li>
+<li>Using a value from another stack</li>
+<li>Using a AWS CloudFormation parameter</li>
+<li>Using a resource in an existing AWS CloudFormation template</li>
+</ul>
+<p>Each of these techniques is described in the following sections.</p>
+<div class="section" id="getting-a-value-from-a-context-variable">
+<span id="passing-in-values-from-context"></span><h2>Getting a Value from a Context Variable<a class="headerlink" href="#getting-a-value-from-a-context-variable" title="Permalink to this headline">¶</a></h2>
+<p>You can specify a context variable either as
+part of a AWS CDK Toolkit command,
+or in a <strong>context</strong> section of <em>cdk.json</em>.</p>
+<p>To create a command-line context variable,
+use the <strong>–context</strong> (<strong>-c</strong>) option of a AWS CDK Toolkit command,
+as shown in the following example.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk synth -c <span class="nv">bucket_name</span><span class="o">=</span>mygroovybucket
+</pre></div>
+</div>
+<p>To specify the same context variable and value in <em>cdk.json</em>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;context&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;bucket_name&quot;</span><span class="p">:</span> <span class="s2">&quot;myotherbucket&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To get the value of a context variable in your app,
+use code like the following,
+which gets the value of the context variable <strong>bucket_name</strong>.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">bucket_name</span> <span class="kt">string</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getContext</span><span class="p">(</span><span class="s2">&quot;bucket_name&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-a-value-from-an-environment-variable">
+<span id="passing-in-value-from-env-vars"></span><h2>Getting a Value from an Environment Variable<a class="headerlink" href="#getting-a-value-from-an-environment-variable" title="Permalink to this headline">¶</a></h2>
+<p>To get the value of an environment variable,
+use code like the following,
+which gets the value of the environment variable <strong>MYBUCKET</strong>.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">bucket_name</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">MYBUCKET</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="getting-a-value-from-an-ssm-store-variable">
+<span id="passing-in-value-from-ssm"></span><h2>Getting a Value from an SSM Store Variable<a class="headerlink" href="#getting-a-value-from-an-ssm-store-variable" title="Permalink to this headline">¶</a></h2>
+<p>To get the value of an SSM parameter store variable,
+use code like the following,
+which uses the value of the SSM variable <strong>my-awesome-value</strong>.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myvalue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SSMParameterProvider</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">getString</span><span class="p">(</span><span class="s2">&quot;my-awesome-value&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>See the <a class="reference internal" href="context.html"><span class="doc">Environmental Context</span></a> topic for information about the <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.SSMParameterProvider" title="&#64;aws-cdk/cdk.SSMParameterProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSMParameterProvider</span></code></a>.</p>
+</div>
+<div class="section" id="passing-in-a-value-from-another-stack">
+<span id="passing-in-value-between-stacks"></span><h2>Passing in a Value From Another Stack<a class="headerlink" href="#passing-in-a-value-from-another-stack" title="Permalink to this headline">¶</a></h2>
+<p>You can pass a value from one stack to another stack in the same app
+by using the <strong>export</strong> method in one stack and the <strong>import</strong> method in the other stack.</p>
+<p>The following example creates a bucket on one stack
+and passes a reference to that bucket to the other stack through an interface.</p>
+<p>First create a stack with a bucket.
+The stack includes a a property we use to pass the bucket’s properties to the other stack.
+Note how we use the <strong>export</strong> method on the bucket to get it’s properties and save them
+in the stack property.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">HelloCdkStack</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Stack</span> <span class="p">{</span>
+    <span class="c1">// Property that defines the stack you are exporting from</span>
+    <span class="kr">public</span> <span class="nx">readonly</span> <span class="nx">myBucketRefProps</span>: <span class="kt">s3.BucketRefProps</span><span class="p">;</span>
+
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">parent</span>: <span class="kt">cdk.App</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">cdk.StackProps</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+
+        <span class="kr">const</span> <span class="nx">mybucket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s2">&quot;MyFirstBucket&quot;</span><span class="p">);</span>
+
+        <span class="c1">// Save bucket&#39;s *BucketRefProps*</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">myBucketRefProps</span> <span class="o">=</span> <span class="nx">mybucket</span><span class="p">.</span><span class="kr">export</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create an interface for the second stack’s properties.
+We use this interface to pass the bucket properties between the two stacks.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// Interface we&#39;ll use to pass the bucket&#39;s properties to another stack</span>
+<span class="kr">interface</span> <span class="nx">MyCdkStackProps</span> <span class="p">{</span>
+    <span class="nx">theBucketRefProps</span>: <span class="kt">s3.BucketRefProps</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Create the second stack that gets a reference to the other bucket
+from the properties passed in through the constructor.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// The class for the other stack</span>
+<span class="kr">class</span> <span class="nx">MyCdkStack</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Stack</span> <span class="p">{</span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">parent</span>: <span class="kt">cdk.App</span><span class="p">,</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props</span>: <span class="kt">MyCdkStackProps</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+
+        <span class="kr">const</span> <span class="nx">myOtherBucket</span> <span class="o">=</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">.</span><span class="kr">import</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s2">&quot;MyOtherBucket&quot;</span><span class="p">,</span> <span class="nx">props</span><span class="p">.</span><span class="nx">theBucketRefProps</span><span class="p">);</span>
+
+        <span class="c1">// Do something with myOtherBucket</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Finally, connect the dots in your app.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">myStack</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">HelloCdkStack</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s2">&quot;HelloCdkStack&quot;</span><span class="p">);</span>
+
+<span class="k">new</span> <span class="nx">MyCdkStack</span><span class="p">(</span><span class="nx">app</span><span class="p">,</span> <span class="s2">&quot;MyCdkStack&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">theBucketRefProps</span>: <span class="kt">myStack.myBucketRefProps</span>
+<span class="p">});</span>
+
+<span class="nx">process</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="nx">app</span><span class="p">.</span><span class="nx">run</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-an-cfn-parameter">
+<span id="using-cfn-parameter"></span><h2>Using an AWS CloudFormation Parameter<a class="headerlink" href="#using-an-cfn-parameter" title="Permalink to this headline">¶</a></h2>
+<p>See the
+<a class="reference external" href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html">Parameters</a>
+topic for information about using the optional <em>Parameters</em> section to customize your AWS CloudFormation templates.</p>
+<p>You can also get a reference to a resource in an existing AWS CloudFormation template,
+as described in <a class="reference internal" href="concepts.html"><span class="doc">AWS CDK Concepts</span></a>.</p>
+</div>
+<div class="section" id="using-an-existing-cfn-template">
+<span id="using-cfn-template"></span><h2>Using an Existing AWS CloudFormation Template<a class="headerlink" href="#using-an-existing-cfn-template" title="Permalink to this headline">¶</a></h2>
+<p>The AWS CDK provides a mechanism that you can use to
+incorporate resources from an existing AWS CloudFormation template
+into your AWS CDK app.
+For example, suppose you have a template,
+<em>my-template.json</em>,
+with the following resource,
+where <strong>S3Bucket</strong> is the logical ID of the bucket in your template:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;S3Bucket&quot;: {
+   &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+   &quot;Properties&quot;: {
+       ...
+   }
+}
+</pre></div>
+</div>
+<p>You can include this bucket in your AWS CDK app,
+as shown in the following example
+(note that you cannot use this method in an AWS Construct Library construct):</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;@aws-cdk/cdk&quot;</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;fs&quot;</span><span class="p">);</span>
+
+<span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Include</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s2">&quot;ExistingInfrastructure&quot;</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">template</span>: <span class="kt">JSON.parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="s2">&quot;my-template.json&quot;</span><span class="p">).</span><span class="nx">toString</span><span class="p">())</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Then to access an attribute of the resource, such as the bucket’s ARN:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">bucketArn</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">FnGetAtt</span><span class="p">(</span><span class="s2">&quot;S3Bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;Arn&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="context.html" class="btn btn-neutral float-right" title="Environmental Context" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apps.html" class="btn btn-neutral" title="Apps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.10.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

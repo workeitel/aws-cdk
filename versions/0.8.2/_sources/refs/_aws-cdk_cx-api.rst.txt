@@ -1,0 +1,585 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"OY/9YO5YoU3k5prETaJZZtE+JRZCennEfNffNp+kuBc="}
+
+@aws-cdk/cx-api
+===============
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/cdk-cx-api/0.8.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:cdk-cx-api:jar:0.8.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="cdk-cx-api" rev="0.8.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>cdk-cx-api</artifactId>
+           <version>0.8.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:cdk-cx-api:0.8.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='cdk-cx-api', version='0.8.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/cx-api/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/cx-api@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/cx-api": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/cx-api@0.8.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/cx-api/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/cx-api@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/cx-api": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/cx-api@0.8.2
+
+
+
+.. mdinclude:: ./__aws-cdk_cx-api.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/cx-api
+
+AppRuntime (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AppRuntime
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.AppRuntime;
+
+      .. code-tab:: javascript
+
+         // AppRuntime is an interface
+
+      .. code-tab:: typescript
+
+         import { AppRuntime } from '@aws-cdk/cx-api';
+
+
+
+   Information about the application's runtime components.
+
+
+
+
+   .. py:attribute:: libraries
+
+      The list of libraries loaded in the application, associated with their versions.
+
+
+      :type: string
+
+
+AssetMetadataEntry (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AssetMetadataEntry
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.AssetMetadataEntry;
+
+      .. code-tab:: javascript
+
+         // AssetMetadataEntry is an interface
+
+      .. code-tab:: typescript
+
+         import { AssetMetadataEntry } from '@aws-cdk/cx-api';
+
+
+
+
+
+   .. py:attribute:: path
+
+      :type: string
+
+
+   .. py:attribute:: packaging
+
+      :type: string
+
+
+   .. py:attribute:: s3BucketParameter
+
+      :type: string
+
+
+   .. py:attribute:: s3KeyParameter
+
+      :type: string
+
+
+Environment (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: Environment
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.Environment;
+
+      .. code-tab:: javascript
+
+         // Environment is an interface
+
+      .. code-tab:: typescript
+
+         import { Environment } from '@aws-cdk/cx-api';
+
+
+
+   Models an AWS execution environment, for use within the CDK toolkit.
+
+
+
+
+   .. py:attribute:: name
+
+      The arbitrary name of this environment (user-set, or at least user-meaningful) 
+
+
+      :type: string
+
+
+   .. py:attribute:: account
+
+      The 12-digit AWS account ID for the account this environment deploys into 
+
+
+      :type: string
+
+
+   .. py:attribute:: region
+
+      The AWS region name where this environment deploys into 
+
+
+      :type: string
+
+
+ListStacksRequest (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ListStacksRequest
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.ListStacksRequest;
+
+      .. code-tab:: javascript
+
+         // ListStacksRequest is an interface
+
+      .. code-tab:: typescript
+
+         import { ListStacksRequest } from '@aws-cdk/cx-api';
+
+
+
+
+
+   .. py:attribute:: type
+
+      :type: string
+
+
+   .. py:attribute:: context
+
+      :type: any or undefined
+
+
+ListStacksResponse (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ListStacksResponse
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.ListStacksResponse;
+
+      .. code-tab:: javascript
+
+         // ListStacksResponse is an interface
+
+      .. code-tab:: typescript
+
+         import { ListStacksResponse } from '@aws-cdk/cx-api';
+
+
+
+
+
+   .. py:attribute:: stacks
+
+      :type: :py:class:`~@aws-cdk/cx-api.StackInfo`
+
+
+MetadataEntry (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MetadataEntry
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.MetadataEntry;
+
+      .. code-tab:: javascript
+
+         // MetadataEntry is an interface
+
+      .. code-tab:: typescript
+
+         import { MetadataEntry } from '@aws-cdk/cx-api';
+
+
+
+   An metadata entry in the construct.
+
+
+
+
+   .. py:attribute:: type
+
+      The type of the metadata entry.
+
+
+      :type: string
+
+
+   .. py:attribute:: data
+
+      The data.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: trace
+
+      A stack trace for when the entry was created.
+
+
+      :type: string
+
+
+MissingContext (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MissingContext
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.MissingContext;
+
+      .. code-tab:: javascript
+
+         // MissingContext is an interface
+
+      .. code-tab:: typescript
+
+         import { MissingContext } from '@aws-cdk/cx-api';
+
+
+
+   Represents a missing piece of context. (should have been an interface, but jsii still doesn't have support for structs).
+
+
+
+
+   .. py:attribute:: provider
+
+      :type: string
+
+
+   .. py:attribute:: scope
+
+      :type: string
+
+
+   .. py:attribute:: args
+
+      :type: string
+
+
+StackId (interface)
+^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StackId
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.StackId;
+
+      .. code-tab:: javascript
+
+         // StackId is an interface
+
+      .. code-tab:: typescript
+
+         import { StackId } from '@aws-cdk/cx-api';
+
+
+
+   Identifies a single stack
+
+
+
+
+   .. py:attribute:: name
+
+      :type: string
+
+
+StackInfo (interface)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StackInfo
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.StackInfo;
+
+      .. code-tab:: javascript
+
+         // StackInfo is an interface
+
+      .. code-tab:: typescript
+
+         import { StackInfo } from '@aws-cdk/cx-api';
+
+
+
+   Identifies and contains metadata about a stack
+
+
+   :extends: :py:class:`~@aws-cdk/cx-api.StackId`
+
+
+   .. py:attribute:: environment
+
+      :type: :py:class:`~@aws-cdk/cx-api.Environment` or undefined
+
+
+SynthesizeRequest (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SynthesizeRequest
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.SynthesizeRequest;
+
+      .. code-tab:: javascript
+
+         // SynthesizeRequest is an interface
+
+      .. code-tab:: typescript
+
+         import { SynthesizeRequest } from '@aws-cdk/cx-api';
+
+
+
+
+
+   .. py:attribute:: type
+
+      :type: string
+
+
+   .. py:attribute:: stacks
+
+      :type: string
+
+
+   .. py:attribute:: context
+
+      :type: any or undefined
+
+
+SynthesizeResponse (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SynthesizeResponse
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.SynthesizeResponse;
+
+      .. code-tab:: javascript
+
+         // SynthesizeResponse is an interface
+
+      .. code-tab:: typescript
+
+         import { SynthesizeResponse } from '@aws-cdk/cx-api';
+
+
+
+
+
+   .. py:attribute:: stacks
+
+      :type: :py:class:`~@aws-cdk/cx-api.SynthesizedStack`
+
+
+   .. py:attribute:: runtime
+
+      :type: :py:class:`~@aws-cdk/cx-api.AppRuntime` or undefined
+
+
+SynthesizedStack (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SynthesizedStack
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.SynthesizedStack;
+
+      .. code-tab:: javascript
+
+         // SynthesizedStack is an interface
+
+      .. code-tab:: typescript
+
+         import { SynthesizedStack } from '@aws-cdk/cx-api';
+
+
+
+   A complete synthesized stack
+
+
+   :extends: :py:class:`~@aws-cdk/cx-api.StackInfo`
+
+
+   .. py:attribute:: missing
+
+      :type: :py:class:`~@aws-cdk/cx-api.MissingContext` or undefined
+
+
+   .. py:attribute:: metadata
+
+      :type: :py:class:`~@aws-cdk/cx-api.MetadataEntry`
+
+
+   .. py:attribute:: template
+
+      :type: any
+
+

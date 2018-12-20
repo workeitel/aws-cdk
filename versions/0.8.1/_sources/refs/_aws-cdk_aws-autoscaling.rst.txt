@@ -1,0 +1,1628 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"Kt8jmHDwFWprmiPiGaE/S30a7P4mjibeITC/ZIMCYxQ="}
+
+@aws-cdk/aws-autoscaling
+========================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/autoscaling/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:autoscaling:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="autoscaling" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>autoscaling</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:autoscaling:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='autoscaling', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-autoscaling/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-autoscaling@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-autoscaling": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-autoscaling@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-autoscaling/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-autoscaling@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-autoscaling": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-autoscaling@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-autoscaling.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-autoscaling
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-autoscaling.cloudformation
+
+AutoScalingGroupResource
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AutoScalingGroupResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.AutoScalingGroupResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.AutoScalingGroupResource } = require('@aws-cdk/aws-autoscaling');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.AutoScalingGroupResource } from '@aws-cdk/aws-autoscaling';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AutoScalingGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AutoScalingGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.AutoScalingGroupResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: LifecycleHookSpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.AutoScalingGroupResource.LifecycleHookSpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.AutoScalingGroupResource.LifecycleHookSpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.AutoScalingGroupResource.LifecycleHookSpecificationProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: defaultResult
+
+         ``AutoScalingGroupResource.LifecycleHookSpecificationProperty.DefaultResult``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-defaultresult
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: heartbeatTimeout
+
+         ``AutoScalingGroupResource.LifecycleHookSpecificationProperty.HeartbeatTimeout``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-heartbeattimeout
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: lifecycleHookName
+
+         ``AutoScalingGroupResource.LifecycleHookSpecificationProperty.LifecycleHookName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-lifecyclehookname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: lifecycleTransition
+
+         ``AutoScalingGroupResource.LifecycleHookSpecificationProperty.LifecycleTransition``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-lifecycletransition
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: notificationMetadata
+
+         ``AutoScalingGroupResource.LifecycleHookSpecificationProperty.NotificationMetadata``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-notificationmetadata
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: notificationTargetArn
+
+         ``AutoScalingGroupResource.LifecycleHookSpecificationProperty.NotificationTargetARN``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-notificationtargetarn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: roleArn
+
+         ``AutoScalingGroupResource.LifecycleHookSpecificationProperty.RoleARN``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecification-rolearn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: MetricsCollectionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.AutoScalingGroupResource.MetricsCollectionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.AutoScalingGroupResource.MetricsCollectionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.AutoScalingGroupResource.MetricsCollectionProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: granularity
+
+         ``AutoScalingGroupResource.MetricsCollectionProperty.Granularity``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html#cfn-as-metricscollection-granularity
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: metrics
+
+         ``AutoScalingGroupResource.MetricsCollectionProperty.Metrics``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html#cfn-as-metricscollection-metrics
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: NotificationConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.AutoScalingGroupResource.NotificationConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.AutoScalingGroupResource.NotificationConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.AutoScalingGroupResource.NotificationConfigurationProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: notificationTypes
+
+         ``AutoScalingGroupResource.NotificationConfigurationProperty.NotificationTypes``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-as-group-notificationconfigurations-notificationtypes
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: topicArn
+
+         ``AutoScalingGroupResource.NotificationConfigurationProperty.TopicARN``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-autoscaling-autoscalinggroup-notificationconfigurations-topicarn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: TagPropertyProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.AutoScalingGroupResource.TagPropertyProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.AutoScalingGroupResource.TagPropertyProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.AutoScalingGroupResource.TagPropertyProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: key
+
+         ``AutoScalingGroupResource.TagPropertyProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-Key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: propagateAtLaunch
+
+         ``AutoScalingGroupResource.TagPropertyProperty.PropagateAtLaunch``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-PropagateAtLaunch
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: value
+
+         ``AutoScalingGroupResource.TagPropertyProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-Value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+AutoScalingGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AutoScalingGroupResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.AutoScalingGroupResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.AutoScalingGroupResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.AutoScalingGroupResourceProps } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+   .. py:attribute:: maxSize
+
+      ``AWS::AutoScaling::AutoScalingGroup.MaxSize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxsize
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: minSize
+
+      ``AWS::AutoScaling::AutoScalingGroup.MinSize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-minsize
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: autoScalingGroupName
+
+      ``AWS::AutoScaling::AutoScalingGroup.AutoScalingGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: availabilityZones
+
+      ``AWS::AutoScaling::AutoScalingGroup.AvailabilityZones``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: cooldown
+
+      ``AWS::AutoScaling::AutoScalingGroup.Cooldown``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: desiredCapacity
+
+      ``AWS::AutoScaling::AutoScalingGroup.DesiredCapacity``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: healthCheckGracePeriod
+
+      ``AWS::AutoScaling::AutoScalingGroup.HealthCheckGracePeriod``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthcheckgraceperiod
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: healthCheckType
+
+      ``AWS::AutoScaling::AutoScalingGroup.HealthCheckType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthchecktype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: instanceId
+
+      ``AWS::AutoScaling::AutoScalingGroup.InstanceId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-instanceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: launchConfigurationName
+
+      ``AWS::AutoScaling::AutoScalingGroup.LaunchConfigurationName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchconfigurationname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: lifecycleHookSpecificationList
+
+      ``AWS::AutoScaling::AutoScalingGroup.LifecycleHookSpecificationList``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.AutoScalingGroupResource.LifecycleHookSpecificationProperty` or undefined
+
+
+   .. py:attribute:: loadBalancerNames
+
+      ``AWS::AutoScaling::AutoScalingGroup.LoadBalancerNames``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: metricsCollection
+
+      ``AWS::AutoScaling::AutoScalingGroup.MetricsCollection``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-metricscollection
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.AutoScalingGroupResource.MetricsCollectionProperty` or undefined
+
+
+   .. py:attribute:: notificationConfigurations
+
+      ``AWS::AutoScaling::AutoScalingGroup.NotificationConfigurations``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.AutoScalingGroupResource.NotificationConfigurationProperty` or undefined
+
+
+   .. py:attribute:: placementGroup
+
+      ``AWS::AutoScaling::AutoScalingGroup.PlacementGroup``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: serviceLinkedRoleArn
+
+      ``AWS::AutoScaling::AutoScalingGroup.ServiceLinkedRoleARN``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::AutoScaling::AutoScalingGroup.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.AutoScalingGroupResource.TagPropertyProperty` or undefined
+
+
+   .. py:attribute:: targetGroupArns
+
+      ``AWS::AutoScaling::AutoScalingGroup.TargetGroupARNs``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: terminationPolicies
+
+      ``AWS::AutoScaling::AutoScalingGroup.TerminationPolicies``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-termpolicy
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: vpcZoneIdentifier
+
+      ``AWS::AutoScaling::AutoScalingGroup.VPCZoneIdentifier``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+LaunchConfigurationResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: LaunchConfigurationResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.LaunchConfigurationResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.LaunchConfigurationResource } = require('@aws-cdk/aws-autoscaling');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LaunchConfigurationResource } from '@aws-cdk/aws-autoscaling';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``LaunchConfigurationResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``LaunchConfigurationResource``
+   :type properties: :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.LaunchConfigurationResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: BlockDeviceMappingProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.LaunchConfigurationResource.BlockDeviceMappingProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.LaunchConfigurationResource.BlockDeviceMappingProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.LaunchConfigurationResource.BlockDeviceMappingProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: deviceName
+
+         ``LaunchConfigurationResource.BlockDeviceMappingProperty.DeviceName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-devicename
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: ebs
+
+         ``LaunchConfigurationResource.BlockDeviceMappingProperty.Ebs``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-ebs
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.LaunchConfigurationResource.BlockDeviceProperty` or undefined
+
+
+      .. py:attribute:: noDevice
+
+         ``LaunchConfigurationResource.BlockDeviceMappingProperty.NoDevice``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-nodevice
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: virtualName
+
+         ``LaunchConfigurationResource.BlockDeviceMappingProperty.VirtualName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-virtualname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: BlockDeviceProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.LaunchConfigurationResource.BlockDeviceProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.LaunchConfigurationResource.BlockDeviceProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.LaunchConfigurationResource.BlockDeviceProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: deleteOnTermination
+
+         ``LaunchConfigurationResource.BlockDeviceProperty.DeleteOnTermination``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html#cfn-as-launchconfig-blockdev-template-deleteonterm
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: encrypted
+
+         ``LaunchConfigurationResource.BlockDeviceProperty.Encrypted``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html#cfn-as-launchconfig-blockdev-template-encrypted
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: iops
+
+         ``LaunchConfigurationResource.BlockDeviceProperty.Iops``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html#cfn-as-launchconfig-blockdev-template-iops
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: snapshotId
+
+         ``LaunchConfigurationResource.BlockDeviceProperty.SnapshotId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html#cfn-as-launchconfig-blockdev-template-snapshotid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: volumeSize
+
+         ``LaunchConfigurationResource.BlockDeviceProperty.VolumeSize``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html#cfn-as-launchconfig-blockdev-template-volumesize
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: volumeType
+
+         ``LaunchConfigurationResource.BlockDeviceProperty.VolumeType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html#cfn-as-launchconfig-blockdev-template-volumetype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+LaunchConfigurationResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: LaunchConfigurationResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.LaunchConfigurationResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.LaunchConfigurationResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LaunchConfigurationResourceProps } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+   .. py:attribute:: imageId
+
+      ``AWS::AutoScaling::LaunchConfiguration.ImageId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-imageid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: instanceType
+
+      ``AWS::AutoScaling::LaunchConfiguration.InstanceType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancetype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: associatePublicIpAddress
+
+      ``AWS::AutoScaling::LaunchConfiguration.AssociatePublicIpAddress``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cf-as-launchconfig-associatepubip
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: blockDeviceMappings
+
+      ``AWS::AutoScaling::LaunchConfiguration.BlockDeviceMappings``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-blockdevicemappings
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.LaunchConfigurationResource.BlockDeviceMappingProperty` or undefined
+
+
+   .. py:attribute:: classicLinkVpcId
+
+      ``AWS::AutoScaling::LaunchConfiguration.ClassicLinkVPCId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: classicLinkVpcSecurityGroups
+
+      ``AWS::AutoScaling::LaunchConfiguration.ClassicLinkVPCSecurityGroups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcsecuritygroups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: ebsOptimized
+
+      ``AWS::AutoScaling::LaunchConfiguration.EbsOptimized``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ebsoptimized
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: iamInstanceProfile
+
+      ``AWS::AutoScaling::LaunchConfiguration.IamInstanceProfile``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-iaminstanceprofile
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: instanceId
+
+      ``AWS::AutoScaling::LaunchConfiguration.InstanceId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instanceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: instanceMonitoring
+
+      ``AWS::AutoScaling::LaunchConfiguration.InstanceMonitoring``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancemonitoring
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: kernelId
+
+      ``AWS::AutoScaling::LaunchConfiguration.KernelId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-kernelid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: keyName
+
+      ``AWS::AutoScaling::LaunchConfiguration.KeyName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-keyname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: launchConfigurationName
+
+      ``AWS::AutoScaling::LaunchConfiguration.LaunchConfigurationName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-launchconfigurationname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: placementTenancy
+
+      ``AWS::AutoScaling::LaunchConfiguration.PlacementTenancy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: ramDiskId
+
+      ``AWS::AutoScaling::LaunchConfiguration.RamDiskId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ramdiskid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: securityGroups
+
+      ``AWS::AutoScaling::LaunchConfiguration.SecurityGroups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-securitygroups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: spotPrice
+
+      ``AWS::AutoScaling::LaunchConfiguration.SpotPrice``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-spotprice
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: userData
+
+      ``AWS::AutoScaling::LaunchConfiguration.UserData``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-userdata
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+LifecycleHookResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: LifecycleHookResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.LifecycleHookResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.LifecycleHookResource } = require('@aws-cdk/aws-autoscaling');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LifecycleHookResource } from '@aws-cdk/aws-autoscaling';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``LifecycleHookResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``LifecycleHookResource``
+   :type properties: :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.LifecycleHookResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+LifecycleHookResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: LifecycleHookResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.LifecycleHookResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.LifecycleHookResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LifecycleHookResourceProps } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+   .. py:attribute:: autoScalingGroupName
+
+      ``AWS::AutoScaling::LifecycleHook.AutoScalingGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-autoscalinggroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: lifecycleTransition
+
+      ``AWS::AutoScaling::LifecycleHook.LifecycleTransition``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-lifecycletransition
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: defaultResult
+
+      ``AWS::AutoScaling::LifecycleHook.DefaultResult``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-defaultresult
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: heartbeatTimeout
+
+      ``AWS::AutoScaling::LifecycleHook.HeartbeatTimeout``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-heartbeattimeout
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: lifecycleHookName
+
+      ``AWS::AutoScaling::LifecycleHook.LifecycleHookName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-autoscaling-lifecyclehook-lifecyclehookname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: notificationMetadata
+
+      ``AWS::AutoScaling::LifecycleHook.NotificationMetadata``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationmetadata
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: notificationTargetArn
+
+      ``AWS::AutoScaling::LifecycleHook.NotificationTargetARN``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationtargetarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: roleArn
+
+      ``AWS::AutoScaling::LifecycleHook.RoleARN``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-rolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+ScalingPolicyResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalingPolicyResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.ScalingPolicyResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.ScalingPolicyResource } = require('@aws-cdk/aws-autoscaling');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ScalingPolicyResource } from '@aws-cdk/aws-autoscaling';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ScalingPolicyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ScalingPolicyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.ScalingPolicyResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: CustomizedMetricSpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: dimensions
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Dimensions``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-dimensions
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.ScalingPolicyResource.MetricDimensionProperty` or undefined
+
+
+      .. py:attribute:: metricName
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.MetricName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-metricname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: namespace
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Namespace``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-namespace
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: statistic
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Statistic``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-statistic
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: unit
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Unit``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-customizedmetricspecification.html#cfn-autoscaling-scalingpolicy-customizedmetricspecification-unit
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: MetricDimensionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.ScalingPolicyResource.MetricDimensionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.MetricDimensionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.MetricDimensionProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: name
+
+         ``ScalingPolicyResource.MetricDimensionProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: value
+
+         ``ScalingPolicyResource.MetricDimensionProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html#cfn-autoscaling-scalingpolicy-metricdimension-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: PredefinedMetricSpecificationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: predefinedMetricType
+
+         ``ScalingPolicyResource.PredefinedMetricSpecificationProperty.PredefinedMetricType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: resourceLabel
+
+         ``ScalingPolicyResource.PredefinedMetricSpecificationProperty.ResourceLabel``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-autoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: StepAdjustmentProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.ScalingPolicyResource.StepAdjustmentProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.StepAdjustmentProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.StepAdjustmentProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: metricIntervalLowerBound
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.MetricIntervalLowerBound``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervallowerbound
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: metricIntervalUpperBound
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.MetricIntervalUpperBound``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-metricintervalupperbound
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: scalingAdjustment
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.ScalingAdjustment``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html#cfn-autoscaling-scalingpolicy-stepadjustment-scalingadjustment
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: TargetTrackingConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.autoscaling.cloudformation.ScalingPolicyResource.TargetTrackingConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ScalingPolicyResource.TargetTrackingConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ScalingPolicyResource.TargetTrackingConfigurationProperty } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+      .. py:attribute:: customizedMetricSpecification
+
+         ``ScalingPolicyResource.TargetTrackingConfigurationProperty.CustomizedMetricSpecification``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-customizedmetricspecification
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty` or undefined
+
+
+      .. py:attribute:: disableScaleIn
+
+         ``ScalingPolicyResource.TargetTrackingConfigurationProperty.DisableScaleIn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-disablescalein
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: predefinedMetricSpecification
+
+         ``ScalingPolicyResource.TargetTrackingConfigurationProperty.PredefinedMetricSpecification``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-predefinedmetricspecification
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty` or undefined
+
+
+      .. py:attribute:: targetValue
+
+         ``ScalingPolicyResource.TargetTrackingConfigurationProperty.TargetValue``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-targettrackingconfiguration.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration-targetvalue
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+ScalingPolicyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalingPolicyResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.ScalingPolicyResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.ScalingPolicyResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ScalingPolicyResourceProps } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+   .. py:attribute:: autoScalingGroupName
+
+      ``AWS::AutoScaling::ScalingPolicy.AutoScalingGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-autoscalinggroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: adjustmentType
+
+      ``AWS::AutoScaling::ScalingPolicy.AdjustmentType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-adjustmenttype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: cooldown
+
+      ``AWS::AutoScaling::ScalingPolicy.Cooldown``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-cooldown
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: estimatedInstanceWarmup
+
+      ``AWS::AutoScaling::ScalingPolicy.EstimatedInstanceWarmup``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-estimatedinstancewarmup
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: metricAggregationType
+
+      ``AWS::AutoScaling::ScalingPolicy.MetricAggregationType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-metricaggregationtype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: minAdjustmentMagnitude
+
+      ``AWS::AutoScaling::ScalingPolicy.MinAdjustmentMagnitude``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-minadjustmentmagnitude
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: policyType
+
+      ``AWS::AutoScaling::ScalingPolicy.PolicyType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-policytype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: scalingAdjustment
+
+      ``AWS::AutoScaling::ScalingPolicy.ScalingAdjustment``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-scalingadjustment
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: stepAdjustments
+
+      ``AWS::AutoScaling::ScalingPolicy.StepAdjustments``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-stepadjustments
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.ScalingPolicyResource.StepAdjustmentProperty` or undefined
+
+
+   .. py:attribute:: targetTrackingConfiguration
+
+      ``AWS::AutoScaling::ScalingPolicy.TargetTrackingConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.ScalingPolicyResource.TargetTrackingConfigurationProperty` or undefined
+
+
+ScheduledActionResource
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScheduledActionResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.ScheduledActionResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.ScheduledActionResource } = require('@aws-cdk/aws-autoscaling');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ScheduledActionResource } from '@aws-cdk/aws-autoscaling';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ScheduledActionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ScheduledActionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-autoscaling.cloudformation.ScheduledActionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+ScheduledActionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScheduledActionResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.cloudformation.ScheduledActionResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.ScheduledActionResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ScheduledActionResourceProps } from '@aws-cdk/aws-autoscaling';
+
+
+
+
+
+   .. py:attribute:: autoScalingGroupName
+
+      ``AWS::AutoScaling::ScheduledAction.AutoScalingGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-asgname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: desiredCapacity
+
+      ``AWS::AutoScaling::ScheduledAction.DesiredCapacity``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-desiredcapacity
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: endTime
+
+      ``AWS::AutoScaling::ScheduledAction.EndTime``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-endtime
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: maxSize
+
+      ``AWS::AutoScaling::ScheduledAction.MaxSize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-maxsize
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: minSize
+
+      ``AWS::AutoScaling::ScheduledAction.MinSize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-minsize
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: recurrence
+
+      ``AWS::AutoScaling::ScheduledAction.Recurrence``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-recurrence
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: startTime
+
+      ``AWS::AutoScaling::ScheduledAction.StartTime``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-starttime
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-autoscaling
+

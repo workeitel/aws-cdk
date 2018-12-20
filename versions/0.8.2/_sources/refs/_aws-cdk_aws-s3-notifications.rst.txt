@@ -1,0 +1,223 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"BSwKQMxN65pZ8+DSiZMIz9nGH+offAwOQLnh1v6LJe8="}
+
+@aws-cdk/aws-s3-notifications
+=============================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/s3-notifications/0.8.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:s3-notifications:jar:0.8.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="s3-notifications" rev="0.8.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>s3-notifications</artifactId>
+           <version>0.8.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:s3-notifications:0.8.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='s3-notifications', version='0.8.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-s3-notifications/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-s3-notifications@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-s3-notifications": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-s3-notifications@0.8.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-s3-notifications/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-s3-notifications@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-s3-notifications": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-s3-notifications@0.8.2
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-s3-notifications.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-s3-notifications
+
+BucketNotificationDestinationProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketNotificationDestinationProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.notifications.BucketNotificationDestinationProps;
+
+      .. code-tab:: javascript
+
+         // BucketNotificationDestinationProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BucketNotificationDestinationProps } from '@aws-cdk/aws-s3-notifications';
+
+
+
+   Represents the properties of a notification destination.
+
+
+
+
+   .. py:attribute:: type
+
+      The notification type.
+
+
+      :type: :py:class:`~@aws-cdk/aws-s3-notifications.BucketNotificationDestinationType` *(readonly)*
+
+
+   .. py:attribute:: arn
+
+      The ARN of the destination (i.e. Lambda, SNS, SQS).
+
+
+      :type: :py:class:`@aws-cdk/cdk.Arn` *(readonly)*
+
+
+BucketNotificationDestinationType (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BucketNotificationDestinationType
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.notifications.BucketNotificationDestinationType;
+
+      .. code-tab:: javascript
+
+         const { BucketNotificationDestinationType } = require('@aws-cdk/aws-s3-notifications');
+
+      .. code-tab:: typescript
+
+         import { BucketNotificationDestinationType } from '@aws-cdk/aws-s3-notifications';
+
+
+
+   Supported types of notification destinations.
+
+
+   .. py:data:: Lambda
+
+   .. py:data:: Queue
+
+   .. py:data:: Topic
+
+
+IBucketNotificationDestination (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IBucketNotificationDestination
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.s3.notifications.IBucketNotificationDestination;
+
+      .. code-tab:: javascript
+
+         // IBucketNotificationDestination is an interface
+
+      .. code-tab:: typescript
+
+         import { IBucketNotificationDestination } from '@aws-cdk/aws-s3-notifications';
+
+
+
+   Implemented by constructs that can be used as bucket notification destinations.
+
+
+
+
+   .. py:method:: asBucketNotificationDestination(bucketArn, bucketId) -> @aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps
+
+      Registers this resource to receive notifications for the specified bucket. This method will only be called once for each destination/bucket pair and the result will be cached, so there is no need to implement idempotency in each destination.
+
+
+      :param bucketArn: The ARN of the bucket
+      :type bucketArn: :py:class:`@aws-cdk/cdk.Arn`
+      :param bucketId: A unique ID of this bucket in the stack
+      :type bucketId: string
+      :rtype: :py:class:`~@aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps`
+
+

@@ -1,0 +1,197 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"2hEcPWE8dfIQ0TcNLMAYsbeq4yLA1O1JEgB/tsi8okQ="}
+
+@aws-cdk/aws-codecommit-codepipeline
+====================================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/codecommit-codepipeline/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:codecommit-codepipeline:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="codecommit-codepipeline" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>codecommit-codepipeline</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:codecommit-codepipeline:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='codecommit-codepipeline', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codecommit-codepipeline/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codecommit-codepipeline@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codecommit-codepipeline": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codecommit-codepipeline@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codecommit-codepipeline/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codecommit-codepipeline@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codecommit-codepipeline": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codecommit-codepipeline@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-codecommit-codepipeline.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-codecommit-codepipeline
+
+PipelineSource
+^^^^^^^^^^^^^^
+
+.. py:class:: PipelineSource(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.codepipeline.PipelineSource;
+
+      .. code-tab:: javascript
+
+         const { PipelineSource } = require('@aws-cdk/aws-codecommit-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { PipelineSource } from '@aws-cdk/aws-codecommit-codepipeline';
+
+
+
+   CodePipeline Source that is provided by an AWS CodeCommit repository.
+
+
+   :extends: :py:class:`@aws-cdk/aws-codepipeline.Source`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codecommit-codepipeline.PipelineSourceProps`
+
+PipelineSourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineSourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.codepipeline.PipelineSourceProps;
+
+      .. code-tab:: javascript
+
+         // PipelineSourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { PipelineSourceProps } from '@aws-cdk/aws-codecommit-codepipeline';
+
+
+
+   Construction properties of the {@link PipelineSource CodeCommit source CodePipeline Action}.
+
+
+
+
+   .. py:attribute:: artifactName
+
+      The name of the source's output artifact. Output artifacts are used by CodePipeline as inputs into other actions.
+
+
+      :type: string
+
+
+   .. py:attribute:: repository
+
+      The CodeCommit repository.
+
+
+      :type: :py:class:`@aws-cdk/aws-codecommit.RepositoryRef`
+
+
+   .. py:attribute:: branch
+
+      :type: string or undefined
+
+
+   .. py:attribute:: pollForSourceChanges
+
+      Whether or not AWS CodePipeline should poll for source changes
+
+
+      :type: boolean or undefined
+
+

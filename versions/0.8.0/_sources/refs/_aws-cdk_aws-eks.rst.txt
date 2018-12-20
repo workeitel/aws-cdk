@@ -1,0 +1,153 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"knlYoSwOMriDB/J+X6dPEsY2fl+ebv87FIqwfMyiH0A="}
+
+@aws-cdk/aws-eks
+================
+
+.. mdinclude:: ./__aws-cdk_aws-eks.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-eks
+
+ClusterArn
+^^^^^^^^^^
+
+.. py:class:: ClusterArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ClusterCertificateAuthorityData
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ClusterCertificateAuthorityData([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ClusterEndpoint
+^^^^^^^^^^^^^^^
+
+.. py:class:: ClusterEndpoint([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-eks.cloudformation
+
+ClusterResource
+~~~~~~~~~~~~~~~
+
+.. py:class:: ClusterResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ClusterResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ClusterResource``
+   :type properties: :py:class:`~@aws-cdk/aws-eks.cloudformation.ClusterResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: clusterArn
+
+      :type: :py:class:`~@aws-cdk/aws-eks.ClusterArn` *(readonly)*
+
+
+   .. py:attribute:: clusterCertificateAuthorityData
+
+      :type: :py:class:`~@aws-cdk/aws-eks.ClusterCertificateAuthorityData` *(readonly)*
+
+
+   .. py:attribute:: clusterEndpoint
+
+      :type: :py:class:`~@aws-cdk/aws-eks.ClusterEndpoint` *(readonly)*
+
+   .. py:class:: ResourcesVpcConfigProperty
+
+
+
+      .. py:attribute:: securityGroupIds
+
+         ``ClusterResource.ResourcesVpcConfigProperty.SecurityGroupIds``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-securitygroupids
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: subnetIds
+
+         ``ClusterResource.ResourcesVpcConfigProperty.SubnetIds``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html#cfn-eks-cluster-resourcesvpcconfig-subnetids
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+ClusterResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ClusterResourceProps
+
+
+
+   .. py:attribute:: resourcesVpcConfig
+
+      ``AWS::EKS::Cluster.ResourcesVpcConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-resourcesvpcconfig
+
+
+      :type: :py:class:`~@aws-cdk/aws-eks.cloudformation.ClusterResource.ResourcesVpcConfigProperty` or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: roleArn
+
+      ``AWS::EKS::Cluster.RoleArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-rolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: clusterName
+
+      ``AWS::EKS::Cluster.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: version
+
+      ``AWS::EKS::Cluster.Version``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-version
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-eks
+

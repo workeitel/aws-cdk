@@ -1,0 +1,1348 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"KwopR7lahMx5HKjz0WQ7iHmRnLb7N/K/1nOb4684O+8="}
+
+@aws-cdk/aws-serverless
+=======================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/serverless/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:serverless:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="serverless" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>serverless</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:serverless:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='serverless', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-serverless/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-serverless@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-serverless": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-serverless@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-serverless/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-serverless@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-serverless": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-serverless@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-serverless.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-serverless
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-serverless.cloudformation
+
+ApiResource
+~~~~~~~~~~~
+
+.. py:class:: ApiResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.serverless.cloudformation.ApiResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.ApiResource } = require('@aws-cdk/aws-serverless');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ApiResource } from '@aws-cdk/aws-serverless';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ApiResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ApiResource``
+   :type properties: :py:class:`~@aws-cdk/aws-serverless.cloudformation.ApiResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: requiredTransform
+
+      The ``Transform`` a template must use in order to use this resource
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: S3LocationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.ApiResource.S3LocationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.ApiResource.S3LocationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.ApiResource.S3LocationProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: bucket
+
+         ``ApiResource.S3LocationProperty.Bucket``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: key
+
+         ``ApiResource.S3LocationProperty.Key``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: version
+
+         ``ApiResource.S3LocationProperty.Version``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+ApiResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ApiResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.serverless.cloudformation.ApiResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.ApiResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.ApiResourceProps } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+   .. py:attribute:: stageName
+
+      ``AWS::Serverless::Api.StageName``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: cacheClusterEnabled
+
+      ``AWS::Serverless::Api.CacheClusterEnabled``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: cacheClusterSize
+
+      ``AWS::Serverless::Api.CacheClusterSize``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: definitionBody
+
+      ``AWS::Serverless::Api.DefinitionBody``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: definitionUri
+
+      ``AWS::Serverless::Api.DefinitionUri``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.ApiResource.S3LocationProperty` or undefined
+
+
+   .. py:attribute:: apiName
+
+      ``AWS::Serverless::Api.Name``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: variables
+
+      ``AWS::Serverless::Api.Variables``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessapi
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+FunctionResource
+~~~~~~~~~~~~~~~~
+
+.. py:class:: FunctionResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.FunctionResource } = require('@aws-cdk/aws-serverless');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.FunctionResource } from '@aws-cdk/aws-serverless';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``FunctionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``FunctionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: requiredTransform
+
+      The ``Transform`` a template must use in order to use this resource
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: AlexaSkillEventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.AlexaSkillEventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.AlexaSkillEventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.AlexaSkillEventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: variables
+
+         ``FunctionResource.AlexaSkillEventProperty.Variables``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#alexaskill
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ApiEventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.ApiEventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.ApiEventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.ApiEventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: method
+
+         ``FunctionResource.ApiEventProperty.Method``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: path
+
+         ``FunctionResource.ApiEventProperty.Path``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: restApiId
+
+         ``FunctionResource.ApiEventProperty.RestApiId``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: CloudWatchEventEventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.CloudWatchEventEventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.CloudWatchEventEventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.CloudWatchEventEventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: input
+
+         ``FunctionResource.CloudWatchEventEventProperty.Input``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cloudwatchevent
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: inputPath
+
+         ``FunctionResource.CloudWatchEventEventProperty.InputPath``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#cloudwatchevent
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: pattern
+
+         ``FunctionResource.CloudWatchEventEventProperty.Pattern``
+         http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: DeadLetterQueueProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.DeadLetterQueueProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.DeadLetterQueueProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.DeadLetterQueueProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: targetArn
+
+         ``FunctionResource.DeadLetterQueueProperty.TargetArn``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: type
+
+         ``FunctionResource.DeadLetterQueueProperty.Type``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: DynamoDBEventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.DynamoDBEventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.DynamoDBEventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.DynamoDBEventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: batchSize
+
+         ``FunctionResource.DynamoDBEventProperty.BatchSize``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: startingPosition
+
+         ``FunctionResource.DynamoDBEventProperty.StartingPosition``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: stream
+
+         ``FunctionResource.DynamoDBEventProperty.Stream``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#dynamodb
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: EventSourceProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.EventSourceProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.EventSourceProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.EventSourceProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: properties
+
+         ``FunctionResource.EventSourceProperty.Properties``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-types
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.AlexaSkillEventProperty` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.ApiEventProperty` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.CloudWatchEventEventProperty` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.DynamoDBEventProperty` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.S3EventProperty` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.SNSEventProperty` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.KinesisEventProperty` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.ScheduleEventProperty` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.IoTRuleEventProperty`
+
+
+      .. py:attribute:: type
+
+         ``FunctionResource.EventSourceProperty.Type``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#event-source-object
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: FunctionEnvironmentProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.FunctionEnvironmentProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.FunctionEnvironmentProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.FunctionEnvironmentProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: variables
+
+         ``FunctionResource.FunctionEnvironmentProperty.Variables``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#environment-object
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: IAMPolicyDocumentProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.IAMPolicyDocumentProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.IAMPolicyDocumentProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.IAMPolicyDocumentProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: statement
+
+         ``FunctionResource.IAMPolicyDocumentProperty.Statement``
+         http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: IoTRuleEventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.IoTRuleEventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.IoTRuleEventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.IoTRuleEventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: awsIotSqlVersion
+
+         ``FunctionResource.IoTRuleEventProperty.AwsIotSqlVersion``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#iotrule
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: sql
+
+         ``FunctionResource.IoTRuleEventProperty.Sql``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#iotrule
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: KinesisEventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.KinesisEventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.KinesisEventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.KinesisEventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: batchSize
+
+         ``FunctionResource.KinesisEventProperty.BatchSize``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#kinesis
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: startingPosition
+
+         ``FunctionResource.KinesisEventProperty.StartingPosition``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#kinesis
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: stream
+
+         ``FunctionResource.KinesisEventProperty.Stream``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#kinesis
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: S3EventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.S3EventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.S3EventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.S3EventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: bucket
+
+         ``FunctionResource.S3EventProperty.Bucket``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: events
+
+         ``FunctionResource.S3EventProperty.Events``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: filter
+
+         ``FunctionResource.S3EventProperty.Filter``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#s3
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.S3NotificationFilterProperty` or undefined
+
+
+   .. py:class:: S3LocationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.S3LocationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.S3LocationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.S3LocationProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: bucket
+
+         ``FunctionResource.S3LocationProperty.Bucket``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: key
+
+         ``FunctionResource.S3LocationProperty.Key``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: version
+
+         ``FunctionResource.S3LocationProperty.Version``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: S3NotificationFilterProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.S3NotificationFilterProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.S3NotificationFilterProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.S3NotificationFilterProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: s3Key
+
+         ``FunctionResource.S3NotificationFilterProperty.S3Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: SNSEventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.SNSEventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.SNSEventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.SNSEventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: topic
+
+         ``FunctionResource.SNSEventProperty.Topic``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#sns
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: ScheduleEventProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.ScheduleEventProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.ScheduleEventProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.ScheduleEventProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: input
+
+         ``FunctionResource.ScheduleEventProperty.Input``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: schedule
+
+         ``FunctionResource.ScheduleEventProperty.Schedule``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#schedule
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: VpcConfigProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.FunctionResource.VpcConfigProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.FunctionResource.VpcConfigProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.FunctionResource.VpcConfigProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: securityGroupIds
+
+         ``FunctionResource.VpcConfigProperty.SecurityGroupIds``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: subnetIds
+
+         ``FunctionResource.VpcConfigProperty.SubnetIds``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+FunctionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: FunctionResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.serverless.cloudformation.FunctionResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.FunctionResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.FunctionResourceProps } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+   .. py:attribute:: codeUri
+
+      ``AWS::Serverless::Function.CodeUri``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.S3LocationProperty`
+
+
+   .. py:attribute:: handler
+
+      ``AWS::Serverless::Function.Handler``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: runtime
+
+      ``AWS::Serverless::Function.Runtime``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: deadLetterQueue
+
+      ``AWS::Serverless::Function.DeadLetterQueue``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.DeadLetterQueueProperty` or undefined
+
+
+   .. py:attribute:: description
+
+      ``AWS::Serverless::Function.Description``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: environment
+
+      ``AWS::Serverless::Function.Environment``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.FunctionEnvironmentProperty` or undefined
+
+
+   .. py:attribute:: events
+
+      ``AWS::Serverless::Function.Events``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.EventSourceProperty` or undefined
+
+
+   .. py:attribute:: functionName
+
+      ``AWS::Serverless::Function.FunctionName``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: kmsKeyArn
+
+      ``AWS::Serverless::Function.KmsKeyArn``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: memorySize
+
+      ``AWS::Serverless::Function.MemorySize``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: policies
+
+      ``AWS::Serverless::Function.Policies``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.IAMPolicyDocumentProperty` or string or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.IAMPolicyDocumentProperty` or undefined
+
+
+   .. py:attribute:: role
+
+      ``AWS::Serverless::Function.Role``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::Serverless::Function.Tags``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: timeout
+
+      ``AWS::Serverless::Function.Timeout``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tracing
+
+      ``AWS::Serverless::Function.Tracing``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: vpcConfig
+
+      ``AWS::Serverless::Function.VpcConfig``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.FunctionResource.VpcConfigProperty` or undefined
+
+
+SimpleTableResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: SimpleTableResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.serverless.cloudformation.SimpleTableResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.SimpleTableResource } = require('@aws-cdk/aws-serverless');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.SimpleTableResource } from '@aws-cdk/aws-serverless';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``SimpleTableResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``SimpleTableResource``
+   :type properties: :py:class:`~@aws-cdk/aws-serverless.cloudformation.SimpleTableResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: requiredTransform
+
+      The ``Transform`` a template must use in order to use this resource
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: PrimaryKeyProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.SimpleTableResource.PrimaryKeyProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.SimpleTableResource.PrimaryKeyProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.SimpleTableResource.PrimaryKeyProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: name
+
+         ``SimpleTableResource.PrimaryKeyProperty.Name``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#primary-key-object
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: type
+
+         ``SimpleTableResource.PrimaryKeyProperty.Type``
+         https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#primary-key-object
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: ProvisionedThroughputProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.serverless.cloudformation.SimpleTableResource.ProvisionedThroughputProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.SimpleTableResource.ProvisionedThroughputProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.SimpleTableResource.ProvisionedThroughputProperty } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+      .. py:attribute:: readCapacityUnits
+
+         ``SimpleTableResource.ProvisionedThroughputProperty.ReadCapacityUnits``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: writeCapacityUnits
+
+         ``SimpleTableResource.ProvisionedThroughputProperty.WriteCapacityUnits``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+SimpleTableResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: SimpleTableResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.serverless.cloudformation.SimpleTableResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.SimpleTableResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.SimpleTableResourceProps } from '@aws-cdk/aws-serverless';
+
+
+
+
+
+   .. py:attribute:: primaryKey
+
+      ``AWS::Serverless::SimpleTable.PrimaryKey``
+      https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#primary-key-object
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.SimpleTableResource.PrimaryKeyProperty` or undefined
+
+
+   .. py:attribute:: provisionedThroughput
+
+      ``AWS::Serverless::SimpleTable.ProvisionedThroughput``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-serverless.cloudformation.SimpleTableResource.ProvisionedThroughputProperty` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-serverless
+

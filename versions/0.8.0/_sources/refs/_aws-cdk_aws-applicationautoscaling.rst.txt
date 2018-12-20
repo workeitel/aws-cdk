@@ -1,0 +1,523 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"B82yAIZim44RY9F388I9oLphMMwjPDmNyxpnwkPkhVo="}
+
+@aws-cdk/aws-applicationautoscaling
+===================================
+
+.. mdinclude:: ./__aws-cdk_aws-applicationautoscaling.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-applicationautoscaling
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-applicationautoscaling.cloudformation
+
+ScalableTargetResource
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalableTargetResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ScalableTargetResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ScalableTargetResource``
+   :type properties: :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalableTargetResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: ScalableTargetActionProperty
+
+
+
+      .. py:attribute:: maxCapacity
+
+         ``ScalableTargetResource.ScalableTargetActionProperty.MaxCapacity``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-maxcapacity
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: minCapacity
+
+         ``ScalableTargetResource.ScalableTargetActionProperty.MinCapacity``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scalabletargetaction.html#cfn-applicationautoscaling-scalabletarget-scalabletargetaction-mincapacity
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ScheduledActionProperty
+
+
+
+      .. py:attribute:: endTime
+
+         ``ScalableTargetResource.ScheduledActionProperty.EndTime``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-endtime
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or date or undefined
+
+
+      .. py:attribute:: scalableTargetAction
+
+         ``ScalableTargetResource.ScheduledActionProperty.ScalableTargetAction``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scalabletargetaction
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalableTargetResource.ScalableTargetActionProperty` or undefined
+
+
+      .. py:attribute:: schedule
+
+         ``ScalableTargetResource.ScheduledActionProperty.Schedule``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-schedule
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: scheduledActionName
+
+         ``ScalableTargetResource.ScheduledActionProperty.ScheduledActionName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-scheduledactionname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: startTime
+
+         ``ScalableTargetResource.ScheduledActionProperty.StartTime``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalabletarget-scheduledaction.html#cfn-applicationautoscaling-scalabletarget-scheduledaction-starttime
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or date or undefined
+
+
+
+ScalableTargetResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalableTargetResourceProps
+
+
+
+   .. py:attribute:: maxCapacity
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.MaxCapacity``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: minCapacity
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.MinCapacity``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-mincapacity
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: resourceId
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.ResourceId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: roleArn
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.RoleARN``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-rolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: scalableDimension
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.ScalableDimension``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scalabledimension
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: serviceNamespace
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.ServiceNamespace``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: scheduledActions
+
+      ``AWS::ApplicationAutoScaling::ScalableTarget.ScheduledActions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scheduledactions
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalableTargetResource.ScheduledActionProperty` or undefined
+
+
+ScalingPolicyResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalingPolicyResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ScalingPolicyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ScalingPolicyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: CustomizedMetricSpecificationProperty
+
+
+
+      .. py:attribute:: dimensions
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Dimensions``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-dimensions
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.MetricDimensionProperty` or undefined
+
+
+      .. py:attribute:: metricName
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.MetricName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-metricname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: namespace
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Namespace``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-namespace
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: statistic
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Statistic``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-statistic
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: unit
+
+         ``ScalingPolicyResource.CustomizedMetricSpecificationProperty.Unit``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-customizedmetricspecification-unit
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: MetricDimensionProperty
+
+
+
+      .. py:attribute:: name
+
+         ``ScalingPolicyResource.MetricDimensionProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html#cfn-applicationautoscaling-scalingpolicy-metricdimension-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: value
+
+         ``ScalingPolicyResource.MetricDimensionProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html#cfn-applicationautoscaling-scalingpolicy-metricdimension-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: PredefinedMetricSpecificationProperty
+
+
+
+      .. py:attribute:: predefinedMetricType
+
+         ``ScalingPolicyResource.PredefinedMetricSpecificationProperty.PredefinedMetricType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-predefinedmetrictype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: resourceLabel
+
+         ``ScalingPolicyResource.PredefinedMetricSpecificationProperty.ResourceLabel``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html#cfn-applicationautoscaling-scalingpolicy-predefinedmetricspecification-resourcelabel
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: StepAdjustmentProperty
+
+
+
+      .. py:attribute:: metricIntervalLowerBound
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.MetricIntervalLowerBound``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment-metricintervallowerbound
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: metricIntervalUpperBound
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.MetricIntervalUpperBound``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment-metricintervalupperbound
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: scalingAdjustment
+
+         ``ScalingPolicyResource.StepAdjustmentProperty.ScalingAdjustment``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment-scalingadjustment
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: StepScalingPolicyConfigurationProperty
+
+
+
+      .. py:attribute:: adjustmentType
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.AdjustmentType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-adjustmenttype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: cooldown
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.Cooldown``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-cooldown
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: metricAggregationType
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.MetricAggregationType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-metricaggregationtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: minAdjustmentMagnitude
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.MinAdjustmentMagnitude``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-minadjustmentmagnitude
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: stepAdjustments
+
+         ``ScalingPolicyResource.StepScalingPolicyConfigurationProperty.StepAdjustments``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustments
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.StepAdjustmentProperty` or undefined
+
+
+   .. py:class:: TargetTrackingScalingPolicyConfigurationProperty
+
+
+
+      .. py:attribute:: customizedMetricSpecification
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.CustomizedMetricSpecification``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-customizedmetricspecification
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.CustomizedMetricSpecificationProperty` or undefined
+
+
+      .. py:attribute:: disableScaleIn
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.DisableScaleIn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-disablescalein
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: predefinedMetricSpecification
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.PredefinedMetricSpecification``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-predefinedmetricspecification
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.PredefinedMetricSpecificationProperty` or undefined
+
+
+      .. py:attribute:: scaleInCooldown
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.ScaleInCooldown``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-scaleincooldown
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: scaleOutCooldown
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.ScaleOutCooldown``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-scaleoutcooldown
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: targetValue
+
+         ``ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty.TargetValue``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-targetvalue
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+ScalingPolicyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ScalingPolicyResourceProps
+
+
+
+   .. py:attribute:: policyName
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.PolicyName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policyname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: policyType
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.PolicyType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policytype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: resourceId
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.ResourceId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-resourceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: scalableDimension
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.ScalableDimension``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalabledimension
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: scalingTargetId
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.ScalingTargetId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-scalingtargetid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: serviceNamespace
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.ServiceNamespace``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-servicenamespace
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: stepScalingPolicyConfiguration
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.StepScalingPolicyConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.StepScalingPolicyConfigurationProperty` or undefined
+
+
+   .. py:attribute:: targetTrackingScalingPolicyConfiguration
+
+      ``AWS::ApplicationAutoScaling::ScalingPolicy.TargetTrackingScalingPolicyConfiguration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-applicationautoscaling.cloudformation.ScalingPolicyResource.TargetTrackingScalingPolicyConfigurationProperty` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-applicationautoscaling
+

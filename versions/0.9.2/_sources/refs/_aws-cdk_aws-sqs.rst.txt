@@ -1,0 +1,2789 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"S9sfVyF8KykaXIdjtukwHJnEeSJEG0IKP9yqgTlFHzQ="}
+
+@aws-cdk/aws-sqs
+================
+
+.. mdinclude:: ./__aws-cdk_aws-sqs.README.md
+
+Reference
+---------
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.SQS/0.9.2>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.SQS" Version="0.9.2" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.SQS --version 0.9.2
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.SQS" version="0.9.2" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/sqs/0.9.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:sqs:jar:0.9.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="sqs" rev="0.9.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>sqs</artifactId>
+           <version>0.9.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:sqs:0.9.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='sqs', version='0.9.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-sqs/v/0.9.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-sqs@0.9.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-sqs": "^0.9.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-sqs@0.9.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-sqs/v/0.9.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-sqs@0.9.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-sqs": "^0.9.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-sqs@0.9.2
+
+
+
+.. py:module:: @aws-cdk/aws-sqs
+
+DeadLetterQueue (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DeadLetterQueue
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.DeadLetterQueue;
+
+      .. code-tab:: javascript
+
+         // DeadLetterQueue is an interface
+
+      .. code-tab:: typescript
+
+         import { DeadLetterQueue } from '@aws-cdk/aws-sqs';
+
+
+
+   Dead letter queue settings
+
+
+
+
+   .. py:attribute:: maxReceiveCount
+
+      The number of times a message can be unsuccesfully dequeued before being moved to the dead-letter queue.
+
+
+      :type: number *(abstract)*
+
+
+   .. py:attribute:: queue
+
+      The dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.
+
+
+      :type: :py:class:`~@aws-cdk/aws-sqs.QueueRef`\  *(abstract)*
+
+
+Queue
+^^^^^
+
+.. py:class:: Queue(parent, name, [props])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.Queue;
+
+      .. code-tab:: javascript
+
+         const { Queue } = require('@aws-cdk/aws-sqs');
+
+      .. code-tab:: typescript
+
+         import { Queue } from '@aws-cdk/aws-sqs';
+
+
+
+   A new Amazon SQS queue
+
+
+   :extends: :py:class:`~@aws-cdk/aws-sqs.QueueRef`\ 
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-sqs.QueueProps`\  or ``undefined``
+
+   .. py:attribute:: autoCreatePolicy
+
+      *Implements* :py:meth:`@aws-cdk/aws-sqs.QueueRef.autoCreatePolicy`
+
+      Controls automatic creation of policy objects.  Set by subclasses.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: queueArn
+
+      *Implements* :py:meth:`@aws-cdk/aws-sqs.QueueRef.queueArn`
+
+      The ARN of this queue
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: queueName
+
+      The name of this queue
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: queueUrl
+
+      *Implements* :py:meth:`@aws-cdk/aws-sqs.QueueRef.queueUrl`
+
+      The URL of this queue
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: encryptionMasterKey
+
+      *Implements* :py:meth:`@aws-cdk/aws-sqs.QueueRef.encryptionMasterKey`
+
+      If this queue is encrypted, this is the KMS key.
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef`\  or ``undefined`` *(readonly)*
+
+
+   .. py:method:: addToResourcePolicy(statement)
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-sqs.QueueRef <@aws-cdk/aws-sqs.QueueRef.addToResourcePolicy>`
+
+      Adds a statement to the IAM resource policy associated with this queue.  If this queue was created in this stack (`new Queue`), a queue policy will be automatically created upon the first call to `addToPolicy`. If the queue is improted (`Queue.import`), then this is a no-op.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`\ 
+
+
+   .. py:method:: asBucketNotificationDestination(bucketArn, bucketId) -> @aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-sqs.QueueRef <@aws-cdk/aws-sqs.QueueRef.asBucketNotificationDestination>`
+
+      Allows using SQS queues as destinations for bucket notifications. Use `bucket.onEvent(event, queue)` to subscribe.
+
+
+      :param bucketArn: The ARN of the notifying bucket.
+      :type bucketArn: string
+      :param bucketId: A unique ID for the notifying bucket.
+      :type bucketId: string
+      :rtype: :py:class:`@aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps`\ 
+
+
+   .. py:method:: export() -> @aws-cdk/aws-sqs.QueueRefProps
+
+      *Inherited from* :py:meth:`@aws-cdk/aws-sqs.QueueRef <@aws-cdk/aws-sqs.QueueRef.export>`
+
+      Export a queue
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-sqs.QueueRefProps`\ 
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+QueueEncryption (enum)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: QueueEncryption
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.QueueEncryption;
+
+      .. code-tab:: javascript
+
+         const { QueueEncryption } = require('@aws-cdk/aws-sqs');
+
+      .. code-tab:: typescript
+
+         import { QueueEncryption } from '@aws-cdk/aws-sqs';
+
+
+
+   What kind of encryption to apply to this queue
+
+
+   .. py:data:: Unencrypted
+
+   Messages in the queue are not encrypted
+
+
+   .. py:data:: KmsManaged
+
+   Server-side KMS encryption with a master key managed by SQS.
+
+
+   .. py:data:: Kms
+
+   Server-side encryption with a KMS key managed by the user.  If `encryptionKey` is specified, this key will be used, otherwise, one will be defined.
+
+
+
+QueuePolicy
+^^^^^^^^^^^
+
+.. py:class:: QueuePolicy(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.QueuePolicy;
+
+      .. code-tab:: javascript
+
+         const { QueuePolicy } = require('@aws-cdk/aws-sqs');
+
+      .. code-tab:: typescript
+
+         import { QueuePolicy } from '@aws-cdk/aws-sqs';
+
+
+
+   Applies a policy to SQS queues.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :implements: :py:class:`@aws-cdk/cdk.IDependable`\ 
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-sqs.QueuePolicyProps`\ 
+
+   .. py:attribute:: dependencyElements
+
+      *Implements* :py:meth:`@aws-cdk/cdk.IDependable.dependencyElements`
+
+      Allows adding QueuePolicy as a dependency.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: document
+
+      The IAM policy document for this policy.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument`\  *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+QueuePolicyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: QueuePolicyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.QueuePolicyProps;
+
+      .. code-tab:: javascript
+
+         // QueuePolicyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { QueuePolicyProps } from '@aws-cdk/aws-sqs';
+
+
+
+
+
+   .. py:attribute:: queues
+
+      The set of queues this policy applies to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-sqs.QueueRef`\ [] *(abstract)*
+
+
+QueueProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: QueueProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.QueueProps;
+
+      .. code-tab:: javascript
+
+         // QueueProps is an interface
+
+      .. code-tab:: typescript
+
+         import { QueueProps } from '@aws-cdk/aws-sqs';
+
+
+
+   Properties for creating a new Queue
+
+
+
+
+   .. py:attribute:: contentBasedDeduplication
+
+      Specifies whether to enable content-based deduplication.  During the deduplication interval (5 minutes), Amazon SQS treats messages that are sent with identical content (excluding attributes) as duplicates and delivers only one copy of the message.  If you don't enable content-based deduplication and you want to deduplicate messages, provide an explicit deduplication ID in your SendMessage() call.  (Only applies to FIFO queues.)
+
+
+      :type: boolean or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: dataKeyReuseSec
+
+      The length of time that Amazon SQS reuses a data key before calling KMS again.  The value must be an integer between 60 (1 minute) and 86,400 (24 hours). The default is 300 (5 minutes).
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: deadLetterQueue
+
+      Send messages to this queue if they were unsuccessfully dequeued a number of times.
+
+
+      :type: :py:class:`~@aws-cdk/aws-sqs.DeadLetterQueue`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: deliveryDelaySec
+
+      The time in seconds that the delivery of all messages in the queue is delayed.  You can specify an integer value of 0 to 900 (15 minutes). The default value is 0.
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: encryption
+
+      Whether the contents of the queue are encrypted, and by what type of key.  Be aware that encryption is not available in all regions, please see the docs for current availability details.
+
+
+      :type: :py:class:`~@aws-cdk/aws-sqs.QueueEncryption`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: encryptionMasterKey
+
+      External KMS master key to use for queue encryption.  Individual messages will be encrypted using data keys. The data keys in turn will be encrypted using this key, and reused for a maximum of `dataKeyReuseSecs` seconds.  The 'encryption' property must be either not specified or set to "Kms". An error will be emitted if encryption is set to "Unencrypted" or "KmsManaged".
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: fifo
+
+      Whether this a first-in-first-out (FIFO) queue.
+
+
+      :type: boolean or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: maxMessageSizeBytes
+
+      The limit of how many bytes that a message can contain before Amazon SQS rejects it.  You can specify an integer value from 1024 bytes (1 KiB) to 262144 bytes (256 KiB). The default value is 262144 (256 KiB).
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: queueName
+
+      A name for the queue.  If specified and this is a FIFO queue, must end in the string '.fifo'.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: receiveMessageWaitTimeSec
+
+      Default wait time for ReceiveMessage calls.  Does not wait if set to 0, otherwise waits this amount of seconds by default for messages to arrive.  For more information, see Amazon SQS Long Poll.    
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: retentionPeriodSec
+
+      The number of seconds that Amazon SQS retains a message.  You can specify an integer value from 60 seconds (1 minute) to 1209600 seconds (14 days). The default value is 345600 seconds (4 days).
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: visibilityTimeoutSec
+
+      Timeout of processing a single message.  After dequeuing, the processor has this much time to handle the message and delete it from the queue before it becomes visible again for dequeueing by another processor.  Values must be from 0 to 43200 seconds (12 hours). If you don't specify a value, AWS CloudFormation uses the default value of 30 seconds.
+
+
+      :type: number or ``undefined`` *(abstract)*
+
+
+QueueRef
+^^^^^^^^
+
+.. py:class:: QueueRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.QueueRef;
+
+      .. code-tab:: javascript
+
+         const { QueueRef } = require('@aws-cdk/aws-sqs');
+
+      .. code-tab:: typescript
+
+         import { QueueRef } from '@aws-cdk/aws-sqs';
+
+
+
+   Reference to a new or existing Amazon SQS queue
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :implements: :py:class:`@aws-cdk/aws-s3-notifications.IBucketNotificationDestination`\ 
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, name, props)
+
+      Import an existing queue
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param name: 
+      :type name: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-sqs.QueueRefProps`\ 
+
+
+   .. py:method:: addToResourcePolicy(statement)
+
+      Adds a statement to the IAM resource policy associated with this queue.  If this queue was created in this stack (`new Queue`), a queue policy will be automatically created upon the first call to `addToPolicy`. If the queue is improted (`Queue.import`), then this is a no-op.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`\ 
+
+
+   .. py:method:: asBucketNotificationDestination(bucketArn, bucketId) -> @aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps
+
+      *Implements* :py:meth:`@aws-cdk/aws-s3-notifications.IBucketNotificationDestination.asBucketNotificationDestination`
+
+      Allows using SQS queues as destinations for bucket notifications. Use `bucket.onEvent(event, queue)` to subscribe.
+
+
+      :param bucketArn: The ARN of the notifying bucket.
+      :type bucketArn: string
+      :param bucketId: A unique ID for the notifying bucket.
+      :type bucketId: string
+      :rtype: :py:class:`@aws-cdk/aws-s3-notifications.BucketNotificationDestinationProps`\ 
+
+
+   .. py:method:: export() -> @aws-cdk/aws-sqs.QueueRefProps
+
+      Export a queue
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-sqs.QueueRefProps`\ 
+
+
+   .. py:attribute:: autoCreatePolicy
+
+      Controls automatic creation of policy objects.  Set by subclasses.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: queueArn
+
+      The ARN of this queue
+
+
+      :type: string *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: queueUrl
+
+      The URL of this queue
+
+
+      :type: string *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: encryptionMasterKey
+
+      If this queue is server-side encrypted, this is the KMS encryption key.
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef`\  or ``undefined`` *(readonly)* *(abstract)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+QueueRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: QueueRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.QueueRefProps;
+
+      .. code-tab:: javascript
+
+         // QueueRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { QueueRefProps } from '@aws-cdk/aws-sqs';
+
+
+
+   Reference to a queue
+
+
+
+
+   .. py:attribute:: queueArn
+
+      The ARN of the queue.
+
+
+      :type: string *(abstract)*
+
+
+   .. py:attribute:: queueUrl
+
+      The URL of the queue.
+
+
+      :type: string *(abstract)*
+
+
+   .. py:attribute:: keyArn
+
+      KMS encryption key, if this queue is server-side encrypted by a KMS key.
+
+
+      :type: string or ``undefined`` *(abstract)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-sqs.cloudformation
+
+QueuePolicyResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: QueuePolicyResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.cloudformation.QueuePolicyResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.QueuePolicyResource } = require('@aws-cdk/aws-sqs');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.QueuePolicyResource } from '@aws-cdk/aws-sqs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``QueuePolicyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``QueuePolicyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-sqs.cloudformation.QueuePolicyResourceProps`\ 
+
+   .. py:method:: renderProperties() -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :rtype: string => (any or ``undefined``)
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource. Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility in case there is no generated attribute.
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties
+
+
+      *Protected property*
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions) that should be added when a resource "depends on" this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+QueuePolicyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: QueuePolicyResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.cloudformation.QueuePolicyResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.QueuePolicyResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.QueuePolicyResourceProps } from '@aws-cdk/aws-sqs';
+
+
+
+
+
+   .. py:attribute:: policyDocument
+
+      ``AWS::SQS::QueuePolicy.PolicyDocument``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-policydoc
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  *(abstract)*
+
+
+   .. py:attribute:: queues
+
+      ``AWS::SQS::QueuePolicy.Queues``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\ )[] *(abstract)*
+
+
+QueueResource
+~~~~~~~~~~~~~
+
+.. py:class:: QueueResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.cloudformation.QueueResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.QueueResource } = require('@aws-cdk/aws-sqs');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.QueueResource } from '@aws-cdk/aws-sqs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`\ 
+   :param parent: the ``cdk.Construct`` this ``QueueResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`\ 
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``QueueResource``
+   :type properties: :py:class:`~@aws-cdk/aws-sqs.cloudformation.QueueResourceProps`\  or ``undefined``
+
+   .. py:method:: renderProperties() -> string => any
+
+      *Overrides* :py:meth:`@aws-cdk/cdk.Resource.renderProperties`
+
+      *Protected method*
+
+      :rtype: string => (any or ``undefined``)
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: queueArn
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: queueName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: queueUrl
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addChild(child, childName)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addChild>`
+
+      Adds a child construct to this node.
+
+
+      *Protected method*
+
+      :param child: The child construct
+      :type child: :py:class:`@aws-cdk/cdk.Construct`\ 
+      :param childName: 
+      :type childName: string
+      :return: The resolved path part name of the child
+
+
+   .. py:method:: addError(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addError>`
+
+      Adds an { error: <message> } metadata entry to this construct. The toolkit will fail synthesis when errors are reported.
+
+
+      :param message: The error message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addInfo(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addInfo>`
+
+      Adds a { "aws:cdk:info": <message> } metadata entry to this construct. The toolkit will display the info message when apps are synthesized.
+
+
+      :param message: The info message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addMetadata(type, [data, [from]]) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addMetadata>`
+
+      Adds a metadata entry to this construct. Entries are arbitrary values and will also include a stack trace to allow tracing back to the code location for when the entry was added. It can be used, for example, to include source mapping in CloudFormation templates to improve diagnostics.
+
+
+      :param type: a string denoting the type of metadata
+      :type type: string
+      :param data: the value of the metadata (can be a Token). If null/undefined, metadata will not be added.
+      :type data: any or ``undefined``
+      :param from: a function under which to restrict the metadata entry's stack trace (defaults to this.addMetadata)
+      :type from: any or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: addWarning(message) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.addWarning>`
+
+      Adds a { warning: <message> } metadata entry to this construct. The toolkit will display the warning when an app is synthesized, or fail if run in --strict mode.
+
+
+      :param message: The warning message.
+      :type message: string
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: ancestors([upTo]) -> @aws-cdk/cdk.Construct[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.ancestors>`
+
+      Return the ancestors (including self) of this Construct up until and excluding the indicated component
+
+
+      :param upTo: 
+      :type upTo: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ []
+
+
+   .. py:method:: findChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.findChild>`
+
+      Return a descendant by path  Throws an exception if the descendant is not found.
+
+
+      :param path: 
+      :type path: string
+      :return: Child with the given path.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\ 
+
+
+   .. py:method:: getContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.getContext>`
+
+      Retrieves a value from tree context.  Context is usually initialized at the root, but can be overridden at any point in the tree.
+
+
+      :param key: The context key
+      :type key: string
+      :return: The context value or undefined
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: lock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.lock>`
+
+      Locks this construct from allowing more children to be added. After this call, no more children can be added to this construct or to any children.
+
+
+      *Protected method*
+
+
+
+   .. py:method:: requireContext(key) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.requireContext>`
+
+      Retrieve a value from tree-global context  It is an error if the context object is not available.
+
+
+      :param key: 
+      :type key: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: required(props, name) -> any
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.required>`
+
+      Throws if the `props` bag doesn't include the property `name`. In the future we can add some type-checking here, maybe even auto-generate during compilation.
+
+
+      *Protected method*
+
+      :param props: The props bag.
+      :type props: any or ``undefined``
+      :param name: The name of the required property.
+      :type name: string
+      :rtype: any or ``undefined``
+
+
+   .. py:method:: setContext(key, [value])
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.setContext>`
+
+      This can be used to set contextual values. Context must be set before any children are added, since children may consult context info during construction. If the key already exists, it will be overridden.
+
+
+      :param key: The context key
+      :type key: string
+      :param value: The context value
+      :type value: any or ``undefined``
+
+
+   .. py:method:: toString() -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toString>`
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:method:: toTreeString([depth]) -> string
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.toTreeString>`
+
+      Returns a string with a tree representation of this construct and it's children.
+
+
+      :param depth: 
+      :type depth: number or ``undefined``
+      :rtype: string
+
+
+   .. py:method:: tryFindChild(path) -> @aws-cdk/cdk.Construct
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.tryFindChild>`
+
+      Return a descendant by path, or undefined
+
+
+      :param path: 
+      :type path: string
+      :return: a child by path or undefined if not found.
+      :rtype: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined``
+
+
+   .. py:method:: unlock()
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.unlock>`
+
+      Unlocks this costruct and allows mutations (adding children).
+
+
+      *Protected method*
+
+
+
+   .. py:method:: validate() -> string[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validate>`
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :return: An array of validation error messages, or an empty array if there the construct is valid.
+      :rtype: string[]
+
+
+   .. py:method:: validateTree() -> @aws-cdk/cdk.ValidationError[]
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.validateTree>`
+
+      Invokes 'validate' on all child constructs and then on this construct (depth-first).
+
+
+      :return: A list of validation errors. If the list is empty, all constructs are valid.
+      :rtype: :py:class:`@aws-cdk/cdk.ValidationError`\ []
+
+
+   .. py:attribute:: children
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.children>`
+
+      All direct children of this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\ [] *(readonly)*
+
+
+   .. py:attribute:: id
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.id>`
+
+      The local id of the construct. This id is unique amongst its siblings. To obtain a tree-global unique id for this construct, use `uniqueId`.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: locked
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.locked>`
+
+      Returns true if this construct or any of it's parent constructs are locked.
+
+
+      *Protected property*
+
+      :type: boolean *(readonly)*
+
+
+   .. py:attribute:: metadata
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.metadata>`
+
+      An array of metadata objects associated with this construct. This can be used, for example, to implement support for deprecation notices, source mapping, etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.MetadataEntry`\ [] *(readonly)*
+
+
+   .. py:attribute:: path
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.path>`
+
+      The full path of this construct in the tree. Components are separated by '/'.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: uniqueId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.uniqueId>`
+
+      A tree-global unique alphanumeric identifier for this construct. Includes all components of the tree.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: parent
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Construct <@aws-cdk/cdk.Construct.parent>`
+
+      Returns the parent of this node or undefined if this is a root node.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Construct`\  or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Referenceable <@aws-cdk/cdk.Referenceable.ref>`
+
+      Returns a token to a CloudFormation { Ref } that references this entity based on it's logical ID.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:method:: addDependency(*other)
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.addDependency>`
+
+      Adds a dependency on another resource.
+
+
+      :param \*other: The other resource.
+      :type \*other: :py:class:`@aws-cdk/cdk.IDependable`\ 
+
+
+   .. py:method:: getAtt(attributeName) -> @aws-cdk/cdk.CloudFormationToken
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.getAtt>`
+
+      Returns a token for an runtime attribute of this resource. Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility in case there is no generated attribute.
+
+
+      :param attributeName: The name of the attribute.
+      :type attributeName: string
+      :rtype: :py:class:`@aws-cdk/cdk.CloudFormationToken`\ 
+
+
+   .. py:method:: toCloudFormation() -> json
+
+      *Inherited from* :py:meth:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.toCloudFormation>`
+
+      Emits CloudFormation for this resource.
+
+
+      :rtype: json
+
+
+   .. py:attribute:: options
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.options>`
+
+      Options for this resource, such as condition, update policy etc.
+
+
+      :type: :py:class:`@aws-cdk/cdk.ResourceOptions`\  *(readonly)*
+
+
+   .. py:attribute:: resourceType
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.resourceType>`
+
+      AWS resource type.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: properties
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.Resource <@aws-cdk/cdk.Resource.properties>`
+
+      AWS resource properties
+
+
+      *Protected property*
+
+      :type: any or ``undefined`` *(readonly)*
+
+
+   .. py:attribute:: creationStackTrace
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.creationStackTrace>`
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.dependencyElements>`
+
+      Returns the set of all stack elements (resources, parameters, conditions) that should be added when a resource "depends on" this construct.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable`\ [] *(readonly)*
+
+
+   .. py:attribute:: logicalId
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.logicalId>`
+
+      The logical ID for this CloudFormation stack element
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stackPath
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stackPath>`
+
+      Return the path with respect to the stack
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: stack
+
+      *Inherited from* :py:attr:`@aws-cdk/cdk.StackElement <@aws-cdk/cdk.StackElement.stack>`
+
+      The stack this Construct has been made a part of
+
+
+      *Protected property*
+
+      :type: :py:class:`@aws-cdk/cdk.Stack`\ 
+
+
+QueueResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: QueueResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.SQS;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.sqs.cloudformation.QueueResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.QueueResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.QueueResourceProps } from '@aws-cdk/aws-sqs';
+
+
+
+
+
+   .. py:attribute:: contentBasedDeduplication
+
+      ``AWS::SQS::Queue.ContentBasedDeduplication``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-contentbaseddeduplication
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: delaySeconds
+
+      ``AWS::SQS::Queue.DelaySeconds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: fifoQueue
+
+      ``AWS::SQS::Queue.FifoQueue``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifoqueue
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: kmsDataKeyReusePeriodSeconds
+
+      ``AWS::SQS::Queue.KmsDataKeyReusePeriodSeconds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsdatakeyreuseperiodseconds
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: kmsMasterKeyId
+
+      ``AWS::SQS::Queue.KmsMasterKeyId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsmasterkeyid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: maximumMessageSize
+
+      ``AWS::SQS::Queue.MaximumMessageSize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-maxmesgsize
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: messageRetentionPeriod
+
+      ``AWS::SQS::Queue.MessageRetentionPeriod``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-msgretentionperiod
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: queueName
+
+      ``AWS::SQS::Queue.QueueName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: receiveMessageWaitTimeSeconds
+
+      ``AWS::SQS::Queue.ReceiveMessageWaitTimeSeconds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-receivemsgwaittime
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: redrivePolicy
+
+      ``AWS::SQS::Queue.RedrivePolicy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redrive
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: tags
+
+      ``AWS::SQS::Queue.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#cfn-sqs-queue-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or (:py:class:`@aws-cdk/cdk.CloudFormationToken`\  or :py:class:`@aws-cdk/cdk.Tag`\ )[] or ``undefined`` *(abstract)*
+
+
+   .. py:attribute:: visibilityTimeout
+
+      ``AWS::SQS::Queue.VisibilityTimeout``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-visiblitytimeout
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken`\  or ``undefined`` *(abstract)*
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-sqs
+

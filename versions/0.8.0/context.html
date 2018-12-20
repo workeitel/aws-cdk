@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Environmental Context &mdash; AWS Cloud Development Kit 0.8.0+0eede70 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Assets" href="assets.html" />
+    <link rel="prev" title="Apps" href="apps.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0+0eede70
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="constructs.html">Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stacks.html">Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical-ids.html">Logical IDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environments.html">Environments and Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Environmental Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="applets.html">Applets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="concepts.html">AWS CDK Concepts</a> &raquo;</li>
+        
+      <li>Environmental Context</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/context.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="environmental-context">
+<span id="context"></span><h1>Environmental Context<a class="headerlink" href="#environmental-context" title="Permalink to this headline">¶</a></h1>
+<p>When you synthesize a stack to create a AWS CloudFormation template, the AWS CDK might need information based on the
+environment (account and Region), such as the availability zones or AMIs available in the Region.
+To enable this feature, the AWS CDK Toolkit uses <em>context providers</em>,
+and saves the context information into <em>cdk.json</em>
+the first time you call <code class="code docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">synth</span></code>.</p>
+<p>The AWS CDK currently supports the following context providers.</p>
+<dl class="docutils">
+<dt><a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.AvailabilityZoneProvider" title="&#64;aws-cdk/cdk.AvailabilityZoneProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">AvailabilityZoneProvider</span></code></a></dt>
+<dd>Use this provider to get the list of all supported availability zones in this environment.
+For example, the following code iterates over all of the AZs in the current environment.</dd>
+</dl>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span>// &quot;this&quot; refers to a parent Construct
+const zones: string[] = new AvailabilityZoneProvider(this).availabilityZones;
+
+for (let zone of zones) {
+   // do somethning for each zone!
+}
+</pre></div>
+</div>
+<dl class="docutils">
+<dt><a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.SSMParameterProvider" title="&#64;aws-cdk/cdk.SSMParameterProvider"><code class="xref py py-class docutils literal notranslate"><span class="pre">SSMParameterProvider</span></code></a></dt>
+<dd>Use this provider to read values from the current Region’s SSM parameter store.
+For example, the follow code returns the value of the ‘my-awesome-value’ key:</dd>
+</dl>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">ami</span><span class="p">:</span> <span class="n">string</span> <span class="o">=</span> <span class="n">new</span> <span class="n">SSMParameterProvider</span><span class="p">(</span><span class="n">this</span><span class="p">)</span><span class="o">.</span><span class="n">getString</span><span class="p">(</span><span class="s1">&#39;my-awesome-value&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="assets.html" class="btn btn-neutral float-right" title="Assets" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="apps.html" class="btn btn-neutral" title="Apps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.0+0eede70',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

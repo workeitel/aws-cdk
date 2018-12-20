@@ -1,0 +1,756 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"haIlOaUyy8sYAxIJDwju6qOsaYBfH+ak0f0xXNz7DZw="}
+
+@aws-cdk/aws-kinesis
+====================
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.Kinesis/0.9.1>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.Kinesis" Version="0.9.1" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.Kinesis --version 0.9.1
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.Kinesis" version="0.9.1" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/kinesis/0.9.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:kinesis:jar:0.9.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="kinesis" rev="0.9.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>kinesis</artifactId>
+           <version>0.9.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:kinesis:0.9.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='kinesis', version='0.9.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-kinesis/v/0.9.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-kinesis@0.9.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-kinesis": "^0.9.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-kinesis@0.9.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-kinesis/v/0.9.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-kinesis@0.9.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-kinesis": "^0.9.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-kinesis@0.9.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-kinesis.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-kinesis
+
+Stream
+^^^^^^
+
+.. py:class:: Stream(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.Stream;
+
+      .. code-tab:: javascript
+
+         const { Stream } = require('@aws-cdk/aws-kinesis');
+
+      .. code-tab:: typescript
+
+         import { Stream } from '@aws-cdk/aws-kinesis';
+
+
+
+   A Kinesis stream. Can be encrypted with a KMS key.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-kinesis.StreamRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-kinesis.StreamProps`
+
+   .. py:attribute:: streamArn
+
+      The ARN of the stream.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kinesis.StreamArn` *(readonly)*
+
+
+   .. py:attribute:: streamName
+
+      The name of the stream
+
+
+      :type: :py:class:`~@aws-cdk/aws-kinesis.StreamName` *(readonly)*
+
+
+   .. py:attribute:: encryptionKey
+
+      Optional KMS encryption key associated with this stream.
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef` or undefined *(readonly)*
+
+
+StreamArn
+^^^^^^^^^
+
+.. py:class:: StreamArn(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.StreamArn;
+
+      .. code-tab:: javascript
+
+         const { StreamArn } = require('@aws-cdk/aws-kinesis');
+
+      .. code-tab:: typescript
+
+         import { StreamArn } from '@aws-cdk/aws-kinesis';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+StreamEncryption (enum)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StreamEncryption
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.StreamEncryption;
+
+      .. code-tab:: javascript
+
+         const { StreamEncryption } = require('@aws-cdk/aws-kinesis');
+
+      .. code-tab:: typescript
+
+         import { StreamEncryption } from '@aws-cdk/aws-kinesis';
+
+
+
+   What kind of server-side encryption to apply to this stream
+
+
+   .. py:data:: Unencrypted
+
+   Records in the stream are not encrypted.
+
+
+   .. py:data:: Kms
+
+   Server-side encryption with a KMS key managed by the user. If `encryptionKey` is specified, this key will be used, otherwise, one will be defined.
+
+
+
+StreamId
+^^^^^^^^
+
+.. py:class:: StreamId(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.StreamId;
+
+      .. code-tab:: javascript
+
+         const { StreamId } = require('@aws-cdk/aws-kinesis');
+
+      .. code-tab:: typescript
+
+         import { StreamId } from '@aws-cdk/aws-kinesis';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+StreamName
+^^^^^^^^^^
+
+.. py:class:: StreamName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.StreamName;
+
+      .. code-tab:: javascript
+
+         const { StreamName } = require('@aws-cdk/aws-kinesis');
+
+      .. code-tab:: typescript
+
+         import { StreamName } from '@aws-cdk/aws-kinesis';
+
+
+
+   The name of the stream.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+StreamProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StreamProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.StreamProps;
+
+      .. code-tab:: javascript
+
+         // StreamProps is an interface
+
+      .. code-tab:: typescript
+
+         import { StreamProps } from '@aws-cdk/aws-kinesis';
+
+
+
+
+
+   .. py:attribute:: encryption
+
+      The kind of server-side encryption to apply to this stream.  If you choose KMS, you can specify a KMS key via `encryptionKey`. If encryption key is not specified, a key will automatically be created.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kinesis.StreamEncryption` or undefined *(abstract)*
+
+
+   .. py:attribute:: encryptionKey
+
+      External KMS key to use for stream encryption.  The 'encryption' property must be set to "Kms".
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef` or undefined *(abstract)*
+
+
+   .. py:attribute:: retentionPeriodHours
+
+      The number of hours for the data records that are stored in shards to remain accessible.
+
+
+      :type: number or undefined *(abstract)*
+
+
+   .. py:attribute:: shardCount
+
+      The number of shards for the stream.
+
+
+      :type: number or undefined *(abstract)*
+
+
+   .. py:attribute:: streamName
+
+      Enforces a particular physical stream name.
+
+
+      :type: string or undefined *(abstract)*
+
+
+StreamRef
+^^^^^^^^^
+
+.. py:class:: StreamRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.StreamRef;
+
+      .. code-tab:: javascript
+
+         const { StreamRef } = require('@aws-cdk/aws-kinesis');
+
+      .. code-tab:: typescript
+
+         import { StreamRef } from '@aws-cdk/aws-kinesis';
+
+
+
+   Represents a Kinesis Stream.  Streams can be either defined within this stack:       new Stream(this, 'MyStream', { props });  Or imported from an existing stream:       StreamRef.import(this, 'MyImportedStream', { streamArn: ... });  You can also export a stream and import it into another stack:       const ref = myStream.export();      StreamRef.import(this, 'MyImportedStream', ref);
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-logs.ILogSubscriptionDestination`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-kinesis.StreamRef
+
+      Creates a Stream construct that represents an external stream.
+
+
+      :param parent: The parent creating construct (usually `this`).
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: The construct's name.
+      :type name: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-kinesis.StreamRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-kinesis.StreamRef`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-kinesis.StreamRefProps
+
+      Exports this stream from the stack.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-kinesis.StreamRefProps`
+
+
+   .. py:method:: grantRead([identity])
+
+      Grant write permissions for this stream and its contents to an IAM principal (Role/Group/User).  If an encryption key is used, permission to ues the key to decrypt the contents of the stream will also be granted.
+
+
+      :param identity: 
+      :type identity: :py:class:`@aws-cdk/aws-iam.IIdentityResource` or undefined
+
+
+   .. py:method:: grantReadWrite([identity])
+
+      Grants read/write permissions for this stream and its contents to an IAM principal (Role/Group/User).  If an encryption key is used, permission to use the key for encrypt/decrypt will also be granted.
+
+
+      :param identity: 
+      :type identity: :py:class:`@aws-cdk/aws-iam.IIdentityResource` or undefined
+
+
+   .. py:method:: grantWrite([identity])
+
+      Grant read permissions for this stream and its contents to an IAM principal (Role/Group/User).  If an encryption key is used, permission to ues the key to decrypt the contents of the stream will also be granted.
+
+
+      :param identity: 
+      :type identity: :py:class:`@aws-cdk/aws-iam.IIdentityResource` or undefined
+
+
+   .. py:method:: logSubscriptionDestination(sourceLogGroup) -> @aws-cdk/aws-logs.LogSubscriptionDestination
+
+      Return the properties required to send subscription events to this destination.  If necessary, the destination can use the properties of the SubscriptionFilter object itself to configure its permissions to allow the subscription to write to it.  The destination may reconfigure its own permissions in response to this function call.
+
+
+      :param sourceLogGroup: 
+      :type sourceLogGroup: :py:class:`@aws-cdk/aws-logs.LogGroupRef`
+      :rtype: :py:class:`@aws-cdk/aws-logs.LogSubscriptionDestination`
+
+
+   .. py:attribute:: streamArn
+
+      The ARN of the stream.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kinesis.StreamArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: streamName
+
+      The name of the stream
+
+
+      :type: :py:class:`~@aws-cdk/aws-kinesis.StreamName` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: encryptionKey
+
+      Optional KMS encryption key associated with this stream.
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef` or undefined *(readonly)* *(abstract)*
+
+
+StreamRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StreamRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.StreamRefProps;
+
+      .. code-tab:: javascript
+
+         // StreamRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { StreamRefProps } from '@aws-cdk/aws-kinesis';
+
+
+
+   A reference to a stream. The easiest way to instantiate is to call `stream.export()`. Then, the consumer can use `Stream.import(this, ref)` and get a `Stream`.
+
+
+
+
+   .. py:attribute:: streamArn
+
+      The ARN of the stream.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kinesis.StreamArn` *(abstract)*
+
+
+   .. py:attribute:: encryptionKey
+
+      The KMS key securing the contents of the stream if encryption is enabled.
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRefProps` or undefined *(abstract)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-kinesis.cloudformation
+
+StreamResource
+~~~~~~~~~~~~~~
+
+.. py:class:: StreamResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.cloudformation.StreamResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.StreamResource } = require('@aws-cdk/aws-kinesis');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.StreamResource } from '@aws-cdk/aws-kinesis';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``StreamResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``StreamResource``
+   :type properties: :py:class:`~@aws-cdk/aws-kinesis.cloudformation.StreamResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-kinesis.StreamId` *(readonly)*
+
+
+   .. py:attribute:: streamArn
+
+      :type: :py:class:`~@aws-cdk/aws-kinesis.StreamArn` *(readonly)*
+
+   .. py:class:: StreamEncryptionProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.Kinesis;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.kinesis.cloudformation.StreamResource.StreamEncryptionProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.StreamResource.StreamEncryptionProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.StreamResource.StreamEncryptionProperty } from '@aws-cdk/aws-kinesis';
+
+
+
+
+
+      .. py:attribute:: encryptionType
+
+         ``StreamResource.StreamEncryptionProperty.EncryptionType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-encryptiontype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` *(abstract)*
+
+
+      .. py:attribute:: keyId
+
+         ``StreamResource.StreamEncryptionProperty.KeyId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html#cfn-kinesis-stream-streamencryption-keyid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` *(abstract)*
+
+
+
+StreamResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: StreamResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Kinesis;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.kinesis.cloudformation.StreamResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.StreamResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.StreamResourceProps } from '@aws-cdk/aws-kinesis';
+
+
+
+
+
+   .. py:attribute:: shardCount
+
+      ``AWS::Kinesis::Stream.ShardCount``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken` *(abstract)*
+
+
+   .. py:attribute:: retentionPeriodHours
+
+      ``AWS::Kinesis::Stream.RetentionPeriodHours``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: streamEncryption
+
+      ``AWS::Kinesis::Stream.StreamEncryption``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-streamencryption
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or :py:class:`~@aws-cdk/aws-kinesis.cloudformation.StreamResource.StreamEncryptionProperty` or undefined *(abstract)*
+
+
+   .. py:attribute:: streamName
+
+      ``AWS::Kinesis::Stream.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: tags
+
+      ``AWS::Kinesis::Stream.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (:py:class:`@aws-cdk/cdk.CloudFormationToken` or :py:class:`@aws-cdk/cdk.Tag`)[] or undefined *(abstract)*
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-kinesis
+

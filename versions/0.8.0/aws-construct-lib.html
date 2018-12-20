@@ -1,0 +1,303 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AWS Construct Library &mdash; AWS Cloud Development Kit 0.8.0+0eede70 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AWS CloudFormation Library" href="cloudformation.html" />
+    <link rel="prev" title="Applets" href="applets.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0+0eede70
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AWS Construct Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#least-privilege-iam-policies">Least-Privilege IAM policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-driven-apis">Event-driven APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-groups">Security Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metrics">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aws-cloudformation-layer">AWS CloudFormation Layer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>AWS Construct Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aws-construct-lib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-construct-library">
+<span id="aws-construct-lib"></span><h1>AWS Construct Library<a class="headerlink" href="#aws-construct-library" title="Permalink to this headline">¶</a></h1>
+<p>The AWS Construct Library is a set of modules which expose a rich API for
+defining AWS resources in CDK apps. The AWS Construct Library is organized to
+modules based on the AWS service the resource belongs to. For example, the
+<a class="reference internal" href="refs/_aws-cdk_aws-ec2.html#module-&#64;aws-cdk/aws-ec2" title="&#64;aws-cdk/aws-ec2"><code class="xref py py-mod docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-ec2</span></code></a> module includes the <cite>&#64;aws-cdk/aws-ec2.VpcNetwork</cite>
+construct which makes it easy to define an <a class="reference external" href="https://aws.amazon.com/vpc">Amazon VPC</a> in your CDK app.</p>
+<p>The AWS Construct Library includes many common patterns and capabilities which
+are designed to allow developers to focus on their application-specific
+architectures and reduces the boilerplate and glue logic needed when working
+with AWS.</p>
+<div class="section" id="least-privilege-iam-policies">
+<h2>Least-Privilege IAM policies<a class="headerlink" href="#least-privilege-iam-policies" title="Permalink to this headline">¶</a></h2>
+<p>IAM policies are automatically defined based on intent. For example, when
+subscribing an AWS SNS <a class="reference internal" href="refs/_aws-cdk_aws-sns.html#&#64;aws-cdk/aws-sns.Topic" title="&#64;aws-cdk/aws-sns.Topic"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topic</span></code></a> to a AWS Lambda
+<a class="reference internal" href="refs/_aws-cdk_aws-lambda.html#&#64;aws-cdk/aws-lambda.Lambda" title="&#64;aws-cdk/aws-lambda.Lambda"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a>, the function’s IAM permission
+policy will automatically be modified to allow the specific topic to invoke the
+function.</p>
+<p>Furthermore, most AWS Constructs expose <code class="docutils literal notranslate"><span class="pre">grant*</span></code> methods which allow
+intent-based permission definitions. For example, the AWS S3 <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bucket</span></code></a>
+construct has a <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef.grantRead" title="&#64;aws-cdk/aws-s3.BucketRef.grantRead"><code class="xref py py-meth docutils literal notranslate"><span class="pre">grantRead(principal)</span></code></a>
+method which accepts an AWS IAM <a class="reference internal" href="refs/_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IPrincipal" title="&#64;aws-cdk/aws-iam.IPrincipal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Principal</span></code></a>
+such as a <a class="reference internal" href="refs/_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.User" title="&#64;aws-cdk/aws-iam.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> or a <a class="reference internal" href="refs/_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.Role" title="&#64;aws-cdk/aws-iam.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a>,
+and will modify their policy to allow the principal to read objects from the bucket.</p>
+</div>
+<div class="section" id="event-driven-apis">
+<h2>Event-driven APIs<a class="headerlink" href="#event-driven-apis" title="Permalink to this headline">¶</a></h2>
+<p>Many of the AWS constructs include <code class="docutils literal notranslate"><span class="pre">on*</span></code> methods which can be used to react
+to events emitted by the construct. For example, the AWS CodeCommit
+<a class="reference internal" href="refs/_aws-cdk_aws-codecommit.html#&#64;aws-cdk/aws-codecommit.Repository" title="&#64;aws-cdk/aws-codecommit.Repository"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Repository</span></code></a> construct has an
+<a class="reference internal" href="refs/_aws-cdk_aws-codecommit.html#&#64;aws-cdk/aws-codecommit.RepositoryRef.onCommit" title="&#64;aws-cdk/aws-codecommit.RepositoryRef.onCommit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">onCommit</span></code></a> method.</p>
+<p>AWS Constructs that can be used as targets for various event providers implement
+interfaces such as <a class="reference internal" href="refs/_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IEventRuleTarget</span></code></a>
+(for AWS CloudWatch Event Rule target),
+<a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.IAlarmAction" title="&#64;aws-cdk/aws-cloudwatch.IAlarmAction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IAlarmAction</span></code></a>
+(for AWS CloudWatch Alarm actions), etc.</p>
+<p>For more information see the <a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html"><span class="doc">&#64;aws-cdk/aws-cloudwatch</span></a> and <a class="reference internal" href="refs/_aws-cdk_aws-events.html"><span class="doc">&#64;aws-cdk/aws-events</span></a>
+documentation.</p>
+</div>
+<div class="section" id="security-groups">
+<h2>Security Groups<a class="headerlink" href="#security-groups" title="Permalink to this headline">¶</a></h2>
+<p>EC2 network entities such as the <code class="xref py py-mod docutils literal notranslate"><span class="pre">Elastic</span> <span class="pre">Load</span> <span class="pre">Balancer</span> <span class="pre">&lt;&#64;aws-cdk/aws-ec2.ElasticLoadBalancer</span></code>
+and <a class="reference internal" href="refs/_aws-cdk_aws-ec2.html#&#64;aws-cdk/aws-ec2.AutoScalingGroup" title="&#64;aws-cdk/aws-ec2.AutoScalingGroup"><code class="xref py py-mod docutils literal notranslate"><span class="pre">AutoScalingGroup</span></code></a> instances can connect to each other
+based on definitions of security groups.</p>
+<p>The AWS CDK provides a rich API for defining security group connections. For more information,
+see <strong>Allowing Connections</strong> in the <a class="reference internal" href="refs/_aws-cdk_aws-ec2.html"><span class="doc">&#64;aws-cdk/aws-ec2</span></a> documentation.</p>
+</div>
+<div class="section" id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<p>Many AWS resources emit AWS CloudWatch metrics as part of their normal operation. Metrics can
+be used to setup <a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Alarm" title="&#64;aws-cdk/aws-cloudwatch.Alarm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Alarms</span></code></a> or included in <a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Dashboard" title="&#64;aws-cdk/aws-cloudwatch.Dashboard"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Dashboards</span></code></a>.</p>
+<p><a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Metric" title="&#64;aws-cdk/aws-cloudwatch.Metric"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Metric</span></code></a> objects for AWS Constructs can be obtained
+via <code class="docutils literal notranslate"><span class="pre">metricXxx()</span></code> methods. For example, the <a class="reference internal" href="refs/_aws-cdk_aws-lambda.html#&#64;aws-cdk/aws-lambda.LambdaRef.metricDuration" title="&#64;aws-cdk/aws-lambda.LambdaRef.metricDuration"><code class="xref py py-meth docutils literal notranslate"><span class="pre">metricDuration()</span></code></a>
+method reports the execution time of an AWS Lambda function.</p>
+<p>For more information see the <a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html"><span class="doc">&#64;aws-cdk/aws-cloudwatch</span></a> documentation.</p>
+</div>
+<div class="section" id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<p>If you need to reference a resource which is defined outside of your CDK app (e.g. a bucket, a VPC, etc),
+you can use the <code class="docutils literal notranslate"><span class="pre">Xxxx.import(...)</span></code> static methods which are available on AWS Constructs. For example,
+the <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef.import" title="&#64;aws-cdk/aws-s3.BucketRef.import"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bucket.import()</span></code></a> method can be used to obtain
+a <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef" title="&#64;aws-cdk/aws-s3.BucketRef"><code class="xref py py-mod docutils literal notranslate"><span class="pre">BucketRef</span></code></a> object which can be used in most places where
+a bucket is required. This patterns allows treating resources defined outside your app as if they
+were part of your app.</p>
+</div>
+<div class="section" id="aws-cloudformation-layer">
+<h2>AWS CloudFormation Layer<a class="headerlink" href="#aws-cloudformation-layer" title="Permalink to this headline">¶</a></h2>
+<p>Every module in the AWS Construct Library includes a <code class="docutils literal notranslate"><span class="pre">cloudformation</span></code> namespace which contains
+low-level constructs which represent the low-level AWS CloudFormation semantics of this service.
+See <a class="reference internal" href="cloudformation.html"><span class="doc">AWS CloudFormation Library</span></a> for details.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloudformation.html" class="btn btn-neutral float-right" title="AWS CloudFormation Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="applets.html" class="btn btn-neutral" title="Applets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.8.0+0eede70',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

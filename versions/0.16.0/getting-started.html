@@ -1,0 +1,1139 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Hello, AWS CDK! &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AWS CDK Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Welcome" href="index.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-command-line-toolkit">Install the command-line toolkit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#initializing-the-project">Initializing the Project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-aws-cdk-cdk-as-a-dependency">Add &#64;aws-cdk/cdk as a Dependency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define-the-cdk-app">Define the AWS CDK App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compile-the-code">Compile the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-cdk-toolkit">Configure the AWS CDK Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-the-stacks-in-the-app">List the Stacks in the App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define-a-stack">Define a Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define-an-s3-bucket">Define an Amazon S3 Bucket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#synthesize-an-cfn-template">Synthesize an AWS CloudFormation Template</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying-the-stack">Deploying the Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modifying-the-code">Modifying the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparing-for-deployment">Preparing for Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-next">What Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-constructs.html">Writing Constructs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Hello, AWS CDK!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/getting-started.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           ﻿<p style="background-color:#e47911; border-top:1px solid #ccc; margin-top:6px; padding-top:10px; padding-bottom:10px; padding-left:5px; font-weight:bold; font-style:italic; font-size:16px; color:white; vertical-align:middle">
+This documentation is for the developer preview release of the AWS CDK.
+Do not use this version of the AWS CDK in production.
+Subsequent releases of the AWS CDK will likely include breaking changes.
+</p>
+           <div itemprop="articleBody">
+            
+  <div class="section" id="hello-cdk">
+<span id="getting-started"></span><h1>Hello, AWS CDK!<a class="headerlink" href="#hello-cdk" title="Permalink to this headline">¶</a></h1>
+<p>This topic walks you through creating and deploying your first AWS CDK app.</p>
+<div class="section" id="setup">
+<span id="id1"></span><h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<span id="setup-prerequisites"></span><h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://nodejs.org/en/download">Node.js (&gt;= 8.11.x)</a> - required for the
+command-line toolkit and language bindings.</p>
+<p><a class="reference external" href="https://aws.amazon.com/cli">AWS CLI</a> - recommended in general, and can be
+used to setup the credentials and region for your AWS account,
+which must be specified to use the toolkit.
+See <a class="reference internal" href="#credentials"><span class="std std-ref">credentials</span></a> for information on using the AWS CLI to set your credentials.</p>
+</div>
+<div class="section" id="install-the-command-line-toolkit">
+<span id="setup-install"></span><h3>Install the command-line toolkit<a class="headerlink" href="#install-the-command-line-toolkit" title="Permalink to this headline">¶</a></h3>
+<p>The toolkit can be installed via <a class="reference external" href="https://www.npmjs.org">npm</a> as follows:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install -g aws-cdk
+</pre></div>
+</div>
+<p>You can run this command to see the currently installed version of the toolkit
+(This guide is aligned with 0.16.0):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk --version
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="initializing-the-project">
+<span id="initializing"></span><h2>Initializing the Project<a class="headerlink" href="#initializing-the-project" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This guide walks you through the process of creating a AWS CDK project
+step-by-step to explain some of the reasoning and details
+behind the project structure and tools. It is also possible to use the
+<code class="code docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">init</span></code> command to get started quickly from a project
+template in supported languages.</p>
+</div>
+<p>Create an empty project structure for the AWS CDK app.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+<p>Create an empty source-controlled directory for your project and an
+initial npm <strong>package.json</strong> file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir hello-cdk
+<span class="nb">cd</span> hello-cdk
+git init
+npm init -y <span class="c1"># creates package.json</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>Create an empty source-controlled directory for your project and an
+initial npm <strong>package.json</strong> file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir hello-cdk
+<span class="nb">cd</span> hello-cdk
+git init
+npm init -y <span class="c1"># creates package.json</span>
+</pre></div>
+</div>
+<p>Create a minimal <strong>tsconfig.json</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;compilerOptions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;es2018&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;commonjs&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Setup TypeScript build commands in <strong>package.json</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;scripts&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;build&quot;</span><span class="p">:</span> <span class="s2">&quot;tsc&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;watch&quot;</span><span class="p">:</span> <span class="s2">&quot;tsc -w&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>Use your favorite IDE to create a Maven-based empty Java 8 project.</p>
+<p>Set the Java <strong>source</strong> and <strong>target</strong> to 1.8 in your <strong>pom.xml</strong> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- pom.xml --&gt;</span>
+<span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>3.1<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;configuration&gt;</span>
+                <span class="nt">&lt;source&gt;</span>1.8<span class="nt">&lt;/source&gt;</span>
+                <span class="nt">&lt;target&gt;</span>1.8<span class="nt">&lt;/target&gt;</span>
+            <span class="nt">&lt;/configuration&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="add-aws-cdk-cdk-as-a-dependency">
+<span id="add-core"></span><h2>Add &#64;aws-cdk/cdk as a Dependency<a class="headerlink" href="#add-aws-cdk-cdk-as-a-dependency" title="Permalink to this headline">¶</a></h2>
+<p>Install the AWS CDK core library (<a class="reference internal" href="refs/_aws-cdk_cdk.html#module-&#64;aws-cdk/cdk" title="&#64;aws-cdk/cdk"><code class="xref py py-mod docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk</span></code></a>). This
+library includes the basic classes needed to write AWS CDK stacks and apps.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+<p>Install the <strong>&#64;aws-cdk/cdk</strong> package:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @aws-cdk/cdk
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>Install the <strong>&#64;aws-cdk/cdk</strong> package and the <strong>&#64;types/node</strong> (the latter
+is needed because we reference <strong>process.argv</strong> in our code):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @aws-cdk/cdk @types/node
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>Add the following to your project’s <cite>pom.xml</cite> file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+        <span class="nt">&lt;groupId&gt;</span>software.amazon.awscdk<span class="nt">&lt;/groupId&gt;</span>
+        <span class="nt">&lt;artifactId&gt;</span>cdk<span class="nt">&lt;/artifactId&gt;</span>
+        <span class="nt">&lt;version&gt;</span><span class="c">&lt;!-- cdk-version --&gt;</span><span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+<span class="nt">&lt;/dependencies&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-the-cdk-app">
+<span id="define-app"></span><h2>Define the AWS CDK App<a class="headerlink" href="#define-the-cdk-app" title="Permalink to this headline">¶</a></h2>
+<p>AWS CDK apps are modeled as classes which extend the <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.App" title="&#64;aws-cdk/cdk.App"><code class="xref py py-class docutils literal notranslate"><span class="pre">App</span></code></a>
+class. Let’s create our first, empty <strong>App</strong>:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+<p>In <strong>index.js</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">argv</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">new</span> <span class="nx">MyApp</span><span class="p">().</span><span class="nx">run</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>In <strong>index.ts</strong>:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span> <span class="p">{</span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">argv</span>: <span class="kt">string</span><span class="p">[])</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">new</span> <span class="nx">MyApp</span><span class="p">().</span><span class="nx">run</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>In <strong>src/main/java/com/acme/MyApp.java</strong>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.acme</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.App</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">MyApp</span><span class="o">(</span><span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">argv</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">argv</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">argv</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">argv</span><span class="o">)).</span><span class="na">run</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The code that reads <strong>argv</strong>, runs the app and writes the output to <strong>STDOUT</strong> is
+currently needed in order to allow the AWS CDK Toolkit to interact with your app.</p>
+</div>
+</div>
+<div class="section" id="compile-the-code">
+<span id="complie-code"></span><h2>Compile the Code<a class="headerlink" href="#compile-the-code" title="Permalink to this headline">¶</a></h2>
+<p>If needed, compile the code:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+No need to compile</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>To compile your program from <strong>.ts</strong> to <strong>.js</strong>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+</pre></div>
+</div>
+<p>You can also use the <strong>watch</strong> command to continuously compile your code
+as it changes, so you don’t have to invoke the compiler explicitly:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># run in another terminal session</span>
+npm run watch
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>Compile your code using your IDE or via the command line via <strong>mvn</strong>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mvn compile
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is it, you now created your first, alas empty, AWS CDK app.</p>
+</div>
+<div class="section" id="configure-the-cdk-toolkit">
+<span id="credentials"></span><h2>Configure the AWS CDK Toolkit<a class="headerlink" href="#configure-the-cdk-toolkit" title="Permalink to this headline">¶</a></h2>
+<p>Use the AWS CDK toolkit to view the contents of this app.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You must specify your default credentials and region to use the toolkit.</p>
+<p>Use the <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html">AWS Command Line Interface</a>
+<code class="docutils literal notranslate"><span class="pre">aws</span> <span class="pre">configure</span></code> command to specify your default credentials and region.</p>
+<p>Important: make sure that you explicitly specify a <strong>region</strong>.</p>
+<p>You can also set environment variables for your default credentials and region.
+Environment variables take precedence over settings in the credentials or config file.</p>
+<ul class="simple">
+<li><em>AWS_ACCESS_KEY_ID</em> specifies your access key</li>
+<li><em>AWS_SECRET_ACCESS_KEY</em> specifies your secret access key</li>
+<li><em>AWS_DEFAULT_REGION</em> specifies your default region</li>
+</ul>
+<p class="last">See <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-environment.html">Environment Variables</a>
+in the CLI User Guide for details.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The China regions (cn-north-1 and cn-northwest-1) do not support version reporting.</p>
+<p class="last">See <a class="reference internal" href="tools.html#version-reporting"><span class="std std-ref">Version Reporting</span></a> for more details and how to
+<a class="reference internal" href="tools.html#version-reporting-opt-out"><span class="std std-ref">opt-out</span></a></p>
+</div>
+<p>The AWS CDK toolkit needs to know how to execute your AWS CDK app. It requires that the
+<code class="code docutils literal notranslate"><span class="pre">--app</span></code> command-line option points to an executable program that adheres
+to the toolkit’s protocol (this is what the <strong>ARGV/STDOUT</strong> boilerplate
+implements). Alternatively, to explicitly specifying <code class="code docutils literal notranslate"><span class="pre">--app</span></code> every time you use
+the toolkit, we recommend that you create a <code class="code docutils literal notranslate"><span class="pre">cdk.json</span></code> file at the root of
+your project directory:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+<p>Define the <code class="code docutils literal notranslate"><span class="pre">--app</span></code> option in <strong>cdk.json</strong> to execute <strong>index.js</strong>
+using <strong>node</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;app&quot;</span><span class="p">:</span> <span class="s2">&quot;node index.js&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>Define the <code class="code docutils literal notranslate"><span class="pre">--app</span></code> option in <strong>cdk.json</strong> to execute <strong>index.js</strong>
+using <strong>node</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;app&quot;</span><span class="p">:</span> <span class="s2">&quot;node index.js&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>Specify a
+<strong>CLASSPATH</strong>, which contains both the compiled code and dependencies,
+to execute the Java program.</p>
+<p>Use <strong>maven-dependency-plugin</strong> in your <strong>pom.xml</strong> file to produce the file <strong>.classpath.txt</strong>
+whenever the project is compiled:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;build&gt;</span>
+    <span class="nt">&lt;plugins&gt;</span>
+        <span class="c">&lt;!-- ... --&gt;</span>
+
+        <span class="c">&lt;!-- Emit the classpath to ./.classpath.txt so cdk.json can use it --&gt;</span>
+        <span class="nt">&lt;plugin&gt;</span>
+            <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+            <span class="nt">&lt;artifactId&gt;</span>maven-dependency-plugin<span class="nt">&lt;/artifactId&gt;</span>
+            <span class="nt">&lt;version&gt;</span>2.8<span class="nt">&lt;/version&gt;</span>
+            <span class="nt">&lt;executions&gt;</span>
+            <span class="nt">&lt;execution&gt;</span>
+                <span class="nt">&lt;id&gt;</span>build-classpath<span class="nt">&lt;/id&gt;</span>
+                <span class="nt">&lt;phase&gt;</span>generate-sources<span class="nt">&lt;/phase&gt;</span>
+                <span class="nt">&lt;goals&gt;</span>
+                    <span class="nt">&lt;goal&gt;</span>build-classpath<span class="nt">&lt;/goal&gt;</span>
+                <span class="nt">&lt;/goals&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;outputFile&gt;</span>.classpath.txt<span class="nt">&lt;/outputFile&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/execution&gt;</span>
+            <span class="nt">&lt;/executions&gt;</span>
+        <span class="nt">&lt;/plugin&gt;</span>
+    <span class="nt">&lt;/plugins&gt;</span>
+<span class="nt">&lt;/build&gt;</span>
+</pre></div>
+</div>
+<p>Run <strong>mvn compile</strong> and verify that <strong>.classpath.txt</strong> exists:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mvn compile
+ls .classpath.txt
+</pre></div>
+</div>
+<p>Create a shim <strong>app.sh</strong> to execute the AWS CDK Java app:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">exec</span> java -cp target/classes:<span class="k">$(</span>cat .classpath.txt<span class="k">)</span> com.acme.MyApp app <span class="nv">$@</span>
+</pre></div>
+</div>
+<p>Define the <code class="code docutils literal notranslate"><span class="pre">--app</span></code> option in <strong>cdk.json</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;app&quot;</span><span class="p">:</span> <span class="s2">&quot;/bin/bash ./app.sh&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="list-the-stacks-in-the-app">
+<span id="list-stacks"></span><h2>List the Stacks in the App<a class="headerlink" href="#list-the-stacks-in-the-app" title="Permalink to this headline">¶</a></h2>
+<p>Use the AWS CDK toolkit’s <strong>ls</strong> command to list the stacks in the app.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk ls -l
+</pre></div>
+</div>
+<p>The result is an empty array:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[]</span>
+</pre></div>
+</div>
+<p>An empty array makes sense, since our app doesn’t have any stacks.</p>
+</div>
+<div class="section" id="define-a-stack">
+<span id="define-stack"></span><h2>Define a Stack<a class="headerlink" href="#define-a-stack" title="Permalink to this headline">¶</a></h2>
+<p>Define a stack and add it to the app.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+<p>In <strong>index.js</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+
+<span class="hll"><span class="kr">class</span> <span class="nx">MyStack</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Stack</span> <span class="p">{</span>
+</span><span class="hll">    <span class="nx">constructor</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="kr">super</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">argv</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">argv</span><span class="p">);</span>
+
+<span class="hll">        <span class="k">new</span> <span class="nx">MyStack</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;hello-cdk&#39;</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">new</span> <span class="nx">MyApp</span><span class="p">().</span><span class="nx">run</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>In <strong>index.ts</strong>:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+
+<span class="hll"><span class="kr">class</span> <span class="nx">MyStack</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Stack</span> <span class="p">{</span>
+</span><span class="hll">    <span class="kr">constructor</span><span class="p">(</span><span class="nx">parent</span>: <span class="kt">cdk.App</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">cdk.StackProps</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">        <span class="kr">super</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+</span><span class="hll">    <span class="p">}</span>
+</span><span class="hll"><span class="p">}</span>
+</span>
+<span class="kr">class</span> <span class="nx">MyApp</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">App</span> <span class="p">{</span>
+    <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">();</span>
+        <span class="k">new</span> <span class="nx">MyStack</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;hello-cdk&#39;</span><span class="p">);</span>
+<span class="hll">    <span class="p">}</span>
+</span><span class="p">}</span>
+
+<span class="k">new</span> <span class="nx">MyApp</span><span class="p">().</span><span class="nx">run</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>In <strong>src/main/java/com/acme/MyStack.java</strong>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.acme</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.App</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.Stack</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyStack</span> <span class="kd">extends</span> <span class="n">Stack</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">MyStack</span><span class="o">(</span><span class="kd">final</span> <span class="n">App</span> <span class="n">parent</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">parent</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In <strong>src/main/java/com/acme/MyApp.java</strong>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.acme</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.App</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Arrays</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyApp</span> <span class="kd">extends</span> <span class="n">App</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">MyApp</span><span class="o">(</span><span class="kd">final</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">argv</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">argv</span><span class="o">);</span>
+
+<span class="hll">        <span class="k">new</span> <span class="n">MyStack</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;hello-cdk&quot;</span><span class="o">);</span>
+</span>    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">argv</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">new</span> <span class="n">MyApp</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">argv</span><span class="o">)).</span><span class="na">run</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The initializer signature of <strong>cdk.Stack</strong> includes the arguments: <strong>parent</strong>,
+<strong>id</strong>, and <strong>props</strong>. This is the signature for every class in the AWS CDK
+framework. These classes are called <strong>“constructs”</strong> and they are composed
+together into a tree:</p>
+<ul class="simple">
+<li><strong>parent</strong> represents the parent construct. By specifying the parent construct
+upon initialization, constructs can obtain contextual information when they
+are initialized. For example, the region a stack is deployed to can be
+obtained via a call to <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Stack.requireRegion" title="&#64;aws-cdk/cdk.Stack.requireRegion"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Stack.find(this).requireRegion()</span></code></a>.
+See <a class="reference internal" href="context.html"><span class="doc">Environmental Context</span></a> for more information.</li>
+<li><strong>id</strong> is a string that locally identifies this construct within the tree.
+Constructs must have a unique ID amongst their siblings.</li>
+<li><strong>props</strong> is the set of initialization properties for this construct.</li>
+</ul>
+<p>Compile your program:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+Nothing to compile.</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mvn compile
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run <strong>cdk ls</strong> to see that the app includes a single
+stack:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk ls -l
+-
+    name: hello-cdk
+    environment:
+        name: &lt;your-account-id&gt;/&lt;your-default-region&gt;
+        account: <span class="s1">&#39;&lt;your-account-id&gt;&#39;</span>
+        region: &lt;your-default-region&gt;
+</pre></div>
+</div>
+<p>Notice that your stack has been automatically associated with the default AWS
+account and region configured in the AWS CLI. See <a class="reference internal" href="environments.html"><span class="doc">Environments and Authentication</span></a> for more
+details on how to associate stacks to environments.</p>
+</div>
+<div class="section" id="define-an-s3-bucket">
+<span id="define-bucket"></span><h2>Define an Amazon S3 Bucket<a class="headerlink" href="#define-an-s3-bucket" title="Permalink to this headline">¶</a></h2>
+<p>Now, what can we do with this app? Nothing yet. Our stack is still empty, so
+there’s nothing to deploy.</p>
+<p>Let’s define an Amazon S3 bucket.</p>
+<p>Install the <strong>&#64;aws-cdk/aws-s3</strong> package:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @aws-cdk/aws-s3
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @aws-cdk/aws-s3
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>Edit your <strong>pom.xml</strong> file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>&lt;dependency&gt;
+    &lt;groupId&gt;software.amazon.awscdk&lt;/groupId&gt;
+    &lt;artifactId&gt;s3&lt;/artifactId&gt;
+    &lt;version&gt;&lt;!-- cdk-version --&gt;&lt;/version&gt;
+&lt;/dependency&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, define an Amazon S3 bucket in the stack. Amazon S3 buckets are represented by
+the <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bucket</span></code></a> class:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+<p>In <strong>index.js</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+<span class="hll"><span class="kr">const</span> <span class="nx">s3</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-s3&#39;</span><span class="p">);</span>
+</span>
+<span class="kr">class</span> <span class="nx">MyStack</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Stack</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+
+<span class="hll">        <span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyFirstBucket&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">versioned</span><span class="o">:</span> <span class="kc">true</span>
+</span><span class="hll">        <span class="p">});</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>In <strong>index.ts</strong>:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">cdk</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/cdk&#39;</span><span class="p">);</span>
+<span class="hll"><span class="kr">import</span> <span class="nx">s3</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-s3&#39;</span><span class="p">);</span>
+</span>
+<span class="kr">class</span> <span class="nx">MyStack</span> <span class="kr">extends</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Stack</span> <span class="p">{</span>
+    <span class="kr">constructor</span><span class="p">(</span><span class="nx">parent</span>: <span class="kt">cdk.App</span><span class="p">,</span> <span class="nx">id</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">props?</span>: <span class="kt">cdk.StackProps</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">parent</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">props</span><span class="p">);</span>
+
+<span class="hll">        <span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyFirstBucket&#39;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class="hll">            <span class="nx">versioned</span>: <span class="kt">true</span>
+</span><span class="hll">        <span class="p">});</span>
+</span>    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>In <strong>src/main/java/com/acme/MyStack.java</strong>:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nn">com.acme</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.App</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.Stack</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.s3.Bucket</span><span class="o">;</span>
+<span class="hll"><span class="kn">import</span> <span class="nn">software.amazon.awscdk.services.s3.BucketProps</span><span class="o">;</span>
+</span><span class="hll">
+</span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyStack</span> <span class="kd">extends</span> <span class="n">Stack</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">MyStack</span><span class="o">(</span><span class="kd">final</span> <span class="n">App</span> <span class="n">parent</span><span class="o">,</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">id</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">parent</span><span class="o">,</span> <span class="n">id</span><span class="o">);</span>
+
+        <span class="k">new</span> <span class="n">Bucket</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;MyFirstBucket&quot;</span><span class="o">,</span> <span class="n">BucketProps</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+<span class="hll">                <span class="o">.</span><span class="na">withVersioned</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+</span><span class="hll">                <span class="o">.</span><span class="na">build</span><span class="o">());</span>
+</span><span class="hll">    <span class="o">}</span>
+</span><span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A few things to notice:</p>
+<ul class="simple">
+<li><a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bucket</span></code></a> is a construct.
+This means it’s initialization signature has <strong>parent</strong>, <strong>id</strong>, and <strong>props</strong>.
+In this case, the bucket is an immediate child of <strong>MyStack</strong>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">MyFirstBucket</span></code> is the <strong>logical id</strong> of the bucket construct, <strong>not</strong> the physical name of the
+S3 bucket. The logical ID is used to uniquely identify resources in your stack
+across deployments. See <a class="reference internal" href="logical-ids.html"><span class="doc">Logical IDs</span></a> for more details on how to work
+with logical IDs. To specify a physical name for your bucket, you can set the
+<a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketProps.bucketName" title="&#64;aws-cdk/aws-s3.BucketProps.bucketName"><code class="xref py py-meth docutils literal notranslate"><span class="pre">bucketName</span></code></a> property when
+you define your bucket.</li>
+<li>Since the bucket’s <code class="xref py py-meth docutils literal notranslate"><span class="pre">versioned</span></code>
+property is <code class="code docutils literal notranslate"><span class="pre">true</span></code>, <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html">versioning</a>
+is enabled on the bucket.</li>
+</ul>
+<p>Compile your program:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+Nothing to compile.</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mvn compile
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="synthesize-an-cfn-template">
+<span id="synthesize-template"></span><h2>Synthesize an AWS CloudFormation Template<a class="headerlink" href="#synthesize-an-cfn-template" title="Permalink to this headline">¶</a></h2>
+<p>Synthesize a AWS CloudFormation template for the stack:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk synth hello-cdk
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Since the AWS CDK app only contains a single stack, you can omit <code class="code docutils literal notranslate"><span class="pre">hello-cdk</span></code>.</p>
+</div>
+<p>This command executes the AWS CDK app and synthesize an AWS CloudFormation template for the
+<strong>hello-cdk</strong> stack:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">Resources</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">MyFirstBucketB8884501</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Type</span><span class="p p-Indicator">:</span> <span class="s">&#39;AWS::S3::Bucket&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">Properties</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">VersioningConfiguration</span><span class="p p-Indicator">:</span>
+                <span class="l l-Scalar l-Scalar-Plain">Status</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Enabled</span>
+    <span class="l l-Scalar l-Scalar-Plain">CDKMetadata</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Type</span><span class="p p-Indicator">:</span> <span class="s">&#39;AWS::CDK::Metadata&#39;</span>
+        <span class="l l-Scalar l-Scalar-Plain">Properties</span><span class="p p-Indicator">:</span>
+            <span class="l l-Scalar l-Scalar-Plain">Modules</span><span class="p p-Indicator">:</span> <span class="c1"># ...</span>
+</pre></div>
+</div>
+<p>You can see that the stack contains an <strong>AWS::S3::Bucket</strong> resource with the desired
+versioning configuration.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <strong>AWS::CDK::Metadata</strong> resource was automatically added to your template
+by the toolkit. This allows us to learn which libraries were used in your
+stack. See <a class="reference internal" href="tools.html#version-reporting"><span class="std std-ref">Version Reporting</span></a> for more details and how to
+<a class="reference internal" href="tools.html#version-reporting-opt-out"><span class="std std-ref">opt-out</span></a>.</p>
+</div>
+</div>
+<div class="section" id="deploying-the-stack">
+<span id="deploy-stack"></span><h2>Deploying the Stack<a class="headerlink" href="#deploying-the-stack" title="Permalink to this headline">¶</a></h2>
+<p>Use <strong>cdk deploy</strong> to deploy the stack:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk deploy
+</pre></div>
+</div>
+<p>The <strong>deploy</strong> command synthesizes an AWS CloudFormation template from the stack
+and then invokes the AWS CloudFormation create/update API to deploy it into your AWS
+account. The command displays information as it progresses.</p>
+</div>
+<div class="section" id="modifying-the-code">
+<span id="modify-cde"></span><h2>Modifying the Code<a class="headerlink" href="#modifying-the-code" title="Permalink to this headline">¶</a></h2>
+<p>Configure the bucket to use KMS managed encryption:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyFirstBucket&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">versioned</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+<span class="hll">    <span class="nx">encryption</span><span class="o">:</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">BucketEncryption</span><span class="p">.</span><span class="nx">KmsManaged</span>
+</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyFirstBucket&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">versioned</span>: <span class="kt">true</span><span class="p">,</span>
+<span class="hll">    <span class="nx">encryption</span>: <span class="kt">s3.BucketEncryption.KmsManaged</span>
+</span><span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">Bucket</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="s">&quot;MyFirstBucket&quot;</span><span class="o">,</span> <span class="n">BucketProps</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">withVersioned</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+<span class="hll">        <span class="o">.</span><span class="na">withEncryption</span><span class="o">(</span><span class="n">BucketEncryption</span><span class="o">.</span><span class="na">KmsManaged</span><span class="o">)</span>
+</span>        <span class="o">.</span><span class="na">build</span><span class="o">());</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Compile the program:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== active docutils container">
+Nothing to compile.</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mvn compile
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="preparing-for-deployment">
+<span id="prepare-deployment"></span><h2>Preparing for Deployment<a class="headerlink" href="#preparing-for-deployment" title="Permalink to this headline">¶</a></h2>
+<p>Before you deploy the updated stack, use the <code class="docutils literal notranslate"><span class="pre">cdk</span> <span class="pre">diff</span></code> command to evaluate
+the difference between the AWS CDK app and the deployed stack:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk diff
+</pre></div>
+</div>
+<p>The toolkit queries your AWS account for the current AWS CloudFormation template for the
+<strong>hello-cdk</strong> stack, and compares the result with the template synthesized from the app.
+The output should look like the following:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>~<span class="o">]</span> 🛠 Updating MyFirstBucketB8884501 <span class="o">(</span>type: AWS::S3::Bucket<span class="o">)</span>
+└─ <span class="o">[</span>+<span class="o">]</span> .BucketEncryption:
+    └─ New value: <span class="o">{</span><span class="s2">&quot;ServerSideEncryptionConfiguration&quot;</span>:<span class="o">[{</span><span class="s2">&quot;ServerSideEncryptionByDefault&quot;</span>:<span class="o">{</span><span class="s2">&quot;SSEAlgorithm&quot;</span>:<span class="s2">&quot;aws:kms&quot;</span><span class="o">}}]}</span>
+</pre></div>
+</div>
+<p>As you can see, the diff indicates that the
+<strong>ServerSideEncryptionConfiguration</strong> property of the bucket is now set to
+enable server-side encryption.</p>
+<p>You can also see that the bucket is not going to be replaced but rather updated
+(“<strong>Updating MyFirstBucketB8884501</strong>”).</p>
+<p>Run <strong>cdk deploy</strong> to update the stack:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk deploy
+</pre></div>
+</div>
+<p>The toolkit updates the bucket configuration to enable server-side KMS
+encryption for the bucket:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>⏳  Starting deployment of stack hello-cdk...
+<span class="o">[</span><span class="m">0</span>/2<span class="o">]</span> UPDATE_IN_PROGRESS  <span class="o">[</span>AWS::S3::Bucket<span class="o">]</span> MyFirstBucketB8884501
+<span class="o">[</span><span class="m">1</span>/2<span class="o">]</span> UPDATE_COMPLETE     <span class="o">[</span>AWS::S3::Bucket<span class="o">]</span> MyFirstBucketB8884501
+<span class="o">[</span><span class="m">1</span>/2<span class="o">]</span> UPDATE_COMPLETE_CLEANUP_IN_PROGRESS  <span class="o">[</span>AWS::CloudFormation::Stack<span class="o">]</span> hello-cdk
+<span class="o">[</span><span class="m">2</span>/2<span class="o">]</span> UPDATE_COMPLETE     <span class="o">[</span>AWS::CloudFormation::Stack<span class="o">]</span> hello-cdk
+✅  Deployment of stack hello-cdk completed successfully
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-next">
+<span id="whats-next"></span><h2>What Next?<a class="headerlink" href="#what-next" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>Learn more about <a class="reference internal" href="concepts.html"><span class="doc">CDK Concepts</span></a></li>
+<li>Check out the <a class="reference external" href="https://github.com/awslabs/aws-cdk/tree/master/examples">examples directory</a> in your GitHub repository</li>
+<li>Learn about the rich APIs offered by the <a class="reference internal" href="aws-construct-lib.html"><span class="doc">AWS Construct Library</span></a></li>
+<li>Work directly with CloudFormation using the <a class="reference internal" href="cloudformation.html"><span class="doc">AWS CloudFormation Library</span></a></li>
+<li>Come talk to us on <a class="reference external" href="https://gitter.im/awslabs/aws-cdk">Gitter</a></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="AWS CDK Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.16.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

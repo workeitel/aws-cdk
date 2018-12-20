@@ -1,0 +1,1446 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"QFHYFiVefNTtwy1o/CAENH3PTKNPQoGtsS7/1NIAhA4="}
+
+@aws-cdk/aws-codepipeline
+=========================
+
+.. mdinclude:: ./__aws-cdk_aws-codepipeline.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-codepipeline
+
+Action
+^^^^^^
+
+.. py:class:: Action(parent, name, props)
+
+   Low level class for generically creating pipeline actions. It is recommended that concrete types are used instead, such as {@link codecommit.PipelineSource} or {@link codebuild.PipelineBuildAction}.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline.ActionProps`
+
+   .. py:method:: validate() -> string[]
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string
+
+
+   .. py:method:: render() -> @aws-cdk/aws-codepipeline.cloudformation.PipelineResource.ActionDeclarationProperty
+
+      Render the Action to a CloudFormation struct
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.ActionDeclarationProperty`
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: addChild(child, name)
+
+      If an Artifact is added as a child, add it to the list of output artifacts.
+
+
+      :param child: 
+      :type child: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: 
+      :type name: string
+
+
+   .. py:method:: addOutputArtifact(name) -> @aws-cdk/aws-codepipeline.Artifact
+
+      :param name: 
+      :type name: string
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline.Artifact`
+
+
+   .. py:method:: addInputArtifact(artifact) -> @aws-cdk/aws-codepipeline.Action
+
+      :param artifact: 
+      :type artifact: :py:class:`~@aws-cdk/aws-codepipeline.Artifact`
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline.Action`
+
+
+   .. py:attribute:: category
+
+      The category of the action. The category defines which action type the owner (the entity that performs the action) performs.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.ActionCategory` *(readonly)*
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or undefined *(readonly)*
+
+
+   .. py:attribute:: runOrder
+
+      The order in which AWS CodePipeline runs this action. For more information, see the AWS CodePipeline User Guide.  https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: number
+
+
+ActionArtifactBounds (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionArtifactBounds
+
+   Specifies the constraints on the number of input and output artifacts an action can have.  The constraints for each action type are documented on the {@link https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html Pipeline Structure Reference} page.
+
+
+
+
+   .. py:attribute:: minInputs
+
+      :type: number
+
+
+   .. py:attribute:: maxInputs
+
+      :type: number
+
+
+   .. py:attribute:: minOutputs
+
+      :type: number
+
+
+   .. py:attribute:: maxOutputs
+
+      :type: number
+
+
+ActionCategory (enum)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionCategory
+
+   .. py:data:: Source
+
+   .. py:data:: Build
+
+   .. py:data:: Test
+
+   .. py:data:: Approval
+
+   .. py:data:: Deploy
+
+   .. py:data:: Invoke
+
+
+ActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ActionProps
+
+   Construction properties of the low level {@link Action action type}.
+
+
+
+
+   .. py:attribute:: category
+
+      A category that defines which action type the owner (the entity that performs the action) performs. The category that you select determine the providers that you can specify for the {@link #provider} property.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.ActionCategory`
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls. The providers that you can specify are determined by the category that you select. For example, a valid provider for the Deploy category is AWS CodeDeploy, which you would specify as CodeDeploy.
+
+
+      :type: string
+
+
+   .. py:attribute:: artifactBounds
+
+      The constraints to apply to the number of input and output artifacts used by this action.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.ActionArtifactBounds`
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: version
+
+      For all currently supported action types, the only valid version string is "1".
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: owner
+
+      For all currently supported action types, the only valid owner string is "AWS", "ThirdParty", or "Custom". For more information, see the AWS CodePipeline API Reference.
+
+
+      :type: string or undefined
+
+
+AmazonS3Source
+^^^^^^^^^^^^^^
+
+.. py:class:: AmazonS3Source(parent, name, props)
+
+   Source that is provided by a specific Amazon S3 object
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline.Source`
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline.AmazonS3SourceProps`
+
+AmazonS3SourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AmazonS3SourceProps
+
+   Construction properties of the {@link AmazonS3Source S3 source action}
+
+
+
+
+   .. py:attribute:: artifactName
+
+      The name of the source's output artifact. Output artifacts are used by CodePipeline as inputs into other actions.
+
+
+      :type: string
+
+
+   .. py:attribute:: bucket
+
+      The Amazon S3 bucket that stores the source code
+
+
+      :type: :py:class:`@aws-cdk/aws-s3.BucketRef`
+
+
+   .. py:attribute:: bucketKey
+
+      The key within the S3 bucket that stores the source code
+
+
+      :type: string
+
+
+   .. py:attribute:: pollForSourceChanges
+
+      Whether or not AWS CodePipeline should poll for source changes
+
+
+      :type: boolean or undefined
+
+
+ApprovalAction
+^^^^^^^^^^^^^^
+
+.. py:class:: ApprovalAction(parent, name)
+
+   Manual approval action
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline.Action`
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+
+Artifact
+^^^^^^^^
+
+.. py:class:: Artifact(parent, name)
+
+   An output artifact of an action. Artifacts can be used as input by some actions.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline.Action`
+   :param name: 
+   :type name: string
+
+   .. py:method:: subartifact(fileName) -> @aws-cdk/aws-codepipeline.ArtifactPath
+
+      Returns an ArtifactPath for a file within this artifact. Output is in the form "<artifact-name>::<file-name>"
+
+
+      :param fileName: The name of the file
+      :type fileName: string
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline.ArtifactPath`
+
+
+   .. py:method:: getParam(jsonFile, keyName) -> @aws-cdk/aws-codepipeline.ArtifactGetParam
+
+      Returns a token for a value inside a JSON file within this artifact.
+
+
+      :param jsonFile: The JSON file name.
+      :type jsonFile: string
+      :param keyName: The hash key.
+      :type keyName: string
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline.ArtifactGetParam`
+
+
+   .. py:method:: toString() -> string
+
+      Returns a string representation of this construct.
+
+
+      :rtype: string
+
+
+   .. py:attribute:: name
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: bucketName
+
+      The artifact attribute for the name of the S3 bucket where the artifact is stored.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.ArtifactAttribute` *(readonly)*
+
+
+   .. py:attribute:: objectKey
+
+      The artifact attribute for The name of the .zip file that contains the artifact that is generated by AWS CodePipeline, such as 1ABCyZZ.zip.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.ArtifactAttribute` *(readonly)*
+
+
+   .. py:attribute:: url
+
+      The artifact attribute of the Amazon Simple Storage Service (Amazon S3) URL of the artifact, such as https://s3-us-west-2.amazonaws.com/artifactstorebucket-yivczw8jma0c/test/TemplateSo/1ABCyZZ.zip.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.ArtifactAttribute` *(readonly)*
+
+
+ArtifactAttribute
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: ArtifactAttribute(artifact, attributeName)
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param artifact: 
+   :type artifact: :py:class:`~@aws-cdk/aws-codepipeline.Artifact`
+   :param attributeName: 
+   :type attributeName: string
+
+ArtifactGetParam
+^^^^^^^^^^^^^^^^
+
+.. py:class:: ArtifactGetParam(artifact, jsonFile, keyName)
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param artifact: 
+   :type artifact: :py:class:`~@aws-cdk/aws-codepipeline.Artifact`
+   :param jsonFile: 
+   :type jsonFile: string
+   :param keyName: 
+   :type keyName: string
+
+ArtifactPath
+^^^^^^^^^^^^
+
+.. py:class:: ArtifactPath(artifact, fileName)
+
+   A specific file within an output artifact.  The most common use case for this is specifying the template file for a CloudFormation action.
+
+
+   :param artifact: 
+   :type artifact: :py:class:`~@aws-cdk/aws-codepipeline.Artifact`
+   :param fileName: 
+   :type fileName: string
+
+   .. py:attribute:: artifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.Artifact` *(readonly)*
+
+
+   .. py:attribute:: fileName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: location
+
+      :type: string *(readonly)*
+
+
+BuildAction
+^^^^^^^^^^^
+
+.. py:class:: BuildAction(parent, name, props)
+
+   Low level class for build actions. It is recommended that concrete types are used instead, such as {@link codebuild.PipelineBuildAction}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline.Action`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline.BuildActionProps`
+
+   .. py:attribute:: artifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.Artifact` or undefined *(readonly)*
+
+
+BuildActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BuildActionProps
+
+   Construction properties of the low level {@link BuildAction build action}
+
+
+
+
+   .. py:attribute:: inputArtifact
+
+      The source to use as input for this build
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.Artifact`
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls. For example, a valid provider for Source actions is CodeBuild.
+
+
+      :type: string
+
+
+   .. py:attribute:: artifactName
+
+      The name of the build's output artifact
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or undefined
+
+
+GitHubSource
+^^^^^^^^^^^^
+
+.. py:class:: GitHubSource(parent, name, props)
+
+   Source that is provided by a GitHub repository
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline.Source`
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline.GithubSourceProps`
+
+GithubSourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: GithubSourceProps
+
+   Construction properties of the {@link GitHubSource GitHub source action}
+
+
+
+
+   .. py:attribute:: artifactName
+
+      The name of the source's output artifact. Output artifacts are used by CodePipeline as inputs into other actions.
+
+
+      :type: string
+
+
+   .. py:attribute:: owner
+
+      The GitHub account/user that owns the repo.
+
+
+      :type: string
+
+
+   .. py:attribute:: repo
+
+      The name of the repo, without the username.
+
+
+      :type: string
+
+
+   .. py:attribute:: branch
+
+      The branch to use.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: oauthToken
+
+      A GitHub OAuth token to use for authentication.  It is recommended to use a `SecretParameter` to obtain the token from the SSM Parameter Store:       const oauth = new SecretParameter(this, 'GitHubOAuthToken', { ssmParameter: 'my-github-token });      new GitHubSource(stage, 'GH' { oauthToken: oauth });
+
+
+      :type: :py:class:`@aws-cdk/cdk.Secret`
+
+
+   .. py:attribute:: pollForSourceChanges
+
+      Whether or not AWS CodePipeline should poll for source changes
+
+
+      :type: boolean or undefined
+
+
+Pipeline
+^^^^^^^^
+
+.. py:class:: Pipeline(parent, name, [props])
+
+   An AWS CodePipeline pipeline with its associated IAM role and S3 bucket.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-events.IEventRuleTarget`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline.PipelineProps` or undefined
+
+   .. py:method:: addToRolePolicy(statement)
+
+      Adds a statement to the pipeline role.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines an event rule triggered by the "CodePipeline Pipeline Execution State Change" event emitted from this pipeline.
+
+
+      :param name: The name of the event rule construct. If you wish to define more than a single onStateChange event, you will need to explicitly specify a name.
+      :type name: string
+      :param target: Initial target to add to the event rule. You can also add targets and customize target inputs by calling `rule.addTarget(target[,      * options])` after the rule was created.
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: Additional options to pass to the event rule
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: validate() -> string[]
+
+      Validate the pipeline structure  Validation happens according to the rules documented at  https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#pipeline-requirements
+
+
+      :rtype: string
+
+
+   .. py:method:: addChild(child, name)
+
+      If a stage is added as a child, add it to the list of stages. TODO: This is a hack that should be removed once the CDK has an        onChildAdded type hook.
+
+
+      :param child: 
+      :type child: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: 
+      :type name: string
+
+
+   .. py:attribute:: role
+
+      The IAM role AWS CodePipeline will use to perform actions or assume roles for actions with a more specific IAM role.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` *(readonly)*
+
+
+   .. py:attribute:: pipelineArn
+
+      ARN of this pipeline
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.PipelineArn` *(readonly)*
+
+
+   .. py:attribute:: pipelineName
+
+      The name of the pipeline
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.PipelineName` *(readonly)*
+
+
+   .. py:attribute:: pipelineVersion
+
+      The version of the pipeline
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.PipelineVersion` *(readonly)*
+
+
+   .. py:attribute:: artifactBucket
+
+      Bucket used to store output artifacts
+
+
+      :type: :py:class:`@aws-cdk/aws-s3.BucketRef` *(readonly)*
+
+
+   .. py:attribute:: eventRuleTarget
+
+      Allows the pipeline to be used as a CloudWatch event rule target.  Usage:        const pipeline = new Pipeline(this, 'MyPipeline');       const rule = new EventRule(this, 'MyRule', { schedule: 'rate(1 minute)' });       rule.addTarget(pipeline);
+
+
+      :type: :py:class:`@aws-cdk/aws-events.EventRuleTargetProps` *(readonly)*
+
+
+PipelineArn
+^^^^^^^^^^^
+
+.. py:class:: PipelineArn([valueOrFunction])
+
+   The ARN of a pipeline
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+PipelineName
+^^^^^^^^^^^^
+
+.. py:class:: PipelineName([valueOrFunction])
+
+   The name of the pipeline.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+PipelineProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineProps
+
+
+
+   .. py:attribute:: artifactBucket
+
+      The S3 bucket used by this Pipeline to store artifacts. If not specified, a new S3 bucket will be created.
+
+
+      :type: :py:class:`@aws-cdk/aws-s3.BucketRef` or undefined
+
+
+   .. py:attribute:: restartExecutionOnUpdate
+
+      Indicates whether to rerun the AWS CodePipeline pipeline after you update it.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: pipelineName
+
+      Name of the pipeline. If you don't specify a name,  AWS CloudFormation generates an ID and uses that for the pipeline name.
+
+
+      :type: string or undefined
+
+
+PipelineVersion
+^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineVersion([valueOrFunction])
+
+   The pipeline version.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+Source
+^^^^^^
+
+.. py:class:: Source(parent, name, props)
+
+   Low level class for source actions. It is recommended that concrete types are used instead, such as {@link AmazonS3Source} or {@link codecommit.PipelineSource}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codepipeline.Action`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codepipeline.SourceProps`
+
+   .. py:attribute:: artifact
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.Artifact` *(readonly)*
+
+
+SourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SourceProps
+
+   Construction properties of the low level {@link Source source action}
+
+
+
+
+   .. py:attribute:: owner
+
+      The source action owner (could e "AWS", "ThirdParty" or "Custom")
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: version
+
+      The source action verison.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: artifactName
+
+      The name of the source's output artifact. Output artifacts are used by CodePipeline as inputs into other actions.
+
+
+      :type: string
+
+
+   .. py:attribute:: provider
+
+      The service provider that the action calls. For example, a valid provider for Source actions is S3.
+
+
+      :type: string
+
+
+   .. py:attribute:: configuration
+
+      The action's configuration. These are key-value pairs that specify input values for an action. For more information, see the AWS CodePipeline User Guide.  http://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements
+
+
+      :type: any or undefined
+
+
+Stage
+^^^^^
+
+.. py:class:: Stage(parent, name)
+
+   A stage in a pipeline. Stages are added to a pipeline by constructing a Stage with the pipeline as the first argument to the constructor.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`~@aws-cdk/aws-codepipeline.Pipeline`
+   :param name: 
+   :type name: string
+
+   .. py:method:: validate() -> string[]
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string
+
+
+   .. py:method:: render() -> @aws-cdk/aws-codepipeline.cloudformation.PipelineResource.StageDeclarationProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.StageDeclarationProperty`
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: addChild(child, name)
+
+      If an action is added as a child, add it to the list of actions. TODO: This is a hack that should be removed once the CDK has an        onChildAdded type hook.
+
+
+      :param child: 
+      :type child: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: 
+      :type name: string
+
+
+   .. py:attribute:: pipeline
+
+      The Pipeline this stage is a member of
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.Pipeline` *(readonly)*
+
+
+   .. py:attribute:: actions
+
+      Get a duplicate of this stage's list of actions.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codepipeline.Action` *(readonly)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-codepipeline.cloudformation
+
+CustomActionTypeResource
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: CustomActionTypeResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``CustomActionTypeResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``CustomActionTypeResource``
+   :type properties: :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.CustomActionTypeResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: ArtifactDetailsProperty
+
+
+
+      .. py:attribute:: maximumCount
+
+         ``CustomActionTypeResource.ArtifactDetailsProperty.MaximumCount``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-maximumcount
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: minimumCount
+
+         ``CustomActionTypeResource.ArtifactDetailsProperty.MinimumCount``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html#cfn-codepipeline-customactiontype-artifactdetails-minimumcount
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: ConfigurationPropertiesProperty
+
+
+
+      .. py:attribute:: description
+
+         ``CustomActionTypeResource.ConfigurationPropertiesProperty.Description``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-description
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: key
+
+         ``CustomActionTypeResource.ConfigurationPropertiesProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-key
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: name
+
+         ``CustomActionTypeResource.ConfigurationPropertiesProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: queryable
+
+         ``CustomActionTypeResource.ConfigurationPropertiesProperty.Queryable``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-queryable
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: required
+
+         ``CustomActionTypeResource.ConfigurationPropertiesProperty.Required``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-required
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: secret
+
+         ``CustomActionTypeResource.ConfigurationPropertiesProperty.Secret``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-secret
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: type
+
+         ``CustomActionTypeResource.ConfigurationPropertiesProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: SettingsProperty
+
+
+
+      .. py:attribute:: entityUrlTemplate
+
+         ``CustomActionTypeResource.SettingsProperty.EntityUrlTemplate``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-settings.html#cfn-codepipeline-customactiontype-settings-entityurltemplate
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: executionUrlTemplate
+
+         ``CustomActionTypeResource.SettingsProperty.ExecutionUrlTemplate``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-settings.html#cfn-codepipeline-customactiontype-settings-executionurltemplate
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: revisionUrlTemplate
+
+         ``CustomActionTypeResource.SettingsProperty.RevisionUrlTemplate``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-settings.html#cfn-codepipeline-customactiontype-settings-revisionurltemplate
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: thirdPartyConfigurationUrl
+
+         ``CustomActionTypeResource.SettingsProperty.ThirdPartyConfigurationUrl``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-settings.html#cfn-codepipeline-customactiontype-settings-thirdpartyconfigurationurl
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+CustomActionTypeResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: CustomActionTypeResourceProps
+
+
+
+   .. py:attribute:: category
+
+      ``AWS::CodePipeline::CustomActionType.Category``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-category
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: inputArtifactDetails
+
+      ``AWS::CodePipeline::CustomActionType.InputArtifactDetails``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-inputartifactdetails
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.CustomActionTypeResource.ArtifactDetailsProperty`
+
+
+   .. py:attribute:: outputArtifactDetails
+
+      ``AWS::CodePipeline::CustomActionType.OutputArtifactDetails``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-outputartifactdetails
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.CustomActionTypeResource.ArtifactDetailsProperty`
+
+
+   .. py:attribute:: provider
+
+      ``AWS::CodePipeline::CustomActionType.Provider``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-provider
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: configurationProperties
+
+      ``AWS::CodePipeline::CustomActionType.ConfigurationProperties``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-configurationproperties
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.CustomActionTypeResource.ConfigurationPropertiesProperty` or undefined
+
+
+   .. py:attribute:: settings
+
+      ``AWS::CodePipeline::CustomActionType.Settings``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-settings
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.CustomActionTypeResource.SettingsProperty` or undefined
+
+
+   .. py:attribute:: version
+
+      ``AWS::CodePipeline::CustomActionType.Version``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-version
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+PipelineResource
+~~~~~~~~~~~~~~~~
+
+.. py:class:: PipelineResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``PipelineResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``PipelineResource``
+   :type properties: :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: ActionDeclarationProperty
+
+
+
+      .. py:attribute:: actionTypeId
+
+         ``PipelineResource.ActionDeclarationProperty.ActionTypeId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-actiontypeid
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.ActionTypeIdProperty`
+
+
+      .. py:attribute:: configuration
+
+         ``PipelineResource.ActionDeclarationProperty.Configuration``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-configuration
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: inputArtifacts
+
+         ``PipelineResource.ActionDeclarationProperty.InputArtifacts``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-inputartifacts
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.InputArtifactProperty` or undefined
+
+
+      .. py:attribute:: name
+
+         ``PipelineResource.ActionDeclarationProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: outputArtifacts
+
+         ``PipelineResource.ActionDeclarationProperty.OutputArtifacts``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-outputartifacts
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.OutputArtifactProperty` or undefined
+
+
+      .. py:attribute:: roleArn
+
+         ``PipelineResource.ActionDeclarationProperty.RoleArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-rolearn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: runOrder
+
+         ``PipelineResource.ActionDeclarationProperty.RunOrder``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-runorder
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ActionTypeIdProperty
+
+
+
+      .. py:attribute:: category
+
+         ``PipelineResource.ActionTypeIdProperty.Category``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html#cfn-codepipeline-pipeline-stages-actions-actiontypeid-category
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: owner
+
+         ``PipelineResource.ActionTypeIdProperty.Owner``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html#cfn-codepipeline-pipeline-stages-actions-actiontypeid-owner
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: provider
+
+         ``PipelineResource.ActionTypeIdProperty.Provider``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html#cfn-codepipeline-pipeline-stages-actions-actiontypeid-provider
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: version
+
+         ``PipelineResource.ActionTypeIdProperty.Version``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html#cfn-codepipeline-pipeline-stages-actions-actiontypeid-version
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: ArtifactStoreProperty
+
+
+
+      .. py:attribute:: encryptionKey
+
+         ``PipelineResource.ArtifactStoreProperty.EncryptionKey``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-encryptionkey
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.EncryptionKeyProperty` or undefined
+
+
+      .. py:attribute:: location
+
+         ``PipelineResource.ArtifactStoreProperty.Location``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-location
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: type
+
+         ``PipelineResource.ArtifactStoreProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html#cfn-codepipeline-pipeline-artifactstore-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: BlockerDeclarationProperty
+
+
+
+      .. py:attribute:: name
+
+         ``PipelineResource.BlockerDeclarationProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html#cfn-codepipeline-pipeline-stages-blockers-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: type
+
+         ``PipelineResource.BlockerDeclarationProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html#cfn-codepipeline-pipeline-stages-blockers-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: EncryptionKeyProperty
+
+
+
+      .. py:attribute:: id
+
+         ``PipelineResource.EncryptionKeyProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html#cfn-codepipeline-pipeline-artifactstore-encryptionkey-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: type
+
+         ``PipelineResource.EncryptionKeyProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html#cfn-codepipeline-pipeline-artifactstore-encryptionkey-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: InputArtifactProperty
+
+
+
+      .. py:attribute:: name
+
+         ``PipelineResource.InputArtifactProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-inputartifacts.html#cfn-codepipeline-pipeline-stages-actions-inputartifacts-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: OutputArtifactProperty
+
+
+
+      .. py:attribute:: name
+
+         ``PipelineResource.OutputArtifactProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-outputartifacts.html#cfn-codepipeline-pipeline-stages-actions-outputartifacts-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: StageDeclarationProperty
+
+
+
+      .. py:attribute:: actions
+
+         ``PipelineResource.StageDeclarationProperty.Actions``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-actions
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.ActionDeclarationProperty` or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: blockers
+
+         ``PipelineResource.StageDeclarationProperty.Blockers``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-blockers
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.BlockerDeclarationProperty` or undefined
+
+
+      .. py:attribute:: name
+
+         ``PipelineResource.StageDeclarationProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: StageTransitionProperty
+
+
+
+      .. py:attribute:: reason
+
+         ``PipelineResource.StageTransitionProperty.Reason``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html#cfn-codepipeline-pipeline-disableinboundstagetransitions-reason
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: stageName
+
+         ``PipelineResource.StageTransitionProperty.StageName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html#cfn-codepipeline-pipeline-disableinboundstagetransitions-stagename
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+PipelineResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PipelineResourceProps
+
+
+
+   .. py:attribute:: artifactStore
+
+      ``AWS::CodePipeline::Pipeline.ArtifactStore``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstore
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.ArtifactStoreProperty`
+
+
+   .. py:attribute:: roleArn
+
+      ``AWS::CodePipeline::Pipeline.RoleArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-rolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: stages
+
+      ``AWS::CodePipeline::Pipeline.Stages``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-stages
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.StageDeclarationProperty`
+
+
+   .. py:attribute:: disableInboundStageTransitions
+
+      ``AWS::CodePipeline::Pipeline.DisableInboundStageTransitions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-disableinboundstagetransitions
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codepipeline.cloudformation.PipelineResource.StageTransitionProperty` or undefined
+
+
+   .. py:attribute:: pipelineName
+
+      ``AWS::CodePipeline::Pipeline.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: restartExecutionOnUpdate
+
+      ``AWS::CodePipeline::Pipeline.RestartExecutionOnUpdate``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-restartexecutiononupdate
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-codepipeline
+

@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AWS Construct Library &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AWS CloudFormation Library" href="cloudformation.html" />
+    <link rel="prev" title="Applets" href="applets.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">AWS Construct Library</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#least-privilege-iam-policies">Least-Privilege IAM Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-driven-apis">Event-Driven APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#security-groups">Security Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#metrics">Metrics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imports">Imports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#access-the-aws-cloudformation-layer">Access the AWS CloudFormation Layer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#accessing-low-level-resources">Accessing Low-level Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-options">Resource Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overriding-resource-properties">Overriding Resource Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#raw-overrides">Raw Overrides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directly-defining-cloudformation-resources">Directly Defining CloudFormation Resources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>AWS Construct Library</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/aws-construct-lib.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-construct-library">
+<span id="aws-construct-lib"></span><h1>AWS Construct Library<a class="headerlink" href="#aws-construct-library" title="Permalink to this headline">¶</a></h1>
+<p>The AWS Construct Library is a set of modules which expose a rich API for
+defining AWS resources in CDK apps. The AWS Construct Library is organized to
+modules based on the AWS service the resource belongs to. For example, the
+<a class="reference internal" href="refs/_aws-cdk_aws-ec2.html#module-&#64;aws-cdk/aws-ec2" title="&#64;aws-cdk/aws-ec2"><code class="xref py py-mod docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-ec2</span></code></a> module includes the <cite>&#64;aws-cdk/aws-ec2.VpcNetwork</cite>
+construct which makes it easy to define an <a class="reference external" href="https://aws.amazon.com/vpc">Amazon VPC</a> in your CDK app.</p>
+<p>The AWS Construct Library includes many common patterns and capabilities which
+are designed to allow developers to focus on their application-specific
+architectures and reduces the boilerplate and glue logic needed when working
+with AWS.</p>
+<div class="section" id="least-privilege-iam-policies">
+<span id="least-privilege"></span><h2>Least-Privilege IAM Policies<a class="headerlink" href="#least-privilege-iam-policies" title="Permalink to this headline">¶</a></h2>
+<p>IAM policies are automatically defined based on intent. For example, when
+subscribing an AWS SNS <a class="reference internal" href="refs/_aws-cdk_aws-sns.html#&#64;aws-cdk/aws-sns.Topic" title="&#64;aws-cdk/aws-sns.Topic"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topic</span></code></a> to a AWS Lambda
+<a class="reference internal" href="refs/_aws-cdk_aws-lambda.html#&#64;aws-cdk/aws-lambda.Function" title="&#64;aws-cdk/aws-lambda.Function"><code class="xref py py-class docutils literal notranslate"><span class="pre">Function</span></code></a>, the function’s IAM permission
+policy will automatically be modified to allow the specific topic to invoke the
+function.</p>
+<p>Furthermore, most AWS Constructs expose <code class="docutils literal notranslate"><span class="pre">grant*</span></code> methods which allow
+intent-based permission definitions. For example, the AWS S3 <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">Bucket</span></code></a>
+construct has a <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef.grantRead" title="&#64;aws-cdk/aws-s3.BucketRef.grantRead"><code class="xref py py-meth docutils literal notranslate"><span class="pre">grantRead(principal)</span></code></a>
+method which accepts an AWS IAM <a class="reference internal" href="refs/_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IPrincipal" title="&#64;aws-cdk/aws-iam.IPrincipal"><code class="xref py py-class docutils literal notranslate"><span class="pre">Principal</span></code></a>
+such as a <a class="reference internal" href="refs/_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.User" title="&#64;aws-cdk/aws-iam.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a> or a <a class="reference internal" href="refs/_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.Role" title="&#64;aws-cdk/aws-iam.Role"><code class="xref py py-class docutils literal notranslate"><span class="pre">Role</span></code></a>,
+and will modify their policy to allow the principal to read objects from the bucket.</p>
+</div>
+<div class="section" id="event-driven-apis">
+<span id="id1"></span><h2>Event-Driven APIs<a class="headerlink" href="#event-driven-apis" title="Permalink to this headline">¶</a></h2>
+<p>Many of the AWS constructs include <code class="docutils literal notranslate"><span class="pre">on*</span></code> methods which can be used to react
+to events emitted by the construct. For example, the AWS CodeCommit
+<a class="reference internal" href="refs/_aws-cdk_aws-codecommit.html#&#64;aws-cdk/aws-codecommit.Repository" title="&#64;aws-cdk/aws-codecommit.Repository"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Repository</span></code></a> construct has an
+<a class="reference internal" href="refs/_aws-cdk_aws-codecommit.html#&#64;aws-cdk/aws-codecommit.RepositoryRef.onCommit" title="&#64;aws-cdk/aws-codecommit.RepositoryRef.onCommit"><code class="xref py py-meth docutils literal notranslate"><span class="pre">onCommit</span></code></a> method.</p>
+<p>AWS Constructs that can be used as targets for various event providers implement
+interfaces such as <a class="reference internal" href="refs/_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IEventRuleTarget</span></code></a>
+(for AWS CloudWatch Event Rule target),
+<a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.IAlarmAction" title="&#64;aws-cdk/aws-cloudwatch.IAlarmAction"><code class="xref py py-mod docutils literal notranslate"><span class="pre">IAlarmAction</span></code></a>
+(for AWS CloudWatch Alarm actions), etc.</p>
+<p>For more information see the <a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html"><span class="doc">&#64;aws-cdk/aws-cloudwatch</span></a> and <a class="reference internal" href="refs/_aws-cdk_aws-events.html"><span class="doc">&#64;aws-cdk/aws-events</span></a>
+documentation.</p>
+</div>
+<div class="section" id="security-groups">
+<span id="id2"></span><h2>Security Groups<a class="headerlink" href="#security-groups" title="Permalink to this headline">¶</a></h2>
+<p>EC2 network entities such as the <code class="xref py py-mod docutils literal notranslate"><span class="pre">Elastic</span> <span class="pre">Load</span> <span class="pre">Balancer</span> <span class="pre">&lt;&#64;aws-cdk/aws-ec2.ElasticLoadBalancer</span></code>
+and <code class="xref py py-mod docutils literal notranslate"><span class="pre">AutoScalingGroup</span></code> instances can connect to each other
+based on definitions of security groups.</p>
+<p>The AWS CDK provides a rich API for defining security group connections. For more information,
+see <strong>Allowing Connections</strong> in the <a class="reference internal" href="refs/_aws-cdk_aws-ec2.html"><span class="doc">&#64;aws-cdk/aws-ec2</span></a> documentation.</p>
+</div>
+<div class="section" id="metrics">
+<span id="id3"></span><h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<p>Many AWS resources emit AWS CloudWatch metrics as part of their normal operation. Metrics can
+be used to setup <a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Alarm" title="&#64;aws-cdk/aws-cloudwatch.Alarm"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Alarms</span></code></a> or included in <a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Dashboard" title="&#64;aws-cdk/aws-cloudwatch.Dashboard"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Dashboards</span></code></a>.</p>
+<p><a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Metric" title="&#64;aws-cdk/aws-cloudwatch.Metric"><code class="xref py py-mod docutils literal notranslate"><span class="pre">Metric</span></code></a> objects for AWS Constructs can be obtained
+via <code class="docutils literal notranslate"><span class="pre">metricXxx()</span></code> methods. For example, the <a class="reference internal" href="refs/_aws-cdk_aws-lambda.html#&#64;aws-cdk/aws-lambda.FunctionRef.metricDuration" title="&#64;aws-cdk/aws-lambda.FunctionRef.metricDuration"><code class="xref py py-meth docutils literal notranslate"><span class="pre">metricDuration()</span></code></a>
+method reports the execution time of an AWS Lambda function.</p>
+<p>For more information see the <a class="reference internal" href="refs/_aws-cdk_aws-cloudwatch.html"><span class="doc">&#64;aws-cdk/aws-cloudwatch</span></a> documentation.</p>
+</div>
+<div class="section" id="imports">
+<span id="import"></span><h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<p>If you need to reference a resource which is defined outside of your CDK app (e.g. a bucket, a VPC, etc),
+you can use the <code class="docutils literal notranslate"><span class="pre">Xxxx.import(...)</span></code> static methods which are available on AWS Constructs. For example,
+the <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef.import" title="&#64;aws-cdk/aws-s3.BucketRef.import"><code class="xref py py-meth docutils literal notranslate"><span class="pre">Bucket.import()</span></code></a> method can be used to obtain
+a <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef" title="&#64;aws-cdk/aws-s3.BucketRef"><code class="xref py py-mod docutils literal notranslate"><span class="pre">BucketRef</span></code></a> object which can be used in most places where
+a bucket is required. This patterns allows treating resources defined outside your app as if they
+were part of your app.</p>
+</div>
+<div class="section" id="access-the-aws-cloudformation-layer">
+<span id="cloudformation-layer"></span><h2>Access the AWS CloudFormation Layer<a class="headerlink" href="#access-the-aws-cloudformation-layer" title="Permalink to this headline">¶</a></h2>
+<p>This topic discusses ways to directly modify the underlying CloudFormation
+resources at the AWS Construct Library. We also call this technique an “escape
+hatch”, as it allows users to “escape” from the abstraction boundary defined by
+the AWS Construct and patch the underlying resources.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p><strong>We do not recommend this method, as it breaks the abstraction layer and
+might produce unexpected results</strong>.</p>
+<p class="last">Furthermore, the internal implementation of an AWS construct is not part of
+the API compatibility guarantees that we can make. This means that updates to
+the construct library may break your code without a major version bump.</p>
+</div>
+<p>AWS constructs, such as <a class="reference internal" href="refs/_aws-cdk_aws-sns.html#&#64;aws-cdk/aws-sns.Topic" title="&#64;aws-cdk/aws-sns.Topic"><code class="xref py py-class docutils literal notranslate"><span class="pre">Topic</span></code></a>, encapsulate
+one or more AWS CloudFormation resources behind their APIs. These resources are
+also represented as constructs under the <code class="docutils literal notranslate"><span class="pre">cloudformation</span></code> namespace in each
+library. For example, the <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.Bucket" title="&#64;aws-cdk/aws-s3.Bucket"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3.Bucket</span></code></a> construct
+encapsulates the <a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.cloudformation.BucketResource" title="&#64;aws-cdk/aws-s3.cloudformation.BucketResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3.cloudformation.BucketResource</span></code></a>. When
+a stack that includes an AWS construct is synthesized, the CloudFormation
+definition of the underlying resources are included in the resulting template.</p>
+<p>Eventually, the APIs provided by AWS constructs are expected to support all the
+services and capabilities offered by AWS, but we are aware that the library
+still has many gaps both at the service level (some services don’t have any
+constructs yet) and at the resource level (an AWS construct exists, but some
+features are missing).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you encounter a missing capability in the AWS Construct Library, whether
+it is an entire library, a specific resource or a feature,
+<a class="reference external" href="https://github.com/awslabs/aws-cdk/issues/new">raise an issue</a> on GitHub,
+and letting us know.</p>
+</div>
+<p>This topic covers the following use cases:</p>
+<ul class="simple">
+<li>How to access the low-level CloudFormation resources encapsulated by an AWS construct</li>
+<li>How to specify resource options such as metadata, dependencies on resources</li>
+<li>How to add overrides to a CloudFormation resource and property definitions</li>
+<li>How to directly define low-level CloudFormation resources without an AWS construct</li>
+</ul>
+<p>You can also find more information on how to work directly with the AWS
+CloudFormation layer under <a class="reference internal" href="cloudformation.html"><span class="doc">AWS CloudFormation Library</span></a>.</p>
+<div class="section" id="accessing-low-level-resources">
+<h3>Accessing Low-level Resources<a class="headerlink" href="#accessing-low-level-resources" title="Permalink to this headline">¶</a></h3>
+<p>You can use <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.findChild" title="&#64;aws-cdk/cdk.Construct.findChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct.findChild(id)</span></code></a>
+to access any child of this construct by its construct ID. By convention, the “main”
+resource of any AWS Construct is called <code class="docutils literal notranslate"><span class="pre">&quot;Resource&quot;</span></code>.</p>
+<p>The following example shows how to access the underlying S3 bucket resource
+given an <code class="xref py py-class docutils literal notranslate"><span class="pre">s3.Bucket</span></code> construct:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// let&#39;s create an AWS bucket construct</span>
+<span class="kr">const</span> <span class="nx">bucket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyBucket&#39;</span><span class="p">);</span>
+
+<span class="c1">// we use our knowledge that the main construct is called &quot;Resource&quot; and</span>
+<span class="c1">// that it&#39;s actual type is s3.cloudformation.BucketResource; const</span>
+<span class="kr">const</span> <span class="nx">bucketResource</span> <span class="o">=</span> <span class="nx">bucket</span><span class="p">.</span><span class="nx">findResource</span><span class="p">(</span><span class="s1">&#39;Resource&#39;</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">cloudformation</span><span class="p">.</span><span class="nx">BucketResource</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>At this point, <code class="docutils literal notranslate"><span class="pre">bucketResource</span></code> represents the low-level CloudFormation resource of type
+<a class="reference internal" href="refs/_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.cloudformation.BucketResource" title="&#64;aws-cdk/aws-s3.cloudformation.BucketResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">s3.cloudformation.BucketResource</span></code></a>
+encapsulated by our bucket.</p>
+<p><a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.findChild" title="&#64;aws-cdk/cdk.Construct.findChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct.findChild(id)</span></code></a> will fail
+if the child could not be located, which means that if the underlying AWS Construct Library changes
+the IDs or structure for some reason, synthesis fails.</p>
+<p>It is also possible to use <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.children" title="&#64;aws-cdk/cdk.Construct.children"><code class="xref py py-meth docutils literal notranslate"><span class="pre">construct.children</span></code></a> for more
+advanced queries. For example, we can look for a child that has a certain CloudFormation resource
+type:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">bucketResource</span> <span class="o">=</span>
+   <span class="nx">bucket</span><span class="p">.</span><span class="nx">children</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">c</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">c</span> <span class="kr">as</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Resource</span><span class="p">).</span><span class="nx">resourceType</span> <span class="o">===</span> <span class="s1">&#39;AWS::S3::Bucket&#39;</span><span class="p">)</span>
+   <span class="kr">as</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">cloudformation</span><span class="p">.</span><span class="nx">BucketResource</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>From that point, users are interacting with CloudFormation resource classes
+(which extend <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">cdk.Resource</span></code></a>), so we will look
+into how to use their APIs in order to modify the behavior of the AWS construct
+at hand.</p>
+</div>
+<div class="section" id="resource-options">
+<h3>Resource Options<a class="headerlink" href="#resource-options" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">cdk.Resource</span></code></a> has a few facilities for
+setting resource options such as <code class="docutils literal notranslate"><span class="pre">Metadata</span></code>, <code class="docutils literal notranslate"><span class="pre">DependsOn</span></code>, etc.</p>
+<p>For example, this code:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">bucketResource</span> <span class="o">=</span> <span class="nx">bucket</span><span class="p">.</span><span class="nx">findChild</span><span class="p">(</span><span class="s1">&#39;Resource&#39;</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">cloudformation</span><span class="p">.</span><span class="nx">BucketResource</span><span class="p">;</span>
+
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">metadata</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">MetadataKey</span><span class="o">:</span> <span class="s1">&#39;MetadataValue&#39;</span> <span class="p">};</span>
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">updatePolicy</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="nx">autoScalingRollingUpdate</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">pauseTime</span><span class="o">:</span> <span class="s1">&#39;390&#39;</span>
+   <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">addDependency</span><span class="p">(</span><span class="nx">otherBucket</span><span class="p">.</span><span class="nx">findChild</span><span class="p">(</span><span class="s1">&#39;Resource&#39;</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Resource</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Synthesizes the following template:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS::S3::Bucket&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;DependsOn&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;Other34654A52&quot;</span> <span class="p">],</span>
+   <span class="nt">&quot;UpdatePolicy&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;AutoScalingRollingUpdate&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;PauseTime&quot;</span><span class="p">:</span> <span class="s2">&quot;390&quot;</span>
+      <span class="p">}</span>
+   <span class="p">},</span>
+   <span class="nt">&quot;Metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;MetadataKey&quot;</span><span class="p">:</span> <span class="s2">&quot;MetadataValue&quot;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="overriding-resource-properties">
+<h3>Overriding Resource Properties<a class="headerlink" href="#overriding-resource-properties" title="Permalink to this headline">¶</a></h3>
+<p>Each low-level resource in the CDK has a strongly-typed property called
+<code class="docutils literal notranslate"><span class="pre">propertyOverrides</span></code>. It allows users to apply overrides that adhere to the
+CloudFormation schema of the resource, and use code-completion and
+type-checking.</p>
+<p>You will normally use this mechanism when a certain feature is available at the
+CloudFormation layer but is not exposed by the AWS Construct.</p>
+<p>The following example sets a bucket’s analytics configuration:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="nx">bucketResource</span><span class="p">.</span><span class="nx">propertyOverrides</span><span class="p">.</span><span class="nx">analyticsConfigurations</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">{</span>
+         <span class="nx">id</span><span class="o">:</span> <span class="s1">&#39;config1&#39;</span><span class="p">,</span>
+         <span class="nx">storageClassAnalysis</span><span class="o">:</span> <span class="p">{</span>
+            <span class="nx">dataExport</span><span class="o">:</span> <span class="p">{</span>
+               <span class="nx">outputSchemaVersion</span><span class="o">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
+               <span class="nx">destination</span><span class="o">:</span> <span class="p">{</span>
+                     <span class="nx">format</span><span class="o">:</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span>
+                     <span class="nx">bucketArn</span>: <span class="kt">otherBucket.bucketArn</span> <span class="c1">// use tokens freely</span>
+               <span class="p">}</span>
+            <span class="p">}</span>
+         <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="raw-overrides">
+<h3>Raw Overrides<a class="headerlink" href="#raw-overrides" title="Permalink to this headline">¶</a></h3>
+<p>In cases the strongly-typed overrides are not sufficient, or, for example, if
+the schema defined in CloudFormation is not up-to-date, the method
+<a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource.addOverride" title="&#64;aws-cdk/cdk.Resource.addOverride"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cdk.Resource.addOverride(path,</span> <span class="pre">value)</span></code></a>
+can be used to define an override that will by applied to the resource
+definition during synthesis.</p>
+<p>For example:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="c1">// define an override at the resource definition root, you can even modify the &quot;Type&quot;</span>
+<span class="c1">// of the resource if needed.</span>
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">addOverride</span><span class="p">(</span><span class="s1">&#39;Type&#39;</span><span class="p">,</span> <span class="s1">&#39;AWS::S3::SpecialBucket&#39;</span><span class="p">);</span>
+
+<span class="c1">// define an override for a property (both are equivalent operations):</span>
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">addPropertyOverride</span><span class="p">(</span><span class="s1">&#39;VersioningConfiguration.Status&#39;</span><span class="p">,</span> <span class="s1">&#39;NewStatus&#39;</span><span class="p">);</span>
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">addOverride</span><span class="p">(</span><span class="s1">&#39;Properties.VersioningConfiguration.Status&#39;</span><span class="p">,</span> <span class="s1">&#39;NewStatus&#39;</span><span class="p">);</span>
+
+<span class="c1">// use dot-notation to define overrides in complex structures which will be merged</span>
+<span class="c1">// with the values set by the higher-level construct</span>
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">addPropertyOverride</span><span class="p">(</span><span class="s1">&#39;LoggingConfiguration.DestinationBucketName&#39;</span><span class="p">,</span> <span class="nx">otherBucket</span><span class="p">.</span><span class="nx">bucketName</span><span class="p">);</span>
+
+<span class="c1">// it is also possible to assign a `null` value</span>
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">addPropertyOverride</span><span class="p">(</span><span class="s1">&#39;Foo.Bar&#39;</span><span class="p">,</span> <span class="kc">null</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Synthesizes to:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;AWS::S3::SpecialBucket&quot;</span><span class="p">,</span>
+   <span class="nt">&quot;Properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;Foo&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">&quot;Bar&quot;</span><span class="p">:</span> <span class="kc">null</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;VersioningConfiguration&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">&quot;Status&quot;</span><span class="p">:</span> <span class="s2">&quot;NewStatus&quot;</span>
+      <span class="p">},</span>
+      <span class="nt">&quot;LoggingConfiguration&quot;</span><span class="p">:</span> <span class="p">{</span>
+         <span class="nt">&quot;DestinationBucketName&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;Ref&quot;</span><span class="p">:</span> <span class="s2">&quot;Other34654A52&quot;</span>
+         <span class="p">}</span>
+     <span class="p">}</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">undefined</span></code>, <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource.addDeletionOverride" title="&#64;aws-cdk/cdk.Resource.addDeletionOverride"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cdk.Resource.addDeletionOverride</span></code></a>
+or <a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource.addPropertyDeletionOverride" title="&#64;aws-cdk/cdk.Resource.addPropertyDeletionOverride"><code class="xref py py-meth docutils literal notranslate"><span class="pre">cdk.Resource.addPropertyDeletionOverride</span></code></a>
+to delete values:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">bucket</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">Bucket</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyBucket&#39;</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">versioned</span>: <span class="kt">true</span><span class="p">,</span>
+   <span class="nx">encryption</span>: <span class="kt">s3.BucketEncryption.KmsManaged</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">bucketResource</span> <span class="o">=</span> <span class="nx">bucket</span><span class="p">.</span><span class="nx">findChild</span><span class="p">(</span><span class="s1">&#39;Resource&#39;</span><span class="p">)</span> <span class="kr">as</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">cloudformation</span><span class="p">.</span><span class="nx">BucketResource</span><span class="p">;</span>
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">addPropertyOverride</span><span class="p">(</span><span class="s1">&#39;BucketEncryption.ServerSideEncryptionConfiguration.0.EncryptEverythingAndAlways&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+<span class="nx">bucketResource</span><span class="p">.</span><span class="nx">addPropertyDeletionOverride</span><span class="p">(</span><span class="s1">&#39;BucketEncryption.ServerSideEncryptionConfiguration.0.ServerSideEncryptionByDefault&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Synthesizes to:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span>&quot;MyBucketF68F3FF0&quot;: {
+   &quot;Type&quot;: &quot;AWS::S3::Bucket&quot;,
+   &quot;Properties&quot;: {
+      &quot;BucketEncryption&quot;: {
+         &quot;ServerSideEncryptionConfiguration&quot;: [
+            {
+               &quot;EncryptEverythingAndAlways&quot;: true
+            }
+         ]
+      },
+      &quot;VersioningConfiguration&quot;: {
+         &quot;Status&quot;: &quot;Enabled&quot;
+      }
+   }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="directly-defining-cloudformation-resources">
+<h3>Directly Defining CloudFormation Resources<a class="headerlink" href="#directly-defining-cloudformation-resources" title="Permalink to this headline">¶</a></h3>
+<p>It is also possible to explicitly define CloudFormation resources in your stack.
+To that end, instantiate one of the constructs under the <code class="docutils literal notranslate"><span class="pre">cloudformation</span></code>
+namespace of the dedicated library.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">s3</span><span class="p">.</span><span class="nx">cloudformation</span><span class="p">.</span><span class="nx">BucketResource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyBucket&#39;</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">analyticsConfigurations</span><span class="o">:</span> <span class="p">[</span>
+      <span class="c1">// ...</span>
+   <span class="p">]</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>In the rare case where you want to define a resource that doesn’t have a
+corresponding <code class="docutils literal notranslate"><span class="pre">cloudformation</span></code> class (such as a new resource that was not yet
+published in the CloudFormation resource specification), you can instantiate the
+<a class="reference internal" href="refs/_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">cdk.Resource</span></code></a> object:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Resource</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyBucket&#39;</span><span class="p">,</span> <span class="p">{</span>
+   <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;AWS::S3::Bucket&#39;</span><span class="p">,</span>
+   <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">AnalyticsConfiguration</span><span class="o">:</span> <span class="p">[</span> <span class="cm">/* ... */</span> <span class="p">]</span> <span class="c1">// note the PascalCase here</span>
+   <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloudformation.html" class="btn btn-neutral float-right" title="AWS CloudFormation Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="applets.html" class="btn btn-neutral" title="Applets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.10.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

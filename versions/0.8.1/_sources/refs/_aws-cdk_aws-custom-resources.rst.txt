@@ -1,0 +1,314 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"58DJTmaB+SvZVEouSSsCXbPHq06zYg8MKAiTRweE+n8="}
+
+@aws-cdk/aws-custom-resources
+=============================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/custom-resources/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:custom-resources:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="custom-resources" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>custom-resources</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:custom-resources:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='custom-resources', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-custom-resources/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-custom-resources@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-custom-resources": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-custom-resources@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-custom-resources/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-custom-resources@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-custom-resources": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-custom-resources@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-custom-resources.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-custom-resources
+
+CustomResource
+^^^^^^^^^^^^^^
+
+.. py:class:: CustomResource(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.customresources.CustomResource;
+
+      .. code-tab:: javascript
+
+         const { CustomResource } = require('@aws-cdk/aws-custom-resources');
+
+      .. code-tab:: typescript
+
+         import { CustomResource } from '@aws-cdk/aws-custom-resources';
+
+
+
+   Custom resource that is implemented using a Lambda  As a custom resource author, you should be publishing a subclass of this class that hides the choice of provider, and accepts a strongly-typed properties object with the properties your provider accepts.
+
+
+   :extends: :py:class:`@aws-cdk/aws-cloudformation.cloudformation.CustomResource`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-custom-resources.CustomResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      Override renderProperties to mix in the user-defined properties
+
+
+      :rtype: any
+
+
+CustomResourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CustomResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.customresources.CustomResourceProps;
+
+      .. code-tab:: javascript
+
+         // CustomResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CustomResourceProps } from '@aws-cdk/aws-custom-resources';
+
+
+
+   Properties to provide a Lambda-backed custom resource
+
+
+
+
+   .. py:attribute:: lambdaProvider
+
+      The Lambda provider that implements this custom resource.  We recommend using a SingletonLambda for this.  Optional, exactly one of lamdaProvider or topicProvider must be set.
+
+
+      :type: :py:class:`@aws-cdk/aws-lambda.LambdaRef` or undefined
+
+
+   .. py:attribute:: topicProvider
+
+      The SNS Topic for the provider that implements this custom resource.  Optional, exactly one of lamdaProvider or topicProvider must be set.
+
+
+      :type: :py:class:`@aws-cdk/aws-sns.TopicRef` or undefined
+
+
+   .. py:attribute:: properties
+
+      Properties to pass to the Lambda
+
+
+      :type: any or undefined
+
+
+SingletonLambda
+^^^^^^^^^^^^^^^
+
+.. py:class:: SingletonLambda(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.customresources.SingletonLambda;
+
+      .. code-tab:: javascript
+
+         const { SingletonLambda } = require('@aws-cdk/aws-custom-resources');
+
+      .. code-tab:: typescript
+
+         import { SingletonLambda } from '@aws-cdk/aws-custom-resources';
+
+
+
+   A Lambda that will only ever be added to a stack once.  The lambda is identified using the value of 'uuid'. Run 'uuidgen' for every SingletonLambda you create.
+
+
+   :extends: :py:class:`@aws-cdk/aws-lambda.LambdaRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-custom-resources.SingletonLambdaProps`
+
+   .. py:method:: addPermission(name, permission)
+
+      Adds a permission to the Lambda resource policy.
+
+
+      :param name: 
+      :type name: string
+      :param permission: 
+      :type permission: :py:class:`@aws-cdk/aws-lambda.LambdaPermission`
+
+
+   .. py:attribute:: functionName
+
+      The name of the function.
+
+
+      :type: :py:class:`@aws-cdk/aws-lambda.FunctionName` *(readonly)*
+
+
+   .. py:attribute:: functionArn
+
+      The ARN fo the function.
+
+
+      :type: :py:class:`@aws-cdk/aws-lambda.FunctionArn` *(readonly)*
+
+
+   .. py:attribute:: role
+
+      The IAM role associated with this function.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined *(readonly)*
+
+
+   .. py:attribute:: canCreatePermissions
+
+      Whether the addPermission() call adds any permissions  True for new Lambdas, false for imported Lambdas (they might live in different accounts).
+
+
+      :type: boolean *(readonly)*
+
+
+SingletonLambdaProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SingletonLambdaProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.customresources.SingletonLambdaProps;
+
+      .. code-tab:: javascript
+
+         // SingletonLambdaProps is an interface
+
+      .. code-tab:: typescript
+
+         import { SingletonLambdaProps } from '@aws-cdk/aws-custom-resources';
+
+
+
+   Properties for a newly created singleton Lambda
+
+
+   :extends: :py:class:`@aws-cdk/aws-lambda.LambdaProps`
+
+
+   .. py:attribute:: uuid
+
+      A unique identifier to identify this lambda  The identifier should be unique across all custom resource providers. We recommend generating a UUID per provider.
+
+
+      :type: string
+
+

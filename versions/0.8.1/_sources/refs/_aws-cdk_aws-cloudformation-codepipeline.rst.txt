@@ -1,0 +1,646 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"gjh0B3Onc/93unXP4Y6DZjZOQl0q4NgbsXKCpxcSHGY="}
+
+@aws-cdk/aws-cloudformation-codepipeline
+========================================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/cloudformation-codepipeline/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:cloudformation-codepipeline:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="cloudformation-codepipeline" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>cloudformation-codepipeline</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:cloudformation-codepipeline:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='cloudformation-codepipeline', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-cloudformation-codepipeline/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-cloudformation-codepipeline@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-cloudformation-codepipeline": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-cloudformation-codepipeline@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-cloudformation-codepipeline/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-cloudformation-codepipeline@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-cloudformation-codepipeline": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-cloudformation-codepipeline@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-cloudformation-codepipeline.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-cloudformation-codepipeline
+
+CloudFormationAction
+^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationAction(parent, id, props, [configuration])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationAction;
+
+      .. code-tab:: javascript
+
+         const { CloudFormationAction } = require('@aws-cdk/aws-cloudformation-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { CloudFormationAction } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Base class for Actions that execute CloudFormation
+
+
+   :extends: :py:class:`@aws-cdk/aws-codepipeline.DeployAction`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps`
+   :param configuration: 
+   :type configuration: any or undefined
+
+   .. py:attribute:: artifact
+
+      Output artifact containing the CloudFormation call response  Only present if configured by passing `outputFileName`.
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline.Artifact` or undefined
+
+
+CloudFormationCapabilities (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationCapabilities
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationCapabilities;
+
+      .. code-tab:: javascript
+
+         const { CloudFormationCapabilities } = require('@aws-cdk/aws-cloudformation-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { CloudFormationCapabilities } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Capabilities that affect whether CloudFormation is allowed to change IAM resources
+
+
+   .. py:data:: IAM
+
+   .. py:data:: NamedIAM
+
+
+CloudFormationCommonProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationCommonProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationCommonProps;
+
+      .. code-tab:: javascript
+
+         // CloudFormationCommonProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CloudFormationCommonProps } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Properties common to all CloudFormation actions
+
+
+
+
+   .. py:attribute:: stackName
+
+      The name of the stack to apply this action to
+
+
+      :type: string
+
+
+   .. py:attribute:: outputFileName
+
+      A name for the filename in the output artifact to store the AWS CloudFormation call's result.  The file will contain the result of the call to AWS CloudFormation (for example the call to UpdateStack or CreateChangeSet).  AWS CodePipeline adds the file to the output artifact after performing the specified action.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: outputArtifactName
+
+      The name of the output artifact to generate  Only applied if `outputFileName` is set as well.
+
+
+      :type: string or undefined
+
+
+CloudFormationDeploymentAction
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationDeploymentAction(parent, id, props, configuration)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationDeploymentAction;
+
+      .. code-tab:: javascript
+
+         const { CloudFormationDeploymentAction } = require('@aws-cdk/aws-cloudformation-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { CloudFormationDeploymentAction } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Base class for all CloudFormation actions that execute or stage deployments.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction`
+   :abstract: Yes
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps`
+   :param configuration: 
+   :type configuration: any
+
+   .. py:method:: addToRolePolicy(statement)
+
+      Add statement to the service role assumed by CloudFormation while executing this action.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:attribute:: role
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` *(readonly)*
+
+
+CloudFormationDeploymentActionCommonProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFormationDeploymentActionCommonProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CloudFormationDeploymentActionCommonProps;
+
+      .. code-tab:: javascript
+
+         // CloudFormationDeploymentActionCommonProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CloudFormationDeploymentActionCommonProps } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Properties common to CloudFormation actions that stage deployments
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps`
+
+
+   .. py:attribute:: role
+
+      IAM role to assume when deploying changes.  If not specified, a fresh role is created. The role is created with zero permissions unless `trustTemplate` is true, in which case the role will have full permissions.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined
+
+
+   .. py:attribute:: capabilities
+
+      Acknowledge certain changes made as part of deployment  For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation might create or update those resources. For example, you must specify CAPABILITY_IAM if your stack template contains AWS Identity and Access Management (IAM) resources. For more information, see [Acknowledging IAM Resources in AWS CloudFormation Templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities).
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCapabilities` or undefined
+
+
+   .. py:attribute:: fullPermissions
+
+      Whether to grant full permissions to CloudFormation while deploying this template.  Setting this to `true` affects the defaults for `role` and `capabilities`, if you don't specify any alternatives.  The default role that will be created for you will have full (i.e., `*`) permissions on all resources, and the deployment will have named IAM capabilities (i.e., able to create all IAM resources).  This is a shorthand that you can use if you fully trust the templates that are deployed in this pipeline. If you want more fine-grained permissions, use `addToRolePolicy` and `capabilities` to control what the CloudFormation deployment is allowed to do.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: templateConfiguration
+
+      Input artifact to use for template parameters values and stack policy.  The template configuration file should contain a JSON object that should look like this: `{ "Parameters": {...}, "Tags": {...}, "StackPolicy": {... }}`. For more information, see [AWS CloudFormation Artifacts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/continuous-delivery-codepipeline-cfn-artifacts.html).  Note that if you include sensitive information, such as passwords, restrict access to this file.
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline.ArtifactPath` or undefined
+
+
+   .. py:attribute:: parameterOverrides
+
+      Additional template parameters.  Template parameters specified here take precedence over template parameters found in the artifact specified by the `templateConfiguration` property.  We recommend that you use the template configuration file to specify most of your parameter values. Use parameter overrides to specify only dynamic parameter values (values that are unknown until you run the pipeline).  All parameter names must be present in the stack template.  Note: the entire object cannot be more than 1kB.
+
+
+      :type: any or undefined
+
+
+CreateReplaceChangeSet
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CreateReplaceChangeSet(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CreateReplaceChangeSet;
+
+      .. code-tab:: javascript
+
+         const { CreateReplaceChangeSet } = require('@aws-cdk/aws-cloudformation-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { CreateReplaceChangeSet } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   CodePipeline action to prepare a change set.  Creates the change set if it doesn't exist based on the stack name and template that you submit. If the change set exists, AWS CloudFormation deletes it, and then creates a new one.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CreateReplaceChangeSetProps`
+
+CreateReplaceChangeSetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CreateReplaceChangeSetProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CreateReplaceChangeSetProps;
+
+      .. code-tab:: javascript
+
+         // CreateReplaceChangeSetProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CreateReplaceChangeSetProps } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Properties for the CreateReplaceChangeSet action.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps`
+
+
+   .. py:attribute:: changeSetName
+
+      Name of the change set to create or update.
+
+
+      :type: string
+
+
+   .. py:attribute:: templatePath
+
+      Input artifact with the ChangeSet's CloudFormation template
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline.ArtifactPath`
+
+
+CreateUpdateProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CreateUpdateProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CreateUpdateProps;
+
+      .. code-tab:: javascript
+
+         // CreateUpdateProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CreateUpdateProps } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Properties for the CreateUpdate action
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps`
+
+
+   .. py:attribute:: templatePath
+
+      Input artifact with the CloudFormation template to deploy
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline.ArtifactPath`
+
+
+   .. py:attribute:: replaceOnFailure
+
+      Replace the stack if it's in a failed state.  If this is set to true and the stack is in a failed state (one of ROLLBACK_COMPLETE, ROLLBACK_FAILED, CREATE_FAILED, DELETE_FAILED, or UPDATE_ROLLBACK_FAILED), AWS CloudFormation deletes the stack and then creates a new stack.  If this is not set to true and the stack is in a failed state, the deployment fails.
+
+
+      :type: boolean or undefined
+
+
+CreateUpdateStack
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: CreateUpdateStack(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.CreateUpdateStack;
+
+      .. code-tab:: javascript
+
+         const { CreateUpdateStack } = require('@aws-cdk/aws-cloudformation-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { CreateUpdateStack } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   CodePipeline action to deploy a stack.  Creates the stack if the specified stack doesn't exist. If the stack exists, AWS CloudFormation updates the stack. Use this action to update existing stacks.  AWS CodePipeline won't replace the stack, and will fail deployment if the stack is in a failed state. Use `ReplaceOnFailure` for an action that will delete and recreate the stack to try and recover from failed states.  Use this action to automatically replace failed stacks without recovering or troubleshooting them. You would typically choose this mode for testing.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CreateUpdateProps`
+
+DeleteStackOnly
+^^^^^^^^^^^^^^^
+
+.. py:class:: DeleteStackOnly(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.DeleteStackOnly;
+
+      .. code-tab:: javascript
+
+         const { DeleteStackOnly } = require('@aws-cdk/aws-cloudformation-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { DeleteStackOnly } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   CodePipeline action to delete a stack.  Deletes a stack. If you specify a stack that doesn't exist, the action completes successfully without deleting a stack.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.DeleteStackOnlyProps`
+
+DeleteStackOnlyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DeleteStackOnlyProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.DeleteStackOnlyProps;
+
+      .. code-tab:: javascript
+
+         // DeleteStackOnlyProps is an interface
+
+      .. code-tab:: typescript
+
+         import { DeleteStackOnlyProps } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Properties for the DeleteOnly action
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationDeploymentActionCommonProps`
+
+
+ExecuteChangeSet
+^^^^^^^^^^^^^^^^
+
+.. py:class:: ExecuteChangeSet(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.ExecuteChangeSet;
+
+      .. code-tab:: javascript
+
+         const { ExecuteChangeSet } = require('@aws-cdk/aws-cloudformation-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { ExecuteChangeSet } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   CodePipeline action to execute a prepared change set.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.ExecuteChangeSetProps`
+
+ExecuteChangeSetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ExecuteChangeSetProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.cloudformation.codepipeline.ExecuteChangeSetProps;
+
+      .. code-tab:: javascript
+
+         // ExecuteChangeSetProps is an interface
+
+      .. code-tab:: typescript
+
+         import { ExecuteChangeSetProps } from '@aws-cdk/aws-cloudformation-codepipeline';
+
+
+
+   Properties for the ExecuteChangeSet action.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudformation-codepipeline.CloudFormationCommonProps`
+
+
+   .. py:attribute:: changeSetName
+
+      Name of the change set to execute.
+
+
+      :type: string
+
+

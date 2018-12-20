@@ -1,0 +1,1720 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"Esh309lK8KwkQ0J++B5dxByuQoZpr5ROMPGcD/lAauY="}
+
+@aws-cdk/aws-lambda
+===================
+
+.. mdinclude:: ./__aws-cdk_aws-lambda.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-lambda
+
+Alias
+^^^^^
+
+.. py:class:: Alias(parent, name, props)
+
+   A new alias to a particular version of a Lambda function.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-lambda.LambdaRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-lambda.AliasProps`
+
+   .. py:method:: addPermission(name, permission)
+
+      Adds a permission to the Lambda resource policy.
+
+
+      :param name: 
+      :type name: string
+      :param permission: 
+      :type permission: :py:class:`~@aws-cdk/aws-lambda.LambdaPermission`
+
+
+   .. py:attribute:: functionName
+
+      ARN of this alias  Used to be able to use Alias in place of a regular Lambda. Lambda accepts ARNs everywhere it accepts function names.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.FunctionName` *(readonly)*
+
+
+   .. py:attribute:: functionArn
+
+      ARN of this alias  Used to be able to use Alias in place of a regular Lambda. Lambda accepts ARNs everywhere it accepts function names.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.FunctionArn` *(readonly)*
+
+
+   .. py:attribute:: role
+
+      Role associated with this alias
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined *(readonly)*
+
+
+   .. py:attribute:: canCreatePermissions
+
+      Whether the addPermission() call adds any permissions  True for new Lambdas, false for imported Lambdas (they might live in different accounts).
+
+
+      :type: boolean *(readonly)*
+
+
+AliasProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AliasProps
+
+   Properties for a new Lambda alias
+
+
+
+
+   .. py:attribute:: description
+
+      Description for the alias
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: version
+
+      Function version this alias refers to  Use lambda.addVersion() to obtain a new lambda version to refer to.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaVersion`
+
+
+   .. py:attribute:: aliasName
+
+      Name of this alias
+
+
+      :type: string
+
+
+   .. py:attribute:: additionalVersions
+
+      Additional versions with individual weights this alias points to  Individual additional version weights specified here should add up to (less than) one. All remaining weight is routed to the default version.  For example, the config is        version: "1"       additionalVersions: [{ version: "2", weight: 0.05 }]  Then 5% of traffic will be routed to function version 2, while the remaining 95% of traffic will be routed to function version 1.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.VersionWeight` or undefined
+
+
+FunctionArn
+^^^^^^^^^^^
+
+.. py:class:: FunctionArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+FunctionName
+^^^^^^^^^^^^
+
+.. py:class:: FunctionName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+IJavaScriptLambdaHandler (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IJavaScriptLambdaHandler
+
+   Defines the handler code for an inline JavaScript lambda function.  AWS Lambda invokes your Lambda function via a handler object. A handler represents the name of your Lambda function (and serves as the entry point that AWS Lambda uses to execute your function code. For example:
+
+
+
+
+   .. py:method:: fn(event, context, callback)
+
+      The main Lambda entrypoint.
+
+
+      :param event: Event sources can range from a supported AWS service or custom applications that invoke your Lambda function. For examples, see [Sample Events Published by Event Sources](https://docs.aws.amazon.com/lambda/latest/dg/eventsources.html).
+      :type event: any
+      :param context: AWS Lambda uses this parameter to provide details of your Lambda function's execution. For more information, see [The Context Object](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html).
+      :type context: any
+      :param callback: The Node.js runtimes v6.10 and v8.10 support the optional callback parameter. You can use it to explicitly return information back to the caller. Signature is `callback(err, response)`.
+      :type callback: any
+
+
+InlinableJavascriptLambdaRuntime (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: InlinableJavascriptLambdaRuntime
+
+   A ``LambdaRuntime`` that can be used for inlining JavaScript.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-lambda.InlinableLambdaRuntime`
+
+
+InlinableLambdaRuntime (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: InlinableLambdaRuntime
+
+   A ``LambdaRuntime`` that can be used in conjunction with the ``ZipFile`` property of the ``AWS::Lambda::Function`` resource.
+
+
+
+
+   .. py:attribute:: name
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: supportsInlineCode
+
+      :type: boolean *(readonly)*
+
+
+InlineJavaScriptLambda
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: InlineJavaScriptLambda(parent, name, props)
+
+   A lambda function with inline node.js code.  Usage:      new InlineJavaScriptLambda(this, 'MyFunc', {       handler: {         fn: (event, context, callback) => {           console.log('hello, world');           callback();         }       }     });  This will define a node.js 6.10 function with the provided function has the handler code.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-lambda.Lambda`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-lambda.InlineJavaScriptLambdaProps`
+
+InlineJavaScriptLambdaProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: InlineJavaScriptLambdaProps
+
+
+
+   .. py:attribute:: handler
+
+      The lambda handler as a javascript function.  This must be a javascript function object. The reason it is `any` is due to limitations of the jsii compiler.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.IJavaScriptLambdaHandler`
+
+
+   .. py:attribute:: description
+
+      A description of the function.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: timeout
+
+      The function execution time (in seconds) after which Lambda terminates the function. Because the execution time affects cost, set this value based on the function's expected execution time.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: environment
+
+      Key-value pairs that Lambda caches and makes available for your Lambda functions. Use environment variables to apply configuration changes, such as test and production environment configurations, without changing your Lambda function source code.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: runtime
+
+      The runtime environment for the Lambda function that you are uploading. For valid values, see the Runtime property in the AWS Lambda Developer Guide.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.InlinableJavascriptLambdaRuntime` or undefined
+
+
+   .. py:attribute:: functionName
+
+      A name for the function. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the function's name. For more information, see Name Type.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: memorySize
+
+      The amount of memory, in MB, that is allocated to your Lambda function. Lambda uses this value to proportionally allocate the amount of CPU power. For more information, see Resource Model in the AWS Lambda Developer Guide.
+
+
+      :type: number or undefined
+
+
+Lambda
+^^^^^^
+
+.. py:class:: Lambda(parent, name, props)
+
+   Deploys a file from from inside the construct library as a function.  The supplied file is subject to the 4096 bytes limit of being embedded in a CloudFormation template.  The construct includes an associated role with the lambda.  This construct does not yet reproduce all features from the underlying resource library.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-lambda.LambdaRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-lambda.LambdaProps`
+
+   .. py:method:: addEnvironment(key, value)
+
+      Adds an environment variable to this Lambda function. If this is a ref to a Lambda function, this operation results in a no-op.
+
+
+      :param key: The environment variable key.
+      :type key: string
+      :param value: The environment variable's value.
+      :type value: any
+
+
+   .. py:method:: addVersion(name, [codeSha256, [description]]) -> @aws-cdk/aws-lambda.LambdaVersion
+
+      Add a new version for this Lambda  If you want to deploy through CloudFormation and use aliases, you need to add a new version (with a new name) to your Lambda every time you want to deploy an update. An alias can then refer to the newly created Version.  All versions should have distinct names, and you should not delete versions as long as your Alias needs to refer to them.
+
+
+      :param name: A unique name for this version
+      :type name: string
+      :param codeSha256: The SHA-256 hash of the most recently deployed Lambda source code, or omit to skip validation.
+      :type codeSha256: string or undefined
+      :param description: A description for this version.
+      :type description: string or undefined
+      :return: A new Version object.
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.LambdaVersion`
+
+
+   .. py:attribute:: functionName
+
+      Name of this function
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.FunctionName` *(readonly)*
+
+
+   .. py:attribute:: functionArn
+
+      ARN of this function
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.FunctionArn` *(readonly)*
+
+
+   .. py:attribute:: role
+
+      Execution role associated with this function
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined *(readonly)*
+
+
+   .. py:attribute:: runtime
+
+      The runtime configured for this lambda.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntime` *(readonly)*
+
+
+   .. py:attribute:: handler
+
+      The name of the handler configured for this lambda.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: canCreatePermissions
+
+      Whether the addPermission() call adds any permissions  True for new Lambdas, false for imported Lambdas (they might live in different accounts).
+
+
+      :type: boolean *(readonly)*
+
+
+LambdaAssetCode
+^^^^^^^^^^^^^^^
+
+.. py:class:: LambdaAssetCode(path, packaging)
+
+   Lambda code from a local directory.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-lambda.LambdaCode`
+   :param path: The path to the asset file or directory.
+   :type path: string
+   :param packaging: The asset packaging format
+   :type packaging: :py:class:`@aws-cdk/assets.AssetPackaging`
+
+   .. py:method:: bind(lambda)
+
+      Called when the lambda is initialized to allow this object to bind to the stack, add resources and have fun.
+
+
+      :param lambda: 
+      :type lambda: :py:class:`~@aws-cdk/aws-lambda.Lambda`
+
+
+   .. py:method:: toJSON() -> @aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty
+
+      Called during stack synthesis to render the CodePropery for the Lambda function.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty`
+
+
+LambdaCode
+^^^^^^^^^^
+
+.. py:class:: LambdaCode()
+
+   :abstract: Yes
+
+   .. py:staticmethod:: bucket(bucket, key, [objectVersion]) -> @aws-cdk/aws-lambda.LambdaS3Code
+
+      :param bucket: The S3 bucket
+      :type bucket: :py:class:`@aws-cdk/aws-s3.BucketRef`
+      :param key: The object key
+      :type key: string
+      :param objectVersion: Optional S3 object version
+      :type objectVersion: string or undefined
+      :return: `LambdaS3Code` associated with the specified S3 object.
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.LambdaS3Code`
+
+
+   .. py:staticmethod:: inline(code) -> @aws-cdk/aws-lambda.LambdaInlineCode
+
+      :param code: The actual handler code (limited to 4KiB)
+      :type code: string
+      :return: `LambdaInlineCode` with inline code.
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.LambdaInlineCode`
+
+
+   .. py:staticmethod:: directory(directoryToZip) -> @aws-cdk/aws-lambda.LambdaAssetCode
+
+      :param directoryToZip: The directory to zip
+      :type directoryToZip: string
+      :return: Zip archives the contents of a directory on disk and uses this
+as the lambda handler's code.
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.LambdaAssetCode`
+
+
+   .. py:staticmethod:: file(filePath) -> @aws-cdk/aws-lambda.LambdaAssetCode
+
+      :param filePath: The file path
+      :type filePath: string
+      :return: Uses a file on disk as a lambda handler's code.
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.LambdaAssetCode`
+
+
+   .. py:method:: toJSON() -> @aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty
+
+      Called during stack synthesis to render the CodePropery for the Lambda function.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty`
+      :abstract: Yes
+
+
+   .. py:method:: bind(_lambda)
+
+      Called when the lambda is initialized to allow this object to bind to the stack, add resources and have fun.
+
+
+      :param _lambda: 
+      :type _lambda: :py:class:`~@aws-cdk/aws-lambda.Lambda`
+
+
+LambdaInlineCode
+^^^^^^^^^^^^^^^^
+
+.. py:class:: LambdaInlineCode(code)
+
+   Lambda code from an inline string (limited to 4KiB).
+
+
+   :extends: :py:class:`~@aws-cdk/aws-lambda.LambdaCode`
+   :param code: 
+   :type code: string
+
+   .. py:method:: bind(lambda)
+
+      Called when the lambda is initialized to allow this object to bind to the stack, add resources and have fun.
+
+
+      :param lambda: 
+      :type lambda: :py:class:`~@aws-cdk/aws-lambda.Lambda`
+
+
+   .. py:method:: toJSON() -> @aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty
+
+      Called during stack synthesis to render the CodePropery for the Lambda function.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty`
+
+
+LambdaPermission (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LambdaPermission
+
+   Represents a permission statement that can be added to a Lambda's resource policy via the `addToResourcePolicy` method.
+
+
+
+
+   .. py:attribute:: action
+
+      The Lambda actions that you want to allow in this statement. For example, you can specify lambda:CreateFunction to specify a certain action, or use a wildcard (``lambda:*``) to grant permission to all Lambda actions. For a list of actions, see Actions and Condition Context Keys for AWS Lambda in the IAM User Guide.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: eventSourceToken
+
+      A unique token that must be supplied by the principal invoking the function.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: principal
+
+      The entity for which you are granting permission to invoke the Lambda function. This entity can be any valid AWS service principal, such as s3.amazonaws.com or sns.amazonaws.com, or, if you are granting cross-account permission, an AWS account ID. For example, you might want to allow a custom application in another AWS account to push events to Lambda by invoking your function.  The principal can be either an AccountPrincipal or a ServicePrincipal.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyPrincipal`
+
+
+   .. py:attribute:: sourceAccount
+
+      The AWS account ID (without hyphens) of the source owner. For example, if you specify an S3 bucket in the SourceArn property, this value is the bucket owner's account ID. You can use this property to ensure that all source principals are owned by a specific account.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: sourceArn
+
+      The ARN of a resource that is invoking your function. When granting Amazon Simple Storage Service (Amazon S3) permission to invoke your function, specify this property with the bucket ARN as its value. This ensures that events generated only from the specified bucket, not just any bucket from any AWS account that creates a mapping to your function, can invoke the function.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Arn` or undefined
+
+
+LambdaProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LambdaProps
+
+
+
+   .. py:attribute:: code
+
+      The source code of your Lambda function. You can point to a file in an Amazon Simple Storage Service (Amazon S3) bucket or specify your source code as inline text.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaCode`
+
+
+   .. py:attribute:: description
+
+      A description of the function.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: handler
+
+      The name of the function (within your source code) that Lambda calls to start running your code. For more information, see the Handler property in the AWS Lambda Developer Guide.  NOTE: If you specify your source code as inline text by specifying the ZipFile property within the Code property, specify index.function_name as the handler.
+
+
+      :type: string
+
+
+   .. py:attribute:: timeout
+
+      The function execution time (in seconds) after which Lambda terminates the function. Because the execution time affects cost, set this value based on the function's expected execution time.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: environment
+
+      Key-value pairs that Lambda caches and makes available for your Lambda functions. Use environment variables to apply configuration changes, such as test and production environment configurations, without changing your Lambda function source code.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: runtime
+
+      The runtime environment for the Lambda function that you are uploading. For valid values, see the Runtime property in the AWS Lambda Developer Guide.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntime`
+
+
+   .. py:attribute:: functionName
+
+      A name for the function. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the function's name. For more information, see Name Type.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: memorySize
+
+      The amount of memory, in MB, that is allocated to your Lambda function. Lambda uses this value to proportionally allocate the amount of CPU power. For more information, see Resource Model in the AWS Lambda Developer Guide.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: initialPolicy
+
+      Initial policy statements to add to the created Lambda Role.  You can call `addToRolePolicy` to the created lambda to add statements post creation.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyStatement` or undefined
+
+
+   .. py:attribute:: role
+
+      Lambda execution role.  This is the role that will be assumed by the function upon execution. It controls the permissions that the function will have. The Role must be assumable by the 'lambda.amazonaws.com' service principal.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined
+
+
+LambdaRef
+^^^^^^^^^
+
+.. py:class:: LambdaRef(parent, name)
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-events.IEventRuleTarget`
+   :implements: :py:class:`@aws-cdk/aws-logs.ILogSubscriptionDestination`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+
+   .. py:staticmethod:: import(parent, name, ref) -> @aws-cdk/aws-lambda.LambdaRef
+
+      Creates a Lambda function object which represents a function not defined within this stack.        Lambda.import(this, 'MyImportedFunction', { lambdaArn: new LambdaArn('arn:aws:...') });
+
+
+      :param parent: The parent construct
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: The name of the lambda construct
+      :type name: string
+      :param ref: A reference to a Lambda function. Can be created manually (see example above) or obtained through a call to `lambda.export()`.
+      :type ref: :py:class:`~@aws-cdk/aws-lambda.LambdaRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.LambdaRef`
+
+
+   .. py:staticmethod:: metricAll(metricName, [props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Return the given named metric for this Lambda
+
+
+      :param metricName: 
+      :type metricName: string
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:staticmethod:: metricAllErrors([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of Errors executing all Lambdas
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:staticmethod:: metricAllDuration([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the Duration executing all Lambdas
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:staticmethod:: metricAllInvocations([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of invocations of all Lambdas
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:staticmethod:: metricAllThrottles([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of throttled invocations of all Lambdas
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:staticmethod:: metricAllConcurrentExecutions([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of concurrent executions across all Lambdas
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:staticmethod:: metricAllUnreservedConcurrentExecutions([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of unreserved concurrent executions across all Lambdas
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: addPermission(name, permission)
+
+      Adds a permission to the Lambda resource policy.
+
+
+      :param name: A name for the permission construct
+      :type name: string
+      :param permission: 
+      :type permission: :py:class:`~@aws-cdk/aws-lambda.LambdaPermission`
+
+
+   .. py:method:: addToRolePolicy(statement)
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: metric(metricName, [props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Return the given named metric for this Lambda
+
+
+      :param metricName: 
+      :type metricName: string
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricErrors([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the Errors executing this Lambda
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricDuration([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the Duration of this Lambda
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricInvocations([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of invocations of this Lambda
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricThrottles([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Metric for the number of throttled invocations of this Lambda
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: logSubscriptionDestination(sourceLogGroup) -> @aws-cdk/aws-logs.LogSubscriptionDestination
+
+      Return the properties required to send subscription events to this destination.  If necessary, the destination can use the properties of the SubscriptionFilter object itself to configure its permissions to allow the subscription to write to it.  The destination may reconfigure its own permissions in response to this function call.
+
+
+      :param sourceLogGroup: 
+      :type sourceLogGroup: :py:class:`@aws-cdk/aws-logs.LogGroup`
+      :rtype: :py:class:`@aws-cdk/aws-logs.LogSubscriptionDestination`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-lambda.LambdaRefProps
+
+      Export this Function (without the role)
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.LambdaRefProps`
+
+
+   .. py:attribute:: functionName
+
+      The name of the function.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.FunctionName` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: functionArn
+
+      The ARN fo the function.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.FunctionArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: role
+
+      The IAM role associated with this function.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: canCreatePermissions
+
+      Whether the addPermission() call adds any permissions  True for new Lambdas, false for imported Lambdas (they might live in different accounts).
+
+
+      :type: boolean *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: eventRuleTarget
+
+      Returns a RuleTarget that can be used to trigger this Lambda as a result from a CloudWatch event.
+
+
+      :type: :py:class:`@aws-cdk/aws-events.EventRuleTargetProps` *(readonly)*
+
+
+LambdaRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LambdaRefProps
+
+   Represents a Lambda function defined outside of this stack.
+
+
+
+
+   .. py:attribute:: functionArn
+
+      The ARN of the Lambda function. Format: arn:<partition>:lambda:<region>:<account-id>:function:<function-name>
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.FunctionArn`
+
+
+   .. py:attribute:: role
+
+      The IAM execution role associated with this function. If the role is not specified, any role-related operations will no-op.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined
+
+
+LambdaRuntime
+^^^^^^^^^^^^^
+
+.. py:class:: LambdaRuntime(name, [props])
+
+   Lambda function runtime environment.
+
+
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntimeProps` or undefined
+
+   .. py:method:: toString() -> string
+
+      :rtype: string
+
+
+   .. py:attribute:: NodeJS
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.InlinableJavascriptLambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: NodeJS43
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.InlinableJavascriptLambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: NodeJS43Edge
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: NodeJS610
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.InlinableJavascriptLambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: NodeJS810
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: Java8
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: Python27
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.InlinableLambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: Python36
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.InlinableLambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: DotNetCore1
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: DotNetCore2
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: Go1x
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRuntime` *(readonly)* *(static)*
+
+
+   .. py:attribute:: name
+
+      The name of this runtime, as expected by the Lambda resource. 
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: supportsInlineCode
+
+      Whether the ``ZipFile`` (aka inline code) property can be used with this runtime. 
+
+
+      :type: boolean *(readonly)*
+
+
+LambdaRuntimeProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LambdaRuntimeProps
+
+
+
+   .. py:attribute:: supportsInlineCode
+
+      Whether the ``ZipFile`` (aka inline code) property can be used with this runtime.
+
+
+      :type: boolean or undefined *(readonly)*
+
+
+LambdaS3Code
+^^^^^^^^^^^^
+
+.. py:class:: LambdaS3Code(bucket, key, [objectVersion])
+
+   Lambda code from an S3 archive.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-lambda.LambdaCode`
+   :param bucket: 
+   :type bucket: :py:class:`@aws-cdk/aws-s3.BucketRef`
+   :param key: 
+   :type key: string
+   :param objectVersion: 
+   :type objectVersion: string or undefined
+
+   .. py:method:: toJSON() -> @aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty
+
+      Called during stack synthesis to render the CodePropery for the Lambda function.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty`
+
+
+LambdaVersion
+^^^^^^^^^^^^^
+
+.. py:class:: LambdaVersion(parent, name, props)
+
+   A single newly-deployed version of a Lambda function.  This object exists to--at deploy time--query the "then-current" version of the Lambda function that it refers to. This Version object can then be used in `Alias` to refer to a particular deployment of a Lambda.  This means that for every new update you deploy to your Lambda (using the CDK and Aliases), you must always create a new Version object. In particular, it must have a different name, so that a new resource is created.  If you want to ensure that you're associating the right version with the right deployment, specify the `codeSha256` property while creating the `Version.  *
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-lambda.LambdaVersionProps`
+
+   .. py:attribute:: functionVersion
+
+      The most recently deployed version of this function.
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.Version` *(readonly)*
+
+
+   .. py:attribute:: lambda
+
+      Lambda object this version is associated with
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRef` *(readonly)*
+
+
+LambdaVersionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LambdaVersionProps
+
+   Properties for a new Lambda version
+
+
+
+
+   .. py:attribute:: codeSha256
+
+      SHA256 of the version of the Lambda source code  Specify to validate that you're deploying the right version.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: description
+
+      Description of the version
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: lambda
+
+      Function to get the value of
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaRef`
+
+
+Version
+^^^^^^^
+
+.. py:class:: Version([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+VersionWeight (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: VersionWeight
+
+   A version/weight pair for routing traffic to Lambda functions
+
+
+
+
+   .. py:attribute:: version
+
+      The version to route traffic to
+
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.LambdaVersion` *(readonly)*
+
+
+   .. py:attribute:: weight
+
+      How much weight to assign to this version (0..1)
+
+
+      :type: number *(readonly)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-lambda.cloudformation
+
+AliasResource
+~~~~~~~~~~~~~
+
+.. py:class:: AliasResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AliasResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AliasResource``
+   :type properties: :py:class:`~@aws-cdk/aws-lambda.cloudformation.AliasResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: AliasRoutingConfigurationProperty
+
+
+
+      .. py:attribute:: additionalVersionWeights
+
+         ``AliasResource.AliasRoutingConfigurationProperty.AdditionalVersionWeights``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-aliasroutingconfiguration.html#cfn-lambda-alias-aliasroutingconfiguration-additionalversionweights
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-lambda.cloudformation.AliasResource.VersionWeightProperty`
+
+
+   .. py:class:: VersionWeightProperty
+
+
+
+      .. py:attribute:: functionVersion
+
+         ``AliasResource.VersionWeightProperty.FunctionVersion``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionversion
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: functionWeight
+
+         ``AliasResource.VersionWeightProperty.FunctionWeight``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-alias-versionweight.html#cfn-lambda-alias-versionweight-functionweight
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+AliasResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AliasResourceProps
+
+
+
+   .. py:attribute:: functionName
+
+      ``AWS::Lambda::Alias.FunctionName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: functionVersion
+
+      ``AWS::Lambda::Alias.FunctionVersion``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionversion
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: aliasName
+
+      ``AWS::Lambda::Alias.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: description
+
+      ``AWS::Lambda::Alias.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: routingConfig
+
+      ``AWS::Lambda::Alias.RoutingConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-routingconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-lambda.cloudformation.AliasResource.AliasRoutingConfigurationProperty` or undefined
+
+
+EventSourceMappingResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: EventSourceMappingResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``EventSourceMappingResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``EventSourceMappingResource``
+   :type properties: :py:class:`~@aws-cdk/aws-lambda.cloudformation.EventSourceMappingResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+EventSourceMappingResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: EventSourceMappingResourceProps
+
+
+
+   .. py:attribute:: eventSourceArn
+
+      ``AWS::Lambda::EventSourceMapping.EventSourceArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: functionName
+
+      ``AWS::Lambda::EventSourceMapping.FunctionName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: batchSize
+
+      ``AWS::Lambda::EventSourceMapping.BatchSize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: enabled
+
+      ``AWS::Lambda::EventSourceMapping.Enabled``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: startingPosition
+
+      ``AWS::Lambda::EventSourceMapping.StartingPosition``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+FunctionResource
+~~~~~~~~~~~~~~~~
+
+.. py:class:: FunctionResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``FunctionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``FunctionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: functionArn
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.FunctionArn` *(readonly)*
+
+   .. py:class:: CodeProperty
+
+
+
+      .. py:attribute:: s3Bucket
+
+         ``FunctionResource.CodeProperty.S3Bucket``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3bucket
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: s3Key
+
+         ``FunctionResource.CodeProperty.S3Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: s3ObjectVersion
+
+         ``FunctionResource.CodeProperty.S3ObjectVersion``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-s3objectversion
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: zipFile
+
+         ``FunctionResource.CodeProperty.ZipFile``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html#cfn-lambda-function-code-zipfile
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: DeadLetterConfigProperty
+
+
+
+      .. py:attribute:: targetArn
+
+         ``FunctionResource.DeadLetterConfigProperty.TargetArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html#cfn-lambda-function-deadletterconfig-targetarn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: EnvironmentProperty
+
+
+
+      .. py:attribute:: variables
+
+         ``FunctionResource.EnvironmentProperty.Variables``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html#cfn-lambda-function-environment-variables
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: TracingConfigProperty
+
+
+
+      .. py:attribute:: mode
+
+         ``FunctionResource.TracingConfigProperty.Mode``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html#cfn-lambda-function-tracingconfig-mode
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: VpcConfigProperty
+
+
+
+      .. py:attribute:: securityGroupIds
+
+         ``FunctionResource.VpcConfigProperty.SecurityGroupIds``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: subnetIds
+
+         ``FunctionResource.VpcConfigProperty.SubnetIds``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-subnetids
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+FunctionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: FunctionResourceProps
+
+
+
+   .. py:attribute:: code
+
+      ``AWS::Lambda::Function.Code``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.CodeProperty`
+
+
+   .. py:attribute:: handler
+
+      ``AWS::Lambda::Function.Handler``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-handler
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: role
+
+      ``AWS::Lambda::Function.Role``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: runtime
+
+      ``AWS::Lambda::Function.Runtime``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: deadLetterConfig
+
+      ``AWS::Lambda::Function.DeadLetterConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.DeadLetterConfigProperty` or undefined
+
+
+   .. py:attribute:: description
+
+      ``AWS::Lambda::Function.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: environment
+
+      ``AWS::Lambda::Function.Environment``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.EnvironmentProperty` or undefined
+
+
+   .. py:attribute:: functionName
+
+      ``AWS::Lambda::Function.FunctionName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: kmsKeyArn
+
+      ``AWS::Lambda::Function.KmsKeyArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: memorySize
+
+      ``AWS::Lambda::Function.MemorySize``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: reservedConcurrentExecutions
+
+      ``AWS::Lambda::Function.ReservedConcurrentExecutions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::Lambda::Function.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+   .. py:attribute:: timeout
+
+      ``AWS::Lambda::Function.Timeout``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tracingConfig
+
+      ``AWS::Lambda::Function.TracingConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.TracingConfigProperty` or undefined
+
+
+   .. py:attribute:: vpcConfig
+
+      ``AWS::Lambda::Function.VpcConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-lambda.cloudformation.FunctionResource.VpcConfigProperty` or undefined
+
+
+PermissionResource
+~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PermissionResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``PermissionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``PermissionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-lambda.cloudformation.PermissionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+PermissionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PermissionResourceProps
+
+
+
+   .. py:attribute:: action
+
+      ``AWS::Lambda::Permission.Action``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-action
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: functionName
+
+      ``AWS::Lambda::Permission.FunctionName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: principal
+
+      ``AWS::Lambda::Permission.Principal``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-principal
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: eventSourceToken
+
+      ``AWS::Lambda::Permission.EventSourceToken``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-eventsourcetoken
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: sourceAccount
+
+      ``AWS::Lambda::Permission.SourceAccount``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourceaccount
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: sourceArn
+
+      ``AWS::Lambda::Permission.SourceArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-sourcearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+VersionResource
+~~~~~~~~~~~~~~~
+
+.. py:class:: VersionResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``VersionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``VersionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-lambda.cloudformation.VersionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: version
+
+      :type: :py:class:`~@aws-cdk/aws-lambda.Version` *(readonly)*
+
+
+VersionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: VersionResourceProps
+
+
+
+   .. py:attribute:: functionName
+
+      ``AWS::Lambda::Version.FunctionName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: codeSha256
+
+      ``AWS::Lambda::Version.CodeSha256``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-codesha256
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: description
+
+      ``AWS::Lambda::Version.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-lambda
+

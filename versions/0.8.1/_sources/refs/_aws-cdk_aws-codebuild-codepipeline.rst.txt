@@ -1,0 +1,252 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"BvFUENJ+8Km6sJcM6ZQFl/euQFRpnJIm9xFJCnlZPPg="}
+
+@aws-cdk/aws-codebuild-codepipeline
+===================================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/codebuild-codepipeline/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:codebuild-codepipeline:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="codebuild-codepipeline" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>codebuild-codepipeline</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:codebuild-codepipeline:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='codebuild-codepipeline', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codebuild-codepipeline/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codebuild-codepipeline@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codebuild-codepipeline": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codebuild-codepipeline@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codebuild-codepipeline/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codebuild-codepipeline@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codebuild-codepipeline": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codebuild-codepipeline@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-codebuild-codepipeline.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-codebuild-codepipeline
+
+PipelineBuildAction
+^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineBuildAction(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codebuild.codepipeline.PipelineBuildAction;
+
+      .. code-tab:: javascript
+
+         const { PipelineBuildAction } = require('@aws-cdk/aws-codebuild-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { PipelineBuildAction } from '@aws-cdk/aws-codebuild-codepipeline';
+
+
+
+   CodePipeline build Action that uses AWS CodeBuild.
+
+
+   :extends: :py:class:`@aws-cdk/aws-codepipeline.BuildAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/aws-codepipeline.Stage`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codebuild-codepipeline.PipelineBuildActionProps`
+
+PipelineBuildActionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineBuildActionProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codebuild.codepipeline.PipelineBuildActionProps;
+
+      .. code-tab:: javascript
+
+         // PipelineBuildActionProps is an interface
+
+      .. code-tab:: typescript
+
+         import { PipelineBuildActionProps } from '@aws-cdk/aws-codebuild-codepipeline';
+
+
+
+   Construction properties of the {@link PipelineBuildAction CodeBuild build CodePipeline Action}.
+
+
+
+
+   .. py:attribute:: inputArtifact
+
+      The source to use as input for this build
+
+
+      :type: :py:class:`@aws-cdk/aws-codepipeline.Artifact`
+
+
+   .. py:attribute:: artifactName
+
+      The name of the build's output artifact
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: project
+
+      The build project
+
+
+      :type: :py:class:`@aws-cdk/aws-codebuild.ProjectRef`
+
+
+PipelineProject
+^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineProject(parent, id, [props])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codebuild.codepipeline.PipelineProject;
+
+      .. code-tab:: javascript
+
+         const { PipelineProject } = require('@aws-cdk/aws-codebuild-codepipeline');
+
+      .. code-tab:: typescript
+
+         import { PipelineProject } from '@aws-cdk/aws-codebuild-codepipeline';
+
+
+
+   A convenience class for CodeBuild Projects that are used in CodePipeline.
+
+
+   :extends: :py:class:`@aws-cdk/aws-codebuild.Project`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codebuild-codepipeline.PipelineProjectProps` or undefined
+
+PipelineProjectProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineProjectProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codebuild.codepipeline.PipelineProjectProps;
+
+      .. code-tab:: javascript
+
+         // PipelineProjectProps is an interface
+
+      .. code-tab:: typescript
+
+         import { PipelineProjectProps } from '@aws-cdk/aws-codebuild-codepipeline';
+
+
+
+   :extends: :py:class:`@aws-cdk/aws-codebuild.CommonProjectProps`
+
+

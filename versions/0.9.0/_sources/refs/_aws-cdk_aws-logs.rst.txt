@@ -1,0 +1,2465 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"CX/rK1Addr8h30sxWHo2h3dhOnYuzwiiZrjgXF8nyrI="}
+
+@aws-cdk/aws-logs
+=================
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.Logs/0.9.0>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.Logs" Version="0.9.0" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.Logs --version 0.9.0
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.Logs" version="0.9.0" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/logs/0.9.0/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:logs:jar:0.9.0'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="logs" rev="0.9.0"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>logs</artifactId>
+           <version>0.9.0</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:logs:0.9.0'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='logs', version='0.9.0')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-logs/v/0.9.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-logs@0.9.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-logs": "^0.9.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-logs@0.9.0
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-logs/v/0.9.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-logs@0.9.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-logs": "^0.9.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-logs@0.9.0
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-logs.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-logs
+
+ColumnRestriction (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ColumnRestriction
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.ColumnRestriction;
+
+      .. code-tab:: javascript
+
+         // ColumnRestriction is an interface
+
+      .. code-tab:: typescript
+
+         import { ColumnRestriction } from '@aws-cdk/aws-logs';
+
+
+
+
+
+   .. py:attribute:: comparison
+
+      Comparison operator to use
+
+
+      :type: string
+
+
+   .. py:attribute:: numberValue
+
+      Number value to compare to  Exactly one of 'stringValue' and 'numberValue' must be set.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: stringValue
+
+      String value to compare to  Exactly one of 'stringValue' and 'numberValue' must be set.
+
+
+      :type: string or undefined
+
+
+CrossAccountDestination
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CrossAccountDestination(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.CrossAccountDestination;
+
+      .. code-tab:: javascript
+
+         const { CrossAccountDestination } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { CrossAccountDestination } from '@aws-cdk/aws-logs';
+
+
+
+   A new CloudWatch Logs Destination for use in cross-account scenarios  Log destinations can be used to subscribe a Kinesis stream in a different account to a CloudWatch Subscription. A Kinesis stream in the same account can be subscribed directly.  The @aws-cdk/aws-kinesis library takes care of this automatically; you shouldn't need to bother with this class.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`~@aws-cdk/aws-logs.ILogSubscriptionDestination`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-logs.CrossAccountDestinationProps`
+
+   .. py:method:: addToPolicy(statement)
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: logSubscriptionDestination(_sourceLogGroup) -> @aws-cdk/aws-logs.LogSubscriptionDestination
+
+      Return the properties required to send subscription events to this destination.  If necessary, the destination can use the properties of the SubscriptionFilter object itself to configure its permissions to allow the subscription to write to it.  The destination may reconfigure its own permissions in response to this function call.
+
+
+      :param _sourceLogGroup: 
+      :type _sourceLogGroup: :py:class:`~@aws-cdk/aws-logs.LogGroupRef`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.LogSubscriptionDestination`
+
+
+   .. py:attribute:: destinationArn
+
+      The ARN of this CrossAccountDestination object
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.DestinationArn` *(readonly)*
+
+
+   .. py:attribute:: destinationName
+
+      The name of this CrossAccountDestination object
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.DestinationName` *(readonly)*
+
+
+   .. py:attribute:: policyDocument
+
+      Policy object of this CrossAccountDestination object
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument` *(readonly)*
+
+
+CrossAccountDestinationProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CrossAccountDestinationProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.CrossAccountDestinationProps;
+
+      .. code-tab:: javascript
+
+         // CrossAccountDestinationProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CrossAccountDestinationProps } from '@aws-cdk/aws-logs';
+
+
+
+
+
+   .. py:attribute:: role
+
+      The role to assume that grants permissions to write to 'target'.  The role must be assumable by 'logs.{REGION}.amazonaws.com'.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role`
+
+
+   .. py:attribute:: targetArn
+
+      The log destination target's ARN
+
+
+      :type: :py:class:`@aws-cdk/cdk.Arn`
+
+
+   .. py:attribute:: destinationName
+
+      The name of the log destination.
+
+
+      :type: string or undefined
+
+
+DestinationArn
+^^^^^^^^^^^^^^
+
+.. py:class:: DestinationArn(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.DestinationArn;
+
+      .. code-tab:: javascript
+
+         const { DestinationArn } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { DestinationArn } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+DestinationName
+^^^^^^^^^^^^^^^
+
+.. py:class:: DestinationName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.DestinationName;
+
+      .. code-tab:: javascript
+
+         const { DestinationName } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { DestinationName } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+FilterPattern
+^^^^^^^^^^^^^
+
+.. py:class:: FilterPattern()
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.FilterPattern;
+
+      .. code-tab:: javascript
+
+         const { FilterPattern } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { FilterPattern } from '@aws-cdk/aws-logs';
+
+
+
+   A collection of static methods to generate appropriate ILogPatterns
+
+
+
+   .. py:staticmethod:: all(*patterns) -> @aws-cdk/aws-logs.JSONPattern
+
+      A JSON log pattern that matches if all given JSON log patterns match
+
+
+      :param \*patterns: 
+      :type \*patterns: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+
+
+   .. py:staticmethod:: allEvents() -> @aws-cdk/aws-logs.IFilterPattern
+
+      A log pattern that matches all events.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+   .. py:staticmethod:: allTerms(*terms) -> @aws-cdk/aws-logs.IFilterPattern
+
+      A log pattern that matches if all the strings given appear in the event.
+
+
+      :param \*terms: The words to search for. All terms must match.
+      :type \*terms: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+   .. py:staticmethod:: any(*patterns) -> @aws-cdk/aws-logs.JSONPattern
+
+      A JSON log pattern that matches if any of the given JSON log patterns match
+
+
+      :param \*patterns: 
+      :type \*patterns: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+
+
+   .. py:staticmethod:: anyTerm(*terms) -> @aws-cdk/aws-logs.IFilterPattern
+
+      A log pattern that matches if any of the strings given appear in the event.
+
+
+      :param \*terms: The words to search for. Any terms must match.
+      :type \*terms: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+   .. py:staticmethod:: anyTermGroup(*termGroups) -> @aws-cdk/aws-logs.IFilterPattern
+
+      A log pattern that matches if any of the given term groups matches the event.  A term group matches an event if all the terms in it appear in the event string.
+
+
+      :param \*termGroups: A list of term groups to search for. Any one of the clauses must match.
+      :type \*termGroups: string[]
+      :rtype: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+   .. py:staticmethod:: booleanValue(jsonField, value) -> @aws-cdk/aws-logs.JSONPattern
+
+      A JSON log pattern that matches if the field exists and equals the boolean value.
+
+
+      :param jsonField: Field inside JSON. Example: "$.myField"
+      :type jsonField: string
+      :param value: The value to match
+      :type value: boolean
+      :rtype: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+
+
+   .. py:staticmethod:: exists(jsonField) -> @aws-cdk/aws-logs.JSONPattern
+
+      A JSON log patter that matches if the field exists.  This is a readable convenience wrapper over 'field = *'
+
+
+      :param jsonField: Field inside JSON. Example: "$.myField"
+      :type jsonField: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+
+
+   .. py:staticmethod:: isNull(jsonField) -> @aws-cdk/aws-logs.JSONPattern
+
+      A JSON log pattern that matches if the field exists and has the special value 'null'.
+
+
+      :param jsonField: Field inside JSON. Example: "$.myField"
+      :type jsonField: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+
+
+   .. py:staticmethod:: literal(logPatternString) -> @aws-cdk/aws-logs.IFilterPattern
+
+      Use the given string as log pattern.  See https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html for information on writing log patterns.
+
+
+      :param logPatternString: The pattern string to use.
+      :type logPatternString: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+   .. py:staticmethod:: notExists(jsonField) -> @aws-cdk/aws-logs.JSONPattern
+
+      A JSON log pattern that matches if the field does not exist.
+
+
+      :param jsonField: Field inside JSON. Example: "$.myField"
+      :type jsonField: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+
+
+   .. py:staticmethod:: numberValue(jsonField, comparison, value) -> @aws-cdk/aws-logs.JSONPattern
+
+      A JSON log pattern that compares numerical values.  This pattern only matches if the event is a JSON event, and the indicated field inside compares with the value in the indicated way.  Use '$' to indicate the root of the JSON structure. The comparison operator can only compare equality or inequality. The '*' wildcard may appear in the value may at the start or at the end.  For more information, see:  https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html
+
+
+      :param jsonField: Field inside JSON. Example: "$.myField"
+      :type jsonField: string
+      :param comparison: Comparison to carry out. One of =, !=, <, <=, >, >=.
+      :type comparison: string
+      :param value: The numerical value to compare to
+      :type value: number
+      :rtype: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+
+
+   .. py:staticmethod:: spaceDelimited(*columns) -> @aws-cdk/aws-logs.SpaceDelimitedTextPattern
+
+      A space delimited log pattern matcher.  The log event is divided into space-delimited columns (optionally enclosed by "" or [] to capture spaces into column values), and names are given to each column.  '...' may be specified once to match any number of columns.  Afterwards, conditions may be added to individual columns.
+
+
+      :param \*columns: The columns in the space-delimited log stream.
+      :type \*columns: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.SpaceDelimitedTextPattern`
+
+
+   .. py:staticmethod:: stringValue(jsonField, comparison, value) -> @aws-cdk/aws-logs.JSONPattern
+
+      A JSON log pattern that compares string values.  This pattern only matches if the event is a JSON event, and the indicated field inside compares with the string value.  Use '$' to indicate the root of the JSON structure. The comparison operator can only compare equality or inequality. The '*' wildcard may appear in the value may at the start or at the end.  For more information, see:  https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html
+
+
+      :param jsonField: Field inside JSON. Example: "$.myField"
+      :type jsonField: string
+      :param comparison: Comparison to carry out. Either = or !=.
+      :type comparison: string
+      :param value: The string value to compare to. May use '*' as wildcard at start or end of string.
+      :type value: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.JSONPattern`
+
+
+IFilterPattern (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IFilterPattern
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.IFilterPattern;
+
+      .. code-tab:: javascript
+
+         // IFilterPattern is an interface
+
+      .. code-tab:: typescript
+
+         import { IFilterPattern } from '@aws-cdk/aws-logs';
+
+
+
+   Interface for objects that can render themselves to log patterns.
+
+
+
+
+   .. py:attribute:: logPatternString
+
+      :type: string *(readonly)*
+
+
+ILogSubscriptionDestination (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ILogSubscriptionDestination
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.ILogSubscriptionDestination;
+
+      .. code-tab:: javascript
+
+         // ILogSubscriptionDestination is an interface
+
+      .. code-tab:: typescript
+
+         import { ILogSubscriptionDestination } from '@aws-cdk/aws-logs';
+
+
+
+   Interface for classes that can be the destination of a log Subscription
+
+
+
+
+   .. py:method:: logSubscriptionDestination(sourceLogGroup) -> @aws-cdk/aws-logs.LogSubscriptionDestination
+
+      Return the properties required to send subscription events to this destination.  If necessary, the destination can use the properties of the SubscriptionFilter object itself to configure its permissions to allow the subscription to write to it.  The destination may reconfigure its own permissions in response to this function call.
+
+
+      :param sourceLogGroup: 
+      :type sourceLogGroup: :py:class:`~@aws-cdk/aws-logs.LogGroupRef`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.LogSubscriptionDestination`
+
+
+JSONPattern
+^^^^^^^^^^^
+
+.. py:class:: JSONPattern(jsonPatternString)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.JSONPattern;
+
+      .. code-tab:: javascript
+
+         const { JSONPattern } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { JSONPattern } from '@aws-cdk/aws-logs';
+
+
+
+   Base class for patterns that only match JSON log events.
+
+
+   :implements: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+   :abstract: Yes
+   :param jsonPatternString: 
+   :type jsonPatternString: string
+
+   .. py:attribute:: jsonPatternString
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: logPatternString
+
+      :type: string *(readonly)*
+
+
+LogGroup
+^^^^^^^^
+
+.. py:class:: LogGroup(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogGroup;
+
+      .. code-tab:: javascript
+
+         const { LogGroup } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { LogGroup } from '@aws-cdk/aws-logs';
+
+
+
+   Define a CloudWatch Log Group
+
+
+   :extends: :py:class:`~@aws-cdk/aws-logs.LogGroupRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-logs.LogGroupProps`
+
+   .. py:attribute:: logGroupArn
+
+      The ARN of this log group
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupArn` *(readonly)*
+
+
+   .. py:attribute:: logGroupName
+
+      The name of this log group
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupName` *(readonly)*
+
+
+LogGroupArn
+^^^^^^^^^^^
+
+.. py:class:: LogGroupArn(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogGroupArn;
+
+      .. code-tab:: javascript
+
+         const { LogGroupArn } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { LogGroupArn } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+LogGroupName
+^^^^^^^^^^^^
+
+.. py:class:: LogGroupName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogGroupName;
+
+      .. code-tab:: javascript
+
+         const { LogGroupName } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { LogGroupName } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+LogGroupProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LogGroupProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogGroupProps;
+
+      .. code-tab:: javascript
+
+         // LogGroupProps is an interface
+
+      .. code-tab:: typescript
+
+         import { LogGroupProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for a LogGroup
+
+
+
+
+   .. py:attribute:: logGroupName
+
+      Name of the log group.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: retainLogGroup
+
+      Retain the log group if the stack or containing construct ceases to exist  Normally you want to retain the log group so you can diagnose issues from logs even after a deployment that no longer includes the log group. In that case, use the normal date-based retention policy to age out your logs.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: retentionDays
+
+      How long, in days, the log contents will be retained.  To retain all logs, set this value to Infinity.
+
+
+      :type: number or undefined
+
+
+LogGroupRef
+^^^^^^^^^^^
+
+.. py:class:: LogGroupRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogGroupRef;
+
+      .. code-tab:: javascript
+
+         const { LogGroupRef } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { LogGroupRef } from '@aws-cdk/aws-logs';
+
+
+
+   An CloudWatch Log Group
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, id, props) -> @aws-cdk/aws-logs.LogGroupRef
+
+      Import an existing LogGroup
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param id: 
+      :type id: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-logs.LogGroupRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.LogGroupRef`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-logs.LogGroupRefProps
+
+      Export this LogGroup
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-logs.LogGroupRefProps`
+
+
+   .. py:method:: extractMetric(jsonField, metricNamespace, metricName)
+
+      Extract a metric from structured log events in the LogGroup  Creates a MetricFilter on this LogGroup that will extract the value of the indicated JSON field in all records where it occurs.  The metric will be available in CloudWatch Metrics under the indicated namespace and name.
+
+
+      :param jsonField: JSON field to extract (example: '$.myfield')
+      :type jsonField: string
+      :param metricNamespace: Namespace to emit the metric under
+      :type metricNamespace: string
+      :param metricName: Name to emit the metric under
+      :type metricName: string
+
+
+   .. py:method:: newMetricFilter(parent, id, props) -> @aws-cdk/aws-logs.MetricFilter
+
+      Create a new Metric Filter on this Log Group
+
+
+      :param parent: Parent construct
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param id: Unique identifier for the construct in its parent
+      :type id: string
+      :param props: Properties for creating the MetricFilter
+      :type props: :py:class:`~@aws-cdk/aws-logs.NewMetricFilterProps`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.MetricFilter`
+
+
+   .. py:method:: newStream(parent, id, props) -> @aws-cdk/aws-logs.LogStream
+
+      Create a new Log Stream for this Log Group
+
+
+      :param parent: Parent construct
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param id: Unique identifier for the construct in its parent
+      :type id: string
+      :param props: Properties for creating the LogStream
+      :type props: :py:class:`~@aws-cdk/aws-logs.NewLogStreamProps`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.LogStream`
+
+
+   .. py:method:: newSubscriptionFilter(parent, id, props) -> @aws-cdk/aws-logs.SubscriptionFilter
+
+      Create a new Subscription Filter on this Log Group
+
+
+      :param parent: Parent construct
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param id: Unique identifier for the construct in its parent
+      :type id: string
+      :param props: Properties for creating the SubscriptionFilter
+      :type props: :py:class:`~@aws-cdk/aws-logs.NewSubscriptionFilterProps`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.SubscriptionFilter`
+
+
+   .. py:attribute:: logGroupArn
+
+      The ARN of this log group
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: logGroupName
+
+      The name of this log group
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupName` *(readonly)* *(abstract)*
+
+
+LogGroupRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LogGroupRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogGroupRefProps;
+
+      .. code-tab:: javascript
+
+         // LogGroupRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { LogGroupRefProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for importing a LogGroup
+
+
+
+
+   .. py:attribute:: logGroupArn
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupArn`
+
+
+LogStream
+^^^^^^^^^
+
+.. py:class:: LogStream(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogStream;
+
+      .. code-tab:: javascript
+
+         const { LogStream } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { LogStream } from '@aws-cdk/aws-logs';
+
+
+
+   Define a Log Stream in a Log Group
+
+
+   :extends: :py:class:`~@aws-cdk/aws-logs.LogStreamRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-logs.LogStreamProps`
+
+   .. py:attribute:: logStreamName
+
+      The name of this log stream
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogStreamName` *(readonly)*
+
+
+LogStreamName
+^^^^^^^^^^^^^
+
+.. py:class:: LogStreamName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogStreamName;
+
+      .. code-tab:: javascript
+
+         const { LogStreamName } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { LogStreamName } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+LogStreamProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LogStreamProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogStreamProps;
+
+      .. code-tab:: javascript
+
+         // LogStreamProps is an interface
+
+      .. code-tab:: typescript
+
+         import { LogStreamProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for a LogStream
+
+
+
+
+   .. py:attribute:: logGroup
+
+      The log group to create a log stream for.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupRef`
+
+
+   .. py:attribute:: logStreamName
+
+      The name of the log stream to create.  The name must be unique within the log group.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: retainLogStream
+
+      Retain the log stream if the stack or containing construct ceases to exist  Normally you want to retain the log stream so you can diagnose issues from logs even after a deployment that no longer includes the log stream.  The date-based retention policy of your log group will age out the logs after a certain time.
+
+
+      :type: boolean or undefined
+
+
+LogStreamRef
+^^^^^^^^^^^^
+
+.. py:class:: LogStreamRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogStreamRef;
+
+      .. code-tab:: javascript
+
+         const { LogStreamRef } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { LogStreamRef } from '@aws-cdk/aws-logs';
+
+
+
+   A Log Stream in a Log Group
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, id, props) -> @aws-cdk/aws-logs.LogStreamRef
+
+      Import an existing LogGroup
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param id: 
+      :type id: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-logs.LogStreamRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-logs.LogStreamRef`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-logs.LogStreamRefProps
+
+      Export this LogStream
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-logs.LogStreamRefProps`
+
+
+   .. py:attribute:: logStreamName
+
+      The name of this log stream
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogStreamName` *(readonly)* *(abstract)*
+
+
+LogStreamRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LogStreamRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogStreamRefProps;
+
+      .. code-tab:: javascript
+
+         // LogStreamRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { LogStreamRefProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for importing a LogStream
+
+
+
+
+   .. py:attribute:: logStreamName
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogStreamName`
+
+
+LogSubscriptionDestination (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LogSubscriptionDestination
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.LogSubscriptionDestination;
+
+      .. code-tab:: javascript
+
+         // LogSubscriptionDestination is an interface
+
+      .. code-tab:: typescript
+
+         import { LogSubscriptionDestination } from '@aws-cdk/aws-logs';
+
+
+
+   Properties returned by a Subscription destination
+
+
+
+
+   .. py:attribute:: arn
+
+      The ARN of the subscription's destination
+
+
+      :type: :py:class:`@aws-cdk/cdk.Arn` *(readonly)*
+
+
+   .. py:attribute:: role
+
+      The role to assume to write log events to the destination
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined *(readonly)*
+
+
+MetricFilter
+^^^^^^^^^^^^
+
+.. py:class:: MetricFilter(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.MetricFilter;
+
+      .. code-tab:: javascript
+
+         const { MetricFilter } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { MetricFilter } from '@aws-cdk/aws-logs';
+
+
+
+   A filter that extracts information from CloudWatch Logs and emits to CloudWatch Metrics
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-logs.MetricFilterProps`
+
+MetricFilterName
+^^^^^^^^^^^^^^^^
+
+.. py:class:: MetricFilterName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.MetricFilterName;
+
+      .. code-tab:: javascript
+
+         const { MetricFilterName } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { MetricFilterName } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+MetricFilterProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MetricFilterProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.MetricFilterProps;
+
+      .. code-tab:: javascript
+
+         // MetricFilterProps is an interface
+
+      .. code-tab:: typescript
+
+         import { MetricFilterProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for a MetricFilter
+
+
+
+
+   .. py:attribute:: filterPattern
+
+      Pattern to search for log events.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+   .. py:attribute:: logGroup
+
+      The log group to create the filter on.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupRef`
+
+
+   .. py:attribute:: metricName
+
+      The name of the metric to emit.
+
+
+      :type: string
+
+
+   .. py:attribute:: metricNamespace
+
+      The namespace of the metric to emit.
+
+
+      :type: string
+
+
+   .. py:attribute:: defaultValue
+
+      The value to emit if the pattern does not match a particular event.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: metricValue
+
+      The value to emit for the metric.  Can either be a literal number (typically "1"), or the name of a field in the structure to take the value from the matched event. If you are using a field value, the field value must have been matched using the pattern.  If you want to specify a field from a matched JSON structure, use '$.fieldName', and make sure the field is in the pattern (if only as '$.fieldName = *').  If you want to specify a field from a matched space-delimited structure, use '$fieldName'.
+
+
+      :type: string or undefined
+
+
+NewLogStreamProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: NewLogStreamProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.NewLogStreamProps;
+
+      .. code-tab:: javascript
+
+         // NewLogStreamProps is an interface
+
+      .. code-tab:: typescript
+
+         import { NewLogStreamProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for a new LogStream created from a LogGroup
+
+
+
+
+   .. py:attribute:: logStreamName
+
+      The name of the log stream to create.  The name must be unique within the log group.
+
+
+      :type: string or undefined
+
+
+NewMetricFilterProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: NewMetricFilterProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.NewMetricFilterProps;
+
+      .. code-tab:: javascript
+
+         // NewMetricFilterProps is an interface
+
+      .. code-tab:: typescript
+
+         import { NewMetricFilterProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for a MetricFilter created from a LogGroup
+
+
+
+
+   .. py:attribute:: filterPattern
+
+      Pattern to search for log events.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+   .. py:attribute:: metricName
+
+      The name of the metric to emit.
+
+
+      :type: string
+
+
+   .. py:attribute:: metricNamespace
+
+      The namespace of the metric to emit.
+
+
+      :type: string
+
+
+   .. py:attribute:: defaultValue
+
+      The value to emit if the pattern does not match a particular event.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: metricValue
+
+      The value to emit for the metric.  Can either be a literal number (typically "1"), or the name of a field in the structure to take the value from the matched event. If you are using a field value, the field value must have been matched using the pattern.  If you want to specify a field from a matched JSON structure, use '$.fieldName', and make sure the field is in the pattern (if only as '$.fieldName = *').  If you want to specify a field from a matched space-delimited structure, use '$fieldName'.
+
+
+      :type: string or undefined
+
+
+NewSubscriptionFilterProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: NewSubscriptionFilterProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.NewSubscriptionFilterProps;
+
+      .. code-tab:: javascript
+
+         // NewSubscriptionFilterProps is an interface
+
+      .. code-tab:: typescript
+
+         import { NewSubscriptionFilterProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for a new SubscriptionFilter created from a LogGroup
+
+
+
+
+   .. py:attribute:: destination
+
+      The destination to send the filtered events to.  For example, a Kinesis stream or a Lambda function.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.ILogSubscriptionDestination`
+
+
+   .. py:attribute:: filterPattern
+
+      Log events matching this pattern will be sent to the destination.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+SpaceDelimitedTextPattern
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SpaceDelimitedTextPattern(columns, restrictions)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.SpaceDelimitedTextPattern;
+
+      .. code-tab:: javascript
+
+         const { SpaceDelimitedTextPattern } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { SpaceDelimitedTextPattern } from '@aws-cdk/aws-logs';
+
+
+
+   Space delimited text pattern
+
+
+   :implements: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+   :param columns: 
+   :type columns: string[]
+   :param restrictions: 
+   :type restrictions: string => :py:class:`~@aws-cdk/aws-logs.ColumnRestriction`[]
+
+   .. py:staticmethod:: construct(columns) -> @aws-cdk/aws-logs.SpaceDelimitedTextPattern
+
+      Construct a new instance of a space delimited text pattern  Since this class must be public, we can't rely on the user only creating it through the `LogPattern.spaceDelimited()` factory function. We must therefore validate the argument in the constructor. Since we're returning a copy on every mutation, and we don't want to re-validate the same things on every construction, we provide a limited set of mutator functions and only validate the new data every time.
+
+
+      :param columns: 
+      :type columns: string[]
+      :rtype: :py:class:`~@aws-cdk/aws-logs.SpaceDelimitedTextPattern`
+
+
+   .. py:method:: whereNumber(columnName, comparison, value) -> @aws-cdk/aws-logs.SpaceDelimitedTextPattern
+
+      Restrict where the pattern applies
+
+
+      :param columnName: 
+      :type columnName: string
+      :param comparison: 
+      :type comparison: string
+      :param value: 
+      :type value: number
+      :rtype: :py:class:`~@aws-cdk/aws-logs.SpaceDelimitedTextPattern`
+
+
+   .. py:method:: whereString(columnName, comparison, value) -> @aws-cdk/aws-logs.SpaceDelimitedTextPattern
+
+      Restrict where the pattern applies
+
+
+      :param columnName: 
+      :type columnName: string
+      :param comparison: 
+      :type comparison: string
+      :param value: 
+      :type value: string
+      :rtype: :py:class:`~@aws-cdk/aws-logs.SpaceDelimitedTextPattern`
+
+
+   .. py:attribute:: columns
+
+      :type: string[] *(readonly)*
+
+
+   .. py:attribute:: logPatternString
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: restrictions
+
+      :type: string => :py:class:`~@aws-cdk/aws-logs.ColumnRestriction`[] *(readonly)*
+
+
+SubscriptionFilter
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SubscriptionFilter(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.SubscriptionFilter;
+
+      .. code-tab:: javascript
+
+         const { SubscriptionFilter } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { SubscriptionFilter } from '@aws-cdk/aws-logs';
+
+
+
+   A new Subscription on a CloudWatch log group.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-logs.SubscriptionFilterProps`
+
+SubscriptionFilterName
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SubscriptionFilterName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.SubscriptionFilterName;
+
+      .. code-tab:: javascript
+
+         const { SubscriptionFilterName } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { SubscriptionFilterName } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+SubscriptionFilterProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SubscriptionFilterProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.SubscriptionFilterProps;
+
+      .. code-tab:: javascript
+
+         // SubscriptionFilterProps is an interface
+
+      .. code-tab:: typescript
+
+         import { SubscriptionFilterProps } from '@aws-cdk/aws-logs';
+
+
+
+   Properties for a SubscriptionFilter
+
+
+
+
+   .. py:attribute:: destination
+
+      The destination to send the filtered events to.  For example, a Kinesis stream or a Lambda function.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.ILogSubscriptionDestination`
+
+
+   .. py:attribute:: filterPattern
+
+      Log events matching this pattern will be sent to the destination.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.IFilterPattern`
+
+
+   .. py:attribute:: logGroup
+
+      The log group to create the subscription on.
+
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupRef`
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-logs.cloudformation
+
+DestinationResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DestinationResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.DestinationResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.DestinationResource } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DestinationResource } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DestinationResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DestinationResource``
+   :type properties: :py:class:`~@aws-cdk/aws-logs.cloudformation.DestinationResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: destinationArn
+
+      :type: :py:class:`~@aws-cdk/aws-logs.DestinationArn` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-logs.DestinationName` *(readonly)*
+
+
+DestinationResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DestinationResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.DestinationResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.DestinationResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DestinationResourceProps } from '@aws-cdk/aws-logs';
+
+
+
+
+
+   .. py:attribute:: destinationName
+
+      ``AWS::Logs::Destination.DestinationName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-destinationname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: destinationPolicy
+
+      ``AWS::Logs::Destination.DestinationPolicy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-destinationpolicy
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: roleArn
+
+      ``AWS::Logs::Destination.RoleArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-rolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: targetArn
+
+      ``AWS::Logs::Destination.TargetArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html#cfn-logs-destination-targetarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+LogGroupResource
+~~~~~~~~~~~~~~~~
+
+.. py:class:: LogGroupResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.LogGroupResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.LogGroupResource } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LogGroupResource } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``LogGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``LogGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-logs.cloudformation.LogGroupResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: logGroupArn
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupArn` *(readonly)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogGroupName` *(readonly)*
+
+
+LogGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: LogGroupResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.LogGroupResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.LogGroupResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LogGroupResourceProps } from '@aws-cdk/aws-logs';
+
+
+
+
+
+   .. py:attribute:: logGroupName
+
+      ``AWS::Logs::LogGroup.LogGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-loggroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+   .. py:attribute:: retentionInDays
+
+      ``AWS::Logs::LogGroup.RetentionInDays``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+LogStreamResource
+~~~~~~~~~~~~~~~~~
+
+.. py:class:: LogStreamResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.LogStreamResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.LogStreamResource } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LogStreamResource } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``LogStreamResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``LogStreamResource``
+   :type properties: :py:class:`~@aws-cdk/aws-logs.cloudformation.LogStreamResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-logs.LogStreamName` *(readonly)*
+
+
+LogStreamResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: LogStreamResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.LogStreamResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.LogStreamResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.LogStreamResourceProps } from '@aws-cdk/aws-logs';
+
+
+
+
+
+   .. py:attribute:: logGroupName
+
+      ``AWS::Logs::LogStream.LogGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-loggroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: logStreamName
+
+      ``AWS::Logs::LogStream.LogStreamName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html#cfn-logs-logstream-logstreamname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+MetricFilterResource
+~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: MetricFilterResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.MetricFilterResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.MetricFilterResource } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.MetricFilterResource } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``MetricFilterResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``MetricFilterResource``
+   :type properties: :py:class:`~@aws-cdk/aws-logs.cloudformation.MetricFilterResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-logs.MetricFilterName` *(readonly)*
+
+   .. py:class:: MetricTransformationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.Logs;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.logs.cloudformation.MetricFilterResource.MetricTransformationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.MetricFilterResource.MetricTransformationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.MetricFilterResource.MetricTransformationProperty } from '@aws-cdk/aws-logs';
+
+
+
+
+
+      .. py:attribute:: metricName
+
+         ``MetricFilterResource.MetricTransformationProperty.MetricName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-cwl-metricfilter-metrictransformation-metricname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+      .. py:attribute:: metricNamespace
+
+         ``MetricFilterResource.MetricTransformationProperty.MetricNamespace``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-cwl-metricfilter-metrictransformation-metricnamespace
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+      .. py:attribute:: metricValue
+
+         ``MetricFilterResource.MetricTransformationProperty.MetricValue``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-cwl-metricfilter-metrictransformation-metricvalue
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+      .. py:attribute:: defaultValue
+
+         ``MetricFilterResource.MetricTransformationProperty.DefaultValue``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-cwl-metricfilter-metrictransformation-defaultvalue
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+
+MetricFilterResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: MetricFilterResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.MetricFilterResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.MetricFilterResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.MetricFilterResourceProps } from '@aws-cdk/aws-logs';
+
+
+
+
+
+   .. py:attribute:: filterPattern
+
+      ``AWS::Logs::MetricFilter.FilterPattern``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-filterpattern
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: logGroupName
+
+      ``AWS::Logs::MetricFilter.LogGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-loggroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: metricTransformations
+
+      ``AWS::Logs::MetricFilter.MetricTransformations``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html#cfn-cwl-metricfilter-metrictransformations
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (:py:class:`@aws-cdk/cdk.CloudFormationToken` or :py:class:`~@aws-cdk/aws-logs.cloudformation.MetricFilterResource.MetricTransformationProperty`)[]
+
+
+SubscriptionFilterResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: SubscriptionFilterResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.SubscriptionFilterResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.SubscriptionFilterResource } = require('@aws-cdk/aws-logs');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.SubscriptionFilterResource } from '@aws-cdk/aws-logs';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``SubscriptionFilterResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``SubscriptionFilterResource``
+   :type properties: :py:class:`~@aws-cdk/aws-logs.cloudformation.SubscriptionFilterResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-logs.SubscriptionFilterName` *(readonly)*
+
+
+SubscriptionFilterResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: SubscriptionFilterResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Logs;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.logs.cloudformation.SubscriptionFilterResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.SubscriptionFilterResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.SubscriptionFilterResourceProps } from '@aws-cdk/aws-logs';
+
+
+
+
+
+   .. py:attribute:: destinationArn
+
+      ``AWS::Logs::SubscriptionFilter.DestinationArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-destinationarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: filterPattern
+
+      ``AWS::Logs::SubscriptionFilter.FilterPattern``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-filterpattern
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: logGroupName
+
+      ``AWS::Logs::SubscriptionFilter.LogGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-loggroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: roleArn
+
+      ``AWS::Logs::SubscriptionFilter.RoleArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html#cfn-cwl-subscriptionfilter-rolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-logs
+

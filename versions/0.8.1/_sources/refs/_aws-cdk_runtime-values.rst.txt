@@ -1,0 +1,252 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"6nNkplb6qL3tUd82vT8XkszzpiWX3ZloD4GzSsAWLfM="}
+
+@aws-cdk/runtime-values
+=======================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/cdk-runtime-values/0.8.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:cdk-runtime-values:jar:0.8.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="cdk-runtime-values" rev="0.8.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>cdk-runtime-values</artifactId>
+           <version>0.8.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:cdk-runtime-values:0.8.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='cdk-runtime-values', version='0.8.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/runtime-values/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/runtime-values@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/runtime-values": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/runtime-values@0.8.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/runtime-values/v/0.8.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/runtime-values@0.8.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/runtime-values": "^0.8.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/runtime-values@0.8.1
+
+
+
+.. mdinclude:: ./__aws-cdk_runtime-values.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/runtime-values
+
+ParameterName
+^^^^^^^^^^^^^
+
+.. py:class:: ParameterName([valueOrFunction])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.runtimevalues.ParameterName;
+
+      .. code-tab:: javascript
+
+         const { ParameterName } = require('@aws-cdk/runtime-values');
+
+      .. code-tab:: typescript
+
+         import { ParameterName } from '@aws-cdk/runtime-values';
+
+
+
+   The full name of the runtime value's SSM parameter.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+RuntimeValue
+^^^^^^^^^^^^
+
+.. py:class:: RuntimeValue(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.runtimevalues.RuntimeValue;
+
+      .. code-tab:: javascript
+
+         const { RuntimeValue } = require('@aws-cdk/runtime-values');
+
+      .. code-tab:: typescript
+
+         import { RuntimeValue } from '@aws-cdk/runtime-values';
+
+
+
+   Defines a value published from construction code which needs to be accessible by runtime code.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/runtime-values.RuntimeValueProps`
+
+   .. py:method:: grantRead([principal])
+
+      Grants a principal read permissions on this runtime value.
+
+
+      :param principal: The principal (e.g. Role, User, Group)
+      :type principal: :py:class:`@aws-cdk/aws-iam.IIdentityResource` or undefined
+
+
+   .. py:attribute:: ENV_NAME
+
+      The recommended name of the environment variable to use to set the stack name from which the runtime value is published.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ENV_VALUE
+
+      The value to assign to the `RTV_STACK_NAME` environment variable.
+
+
+      :type: :py:class:`@aws-cdk/cdk.AwsStackName` *(readonly)* *(static)*
+
+
+   .. py:attribute:: parameterName
+
+      The name of the runtime parameter.
+
+
+      :type: :py:class:`~@aws-cdk/runtime-values.ParameterName` *(readonly)*
+
+
+   .. py:attribute:: parameterArn
+
+      The ARN fo the SSM parameter used for this runtime value.
+
+
+      :type: :py:class:`@aws-cdk/cdk.Arn` *(readonly)*
+
+
+RuntimeValueProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RuntimeValueProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.runtimevalues.RuntimeValueProps;
+
+      .. code-tab:: javascript
+
+         // RuntimeValueProps is an interface
+
+      .. code-tab:: typescript
+
+         import { RuntimeValueProps } from '@aws-cdk/runtime-values';
+
+
+
+
+
+   .. py:attribute:: package
+
+      A namespace for the runtime value. It is recommended to use the name of the library/package that advertises this value.
+
+
+      :type: string
+
+
+   .. py:attribute:: value
+
+      The value to advertise. Can be either a primitive value or a token.
+
+
+      :type: any
+
+

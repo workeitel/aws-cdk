@@ -1,0 +1,1116 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"PrORESPtzKwf1sGDdW/3HPq2/GliUkKA+azd+D7bAmU="}
+
+@aws-cdk/aws-codecommit
+=======================
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.CodeCommit/0.9.0>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.CodeCommit" Version="0.9.0" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.CodeCommit --version 0.9.0
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.CodeCommit" version="0.9.0" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/codecommit/0.9.0/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:codecommit:jar:0.9.0'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="codecommit" rev="0.9.0"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>codecommit</artifactId>
+           <version>0.9.0</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:codecommit:0.9.0'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='codecommit', version='0.9.0')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codecommit/v/0.9.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codecommit@0.9.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codecommit": "^0.9.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codecommit@0.9.0
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-codecommit/v/0.9.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-codecommit@0.9.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-codecommit": "^0.9.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-codecommit@0.9.0
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-codecommit.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-codecommit
+
+CommonPipelineSourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CommonPipelineSourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.CommonPipelineSourceProps;
+
+      .. code-tab:: javascript
+
+         // CommonPipelineSourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { CommonPipelineSourceProps } from '@aws-cdk/aws-codecommit';
+
+
+
+   Common properties for creating {@link PipelineSource} - either directly, through its constructor, or through {@link RepositoryRef#addToPipeline}.
+
+
+
+
+   .. py:attribute:: artifactName
+
+      The name of the source's output artifact. Output artifacts are used by CodePipeline as inputs into other actions.
+
+
+      :type: string
+
+
+   .. py:attribute:: branch
+
+      :type: string or undefined
+
+
+   .. py:attribute:: pollForSourceChanges
+
+      Whether or not AWS CodePipeline should poll for source changes.
+
+
+      :type: boolean or undefined
+
+
+PipelineSource
+^^^^^^^^^^^^^^
+
+.. py:class:: PipelineSource(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.PipelineSource;
+
+      .. code-tab:: javascript
+
+         const { PipelineSource } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { PipelineSource } from '@aws-cdk/aws-codecommit';
+
+
+
+   CodePipeline Source that is provided by an AWS CodeCommit repository.
+
+
+   :extends: :py:class:`@aws-cdk/aws-codepipeline-api.SourceAction`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codecommit.PipelineSourceProps`
+
+PipelineSourceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PipelineSourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.PipelineSourceProps;
+
+      .. code-tab:: javascript
+
+         // PipelineSourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { PipelineSourceProps } from '@aws-cdk/aws-codecommit';
+
+
+
+   Construction properties of the {@link PipelineSource CodeCommit source CodePipeline Action}.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codecommit.CommonPipelineSourceProps`
+   :extends: :py:class:`@aws-cdk/aws-codepipeline-api.CommonActionProps`
+
+
+   .. py:attribute:: repository
+
+      The CodeCommit repository.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryRef`
+
+
+Repository
+^^^^^^^^^^
+
+.. py:class:: Repository(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.Repository;
+
+      .. code-tab:: javascript
+
+         const { Repository } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { Repository } from '@aws-cdk/aws-codecommit';
+
+
+
+   Provides a CodeCommit Repository
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codecommit.RepositoryRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codecommit.RepositoryProps`
+
+   .. py:method:: notify(arn, [options]) -> @aws-cdk/aws-codecommit.Repository
+
+      Create a trigger to notify another service to run actions on repository events.
+
+
+      :param arn: Arn of the resource that repository events will notify
+      :type arn: string
+      :param options: Trigger options to run actions
+      :type options: :py:class:`~@aws-cdk/aws-codecommit.RepositoryTriggerOptions` or undefined
+      :rtype: :py:class:`~@aws-cdk/aws-codecommit.Repository`
+
+
+   .. py:attribute:: repositoryArn
+
+      The ARN of this Repository. 
+
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryArn` *(readonly)*
+
+
+   .. py:attribute:: repositoryCloneUrlHttp
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryCloneUrlHttp` *(readonly)*
+
+
+   .. py:attribute:: repositoryCloneUrlSsh
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryCloneUrlSsh` *(readonly)*
+
+
+   .. py:attribute:: repositoryName
+
+      The human-visible name of this Repository. 
+
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryName` *(readonly)*
+
+
+RepositoryArn
+^^^^^^^^^^^^^
+
+.. py:class:: RepositoryArn(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryArn;
+
+      .. code-tab:: javascript
+
+         const { RepositoryArn } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { RepositoryArn } from '@aws-cdk/aws-codecommit';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+RepositoryCloneUrlHttp
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryCloneUrlHttp(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryCloneUrlHttp;
+
+      .. code-tab:: javascript
+
+         const { RepositoryCloneUrlHttp } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { RepositoryCloneUrlHttp } from '@aws-cdk/aws-codecommit';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+RepositoryCloneUrlSsh
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryCloneUrlSsh(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryCloneUrlSsh;
+
+      .. code-tab:: javascript
+
+         const { RepositoryCloneUrlSsh } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { RepositoryCloneUrlSsh } from '@aws-cdk/aws-codecommit';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+RepositoryEventTrigger (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryEventTrigger
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryEventTrigger;
+
+      .. code-tab:: javascript
+
+         const { RepositoryEventTrigger } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { RepositoryEventTrigger } from '@aws-cdk/aws-codecommit';
+
+
+
+   Repository events that will cause the trigger to run actions in another service.
+
+
+   .. py:data:: All
+
+   .. py:data:: UpdateRef
+
+   .. py:data:: CreateRef
+
+   .. py:data:: DeleteRef
+
+
+RepositoryId
+^^^^^^^^^^^^
+
+.. py:class:: RepositoryId(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryId;
+
+      .. code-tab:: javascript
+
+         const { RepositoryId } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { RepositoryId } from '@aws-cdk/aws-codecommit';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+RepositoryName
+^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryName;
+
+      .. code-tab:: javascript
+
+         const { RepositoryName } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { RepositoryName } from '@aws-cdk/aws-codecommit';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+RepositoryProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryProps;
+
+      .. code-tab:: javascript
+
+         // RepositoryProps is an interface
+
+      .. code-tab:: typescript
+
+         import { RepositoryProps } from '@aws-cdk/aws-codecommit';
+
+
+
+
+
+   .. py:attribute:: repositoryName
+
+      Name of the repository. This property is required for all repositories.
+
+
+      :type: string
+
+
+   .. py:attribute:: description
+
+      A description of the repository. Use the description to identify the purpose of the repository.
+
+
+      :type: string or undefined
+
+
+RepositoryRef
+^^^^^^^^^^^^^
+
+.. py:class:: RepositoryRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryRef;
+
+      .. code-tab:: javascript
+
+         const { RepositoryRef } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { RepositoryRef } from '@aws-cdk/aws-codecommit';
+
+
+
+   Represents a reference to a CodeCommit Repository.  If you want to create a new Repository managed alongside your CDK code, use the {@link Repository} class.  If you want to reference an already existing Repository, use the {@link RepositoryRef.import} method.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-codecommit.RepositoryRef
+
+      Import a Repository defined either outside the CDK, or in a different Stack (exported with the {@link export} method).
+
+
+      :param parent: the parent Construct for the Repository
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: the name of the Repository Construct
+      :type name: string
+      :param props: the properties used to identify the existing Repository
+      :type props: :py:class:`~@aws-cdk/aws-codecommit.RepositoryRefProps`
+      :return: a reference to the existing Repository
+      :rtype: :py:class:`~@aws-cdk/aws-codecommit.RepositoryRef`
+
+
+   .. py:method:: addToPipeline(stage, name, props) -> @aws-cdk/aws-codecommit.PipelineSource
+
+      Convenience method for creating a new {@link PipelineSource} Action, and adding it to the given Stage.
+
+
+      :param stage: the Pipeline Stage to add the new Action to
+      :type stage: :py:class:`@aws-cdk/aws-codepipeline-api.IStage`
+      :param name: the name of the newly created Action
+      :type name: string
+      :param props: the properties of the new Action
+      :type props: :py:class:`~@aws-cdk/aws-codecommit.CommonPipelineSourceProps`
+      :return: the newly created {@link PipelineSource} Action
+      :rtype: :py:class:`~@aws-cdk/aws-codecommit.PipelineSource`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-codecommit.RepositoryRefProps
+
+      Exports this Repository. Allows the same Repository to be used in 2 different Stacks.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-codecommit.RepositoryRefProps`
+
+
+   .. py:method:: onCommentOnCommit(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers when a comment is made on a commit.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onCommentOnPullRequest(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers when a comment is made on a pull request.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onCommit(name, [target, [branch]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers when a commit is pushed to a branch.
+
+
+      :param name: 
+      :type name: string
+      :param target: The target of the event
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param branch: The branch to monitor. Defaults to all branches.
+      :type branch: string or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onEvent(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers for repository events. Use `rule.addEventPattern(pattern)` to specify a filter.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onPullRequestStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers when a pull request state is changed.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onReferenceCreated(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers when a reference is created (i.e. a new brach/tag is created) to the repository.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onReferenceDeleted(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers when a reference is delete (i.e. a branch/tag is deleted) from the repository.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onReferenceUpdated(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers when a reference is updated (i.e. a commit is pushed to an existig branch) from the repository.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule which triggers when a "CodeCommit Repository State Change" event occurs.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:attribute:: repositoryArn
+
+      The ARN of this Repository. 
+
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: repositoryName
+
+      The human-visible name of this Repository. 
+
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryName` *(readonly)* *(abstract)*
+
+
+RepositoryRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryRefProps;
+
+      .. code-tab:: javascript
+
+         // RepositoryRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { RepositoryRefProps } from '@aws-cdk/aws-codecommit';
+
+
+
+   Properties for the {@link RepositoryRef.import} method.
+
+
+
+
+   .. py:attribute:: repositoryName
+
+      The name of an existing CodeCommit Repository that we are referencing. Must be in the same account and region as the root Stack.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryName`
+
+
+RepositoryTriggerOptions (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryTriggerOptions
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.RepositoryTriggerOptions;
+
+      .. code-tab:: javascript
+
+         // RepositoryTriggerOptions is an interface
+
+      .. code-tab:: typescript
+
+         import { RepositoryTriggerOptions } from '@aws-cdk/aws-codecommit';
+
+
+
+   Creates for a repository trigger to an SNS topic or Lambda function.
+
+
+
+
+   .. py:attribute:: branches
+
+      The names of the branches in the AWS CodeCommit repository that contain events that you want to include in the trigger. If you don't specify at least one branch, the trigger applies to all branches.
+
+
+      :type: string[] or undefined
+
+
+   .. py:attribute:: customData
+
+      When an event is triggered, additional information that AWS CodeCommit includes when it sends information to the target.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: events
+
+      The repository events for which AWS CodeCommit sends information to the target, which you specified in the DestinationArn property.If you don't specify events, the trigger runs for all repository events.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryEventTrigger`[] or undefined
+
+
+   .. py:attribute:: name
+
+      A name for the trigger.Triggers on a repository must have unique names
+
+
+      :type: string or undefined
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-codecommit.cloudformation
+
+RepositoryResource
+~~~~~~~~~~~~~~~~~~
+
+.. py:class:: RepositoryResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.cloudformation.RepositoryResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.RepositoryResource } = require('@aws-cdk/aws-codecommit');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.RepositoryResource } from '@aws-cdk/aws-codecommit';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``RepositoryResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``RepositoryResource``
+   :type properties: :py:class:`~@aws-cdk/aws-codecommit.cloudformation.RepositoryResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryId` *(readonly)*
+
+
+   .. py:attribute:: repositoryArn
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryArn` *(readonly)*
+
+
+   .. py:attribute:: repositoryCloneUrlHttp
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryCloneUrlHttp` *(readonly)*
+
+
+   .. py:attribute:: repositoryCloneUrlSsh
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryCloneUrlSsh` *(readonly)*
+
+
+   .. py:attribute:: repositoryName
+
+      :type: :py:class:`~@aws-cdk/aws-codecommit.RepositoryName` *(readonly)*
+
+   .. py:class:: RepositoryTriggerProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.CodeCommit;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.RepositoryResource.RepositoryTriggerProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.RepositoryResource.RepositoryTriggerProperty } from '@aws-cdk/aws-codecommit';
+
+
+
+
+
+      .. py:attribute:: branches
+
+         ``RepositoryResource.RepositoryTriggerProperty.Branches``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-branches
+
+
+         :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`)[] or undefined
+
+
+      .. py:attribute:: customData
+
+         ``RepositoryResource.RepositoryTriggerProperty.CustomData``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-customdata
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+      .. py:attribute:: destinationArn
+
+         ``RepositoryResource.RepositoryTriggerProperty.DestinationArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-destinationarn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+      .. py:attribute:: events
+
+         ``RepositoryResource.RepositoryTriggerProperty.Events``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-events
+
+
+         :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (string or :py:class:`@aws-cdk/cdk.CloudFormationToken`)[] or undefined
+
+
+      .. py:attribute:: name
+
+         ``RepositoryResource.RepositoryTriggerProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+
+RepositoryResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: RepositoryResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.CodeCommit;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.codecommit.cloudformation.RepositoryResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.RepositoryResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.RepositoryResourceProps } from '@aws-cdk/aws-codecommit';
+
+
+
+
+
+   .. py:attribute:: repositoryName
+
+      ``AWS::CodeCommit::Repository.RepositoryName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositoryname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken`
+
+
+   .. py:attribute:: repositoryDescription
+
+      ``AWS::CodeCommit::Repository.RepositoryDescription``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositorydescription
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined
+
+
+   .. py:attribute:: triggers
+
+      ``AWS::CodeCommit::Repository.Triggers``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-triggers
+
+
+      :type: :py:class:`@aws-cdk/cdk.CloudFormationToken` or (:py:class:`@aws-cdk/cdk.CloudFormationToken` or :py:class:`~@aws-cdk/aws-codecommit.cloudformation.RepositoryResource.RepositoryTriggerProperty`)[] or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-codecommit
+

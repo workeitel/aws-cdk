@@ -1,0 +1,824 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"6x02Nb0WufixlXC4MVSN7oNPvxn2pwcYGTplb+aPk0k="}
+
+@aws-cdk/aws-ecr
+================
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.ECR/0.9.1>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.ECR" Version="0.9.1" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.ECR --version 0.9.1
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.ECR" version="0.9.1" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/ecr/0.9.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:ecr:jar:0.9.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="ecr" rev="0.9.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>ecr</artifactId>
+           <version>0.9.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:ecr:0.9.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='ecr', version='0.9.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-ecr/v/0.9.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-ecr@0.9.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-ecr": "^0.9.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-ecr@0.9.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-ecr/v/0.9.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-ecr@0.9.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-ecr": "^0.9.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-ecr@0.9.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-ecr.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-ecr
+
+CountType (enum)
+^^^^^^^^^^^^^^^^
+
+.. py:class:: CountType
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.CountType;
+
+      .. code-tab:: javascript
+
+         const { CountType } = require('@aws-cdk/aws-ecr');
+
+      .. code-tab:: typescript
+
+         import { CountType } from '@aws-cdk/aws-ecr';
+
+
+
+   Select images based on counts
+
+
+   .. py:data:: ImageCountMoreThan
+
+   Set a limit on the number of images in your repository
+
+
+   .. py:data:: SinceImagePushed
+
+   Set an age limit on the images in your repository
+
+
+
+LifecycleRule (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LifecycleRule
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.LifecycleRule;
+
+      .. code-tab:: javascript
+
+         // LifecycleRule is an interface
+
+      .. code-tab:: typescript
+
+         import { LifecycleRule } from '@aws-cdk/aws-ecr';
+
+
+
+   An ECR life cycle rule
+
+
+
+
+   .. py:attribute:: description
+
+      Describes the purpose of the rule
+
+
+      :type: string or undefined *(abstract)*
+
+
+   .. py:attribute:: maxImageAgeDays
+
+      The maximum age of images to retain  Specify exactly one of maxImageCount and maxImageAgeDays.
+
+
+      :type: number or undefined *(abstract)*
+
+
+   .. py:attribute:: maxImageCount
+
+      The maximum number of images to retain  Specify exactly one of maxImageCount and maxImageAgeDays.
+
+
+      :type: number or undefined *(abstract)*
+
+
+   .. py:attribute:: rulePriority
+
+      Controls the order in which rules are evaluated (low to high)  All rules must have a unique priority, where lower numbers have higher precedence. The first rule that matches is applied to an image.  There can only be one rule with a tagStatus of Any, and it must have the highest rulePriority.  All rules without a specified priority will have incrementing priorities automatically assigned to them, higher than any rules that DO have priorities.
+
+
+      :type: number or undefined *(abstract)*
+
+
+   .. py:attribute:: tagPrefixList
+
+      Select images that have ALL the given prefixes in their tag.  Only if tagStatus == TagStatus.Tagged
+
+
+      :type: string[] or undefined *(abstract)*
+
+
+   .. py:attribute:: tagStatus
+
+      Select images based on tags  Only one rule is allowed to select untagged images, and it must have the highest rulePriority.
+
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.TagStatus` or undefined *(abstract)*
+
+
+Repository
+^^^^^^^^^^
+
+.. py:class:: Repository(parent, id, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.Repository;
+
+      .. code-tab:: javascript
+
+         const { Repository } = require('@aws-cdk/aws-ecr');
+
+      .. code-tab:: typescript
+
+         import { Repository } from '@aws-cdk/aws-ecr';
+
+
+
+   Define an ECR repository
+
+
+   :extends: :py:class:`~@aws-cdk/aws-ecr.RepositoryRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-ecr.RepositoryProps`
+
+   .. py:method:: addLifecycleRule(rule)
+
+      Add a life cycle rule to the repository  Life cycle rules automatically expire images from the repository that match certain conditions.
+
+
+      :param rule: 
+      :type rule: :py:class:`~@aws-cdk/aws-ecr.LifecycleRule`
+
+
+   .. py:method:: addToResourcePolicy(statement)
+
+      Add a policy statement to the repository's resource policy
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:attribute:: repositoryArn
+
+      The ARN of the repository
+
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.RepositoryArn` *(readonly)*
+
+
+   .. py:attribute:: repositoryName
+
+      The name of the repository
+
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.RepositoryName` *(readonly)*
+
+
+RepositoryArn
+^^^^^^^^^^^^^
+
+.. py:class:: RepositoryArn(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.RepositoryArn;
+
+      .. code-tab:: javascript
+
+         const { RepositoryArn } = require('@aws-cdk/aws-ecr');
+
+      .. code-tab:: typescript
+
+         import { RepositoryArn } from '@aws-cdk/aws-ecr';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+RepositoryName
+^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryName(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.RepositoryName;
+
+      .. code-tab:: javascript
+
+         const { RepositoryName } = require('@aws-cdk/aws-ecr');
+
+      .. code-tab:: typescript
+
+         import { RepositoryName } from '@aws-cdk/aws-ecr';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+RepositoryProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.RepositoryProps;
+
+      .. code-tab:: javascript
+
+         // RepositoryProps is an interface
+
+      .. code-tab:: typescript
+
+         import { RepositoryProps } from '@aws-cdk/aws-ecr';
+
+
+
+
+
+   .. py:attribute:: lifecycleRegistryId
+
+      The AWS account ID associated with the registry that contains the repository.
+
+
+      :type: string or undefined *(abstract)*
+
+
+   .. py:attribute:: lifecycleRules
+
+      Life cycle rules to apply to this registry
+
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.LifecycleRule`[] or undefined *(abstract)*
+
+
+   .. py:attribute:: repositoryName
+
+      Name for this repository
+
+
+      :type: string or undefined *(abstract)*
+
+
+   .. py:attribute:: retain
+
+      Retain the repository on stack deletion  If you don't set this to true, the registry must be empty, otherwise your stack deletion will fail.
+
+
+      :type: boolean or undefined *(abstract)*
+
+
+RepositoryRef
+^^^^^^^^^^^^^
+
+.. py:class:: RepositoryRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.RepositoryRef;
+
+      .. code-tab:: javascript
+
+         const { RepositoryRef } = require('@aws-cdk/aws-ecr');
+
+      .. code-tab:: typescript
+
+         import { RepositoryRef } from '@aws-cdk/aws-ecr';
+
+
+
+   An ECR repository
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, id, props) -> @aws-cdk/aws-ecr.RepositoryRef
+
+      Import a repository
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param id: 
+      :type id: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-ecr.RepositoryRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-ecr.RepositoryRef`
+
+
+   .. py:method:: addToResourcePolicy(statement)
+
+      Add a policy statement to the repository's resource policy
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+      :abstract: Yes
+
+
+   .. py:method:: export() -> @aws-cdk/aws-ecr.RepositoryRefProps
+
+      Export this repository from the stack
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-ecr.RepositoryRefProps`
+
+
+   .. py:attribute:: repositoryArn
+
+      The ARN of the repository
+
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.RepositoryArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: repositoryName
+
+      The name of the repository
+
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.RepositoryName` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: repositoryUri
+
+      The URI of the repository, for use in Docker/image references
+
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.RepositoryUri` *(readonly)*
+
+
+RepositoryRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RepositoryRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.RepositoryRefProps;
+
+      .. code-tab:: javascript
+
+         // RepositoryRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { RepositoryRefProps } from '@aws-cdk/aws-ecr';
+
+
+
+
+
+   .. py:attribute:: repositoryArn
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.RepositoryArn` *(abstract)*
+
+
+RepositoryUri
+^^^^^^^^^^^^^
+
+.. py:class:: RepositoryUri(valueOrFunction, [displayName])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.RepositoryUri;
+
+      .. code-tab:: javascript
+
+         const { RepositoryUri } = require('@aws-cdk/aws-ecr');
+
+      .. code-tab:: typescript
+
+         import { RepositoryUri } from '@aws-cdk/aws-ecr';
+
+
+
+   URI of a repository
+
+
+   :extends: :py:class:`@aws-cdk/cdk.CloudFormationToken`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+TagStatus (enum)
+^^^^^^^^^^^^^^^^
+
+.. py:class:: TagStatus
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.TagStatus;
+
+      .. code-tab:: javascript
+
+         const { TagStatus } = require('@aws-cdk/aws-ecr');
+
+      .. code-tab:: typescript
+
+         import { TagStatus } from '@aws-cdk/aws-ecr';
+
+
+
+   Select images based on tags
+
+
+   .. py:data:: Any
+
+   Rule applies to all images
+
+
+   .. py:data:: Tagged
+
+   Rule applies to tagged images
+
+
+   .. py:data:: Untagged
+
+   Rule applies to untagged images
+
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-ecr.cloudformation
+
+RepositoryResource
+~~~~~~~~~~~~~~~~~~
+
+.. py:class:: RepositoryResource(parent, name, [properties])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.cloudformation.RepositoryResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.RepositoryResource } = require('@aws-cdk/aws-ecr');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.RepositoryResource } from '@aws-cdk/aws-ecr';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``RepositoryResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``RepositoryResource``
+   :type properties: :py:class:`~@aws-cdk/aws-ecr.cloudformation.RepositoryResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: string => any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: ref
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.RepositoryName` *(readonly)*
+
+
+   .. py:attribute:: repositoryArn
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.RepositoryArn` *(readonly)*
+
+   .. py:class:: LifecyclePolicyProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: c#
+
+            using Amazon.CDK.AWS.ECR;
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.ecr.cloudformation.RepositoryResource.LifecyclePolicyProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.RepositoryResource.LifecyclePolicyProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.RepositoryResource.LifecyclePolicyProperty } from '@aws-cdk/aws-ecr';
+
+
+
+
+
+      .. py:attribute:: lifecyclePolicyText
+
+         ``RepositoryResource.LifecyclePolicyProperty.LifecyclePolicyText``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-lifecyclepolicytext
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+      .. py:attribute:: registryId
+
+         ``RepositoryResource.LifecyclePolicyProperty.RegistryId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html#cfn-ecr-repository-lifecyclepolicy-registryid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+
+RepositoryResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: RepositoryResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.ECR;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.ecr.cloudformation.RepositoryResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.RepositoryResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.RepositoryResourceProps } from '@aws-cdk/aws-ecr';
+
+
+
+
+
+   .. py:attribute:: lifecyclePolicy
+
+      ``AWS::ECR::Repository.LifecyclePolicy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
+
+
+      :type: :py:class:`~@aws-cdk/aws-ecr.cloudformation.RepositoryResource.LifecyclePolicyProperty` or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: repositoryName
+
+      ``AWS::ECR::Repository.RepositoryName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+   .. py:attribute:: repositoryPolicyText
+
+      ``AWS::ECR::Repository.RepositoryPolicyText``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.CloudFormationToken` or undefined *(abstract)*
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-ecr
+

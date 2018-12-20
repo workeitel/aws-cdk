@@ -1,0 +1,1353 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"OiGMFosXRKTLV7eTyQ5b8o9BWMl6+JfZwbcz3UWWXUo="}
+
+@aws-cdk/aws-iam
+================
+
+.. mdinclude:: ./__aws-cdk_aws-iam.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-iam
+
+AccessKeySecretAccessKey
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AccessKeySecretAccessKey([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+Group
+^^^^^
+
+.. py:class:: Group(parent, name, [props])
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`~@aws-cdk/aws-iam.IIdentityResource`
+   :implements: :py:class:`~@aws-cdk/aws-iam.IPrincipal`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-iam.GroupProps` or undefined
+
+   .. py:method:: attachManagedPolicy(arn)
+
+      Attaches a managed policy to this group.
+
+
+      :param arn: The ARN of the managed policy to attach.
+      :type arn: any
+
+
+   .. py:method:: attachInlinePolicy(policy)
+
+      Attaches a policy to this group.
+
+
+      :param policy: The policy to attach.
+      :type policy: :py:class:`~@aws-cdk/aws-iam.Policy`
+
+
+   .. py:method:: addUser(user)
+
+      Adds a user to this group.
+
+
+      :param user: 
+      :type user: :py:class:`~@aws-cdk/aws-iam.User`
+
+
+   .. py:method:: addToPolicy(statement)
+
+      Adds an IAM statement to the default policy.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:attribute:: groupName
+
+      The runtime name of this group.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.GroupName` *(readonly)*
+
+
+   .. py:attribute:: groupArn
+
+      The ARN of this group.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.GroupArn` *(readonly)*
+
+
+   .. py:attribute:: principal
+
+      An "AWS" policy principal that represents this group.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyPrincipal` *(readonly)*
+
+
+GroupArn
+^^^^^^^^
+
+.. py:class:: GroupArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+GroupName
+^^^^^^^^^
+
+.. py:class:: GroupName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+GroupProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: GroupProps
+
+
+
+   .. py:attribute:: groupName
+
+      A name for the IAM group. For valid values, see the GroupName parameter for the CreateGroup action in the IAM API Reference. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the group name.  If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to acknowledge your template's capabilities. For more information, see Acknowledging IAM Resources in AWS CloudFormation Templates.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: managedPolicyArns
+
+      A list of ARNs for managed policies associated with group.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: path
+
+      The path to the group. For more information about paths, see [IAM Identifiers](http://docs.aws.amazon.com/IAM/latest/UserGuide/index.html?Using_Identifiers.html) in the IAM User Guide.
+
+
+      :type: string or undefined
+
+
+IIdentityResource (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IIdentityResource
+
+   :extends: :py:class:`~@aws-cdk/aws-iam.IPrincipal`
+
+
+IPrincipal (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IPrincipal
+
+   A construct that represents an IAM principal, such as a user, group or role.
+
+
+
+
+   .. py:attribute:: principal
+
+      The IAM principal of this identity (i.e. AWS principal, service principal, etc).
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyPrincipal` *(readonly)*
+
+
+   .. py:method:: addToPolicy(statement)
+
+      Adds an IAM statement to the default inline policy associated with this principal. If a policy doesn't exist, it is created.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: attachInlinePolicy(policy)
+
+      Attaches an inline policy to this principal. This is the same as calling `policy.addToXxx(principal)`.
+
+
+      :param policy: The policy resource to attach to this principal.
+      :type policy: :py:class:`~@aws-cdk/aws-iam.Policy`
+
+
+   .. py:method:: attachManagedPolicy(arn)
+
+      Attaches a managed policy to this principal.
+
+
+      :param arn: The ARN of the managed policy
+      :type arn: any
+
+
+InstanceProfileArn
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: InstanceProfileArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+Policy
+^^^^^^
+
+.. py:class:: Policy(parent, name, [props])
+
+   The AWS::IAM::Policy resource associates an IAM policy with IAM users, roles, or groups. For more information about IAM policies, see [Overview of IAM Policies](http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html) in the IAM User Guide guide.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/cdk.IDependable`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-iam.PolicyProps` or undefined
+
+   .. py:method:: addStatement(statement)
+
+      Adds a statement to the policy document.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: attachToUser(user)
+
+      Attaches this policy to a user.
+
+
+      :param user: 
+      :type user: :py:class:`~@aws-cdk/aws-iam.User`
+
+
+   .. py:method:: attachToRole(role)
+
+      Attaches this policy to a role.
+
+
+      :param role: 
+      :type role: :py:class:`~@aws-cdk/aws-iam.Role`
+
+
+   .. py:method:: attachToGroup(group)
+
+      Attaches this policy to a group.
+
+
+      :param group: 
+      :type group: :py:class:`~@aws-cdk/aws-iam.Group`
+
+
+   .. py:method:: validate() -> string[]
+
+      This method can be implemented by derived constructs in order to perform validation logic. It is called on all constructs before synthesis.
+
+
+      :rtype: string
+
+
+   .. py:attribute:: document
+
+      The policy document.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument` *(readonly)*
+
+
+   .. py:attribute:: policyName
+
+      The name of this policy.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      Lists all the elements consumers should "depend-on".
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable` *(readonly)*
+
+
+PolicyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: PolicyProps
+
+
+
+   .. py:attribute:: policyName
+
+      The name of the policy. If you specify multiple policies for an entity, specify unique names. For example, if you specify a list of policies for an IAM role, each policy must have a unique name.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: users
+
+      Users to attach this policy to. You can also use `attachToUser(user)` to attach this policy to a user.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.User` or undefined
+
+
+   .. py:attribute:: roles
+
+      Roles to attach this policy to. You can also use `attachToRole(role)` to attach this policy to a role.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.Role` or undefined
+
+
+   .. py:attribute:: groups
+
+      Groups to attach this policy to. You can also use `attachToGroup(group)` to attach this policy to a group.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.Group` or undefined
+
+
+   .. py:attribute:: statements
+
+      Initial set of permissions to add to this policy document. You can also use `addPermission(statement)` to add permissions later.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyStatement` or undefined
+
+
+Role
+^^^^
+
+.. py:class:: Role(parent, name, props)
+
+   IAM Role  Defines an IAM role. The role is created with an assume policy document associated with the specified AWS service principal defined in `serviceAssumeRole`.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`~@aws-cdk/aws-iam.IIdentityResource`
+   :implements: :py:class:`~@aws-cdk/aws-iam.IPrincipal`
+   :implements: :py:class:`@aws-cdk/cdk.IDependable`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-iam.RoleProps`
+
+   .. py:method:: addToPolicy(statement)
+
+      Adds a permission to the role's default policy document. If there is no default policy attached to this role, it will be created.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: attachManagedPolicy(arn)
+
+      Attaches a managed policy to this role.
+
+
+      :param arn: The ARN of the managed policy to attach.
+      :type arn: any
+
+
+   .. py:method:: attachInlinePolicy(policy)
+
+      Attaches a policy to this role.
+
+
+      :param policy: The policy to attach
+      :type policy: :py:class:`~@aws-cdk/aws-iam.Policy`
+
+
+   .. py:attribute:: assumeRolePolicy
+
+      The assume role policy document associated with this role.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument` or undefined *(readonly)*
+
+
+   .. py:attribute:: roleArn
+
+      Returns the ARN of this role.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.RoleArn` *(readonly)*
+
+
+   .. py:attribute:: roleName
+
+      Returns the name of the role.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.RoleName` *(readonly)*
+
+
+   .. py:attribute:: principal
+
+      Returns the ARN of this role.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyPrincipal` *(readonly)*
+
+
+   .. py:attribute:: dependencyElements
+
+      Returns the role.
+
+
+      :type: :py:class:`@aws-cdk/cdk.IDependable` *(readonly)*
+
+
+RoleArn
+^^^^^^^
+
+.. py:class:: RoleArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+RoleId
+^^^^^^
+
+.. py:class:: RoleId([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+RoleName
+^^^^^^^^
+
+.. py:class:: RoleName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+RoleProps (interface)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: RoleProps
+
+
+
+   .. py:attribute:: assumedBy
+
+      The IAM principal (i.e. `new ServicePrincipal('sns.amazonaws.com')`) which can assume this role.  You can later modify the assume role policy document by accessing it via the `assumeRolePolicy` property.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyPrincipal`
+
+
+   .. py:attribute:: managedPolicyArns
+
+      A list of ARNs for managed policies associated with this role. You can add managed policies later using `addManagedPolicy(arn)`.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: path
+
+      The path associated with this role. For information about IAM paths, see Friendly Names and Paths in IAM User Guide.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: roleName
+
+      A name for the IAM role. For valid values, see the RoleName parameter for the CreateRole action in the IAM API Reference. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the group name.  IMPORTANT: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.  If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to acknowledge your template's capabilities. For more information, see Acknowledging IAM Resources in AWS CloudFormation Templates.
+
+
+      :type: string or undefined
+
+
+User
+^^^^
+
+.. py:class:: User(parent, name, [props])
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`~@aws-cdk/aws-iam.IIdentityResource`
+   :implements: :py:class:`~@aws-cdk/aws-iam.IPrincipal`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-iam.UserProps` or undefined
+
+   .. py:method:: addToGroup(group)
+
+      Adds this user to a group.
+
+
+      :param group: 
+      :type group: :py:class:`~@aws-cdk/aws-iam.Group`
+
+
+   .. py:method:: attachManagedPolicy(arn)
+
+      Attaches a managed policy to the user.
+
+
+      :param arn: The ARN of the managed policy to attach.
+      :type arn: any
+
+
+   .. py:method:: attachInlinePolicy(policy)
+
+      Attaches a policy to this user.
+
+
+      :param policy: 
+      :type policy: :py:class:`~@aws-cdk/aws-iam.Policy`
+
+
+   .. py:method:: addToPolicy(statement)
+
+      Adds an IAM statement to the default policy.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:attribute:: userName
+
+      An attribute that represents the user name.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.UserName` *(readonly)*
+
+
+   .. py:attribute:: userArn
+
+      An attribute that represents the user's ARN.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.UserArn` *(readonly)*
+
+
+   .. py:attribute:: principal
+
+      Returns the ARN of this user.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyPrincipal` *(readonly)*
+
+
+UserArn
+^^^^^^^
+
+.. py:class:: UserArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+UserName
+^^^^^^^^
+
+.. py:class:: UserName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+UserProps (interface)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: UserProps
+
+
+
+   .. py:attribute:: groups
+
+      Groups to add this user to. You can also use `addToGroup` to add this user to a group.
+
+
+      :type: :py:class:`~@aws-cdk/aws-iam.Group` or undefined
+
+
+   .. py:attribute:: managedPolicyArns
+
+      A list of ARNs for managed policies attacherd to this user. You can use `addManagedPolicy(arn)` to attach a managed policy to this user.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: path
+
+      The path for the user name. For more information about paths, see IAM Identifiers in the IAM User Guide.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: userName
+
+      A name for the IAM user. For valid values, see the UserName parameter for the CreateUser action in the IAM API Reference. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the user name.  If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.  If you specify a name, you must specify the CAPABILITY_NAMED_IAM value to acknowledge your template's capabilities. For more information, see Acknowledging IAM Resources in AWS CloudFormation Templates.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: password
+
+      The password for the user. This is required so the user can access the AWS Management Console.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: passwordResetRequired
+
+      Specifies whether the user is required to set a new password the next time the user logs in to the AWS Management Console.  If this is set to 'true', you must also specify "initialPassword".
+
+
+      :type: boolean or undefined
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-iam.cloudformation
+
+AccessKeyResource
+~~~~~~~~~~~~~~~~~
+
+.. py:class:: AccessKeyResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AccessKeyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AccessKeyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-iam.cloudformation.AccessKeyResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: accessKeySecretAccessKey
+
+      :type: :py:class:`~@aws-cdk/aws-iam.AccessKeySecretAccessKey` *(readonly)*
+
+
+AccessKeyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AccessKeyResourceProps
+
+
+
+   .. py:attribute:: userName
+
+      ``AWS::IAM::AccessKey.UserName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-username
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: serial
+
+      ``AWS::IAM::AccessKey.Serial``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-serial
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: status
+
+      ``AWS::IAM::AccessKey.Status``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-status
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+GroupResource
+~~~~~~~~~~~~~
+
+.. py:class:: GroupResource(parent, name, [properties])
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``GroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``GroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-iam.cloudformation.GroupResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: groupArn
+
+      :type: :py:class:`~@aws-cdk/aws-iam.GroupArn` *(readonly)*
+
+   .. py:class:: PolicyProperty
+
+
+
+      .. py:attribute:: policyDocument
+
+         ``GroupResource.PolicyProperty.PolicyDocument``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policydocument
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: policyName
+
+         ``GroupResource.PolicyProperty.PolicyName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policyname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+GroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: GroupResourceProps
+
+
+
+   .. py:attribute:: groupName
+
+      ``AWS::IAM::Group.GroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-groupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: managedPolicyArns
+
+      ``AWS::IAM::Group.ManagedPolicyArns``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-managepolicyarns
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: path
+
+      ``AWS::IAM::Group.Path``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-path
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: policies
+
+      ``AWS::IAM::Group.Policies``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-policies
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-iam.cloudformation.GroupResource.PolicyProperty` or undefined
+
+
+InstanceProfileResource
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: InstanceProfileResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``InstanceProfileResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``InstanceProfileResource``
+   :type properties: :py:class:`~@aws-cdk/aws-iam.cloudformation.InstanceProfileResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: instanceProfileArn
+
+      :type: :py:class:`~@aws-cdk/aws-iam.InstanceProfileArn` *(readonly)*
+
+
+InstanceProfileResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: InstanceProfileResourceProps
+
+
+
+   .. py:attribute:: roles
+
+      ``AWS::IAM::InstanceProfile.Roles``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: instanceProfileName
+
+      ``AWS::IAM::InstanceProfile.InstanceProfileName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-instanceprofilename
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: path
+
+      ``AWS::IAM::InstanceProfile.Path``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-path
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+ManagedPolicyResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ManagedPolicyResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ManagedPolicyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ManagedPolicyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-iam.cloudformation.ManagedPolicyResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+ManagedPolicyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ManagedPolicyResourceProps
+
+
+
+   .. py:attribute:: policyDocument
+
+      ``AWS::IAM::ManagedPolicy.PolicyDocument``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-policydocument
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: description
+
+      ``AWS::IAM::ManagedPolicy.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: groups
+
+      ``AWS::IAM::ManagedPolicy.Groups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-groups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: managedPolicyName
+
+      ``AWS::IAM::ManagedPolicy.ManagedPolicyName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-managedpolicyname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: path
+
+      ``AWS::IAM::ManagedPolicy.Path``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-ec2-dhcpoptions-path
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: roles
+
+      ``AWS::IAM::ManagedPolicy.Roles``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-roles
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: users
+
+      ``AWS::IAM::ManagedPolicy.Users``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-users
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+PolicyResource
+~~~~~~~~~~~~~~
+
+.. py:class:: PolicyResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``PolicyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``PolicyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-iam.cloudformation.PolicyResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+PolicyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PolicyResourceProps
+
+
+
+   .. py:attribute:: policyDocument
+
+      ``AWS::IAM::Policy.PolicyDocument``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: policyName
+
+      ``AWS::IAM::Policy.PolicyName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policyname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: groups
+
+      ``AWS::IAM::Policy.Groups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-groups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: roles
+
+      ``AWS::IAM::Policy.Roles``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-roles
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: users
+
+      ``AWS::IAM::Policy.Users``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-users
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+RoleResource
+~~~~~~~~~~~~
+
+.. py:class:: RoleResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``RoleResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``RoleResource``
+   :type properties: :py:class:`~@aws-cdk/aws-iam.cloudformation.RoleResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: roleArn
+
+      :type: :py:class:`~@aws-cdk/aws-iam.RoleArn` *(readonly)*
+
+
+   .. py:attribute:: roleId
+
+      :type: :py:class:`~@aws-cdk/aws-iam.RoleId` *(readonly)*
+
+   .. py:class:: PolicyProperty
+
+
+
+      .. py:attribute:: policyDocument
+
+         ``RoleResource.PolicyProperty.PolicyDocument``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policydocument
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: policyName
+
+         ``RoleResource.PolicyProperty.PolicyName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policyname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+RoleResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: RoleResourceProps
+
+
+
+   .. py:attribute:: assumeRolePolicyDocument
+
+      ``AWS::IAM::Role.AssumeRolePolicyDocument``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-assumerolepolicydocument
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: managedPolicyArns
+
+      ``AWS::IAM::Role.ManagedPolicyArns``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: maxSessionDuration
+
+      ``AWS::IAM::Role.MaxSessionDuration``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-maxsessionduration
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: path
+
+      ``AWS::IAM::Role.Path``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-path
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: policies
+
+      ``AWS::IAM::Role.Policies``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-policies
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-iam.cloudformation.RoleResource.PolicyProperty` or undefined
+
+
+   .. py:attribute:: roleName
+
+      ``AWS::IAM::Role.RoleName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-rolename
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+UserResource
+~~~~~~~~~~~~
+
+.. py:class:: UserResource(parent, name, [properties])
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``UserResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``UserResource``
+   :type properties: :py:class:`~@aws-cdk/aws-iam.cloudformation.UserResourceProps` or undefined
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: userArn
+
+      :type: :py:class:`~@aws-cdk/aws-iam.UserArn` *(readonly)*
+
+   .. py:class:: LoginProfileProperty
+
+
+
+      .. py:attribute:: password
+
+         ``UserResource.LoginProfileProperty.Password``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html#cfn-iam-user-loginprofile-password
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: passwordResetRequired
+
+         ``UserResource.LoginProfileProperty.PasswordResetRequired``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html#cfn-iam-user-loginprofile-passwordresetrequired
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: PolicyProperty
+
+
+
+      .. py:attribute:: policyDocument
+
+         ``UserResource.PolicyProperty.PolicyDocument``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policydocument
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: policyName
+
+         ``UserResource.PolicyProperty.PolicyName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policyname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+UserResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: UserResourceProps
+
+
+
+   .. py:attribute:: groups
+
+      ``AWS::IAM::User.Groups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-groups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: loginProfile
+
+      ``AWS::IAM::User.LoginProfile``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-loginprofile
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-iam.cloudformation.UserResource.LoginProfileProperty` or undefined
+
+
+   .. py:attribute:: managedPolicyArns
+
+      ``AWS::IAM::User.ManagedPolicyArns``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-managepolicyarns
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: path
+
+      ``AWS::IAM::User.Path``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: policies
+
+      ``AWS::IAM::User.Policies``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-policies
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-iam.cloudformation.UserResource.PolicyProperty` or undefined
+
+
+   .. py:attribute:: userName
+
+      ``AWS::IAM::User.UserName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-username
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+UserToGroupAdditionResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: UserToGroupAdditionResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``UserToGroupAdditionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``UserToGroupAdditionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-iam.cloudformation.UserToGroupAdditionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+UserToGroupAdditionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: UserToGroupAdditionResourceProps
+
+
+
+   .. py:attribute:: groupName
+
+      ``AWS::IAM::UserToGroupAddition.GroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-groupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: users
+
+      ``AWS::IAM::UserToGroupAddition.Users``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-users
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-iam
+

@@ -1,0 +1,2658 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>@aws-cdk/assets &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="@aws-cdk/aws-amazonmq" href="_aws-cdk_aws-amazonmq.html" />
+    <link rel="prev" title="@aws-cdk/app-delivery" href="_aws-cdk_app-delivery.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.18.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../writing-constructs.html">Writing Constructs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_app-delivery.html">&#64;aws-cdk/app-delivery</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&#64;aws-cdk/assets</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">AWS CDK Assets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#attributes">Attributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#permissions">Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-does-it-work">How does it work?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#asset">Asset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#assetpackaging-enum">AssetPackaging (enum)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fileasset">FileAsset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fileassetprops-interface">FileAssetProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#genericassetprops-interface">GenericAssetProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zipdirectoryasset">ZipDirectoryAsset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zipdirectoryassetprops-interface">ZipDirectoryAssetProps (interface)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-amazonmq.html">&#64;aws-cdk/aws-amazonmq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appstream.html">&#64;aws-cdk/aws-appstream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appsync.html">&#64;aws-cdk/aws-appsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-athena.html">&#64;aws-cdk/aws-athena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling.html">&#64;aws-cdk/aws-autoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling-api.html">&#64;aws-cdk/aws-autoscaling-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling-common.html">&#64;aws-cdk/aws-autoscaling-common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscalingplans.html">&#64;aws-cdk/aws-autoscalingplans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-batch.html">&#64;aws-cdk/aws-batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-budgets.html">&#64;aws-cdk/aws-budgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-certificatemanager.html">&#64;aws-cdk/aws-certificatemanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloud9.html">&#64;aws-cdk/aws-cloud9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation.html">&#64;aws-cdk/aws-cloudformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudfront.html">&#64;aws-cdk/aws-cloudfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudtrail.html">&#64;aws-cdk/aws-cloudtrail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html">&#64;aws-cdk/aws-cloudwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild.html">&#64;aws-cdk/aws-codebuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit.html">&#64;aws-cdk/aws-codecommit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy.html">&#64;aws-cdk/aws-codedeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy-api.html">&#64;aws-cdk/aws-codedeploy-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html">&#64;aws-cdk/aws-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline-api.html">&#64;aws-cdk/aws-codepipeline-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cognito.html">&#64;aws-cdk/aws-cognito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-config.html">&#64;aws-cdk/aws-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-datapipeline.html">&#64;aws-cdk/aws-datapipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dax.html">&#64;aws-cdk/aws-dax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-directoryservice.html">&#64;aws-cdk/aws-directoryservice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dlm.html">&#64;aws-cdk/aws-dlm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dms.html">&#64;aws-cdk/aws-dms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dynamodb.html">&#64;aws-cdk/aws-dynamodb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ec2.html">&#64;aws-cdk/aws-ec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecr.html">&#64;aws-cdk/aws-ecr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecs.html">&#64;aws-cdk/aws-ecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-efs.html">&#64;aws-cdk/aws-efs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-eks.html">&#64;aws-cdk/aws-eks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticache.html">&#64;aws-cdk/aws-elasticache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticbeanstalk.html">&#64;aws-cdk/aws-elasticbeanstalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancing.html">&#64;aws-cdk/aws-elasticloadbalancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancingv2.html">&#64;aws-cdk/aws-elasticloadbalancingv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticsearch.html">&#64;aws-cdk/aws-elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-emr.html">&#64;aws-cdk/aws-emr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-events.html">&#64;aws-cdk/aws-events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-gamelift.html">&#64;aws-cdk/aws-gamelift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-glue.html">&#64;aws-cdk/aws-glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-guardduty.html">&#64;aws-cdk/aws-guardduty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iam.html">&#64;aws-cdk/aws-iam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-inspector.html">&#64;aws-cdk/aws-inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot.html">&#64;aws-cdk/aws-iot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot1click.html">&#64;aws-cdk/aws-iot1click</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesis.html">&#64;aws-cdk/aws-kinesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisanalytics.html">&#64;aws-cdk/aws-kinesisanalytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisfirehose.html">&#64;aws-cdk/aws-kinesisfirehose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kms.html">&#64;aws-cdk/aws-kms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda.html">&#64;aws-cdk/aws-lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda-event-sources.html">&#64;aws-cdk/aws-lambda-event-sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-logs.html">&#64;aws-cdk/aws-logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-neptune.html">&#64;aws-cdk/aws-neptune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-opsworks.html">&#64;aws-cdk/aws-opsworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-quickstarts.html">&#64;aws-cdk/aws-quickstarts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-rds.html">&#64;aws-cdk/aws-rds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-redshift.html">&#64;aws-cdk/aws-redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-route53.html">&#64;aws-cdk/aws-route53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3.html">&#64;aws-cdk/aws-s3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3-deployment.html">&#64;aws-cdk/aws-s3-deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3-notifications.html">&#64;aws-cdk/aws-s3-notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sagemaker.html">&#64;aws-cdk/aws-sagemaker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sdb.html">&#64;aws-cdk/aws-sdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-secretsmanager.html">&#64;aws-cdk/aws-secretsmanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-serverless.html">&#64;aws-cdk/aws-serverless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicecatalog.html">&#64;aws-cdk/aws-servicecatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicediscovery.html">&#64;aws-cdk/aws-servicediscovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ses.html">&#64;aws-cdk/aws-ses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sns.html">&#64;aws-cdk/aws-sns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sqs.html">&#64;aws-cdk/aws-sqs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ssm.html">&#64;aws-cdk/aws-ssm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-stepfunctions.html">&#64;aws-cdk/aws-stepfunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-waf.html">&#64;aws-cdk/aws-waf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-wafregional.html">&#64;aws-cdk/aws-wafregional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-workspaces.html">&#64;aws-cdk/aws-workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cdk.html">&#64;aws-cdk/cdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cx-api.html">&#64;aws-cdk/cx-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_runtime-values.html">&#64;aws-cdk/runtime-values</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+        
+      <li>&#64;aws-cdk/assets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/refs/_aws-cdk_assets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           ﻿<p style="background-color:#e47911; border-top:1px solid #ccc; margin-top:6px; padding-top:10px; padding-bottom:10px; padding-left:5px; font-weight:bold; font-style:italic; font-size:16px; color:white; vertical-align:middle">
+This documentation is for the developer preview release of the AWS CDK.
+Do not use this version of the AWS CDK in production.
+Subsequent releases of the AWS CDK will likely include breaking changes.
+</p>
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cdk-assets">
+<h1>&#64;aws-cdk/assets<a class="headerlink" href="#aws-cdk-assets" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>AWS CDK Assets<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Assets are local files or directories which are needed by a CDK app. A common
+example is a directory which contains the handler code for a Lambda function,
+but assets can represent any artifact that is needed for the app’s operation.</p>
+<p>When deploying a CDK app that includes constructs with assets, the CDK toolkit
+will first upload all the assets to S3, and only then deploy the stacks. The S3
+locations of the uploaded assets will be passed in as CloudFormation Parameters
+to the relevant stacks.</p>
+<p>The following JavaScript example defines an directory asset which is archived as
+a .zip file and uploaded to S3 during deployment.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">asset</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">assets</span><span class="p">.</span><span class="nx">ZipDirectoryAsset</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;SampleAsset&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">path</span>: <span class="kt">path.join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;sample-asset-directory&#39;</span><span class="p">)</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>The following JavaScript example defines a file asset, which is uploaded as-is
+to an S3 bucket during deployment.</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">asset</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">assets</span><span class="p">.</span><span class="nx">FileAsset</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;SampleAsset&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">path</span>: <span class="kt">path.join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;file-asset.txt&#39;</span><span class="p">)</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes">
+<h2>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Asset</span></code> constructs expose the following deploy-time attributes:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">s3BucketName</span></code> - the name of the assets S3 bucket.</li>
+<li><code class="docutils literal notranslate"><span class="pre">s3ObjectKey</span></code> - the S3 object key of the asset file (whether it’s a file or a zip archive)</li>
+<li><code class="docutils literal notranslate"><span class="pre">s3Url</span></code> - the S3 URL of the asset (i.e. <a class="reference external" href="https://s3.us-east-1.amazonaws.com/mybucket/mykey.zip">https://s3.us-east-1.amazonaws.com/mybucket/mykey.zip</a>)</li>
+</ul>
+<p>In the following example, the various asset attributes are exported as stack outputs:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">asset</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">assets</span><span class="p">.</span><span class="nx">ZipDirectoryAsset</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;SampleAsset&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">path</span>: <span class="kt">path.join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="s1">&#39;sample-asset-directory&#39;</span><span class="p">)</span>
+<span class="p">});</span>
+
+<span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Output</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;S3BucketName&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">value</span>: <span class="kt">asset.s3BucketName</span> <span class="p">});</span>
+<span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Output</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;S3ObjectKey&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">value</span>: <span class="kt">asset.s3ObjectKey</span> <span class="p">});</span>
+<span class="k">new</span> <span class="nx">cdk</span><span class="p">.</span><span class="nx">Output</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;S3URL&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">value</span>: <span class="kt">asset.s3Url</span> <span class="p">});</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="permissions">
+<h2>Permissions<a class="headerlink" href="#permissions" title="Permalink to this headline">¶</a></h2>
+<p>IAM roles, users or groups which need to be able to read assets in runtime will should be
+granted IAM permissions. To do that use the <code class="docutils literal notranslate"><span class="pre">asset.grantRead(principal)</span></code> method:</p>
+<p>The following examples grants an IAM group read permissions on an asset:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">group</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">iam</span><span class="p">.</span><span class="nx">Group</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyUserGroup&#39;</span><span class="p">);</span>
+<span class="nx">asset</span><span class="p">.</span><span class="nx">grantRead</span><span class="p">(</span><span class="nx">group</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-does-it-work">
+<h2>How does it work?<a class="headerlink" href="#how-does-it-work" title="Permalink to this headline">¶</a></h2>
+<p>When an asset is defined in a construct, a construct metadata entry
+<code class="docutils literal notranslate"><span class="pre">aws:cdk:asset</span></code> is emitted with instructions on where to find the asset and what
+type of packaging to perform (<code class="docutils literal notranslate"><span class="pre">zip</span></code> or <code class="docutils literal notranslate"><span class="pre">file</span></code>). Furthermore, the synthesized
+CloudFormation template will also include two CloudFormation parameters: one for
+the asset’s bucket and one for the asset S3 key. Those parameters are used to
+reference the deploy-time values of the asset (using <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">Ref:</span> <span class="pre">&quot;Param&quot;</span> <span class="pre">}</span></code>).</p>
+<p>Then, when the stack is deployed, the toolkit will package the asset (i.e. zip
+the directory), calculate an MD5 hash of the contents and will render an S3 key
+for this asset within the toolkit’s asset store. If the file doesn’t exist in
+the asset store, it is uploaded during deployment.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>The toolkit’s asset store is an S3 bucket created by the toolkit for each</dt>
+<dd>environment the toolkit operates in (environment = account + region).</dd>
+</dl>
+</div></blockquote>
+<p>Now, when the toolkit deploys the stack, it will set the relevant CloudFormation
+Parameters to point to the actual bucket and key for each asset.</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-QyM= active docutils container">
+<p>View in <a class="reference external" href="https://www.nuget.org/packages/Amazon.CDK.Assets/0.18.1">Nuget</a></p>
+<p><strong>csproj</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">&quot;Amazon.CDK.Assets&quot;</span> <span class="na">Version=</span><span class="s">&quot;0.18.1&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>dotnet</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">dotnet add package Amazon.CDK.Assets --version 0.18.1</span>
+</pre></div>
+</div>
+<p><strong>packages.config</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;package</span> <span class="na">id=</span><span class="s">&quot;Amazon.CDK.Assets&quot;</span> <span class="na">version=</span><span class="s">&quot;0.18.1&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YQ== docutils container">
+<p>View in <a class="reference external" href="https://repo1.maven.org/maven2/software/amazon/awscdk/cdk-assets/0.18.1/">Maven Central</a></p>
+<p><strong>Apache Buildr</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;software.amazon.awscdk:cdk-assets:jar:0.18.1&#39;
+</pre></div>
+</div>
+<p><strong>Apache Ivy</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency</span> <span class="na">groupId=</span><span class="s">&quot;software.amazon.awscdk&quot;</span> <span class="na">name=</span><span class="s">&quot;cdk-assets&quot;</span> <span class="na">rev=</span><span class="s">&quot;0.18.1&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p><strong>Apache Maven</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>software.amazon.awscdk<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cdk-assets<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.18.1<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p><strong>Gradle / Grails</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>compile &#39;software.amazon.awscdk:cdk-assets:0.18.1&#39;
+</pre></div>
+</div>
+<p><strong>Groovy Grape</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>@Grapes(
+@Grab(group=&#39;software.amazon.awscdk&#39;, module=&#39;cdk-assets&#39;, version=&#39;0.18.1&#39;)
+)
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/assets/v/0.18.1">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/assets@0.18.1
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/assets&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.18.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/assets@0.18.1
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<p>View in <a class="reference external" href="https://www.npmjs.com/package/&#64;aws-cdk/assets/v/0.18.1">NPM</a></p>
+<p><strong>npm</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> npm i @aws-cdk/assets@0.18.1
+</pre></div>
+</div>
+<p><strong>package.json</strong>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;@aws-cdk/assets&quot;</span><span class="o">:</span> <span class="s2">&quot;^0.18.1&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>yarn</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> yarn add @aws-cdk/assets@0.18.1
+</pre></div>
+</div>
+</div>
+</div>
+<span class="target" id="module-&#64;aws-cdk/assets"></span><div class="section" id="asset">
+<h3>Asset<a class="headerlink" href="#asset" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/assets.Asset">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/assets.</code><code class="descname">Asset</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.Asset" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.Assets</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.assets.Asset</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">Asset</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">Asset</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>An asset represents a local file or directory, which is automatically uploaded to S3</p>
+<p>and then can be referenced within a CDK application.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/assets.GenericAssetProps" title="&#64;aws-cdk/assets.GenericAssetProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">GenericAssetProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.grantRead">
+<code class="descname">grantRead</code><span class="sig-paren">(</span><span class="optional">[</span><em>principal</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.Asset.grantRead" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grants read permissions to the principal on the asset’s S3 object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>principal</strong> (<a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IPrincipal" title="&#64;aws-cdk/aws-iam.IPrincipal"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.IPrincipal</span></code></a> <em>(optional)</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.assetPath">
+<code class="descname">assetPath</code><a class="headerlink" href="#@aws-cdk/assets.Asset.assetPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolved full-path location of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.bucket">
+<code class="descname">bucket</code><a class="headerlink" href="#@aws-cdk/assets.Asset.bucket" title="Permalink to this definition">¶</a></dt>
+<dd><p>The S3 bucket in which this asset resides.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef" title="&#64;aws-cdk/aws-s3.BucketRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3.BucketRef</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.isZipArchive">
+<code class="descname">isZipArchive</code><a class="headerlink" href="#@aws-cdk/assets.Asset.isZipArchive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if this asset is a zip archive. Allows constructs to ensure that the</p>
+<p>correct file type was used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.s3BucketName">
+<code class="descname">s3BucketName</code><a class="headerlink" href="#@aws-cdk/assets.Asset.s3BucketName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute that represents the name of the bucket this asset exists in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.s3ObjectKey">
+<code class="descname">s3ObjectKey</code><a class="headerlink" href="#@aws-cdk/assets.Asset.s3ObjectKey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute which represents the S3 object key of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.s3Url">
+<code class="descname">s3Url</code><a class="headerlink" href="#@aws-cdk/assets.Asset.s3Url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attribute which represents the S3 URL of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.addChild">
+<code class="descname">addChild</code><span class="sig-paren">(</span><em>child</em>, <em>childName</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.Asset.addChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addChild" title="&#64;aws-cdk/cdk.Construct.addChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a child construct to this node.</p>
+<p><em>Protected method</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>child</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – The child construct</li>
+<li><strong>childName</strong> (<em>string</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resolved path part name of the child</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.addError">
+<code class="descname">addError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.Asset.addError" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addError" title="&#64;aws-cdk/cdk.Construct.addError"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds an { error: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will fail synthesis when errors are reported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The error message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.addInfo">
+<code class="descname">addInfo</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.Asset.addInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addInfo" title="&#64;aws-cdk/cdk.Construct.addInfo"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a { “aws:cdk:info”: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will display the info message when apps are synthesized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The info message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.addMetadata">
+<code class="descname">addMetadata</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="optional">[</span>, <em>from</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.Asset.addMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addMetadata" title="&#64;aws-cdk/cdk.Construct.addMetadata"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a metadata entry to this construct.</p>
+<p>Entries are arbitrary values and will also include a stack trace to allow tracing back to</p>
+<p>the code location for when the entry was added. It can be used, for example, to include source</p>
+<p>mapping in CloudFormation templates to improve diagnostics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>string</em>) – a string denoting the type of metadata</li>
+<li><strong>data</strong> (<em>any</em>) – the value of the metadata (can be a Token). If null/undefined, metadata will not be added.</li>
+<li><strong>from</strong> (any <em>(optional)</em>) – a function under which to restrict the metadata entry’s stack trace (defaults to this.addMetadata)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.addWarning">
+<code class="descname">addWarning</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.Asset.addWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addWarning" title="&#64;aws-cdk/cdk.Construct.addWarning"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a { warning: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will display the warning when an app is synthesized, or fail</p>
+<p>if run in –strict mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The warning message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.ancestors">
+<code class="descname">ancestors</code><span class="sig-paren">(</span><span class="optional">[</span><em>upTo</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct[]<a class="headerlink" href="#@aws-cdk/assets.Asset.ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.ancestors" title="&#64;aws-cdk/cdk.Construct.ancestors"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return the ancestors (including self) of this Construct up until and excluding the indicated component</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>upTo</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.findChild">
+<code class="descname">findChild</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.Asset.findChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.findChild" title="&#64;aws-cdk/cdk.Construct.findChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return a descendant by path</p>
+<p>Throws an exception if the descendant is not found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Child with the given path.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.Asset.getContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.getContext" title="&#64;aws-cdk/cdk.Construct.getContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Retrieves a value from tree context.</p>
+<p>Context is usually initialized at the root, but can be overridden at any point in the tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>string</em>) – The context key</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The context value or undefined</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.lock">
+<code class="descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.Asset.lock" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.lock" title="&#64;aws-cdk/cdk.Construct.lock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Locks this construct from allowing more children to be added. After this</p>
+<p>call, no more children can be added to this construct or to any children.</p>
+<p><em>Protected method</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.requireContext">
+<code class="descname">requireContext</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.Asset.requireContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.requireContext" title="&#64;aws-cdk/cdk.Construct.requireContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Retrieve a value from tree-global context</p>
+<p>It is an error if the context object is not available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.required">
+<code class="descname">required</code><span class="sig-paren">(</span><em>props</em>, <em>name</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.Asset.required" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.required" title="&#64;aws-cdk/cdk.Construct.required"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Throws if the <cite>props</cite> bag doesn’t include the property <cite>name</cite>.</p>
+<p>In the future we can add some type-checking here, maybe even auto-generate during compilation.</p>
+<p><em>Protected method</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>props</strong> (<em>any</em>) – The props bag.</li>
+<li><strong>name</strong> (<em>string</em>) – The name of the required property.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">any</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.setContext">
+<code class="descname">setContext</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.Asset.setContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.setContext" title="&#64;aws-cdk/cdk.Construct.setContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>This can be used to set contextual values.</p>
+<p>Context must be set before any children are added, since children may consult context info during construction.</p>
+<p>If the key already exists, it will be overridden.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>string</em>) – The context key</li>
+<li><strong>value</strong> (<em>any</em>) – The context value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.toString">
+<code class="descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string<a class="headerlink" href="#@aws-cdk/assets.Asset.toString" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.toString" title="&#64;aws-cdk/cdk.Construct.toString"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns a string representation of this construct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.toTreeString">
+<code class="descname">toTreeString</code><span class="sig-paren">(</span><span class="optional">[</span><em>depth</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; string<a class="headerlink" href="#@aws-cdk/assets.Asset.toTreeString" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.toTreeString" title="&#64;aws-cdk/cdk.Construct.toTreeString"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns a string with a tree representation of this construct and it’s children.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>depth</strong> (number <em>(optional)</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.tryFindChild">
+<code class="descname">tryFindChild</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.Asset.tryFindChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.tryFindChild" title="&#64;aws-cdk/cdk.Construct.tryFindChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return a descendant by path, or undefined</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a child by path or undefined if not found.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.unlock">
+<code class="descname">unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.Asset.unlock" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.unlock" title="&#64;aws-cdk/cdk.Construct.unlock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Unlocks this costruct and allows mutations (adding children).</p>
+<p><em>Protected method</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string[]<a class="headerlink" href="#@aws-cdk/assets.Asset.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.validate" title="&#64;aws-cdk/cdk.Construct.validate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>This method can be implemented by derived constructs in order to perform</p>
+<p>validation logic. It is called on all constructs before synthesis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An array of validation error messages, or an empty array if there the construct is valid.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.Asset.validateTree">
+<code class="descname">validateTree</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.ValidationError[]<a class="headerlink" href="#@aws-cdk/assets.Asset.validateTree" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.validateTree" title="&#64;aws-cdk/cdk.Construct.validateTree"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Invokes ‘validate’ on all child constructs and then on this construct (depth-first).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of validation errors. If the list is empty, all constructs are valid.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.ValidationError" title="&#64;aws-cdk/cdk.ValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.ValidationError</span></code></a>[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.children">
+<code class="descname">children</code><a class="headerlink" href="#@aws-cdk/assets.Asset.children" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.children" title="&#64;aws-cdk/cdk.Construct.children"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>All direct children of this construct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>[] <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.id">
+<code class="descname">id</code><a class="headerlink" href="#@aws-cdk/assets.Asset.id" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.id" title="&#64;aws-cdk/cdk.Construct.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>The local id of the construct.</p>
+<p>This id is unique amongst its siblings.</p>
+<p>To obtain a tree-global unique id for this construct, use <cite>uniqueId</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.locked">
+<code class="descname">locked</code><a class="headerlink" href="#@aws-cdk/assets.Asset.locked" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.locked" title="&#64;aws-cdk/cdk.Construct.locked"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns true if this construct or any of it’s parent constructs are</p>
+<p>locked.</p>
+<p><em>Protected property</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.metadata">
+<code class="descname">metadata</code><a class="headerlink" href="#@aws-cdk/assets.Asset.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.metadata" title="&#64;aws-cdk/cdk.Construct.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>An array of metadata objects associated with this construct.</p>
+<p>This can be used, for example, to implement support for deprecation notices, source mapping, etc.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.MetadataEntry" title="&#64;aws-cdk/cdk.MetadataEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.MetadataEntry</span></code></a>[] <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.path">
+<code class="descname">path</code><a class="headerlink" href="#@aws-cdk/assets.Asset.path" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.path" title="&#64;aws-cdk/cdk.Construct.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>The full path of this construct in the tree.</p>
+<p>Components are separated by ‘/’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.uniqueId">
+<code class="descname">uniqueId</code><a class="headerlink" href="#@aws-cdk/assets.Asset.uniqueId" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.uniqueId" title="&#64;aws-cdk/cdk.Construct.uniqueId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>A tree-global unique alphanumeric identifier for this construct.</p>
+<p>Includes all components of the tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.Asset.parent">
+<code class="descname">parent</code><a class="headerlink" href="#@aws-cdk/assets.Asset.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.parent" title="&#64;aws-cdk/cdk.Construct.parent"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns the parent of this node or undefined if this is a root node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="assetpackaging-enum">
+<h3>AssetPackaging (enum)<a class="headerlink" href="#assetpackaging-enum" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/assets.AssetPackaging">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/assets.</code><code class="descname">AssetPackaging</code><a class="headerlink" href="#@aws-cdk/assets.AssetPackaging" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.Assets</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.assets.AssetPackaging</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">AssetPackaging</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">AssetPackaging</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Defines the way an asset is packaged before it is uploaded to S3.</p>
+<dl class="data">
+<dt id="&#64;aws-cdk/assets.AssetPackaging.ZipDirectory">
+<code class="descname">ZipDirectory</code><a class="headerlink" href="#@aws-cdk/assets.AssetPackaging.ZipDirectory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Path refers to a directory on disk, the contents of the directory is</p>
+<p>archived into a .zip.</p>
+<dl class="data">
+<dt id="&#64;aws-cdk/assets.AssetPackaging.File">
+<code class="descname">File</code><a class="headerlink" href="#@aws-cdk/assets.AssetPackaging.File" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Path refers to a single file on disk. The file is uploaded as-is.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="fileasset">
+<h3>FileAsset<a class="headerlink" href="#fileasset" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/assets.FileAsset">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/assets.</code><code class="descname">FileAsset</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.FileAsset" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.Assets</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.assets.FileAsset</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">FileAsset</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">FileAsset</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>An asset that represents a file on disk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/assets.Asset" title="&#64;aws-cdk/assets.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/assets.FileAssetProps" title="&#64;aws-cdk/assets.FileAssetProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">FileAssetProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.grantRead">
+<code class="descname">grantRead</code><span class="sig-paren">(</span><span class="optional">[</span><em>principal</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.FileAsset.grantRead" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.grantRead" title="&#64;aws-cdk/assets.Asset.grantRead"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Grants read permissions to the principal on the asset’s S3 object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>principal</strong> (<a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IPrincipal" title="&#64;aws-cdk/aws-iam.IPrincipal"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.IPrincipal</span></code></a> <em>(optional)</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.assetPath">
+<code class="descname">assetPath</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.assetPath" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.assetPath" title="&#64;aws-cdk/assets.Asset.assetPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Resolved full-path location of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.bucket">
+<code class="descname">bucket</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.bucket" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.bucket" title="&#64;aws-cdk/assets.Asset.bucket"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>The S3 bucket in which this asset resides.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef" title="&#64;aws-cdk/aws-s3.BucketRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3.BucketRef</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.isZipArchive">
+<code class="descname">isZipArchive</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.isZipArchive" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.isZipArchive" title="&#64;aws-cdk/assets.Asset.isZipArchive"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Indicates if this asset is a zip archive. Allows constructs to ensure that the</p>
+<p>correct file type was used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.s3BucketName">
+<code class="descname">s3BucketName</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.s3BucketName" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.s3BucketName" title="&#64;aws-cdk/assets.Asset.s3BucketName"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Attribute that represents the name of the bucket this asset exists in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.s3ObjectKey">
+<code class="descname">s3ObjectKey</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.s3ObjectKey" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.s3ObjectKey" title="&#64;aws-cdk/assets.Asset.s3ObjectKey"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Attribute which represents the S3 object key of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.s3Url">
+<code class="descname">s3Url</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.s3Url" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.s3Url" title="&#64;aws-cdk/assets.Asset.s3Url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Attribute which represents the S3 URL of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.addChild">
+<code class="descname">addChild</code><span class="sig-paren">(</span><em>child</em>, <em>childName</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.FileAsset.addChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addChild" title="&#64;aws-cdk/cdk.Construct.addChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a child construct to this node.</p>
+<p><em>Protected method</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>child</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – The child construct</li>
+<li><strong>childName</strong> (<em>string</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resolved path part name of the child</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.addError">
+<code class="descname">addError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.FileAsset.addError" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addError" title="&#64;aws-cdk/cdk.Construct.addError"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds an { error: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will fail synthesis when errors are reported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The error message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.addInfo">
+<code class="descname">addInfo</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.FileAsset.addInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addInfo" title="&#64;aws-cdk/cdk.Construct.addInfo"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a { “aws:cdk:info”: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will display the info message when apps are synthesized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The info message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.addMetadata">
+<code class="descname">addMetadata</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="optional">[</span>, <em>from</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.FileAsset.addMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addMetadata" title="&#64;aws-cdk/cdk.Construct.addMetadata"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a metadata entry to this construct.</p>
+<p>Entries are arbitrary values and will also include a stack trace to allow tracing back to</p>
+<p>the code location for when the entry was added. It can be used, for example, to include source</p>
+<p>mapping in CloudFormation templates to improve diagnostics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>string</em>) – a string denoting the type of metadata</li>
+<li><strong>data</strong> (<em>any</em>) – the value of the metadata (can be a Token). If null/undefined, metadata will not be added.</li>
+<li><strong>from</strong> (any <em>(optional)</em>) – a function under which to restrict the metadata entry’s stack trace (defaults to this.addMetadata)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.addWarning">
+<code class="descname">addWarning</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.FileAsset.addWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addWarning" title="&#64;aws-cdk/cdk.Construct.addWarning"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a { warning: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will display the warning when an app is synthesized, or fail</p>
+<p>if run in –strict mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The warning message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.ancestors">
+<code class="descname">ancestors</code><span class="sig-paren">(</span><span class="optional">[</span><em>upTo</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct[]<a class="headerlink" href="#@aws-cdk/assets.FileAsset.ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.ancestors" title="&#64;aws-cdk/cdk.Construct.ancestors"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return the ancestors (including self) of this Construct up until and excluding the indicated component</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>upTo</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.findChild">
+<code class="descname">findChild</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.FileAsset.findChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.findChild" title="&#64;aws-cdk/cdk.Construct.findChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return a descendant by path</p>
+<p>Throws an exception if the descendant is not found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Child with the given path.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.FileAsset.getContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.getContext" title="&#64;aws-cdk/cdk.Construct.getContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Retrieves a value from tree context.</p>
+<p>Context is usually initialized at the root, but can be overridden at any point in the tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>string</em>) – The context key</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The context value or undefined</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.lock">
+<code class="descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.FileAsset.lock" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.lock" title="&#64;aws-cdk/cdk.Construct.lock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Locks this construct from allowing more children to be added. After this</p>
+<p>call, no more children can be added to this construct or to any children.</p>
+<p><em>Protected method</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.requireContext">
+<code class="descname">requireContext</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.FileAsset.requireContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.requireContext" title="&#64;aws-cdk/cdk.Construct.requireContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Retrieve a value from tree-global context</p>
+<p>It is an error if the context object is not available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.required">
+<code class="descname">required</code><span class="sig-paren">(</span><em>props</em>, <em>name</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.FileAsset.required" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.required" title="&#64;aws-cdk/cdk.Construct.required"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Throws if the <cite>props</cite> bag doesn’t include the property <cite>name</cite>.</p>
+<p>In the future we can add some type-checking here, maybe even auto-generate during compilation.</p>
+<p><em>Protected method</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>props</strong> (<em>any</em>) – The props bag.</li>
+<li><strong>name</strong> (<em>string</em>) – The name of the required property.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">any</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.setContext">
+<code class="descname">setContext</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.FileAsset.setContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.setContext" title="&#64;aws-cdk/cdk.Construct.setContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>This can be used to set contextual values.</p>
+<p>Context must be set before any children are added, since children may consult context info during construction.</p>
+<p>If the key already exists, it will be overridden.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>string</em>) – The context key</li>
+<li><strong>value</strong> (<em>any</em>) – The context value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.toString">
+<code class="descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string<a class="headerlink" href="#@aws-cdk/assets.FileAsset.toString" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.toString" title="&#64;aws-cdk/cdk.Construct.toString"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns a string representation of this construct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.toTreeString">
+<code class="descname">toTreeString</code><span class="sig-paren">(</span><span class="optional">[</span><em>depth</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; string<a class="headerlink" href="#@aws-cdk/assets.FileAsset.toTreeString" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.toTreeString" title="&#64;aws-cdk/cdk.Construct.toTreeString"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns a string with a tree representation of this construct and it’s children.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>depth</strong> (number <em>(optional)</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.tryFindChild">
+<code class="descname">tryFindChild</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.FileAsset.tryFindChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.tryFindChild" title="&#64;aws-cdk/cdk.Construct.tryFindChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return a descendant by path, or undefined</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a child by path or undefined if not found.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.unlock">
+<code class="descname">unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.FileAsset.unlock" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.unlock" title="&#64;aws-cdk/cdk.Construct.unlock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Unlocks this costruct and allows mutations (adding children).</p>
+<p><em>Protected method</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string[]<a class="headerlink" href="#@aws-cdk/assets.FileAsset.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.validate" title="&#64;aws-cdk/cdk.Construct.validate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>This method can be implemented by derived constructs in order to perform</p>
+<p>validation logic. It is called on all constructs before synthesis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An array of validation error messages, or an empty array if there the construct is valid.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.FileAsset.validateTree">
+<code class="descname">validateTree</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.ValidationError[]<a class="headerlink" href="#@aws-cdk/assets.FileAsset.validateTree" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.validateTree" title="&#64;aws-cdk/cdk.Construct.validateTree"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Invokes ‘validate’ on all child constructs and then on this construct (depth-first).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of validation errors. If the list is empty, all constructs are valid.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.ValidationError" title="&#64;aws-cdk/cdk.ValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.ValidationError</span></code></a>[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.children">
+<code class="descname">children</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.children" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.children" title="&#64;aws-cdk/cdk.Construct.children"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>All direct children of this construct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>[] <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.id">
+<code class="descname">id</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.id" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.id" title="&#64;aws-cdk/cdk.Construct.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>The local id of the construct.</p>
+<p>This id is unique amongst its siblings.</p>
+<p>To obtain a tree-global unique id for this construct, use <cite>uniqueId</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.locked">
+<code class="descname">locked</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.locked" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.locked" title="&#64;aws-cdk/cdk.Construct.locked"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns true if this construct or any of it’s parent constructs are</p>
+<p>locked.</p>
+<p><em>Protected property</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.metadata">
+<code class="descname">metadata</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.metadata" title="&#64;aws-cdk/cdk.Construct.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>An array of metadata objects associated with this construct.</p>
+<p>This can be used, for example, to implement support for deprecation notices, source mapping, etc.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.MetadataEntry" title="&#64;aws-cdk/cdk.MetadataEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.MetadataEntry</span></code></a>[] <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.path">
+<code class="descname">path</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.path" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.path" title="&#64;aws-cdk/cdk.Construct.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>The full path of this construct in the tree.</p>
+<p>Components are separated by ‘/’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.uniqueId">
+<code class="descname">uniqueId</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.uniqueId" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.uniqueId" title="&#64;aws-cdk/cdk.Construct.uniqueId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>A tree-global unique alphanumeric identifier for this construct.</p>
+<p>Includes all components of the tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAsset.parent">
+<code class="descname">parent</code><a class="headerlink" href="#@aws-cdk/assets.FileAsset.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.parent" title="&#64;aws-cdk/cdk.Construct.parent"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns the parent of this node or undefined if this is a root node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="fileassetprops-interface">
+<h3>FileAssetProps (interface)<a class="headerlink" href="#fileassetprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/assets.FileAssetProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/assets.</code><code class="descname">FileAssetProps</code><a class="headerlink" href="#@aws-cdk/assets.FileAssetProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.Assets</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.assets.FileAssetProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// FileAssetProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">FileAssetProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAssetProps.path">
+<code class="descname">path</code><a class="headerlink" href="#@aws-cdk/assets.FileAssetProps.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>File path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.FileAssetProps.readers">
+<code class="descname">readers</code><a class="headerlink" href="#@aws-cdk/assets.FileAssetProps.readers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of principals that should be able to read this file asset from S3.</p>
+<p>You can use <cite>asset.grantRead(principal)</cite> to grant read permissions later.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IPrincipal" title="&#64;aws-cdk/aws-iam.IPrincipal"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.IPrincipal</span></code></a>[] <em>(optional)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="genericassetprops-interface">
+<h3>GenericAssetProps (interface)<a class="headerlink" href="#genericassetprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/assets.GenericAssetProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/assets.</code><code class="descname">GenericAssetProps</code><a class="headerlink" href="#@aws-cdk/assets.GenericAssetProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.Assets</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.assets.GenericAssetProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// GenericAssetProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">GenericAssetProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.GenericAssetProps.packaging">
+<code class="descname">packaging</code><a class="headerlink" href="#@aws-cdk/assets.GenericAssetProps.packaging" title="Permalink to this definition">¶</a></dt>
+<dd><p>The packaging type for this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/assets.AssetPackaging" title="&#64;aws-cdk/assets.AssetPackaging"><code class="xref py py-class docutils literal notranslate"><span class="pre">AssetPackaging</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.GenericAssetProps.path">
+<code class="descname">path</code><a class="headerlink" href="#@aws-cdk/assets.GenericAssetProps.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>The disk location of the asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.GenericAssetProps.readers">
+<code class="descname">readers</code><a class="headerlink" href="#@aws-cdk/assets.GenericAssetProps.readers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of principals that should be able to read this asset from S3.</p>
+<p>You can use <cite>asset.grantRead(principal)</cite> to grant read permissions later.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IPrincipal" title="&#64;aws-cdk/aws-iam.IPrincipal"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.IPrincipal</span></code></a>[] <em>(optional)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="zipdirectoryasset">
+<h3>ZipDirectoryAsset<a class="headerlink" href="#zipdirectoryasset" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/assets.</code><code class="descname">ZipDirectoryAsset</code><span class="sig-paren">(</span><em>parent</em>, <em>id</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.Assets</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.assets.ZipDirectoryAsset</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="p">{</span> <span class="nx">ZipDirectoryAsset</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ZipDirectoryAsset</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>An asset that represents a ZIP archive of a directory on disk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/assets.Asset" title="&#64;aws-cdk/assets.Asset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Asset</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>id</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/assets.ZipDirectoryAssetProps" title="&#64;aws-cdk/assets.ZipDirectoryAssetProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">ZipDirectoryAssetProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.grantRead">
+<code class="descname">grantRead</code><span class="sig-paren">(</span><span class="optional">[</span><em>principal</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.grantRead" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.grantRead" title="&#64;aws-cdk/assets.Asset.grantRead"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Grants read permissions to the principal on the asset’s S3 object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>principal</strong> (<a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IPrincipal" title="&#64;aws-cdk/aws-iam.IPrincipal"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.IPrincipal</span></code></a> <em>(optional)</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.assetPath">
+<code class="descname">assetPath</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.assetPath" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.assetPath" title="&#64;aws-cdk/assets.Asset.assetPath"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Resolved full-path location of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.bucket">
+<code class="descname">bucket</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.bucket" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.bucket" title="&#64;aws-cdk/assets.Asset.bucket"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>The S3 bucket in which this asset resides.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-s3.html#&#64;aws-cdk/aws-s3.BucketRef" title="&#64;aws-cdk/aws-s3.BucketRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3.BucketRef</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.isZipArchive">
+<code class="descname">isZipArchive</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.isZipArchive" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.isZipArchive" title="&#64;aws-cdk/assets.Asset.isZipArchive"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Indicates if this asset is a zip archive. Allows constructs to ensure that the</p>
+<p>correct file type was used.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.s3BucketName">
+<code class="descname">s3BucketName</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.s3BucketName" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.s3BucketName" title="&#64;aws-cdk/assets.Asset.s3BucketName"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Attribute that represents the name of the bucket this asset exists in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.s3ObjectKey">
+<code class="descname">s3ObjectKey</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.s3ObjectKey" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.s3ObjectKey" title="&#64;aws-cdk/assets.Asset.s3ObjectKey"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Attribute which represents the S3 object key of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.s3Url">
+<code class="descname">s3Url</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.s3Url" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="#&#64;aws-cdk/assets.Asset.s3Url" title="&#64;aws-cdk/assets.Asset.s3Url"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/assets.Asset</span></code></a></p>
+<p>Attribute which represents the S3 URL of this asset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.addChild">
+<code class="descname">addChild</code><span class="sig-paren">(</span><em>child</em>, <em>childName</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.addChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addChild" title="&#64;aws-cdk/cdk.Construct.addChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a child construct to this node.</p>
+<p><em>Protected method</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>child</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – The child construct</li>
+<li><strong>childName</strong> (<em>string</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The resolved path part name of the child</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.addError">
+<code class="descname">addError</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.addError" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addError" title="&#64;aws-cdk/cdk.Construct.addError"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds an { error: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will fail synthesis when errors are reported.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The error message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.addInfo">
+<code class="descname">addInfo</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.addInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addInfo" title="&#64;aws-cdk/cdk.Construct.addInfo"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a { “aws:cdk:info”: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will display the info message when apps are synthesized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The info message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.addMetadata">
+<code class="descname">addMetadata</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="optional">[</span>, <em>from</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.addMetadata" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addMetadata" title="&#64;aws-cdk/cdk.Construct.addMetadata"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a metadata entry to this construct.</p>
+<p>Entries are arbitrary values and will also include a stack trace to allow tracing back to</p>
+<p>the code location for when the entry was added. It can be used, for example, to include source</p>
+<p>mapping in CloudFormation templates to improve diagnostics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>string</em>) – a string denoting the type of metadata</li>
+<li><strong>data</strong> (<em>any</em>) – the value of the metadata (can be a Token). If null/undefined, metadata will not be added.</li>
+<li><strong>from</strong> (any <em>(optional)</em>) – a function under which to restrict the metadata entry’s stack trace (defaults to this.addMetadata)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.addWarning">
+<code class="descname">addWarning</code><span class="sig-paren">(</span><em>message</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.addWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.addWarning" title="&#64;aws-cdk/cdk.Construct.addWarning"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Adds a { warning: &lt;message&gt; } metadata entry to this construct.</p>
+<p>The toolkit will display the warning when an app is synthesized, or fail</p>
+<p>if run in –strict mode.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> (<em>string</em>) – The warning message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.ancestors">
+<code class="descname">ancestors</code><span class="sig-paren">(</span><span class="optional">[</span><em>upTo</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct[]<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.ancestors" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.ancestors" title="&#64;aws-cdk/cdk.Construct.ancestors"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return the ancestors (including self) of this Construct up until and excluding the indicated component</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>upTo</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.findChild">
+<code class="descname">findChild</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.findChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.findChild" title="&#64;aws-cdk/cdk.Construct.findChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return a descendant by path</p>
+<p>Throws an exception if the descendant is not found.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Child with the given path.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.getContext">
+<code class="descname">getContext</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.getContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.getContext" title="&#64;aws-cdk/cdk.Construct.getContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Retrieves a value from tree context.</p>
+<p>Context is usually initialized at the root, but can be overridden at any point in the tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>string</em>) – The context key</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The context value or undefined</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.lock">
+<code class="descname">lock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.lock" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.lock" title="&#64;aws-cdk/cdk.Construct.lock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Locks this construct from allowing more children to be added. After this</p>
+<p>call, no more children can be added to this construct or to any children.</p>
+<p><em>Protected method</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.requireContext">
+<code class="descname">requireContext</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.requireContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.requireContext" title="&#64;aws-cdk/cdk.Construct.requireContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Retrieve a value from tree-global context</p>
+<p>It is an error if the context object is not available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>key</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.required">
+<code class="descname">required</code><span class="sig-paren">(</span><em>props</em>, <em>name</em><span class="sig-paren">)</span> &#x2192; any<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.required" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.required" title="&#64;aws-cdk/cdk.Construct.required"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Throws if the <cite>props</cite> bag doesn’t include the property <cite>name</cite>.</p>
+<p>In the future we can add some type-checking here, maybe even auto-generate during compilation.</p>
+<p><em>Protected method</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>props</strong> (<em>any</em>) – The props bag.</li>
+<li><strong>name</strong> (<em>string</em>) – The name of the required property.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">any</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.setContext">
+<code class="descname">setContext</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.setContext" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.setContext" title="&#64;aws-cdk/cdk.Construct.setContext"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>This can be used to set contextual values.</p>
+<p>Context must be set before any children are added, since children may consult context info during construction.</p>
+<p>If the key already exists, it will be overridden.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>string</em>) – The context key</li>
+<li><strong>value</strong> (<em>any</em>) – The context value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.toString">
+<code class="descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.toString" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.toString" title="&#64;aws-cdk/cdk.Construct.toString"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns a string representation of this construct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.toTreeString">
+<code class="descname">toTreeString</code><span class="sig-paren">(</span><span class="optional">[</span><em>depth</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; string<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.toTreeString" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.toTreeString" title="&#64;aws-cdk/cdk.Construct.toTreeString"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns a string with a tree representation of this construct and it’s children.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>depth</strong> (number <em>(optional)</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.tryFindChild">
+<code class="descname">tryFindChild</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.Construct<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.tryFindChild" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.tryFindChild" title="&#64;aws-cdk/cdk.Construct.tryFindChild"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Return a descendant by path, or undefined</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> (<em>string</em>) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a child by path or undefined if not found.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.unlock">
+<code class="descname">unlock</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.unlock" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.unlock" title="&#64;aws-cdk/cdk.Construct.unlock"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Unlocks this costruct and allows mutations (adding children).</p>
+<p><em>Protected method</em></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.validate">
+<code class="descname">validate</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string[]<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.validate" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.validate" title="&#64;aws-cdk/cdk.Construct.validate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>This method can be implemented by derived constructs in order to perform</p>
+<p>validation logic. It is called on all constructs before synthesis.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">An array of validation error messages, or an empty array if there the construct is valid.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.validateTree">
+<code class="descname">validateTree</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/cdk.ValidationError[]<a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.validateTree" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.validateTree" title="&#64;aws-cdk/cdk.Construct.validateTree"><code class="xref py py-meth docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Invokes ‘validate’ on all child constructs and then on this construct (depth-first).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A list of validation errors. If the list is empty, all constructs are valid.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.ValidationError" title="&#64;aws-cdk/cdk.ValidationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.ValidationError</span></code></a>[]</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.children">
+<code class="descname">children</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.children" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.children" title="&#64;aws-cdk/cdk.Construct.children"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>All direct children of this construct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>[] <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.id">
+<code class="descname">id</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.id" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.id" title="&#64;aws-cdk/cdk.Construct.id"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>The local id of the construct.</p>
+<p>This id is unique amongst its siblings.</p>
+<p>To obtain a tree-global unique id for this construct, use <cite>uniqueId</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.locked">
+<code class="descname">locked</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.locked" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.locked" title="&#64;aws-cdk/cdk.Construct.locked"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns true if this construct or any of it’s parent constructs are</p>
+<p>locked.</p>
+<p><em>Protected property</em></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.metadata">
+<code class="descname">metadata</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.metadata" title="&#64;aws-cdk/cdk.Construct.metadata"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>An array of metadata objects associated with this construct.</p>
+<p>This can be used, for example, to implement support for deprecation notices, source mapping, etc.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.MetadataEntry" title="&#64;aws-cdk/cdk.MetadataEntry"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.MetadataEntry</span></code></a>[] <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.path">
+<code class="descname">path</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.path" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.path" title="&#64;aws-cdk/cdk.Construct.path"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>The full path of this construct in the tree.</p>
+<p>Components are separated by ‘/’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.uniqueId">
+<code class="descname">uniqueId</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.uniqueId" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.uniqueId" title="&#64;aws-cdk/cdk.Construct.uniqueId"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>A tree-global unique alphanumeric identifier for this construct.</p>
+<p>Includes all components of the tree.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAsset.parent">
+<code class="descname">parent</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAsset.parent" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>Inherited from</em> <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct.parent" title="&#64;aws-cdk/cdk.Construct.parent"><code class="xref py py-attr docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+<p>Returns the parent of this node or undefined if this is a root node.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a> <em>(optional)</em> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="zipdirectoryassetprops-interface">
+<h3>ZipDirectoryAssetProps (interface)<a class="headerlink" href="#zipdirectoryassetprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAssetProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/assets.</code><code class="descname">ZipDirectoryAssetProps</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAssetProps" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>Language-specific names:</strong></p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-QyM= docutils container">
+<div class="docutils container">
+C#</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YQ== docutils container">
+<div class="docutils container">
+Java</div>
+</div>
+<div class="item sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="docutils container">
+JavaScript</div>
+</div>
+<div class="item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-QyM= active docutils container">
+<div class="highlight-c# notranslate"><div class="highlight"><pre><span></span><span class="k">using</span> <span class="nn">Amazon.CDK.Assets</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YQ== docutils container">
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">software.amazon.awscdk.assets.ZipDirectoryAssetProps</span><span class="o">;</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-SmF2YVNjcmlwdA== docutils container">
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="c1">// ZipDirectoryAssetProps is an interface</span>
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="p">{</span> <span class="nx">ZipDirectoryAssetProps</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;@aws-cdk/assets&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAssetProps.path">
+<code class="descname">path</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAssetProps.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path of the directory.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/assets.ZipDirectoryAssetProps.readers">
+<code class="descname">readers</code><a class="headerlink" href="#@aws-cdk/assets.ZipDirectoryAssetProps.readers" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of principals that should be able to read this ZIP file from S3.</p>
+<p>You can use <cite>asset.grantRead(principal)</cite> to grant read permissions later.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IPrincipal" title="&#64;aws-cdk/aws-iam.IPrincipal"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.IPrincipal</span></code></a>[] <em>(optional)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_aws-cdk_aws-amazonmq.html" class="btn btn-neutral float-right" title="@aws-cdk/aws-amazonmq" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_aws-cdk_app-delivery.html" class="btn btn-neutral" title="@aws-cdk/app-delivery" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.18.1',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="../_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

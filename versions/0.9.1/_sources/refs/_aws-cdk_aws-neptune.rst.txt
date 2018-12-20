@@ -1,0 +1,317 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"x+f4IyZruNgtzX3nfKblmnyhmnXhGNI24gQHHwHtl04="}
+
+@aws-cdk/aws-neptune
+====================
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.Neptune/0.9.1>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.Neptune" Version="0.9.1" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.Neptune --version 0.9.1
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.Neptune" version="0.9.1" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/neptune/0.9.1/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:neptune:jar:0.9.1'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="neptune" rev="0.9.1"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>neptune</artifactId>
+           <version>0.9.1</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:neptune:0.9.1'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='neptune', version='0.9.1')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-neptune/v/0.9.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-neptune@0.9.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-neptune": "^0.9.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-neptune@0.9.1
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-neptune/v/0.9.1>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-neptune@0.9.1
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-neptune": "^0.9.1"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-neptune@0.9.1
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-neptune.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-neptune
+
+NeptuneDatabase
+^^^^^^^^^^^^^^^
+
+.. py:class:: NeptuneDatabase(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Neptune;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.neptune.NeptuneDatabase;
+
+      .. code-tab:: javascript
+
+         const { NeptuneDatabase } = require('@aws-cdk/aws-neptune');
+
+      .. code-tab:: typescript
+
+         import { NeptuneDatabase } from '@aws-cdk/aws-neptune';
+
+
+
+   Neptune Graph Database cluster  Creates a new Neptune database cluster with a given number of replicas.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-ec2.IConnectable`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-neptune.NeptuneDatabaseProps`
+
+   .. py:attribute:: clusterEndpoint
+
+      The endpoint to use for read/write operations
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.Endpoint` *(readonly)*
+
+
+   .. py:attribute:: clusterIdentifier
+
+      Identifier of the cluster
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.DBClusterName` *(readonly)*
+
+
+   .. py:attribute:: connections
+
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)*
+
+
+   .. py:attribute:: instanceEndpoints
+
+      Endpoints which address each individual replica.
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.Endpoint`[] *(readonly)*
+
+
+   .. py:attribute:: instanceIdentifiers
+
+      Identifiers of the replicas
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.DBInstanceId`[] *(readonly)*
+
+
+   .. py:attribute:: readerEndpoint
+
+      Endpoint to use for load-balanced read-only operations.
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.Endpoint` *(readonly)*
+
+
+NeptuneDatabaseProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: NeptuneDatabaseProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.Neptune;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.neptune.NeptuneDatabaseProps;
+
+      .. code-tab:: javascript
+
+         // NeptuneDatabaseProps is an interface
+
+      .. code-tab:: typescript
+
+         import { NeptuneDatabaseProps } from '@aws-cdk/aws-neptune';
+
+
+
+   Properties for a Neptune Graph Database Cluster
+
+
+
+
+   .. py:attribute:: instanceProps
+
+      Settings for the individual instances that are launched
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.InstanceProps` *(abstract)*
+
+
+   .. py:attribute:: masterUser
+
+      Username and password for the administrative user
+
+
+      :type: :py:class:`@aws-cdk/aws-rds.Login` *(abstract)*
+
+
+   .. py:attribute:: clusterIdentifier
+
+      An optional identifier for the cluster  If not given, a name is generated.
+
+
+      :type: string or undefined *(abstract)*
+
+
+   .. py:attribute:: defaultDatabaseName
+
+      Name of a database which is automatically created inside the cluster  If not given, no database is created.
+
+
+      :type: string or undefined *(abstract)*
+
+
+   .. py:attribute:: instanceIdentifierBase
+
+      Base identifier for instances  Every replica is named by appending the replica number to this string, 1-based.  If not given, the clusterIdentifier is used with the word "Instance" appended.  If clusterIdentifier is also not given, the identifier is automatically generated.
+
+
+      :type: string or undefined *(abstract)*
+
+
+   .. py:attribute:: instances
+
+      How many replicas/instances to create  Has to be at least 1. Default is 2.
+
+
+      :type: number or undefined *(abstract)*
+
+
+   .. py:attribute:: kmsKeyArn
+
+      ARN of KMS key if you want to enable storage encryption
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.KeyArn` or undefined *(abstract)*
+
+
+   .. py:attribute:: port
+
+      What port to listen on
+
+
+      :type: number or undefined *(abstract)*
+
+
+   .. py:attribute:: preferredMaintenanceWindow
+
+      A daily time range in 24-hours UTC format in which backups preferably execute.  Must be at least 30 minutes long.  Example: '01:00-02:00'  If not given, an window is randomly.
+
+
+      :type: string or undefined *(abstract)*
+
+

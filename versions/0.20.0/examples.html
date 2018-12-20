@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AWS CDK Examples &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AWS CDK Tools" href="tools.html" />
+    <link rel="prev" title="AWS CloudFormation Library" href="cloudformation.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.20.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-an-ecs-cdk-app">Creating an Amazon ECS AWS CDK App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#step-1-create-the-directory-and-initialize-the-cdk">Step 1: Create the Directory and Initialize the AWS CDK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-2-add-the-ec2-and-ecs-packages">Step 2: Add the Amazon EC2 and Amazon ECS Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-3-create-a-fargate-service">Step 3: Create a Fargate Service</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="writing-constructs.html">Writing Constructs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>AWS CDK Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           ﻿<p style="background-color:#e47911; border-top:1px solid #ccc; margin-top:6px; padding-top:10px; padding-bottom:10px; padding-left:5px; font-weight:bold; font-style:italic; font-size:16px; color:white; vertical-align:middle">
+This documentation is for the developer preview release of the AWS CDK.
+Do not use this version of the AWS CDK in production.
+Subsequent releases of the AWS CDK will likely include breaking changes.
+</p>
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cdk-examples">
+<span id="id1"></span><h1>AWS CDK Examples<a class="headerlink" href="#cdk-examples" title="Permalink to this headline">¶</a></h1>
+<p>This topic contains some examples to help you get started using some of the advanced constructs
+offered by the AWS CDK.</p>
+<div class="section" id="creating-an-ecs-cdk-app">
+<span id="creating-ecs-l2-example"></span><h2>Creating an Amazon ECS AWS CDK App<a class="headerlink" href="#creating-an-ecs-cdk-app" title="Permalink to this headline">¶</a></h2>
+<p>Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container management service
+that makes it easy to run, stop, and manage Docker containers on a cluster.
+You can host your cluster on a serverless infrastructure that is managed by
+Amazon ECS by launching your services or tasks using the Fargate launch type.
+For more control you can host your tasks on a cluster of
+Amazon Elastic Compute Cloud (Amazon EC2) instances that you manage by using the EC2 launch type.</p>
+<p>This example shows you how to launch some services using the Fargate launch type.
+If you’ve ever used the console to create a Fargate service,
+you know that there are many steps you must follow to accomplish that task.
+AWS has a number of tutorials and documentation topics that walk you through
+creating a Fargate service,
+including:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://aws.amazon.com/getting-started/tutorials/deploy-docker-containers/">How to Deploy Docker Containers - AWS</a></li>
+<li><a class="reference external" href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/get-set-up-for-amazon-ecs.html">Setting up with Amazon ECS</a> and
+<a class="reference external" href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_GetStarted.html">Getting Started with Amazon ECS using Fargate</a></li>
+</ul>
+<p>This example creates a similar Fargate service in AWS CDK code.</p>
+<p>Since Amazon ECS can be used with a number of AWS services,
+you should understand how the Amazon ECS construct that we use in this example
+gives you a leg up on using AWS services by providing the following benefits:</p>
+<ul>
+<li><p class="first">Automatically configures a load balancer.</p>
+</li>
+<li><p class="first">Automatic security group opening for load balancers,
+which enables load balancers to communicate with instances
+without you explictly creating a security group.</p>
+</li>
+<li><p class="first">Automatic ordering dependency between service and load balancer attaching to a target group,
+where the AWS CDK enforces the correct order of creating the listener before an instance is created</p>
+</li>
+<li><p class="first">Automatic userdata configuration on auto-scaling group,
+which creates the correct configuration to associate a cluster to AMI(s).</p>
+</li>
+<li><p class="first">Early validation of parameter combinations, which exposes AWS CloudFormation issues earlier, thus saving you deployment time.
+For example, depending upon the task, it is easy to mis-configure the memory settings.
+Previously you would not encounter an error until you deployed your app,
+but now the AWS CDK can detect a misconfiguration and emit an error when you synthesize your app.</p>
+</li>
+<li><p class="first">Automatically adds permissions for Amazon ECR if you use an image from Amazon ECR
+When you use an image from Amazon ECR, the AWS CDK adds the correct permissions.</p>
+</li>
+<li><p class="first">Convenient API for autoscaling
+The AWS CDK supplies a method so you can autoscale instances when you use an Amazon EC2 cluster;
+this functionality is done automatically when you use an instance in a Fargate cluster.</p>
+<p>In addition, the AWS CDK will prevent instances from being deleted when
+autoscaling tries to kill an instance,
+but either a task is running or is scheduled on that instance.</p>
+<p>Previously, you had to create a Lambda function to have this functionality.</p>
+</li>
+<li><p class="first">Asset support, so that you can deploy source from your machine to Amazon ECS in one step
+Previously, to use application source you had to perform a number of manual steps
+(upload to Amazon ECR, create Docker image, etc.).</p>
+</li>
+</ul>
+<div class="section" id="step-1-create-the-directory-and-initialize-the-cdk">
+<span id="creating-ecs-l2-example-1"></span><h3>Step 1: Create the Directory and Initialize the AWS CDK<a class="headerlink" href="#step-1-create-the-directory-and-initialize-the-cdk" title="Permalink to this headline">¶</a></h3>
+<p>Let’s start with creating a new directory to hold our AWS CDK code
+and create a new app in that directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir MyEcsConstruct
+<span class="nb">cd</span> MyEcsConstruct
+</pre></div>
+</div>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk init --language typescript
+</pre></div>
+</div>
+<p>Build the app and confirm that it creates an empty stack.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+cdk synth
+</pre></div>
+</div>
+<p>You should see a stack like the following,
+where CDK-VERSION is the version of the CDK.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Resources:
+  CDKMetadata:
+    Type: <span class="s1">&#39;AWS::CDK::Metadata&#39;</span>
+    Properties:
+      Modules: @aws-cdk/cdk<span class="o">=</span>CDK-VERSION,@aws-cdk/cx-api<span class="o">=</span>CDK-VERSION,my_ecs_construct<span class="o">=</span><span class="m">0</span>.1.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="step-2-add-the-ec2-and-ecs-packages">
+<span id="creating-ecs-l2-example-2"></span><h3>Step 2: Add the Amazon EC2 and Amazon ECS Packages<a class="headerlink" href="#step-2-add-the-ec2-and-ecs-packages" title="Permalink to this headline">¶</a></h3>
+<p>Install support for Amazon EC2 and Amazon ECS.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm install @aws-cdk/aws-ec2 @aws-cdk/aws-ecs
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="step-3-create-a-fargate-service">
+<span id="creating-ecs-l2-example-3"></span><h3>Step 3: Create a Fargate Service<a class="headerlink" href="#step-3-create-a-fargate-service" title="Permalink to this headline">¶</a></h3>
+<p>There are two different ways of running your container tasks with Amazon ECS:</p>
+<ul class="simple">
+<li>Using the <strong>Fargate</strong> launch type,
+where Amazon ECS manages the physical machines that your containers are running on for you</li>
+<li>Using the <strong>EC2</strong> launch type, where you do the managing, such as specifying autoscaling</li>
+</ul>
+<p>The following example creates a Fargate service running on an ECS cluster fronted by an internet-facing
+application load balancer.</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-VHlwZVNjcmlwdA== docutils container">
+<div class="docutils container">
+TypeScript</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-VHlwZVNjcmlwdA== active docutils container">
+<p>Add the following import statements to <em>lib/my_ecs_construct-stack.ts</em>:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">ec2</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-ec2&#39;</span><span class="p">);</span>
+<span class="kr">import</span> <span class="nx">ecs</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-ecs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Replace the comment at the end of the constructor with the following code:</p>
+<div class="highlight-typescript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">vpc</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ec2</span><span class="p">.</span><span class="nx">VpcNetwork</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyVpc&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">maxAZs</span>: <span class="kt">3</span> <span class="c1">// Default is all AZs in region</span>
+<span class="p">});</span>
+
+<span class="kr">const</span> <span class="nx">cluster</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ecs</span><span class="p">.</span><span class="nx">Cluster</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyCluster&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">vpc</span>: <span class="kt">vpc</span>
+<span class="p">});</span>
+
+<span class="c1">// Create a load-balanced Fargate service and make it public</span>
+<span class="k">new</span> <span class="nx">ecs</span><span class="p">.</span><span class="nx">LoadBalancedFargateService</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyFargateService&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">cluster</span>: <span class="kt">cluster</span><span class="p">,</span>  <span class="c1">// Required</span>
+  <span class="nx">cpu</span><span class="o">:</span> <span class="s1">&#39;512&#39;</span><span class="p">,</span> <span class="c1">// Default is 256</span>
+  <span class="nx">desiredCount</span>: <span class="kt">6</span><span class="p">,</span>  <span class="c1">// Default is 1</span>
+  <span class="nx">image</span>: <span class="kt">ecs.ContainerImage.fromDockerHub</span><span class="p">(</span><span class="s1">&#39;amazon/amazon-ecs-sample&#39;</span><span class="p">),</span> <span class="c1">// Required</span>
+  <span class="nx">memoryMiB</span><span class="o">:</span> <span class="s1">&#39;2048&#39;</span><span class="p">,</span>  <span class="c1">// Default is 512</span>
+  <span class="nx">publicLoadBalancer</span>: <span class="kt">true</span>  <span class="c1">// Default is false</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Save it and make sure it builds and creates a stack.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>npm run build
+cdk synth
+</pre></div>
+</div>
+<p>The stack is hundreds of lines, so we won’t show it here.
+The stack should contain one default instance, a private subnet and a public subnet
+for the three availability zones, and a security group.</p>
+<p>Deploy the stack.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk deploy
+</pre></div>
+</div>
+<p>AWS CloudFormation displays information about the dozens of steps that
+it takes as it deploys your app.</p>
+</div>
+</div>
+<p>That’s how easy it is to create a Fargate service to run a Docker image.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tools.html" class="btn btn-neutral float-right" title="AWS CDK Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cloudformation.html" class="btn btn-neutral" title="AWS CloudFormation Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.20.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/sphinx_tabs/tabs.js"></script>
+      <script type="text/javascript" src="_static/sphinx_tabs/semantic-ui-2.2.10/tab.min.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

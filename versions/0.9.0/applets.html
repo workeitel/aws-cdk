@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Applets &mdash; AWS Cloud Development Kit</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="AWS Construct Library" href="aws-construct-lib.html" />
+    <link rel="prev" title="Assets" href="assets.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="concepts.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="constructs.html">Constructs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stacks.html">Stacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logical-ids.html">Logical IDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environments.html">Environments and Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="apps.html">Apps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Environmental Context</a></li>
+<li class="toctree-l2"><a class="reference internal" href="assets.html">Assets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Applets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="concepts.html">AWS CDK Concepts</a> &raquo;</li>
+        
+      <li>Applets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/applets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="applets">
+<span id="id1"></span><h1>Applets<a class="headerlink" href="#applets" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Currently the AWS CDK only supports applets published as JavaScript modules.</p>
+</div>
+<p>Applets are files in the YAML or JSON format that have the following root attribute,
+where MODULE can represent
+a local file, such as <code class="code docutils literal notranslate"><span class="pre">./my-module</span></code>,
+a local dependency, such as <code class="code docutils literal notranslate"><span class="pre">my-dependency</span></code>,
+or a global module, such as <code class="code docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-s3</span></code>
+and CLASS is the name of a class exported by the module.</p>
+<div class="code js highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">applet</span><span class="p">:</span> <span class="n">MODULE</span><span class="p">[:</span><span class="n">CLASS</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If CLASS is not specified, <code class="code docutils literal notranslate"><span class="pre">Applet</span></code> is used as the default class name.
+Therefore, you need only refer to AWS CDK construct libraries that export
+an <code class="code docutils literal notranslate"><span class="pre">Applet</span></code> class by their library name.</p>
+<p>The rest of the YAML file is applet-dependent.
+The object is passed as <code class="code docutils literal notranslate"><span class="pre">props</span></code> when the applet object is instantiated
+and added to an AWS CDK app created by <strong>cdk-applet-js</strong>.</p>
+<p>Use <strong>cdk-applet-js</strong> <em>applet</em> to run the applet, create an AWS CDK app,
+and use that with the AWS CDK tools, as shown in the following example.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk --app <span class="s2">&quot;cdk-applet-js ./my-applet.yaml&quot;</span> synth
+</pre></div>
+</div>
+<p>To make the applet file executable and use the host as a shebang
+on Unix-based systems, such as Linux, MacOS, or Windows Bash shell,
+create a script similar to the following.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env cdk-applet-js</span>
+
+applet: aws-cdk-codebuild
+source: arn:aws:codecommit:::my-repository
+image: node:8.9.4
+compute: large
+build:
+   - npm install --unsafe-perm
+   - npm <span class="nb">test</span>
+   - npm pack --unsafe-perm
+</pre></div>
+</div>
+<p>To execute the applet and synthesize an AWS CloudFormation template,
+use the following command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>cdk synth --app <span class="s2">&quot;./build.yaml&quot;</span>
+</pre></div>
+</div>
+<p>To avoid needing <strong>–app</strong> for every invocation,
+add the following entry to <em>cdk.json</em>.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+   <span class="nt">&quot;app&quot;</span><span class="p">:</span> <span class="s2">&quot;./build.yaml&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="aws-construct-lib.html" class="btn btn-neutral float-right" title="AWS Construct Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="assets.html" class="btn btn-neutral" title="Assets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.9.0',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

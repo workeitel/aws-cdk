@@ -1,0 +1,258 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"PSfh1SSNJ0Rln4JRVX6Q1xzK6CHgAc+YLaRAKxamauE="}
+
+@aws-cdk/aws-autoscaling-api
+============================
+
+.. mdinclude:: ./__aws-cdk_aws-autoscaling-api.README.md
+
+Reference
+---------
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.AWS.AutoScaling.Api/0.19.0>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.AWS.AutoScaling.Api" Version="0.19.0" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.AWS.AutoScaling.Api --version 0.19.0
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.AWS.AutoScaling.Api" version="0.19.0" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/autoscaling-api/0.19.0/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:autoscaling-api:jar:0.19.0'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="autoscaling-api" rev="0.19.0"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>autoscaling-api</artifactId>
+           <version>0.19.0</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:autoscaling-api:0.19.0'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='autoscaling-api', version='0.19.0')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-autoscaling-api/v/0.19.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-autoscaling-api@0.19.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-autoscaling-api": "^0.19.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-autoscaling-api@0.19.0
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-autoscaling-api/v/0.19.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-autoscaling-api@0.19.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-autoscaling-api": "^0.19.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-autoscaling-api@0.19.0
+
+
+
+.. py:module:: @aws-cdk/aws-autoscaling-api
+
+ILifecycleHook (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ILifecycleHook
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.AutoScaling.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.api.ILifecycleHook;
+
+      .. code-tab:: javascript
+
+         // ILifecycleHook is an interface
+
+      .. code-tab:: typescript
+
+         import { ILifecycleHook } from '@aws-cdk/aws-autoscaling-api';
+
+
+
+   A basic lifecycle hook object
+
+
+
+
+
+   .. py:attribute:: role
+
+      The role for the lifecycle hook to execute
+
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.IRole`\  *(readonly)*
+
+
+ILifecycleHookTarget (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ILifecycleHookTarget
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.AutoScaling.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.api.ILifecycleHookTarget;
+
+      .. code-tab:: javascript
+
+         // ILifecycleHookTarget is an interface
+
+      .. code-tab:: typescript
+
+         import { ILifecycleHookTarget } from '@aws-cdk/aws-autoscaling-api';
+
+
+
+   Interface for autoscaling lifecycle hook targets
+
+
+
+
+
+   .. py:method:: asLifecycleHookTarget(lifecycleHook) -> @aws-cdk/aws-autoscaling-api.LifecycleHookTargetProps
+
+      Called when this object is used as the target of a lifecycle hook
+
+
+
+      :param lifecycleHook: 
+      :type lifecycleHook: :py:class:`~@aws-cdk/aws-autoscaling-api.ILifecycleHook`\ 
+      :rtype: :py:class:`~@aws-cdk/aws-autoscaling-api.LifecycleHookTargetProps`\ 
+      :abstract: Yes
+
+
+LifecycleHookTargetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LifecycleHookTargetProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.AWS.AutoScaling.Api;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.autoscaling.api.LifecycleHookTargetProps;
+
+      .. code-tab:: javascript
+
+         // LifecycleHookTargetProps is an interface
+
+      .. code-tab:: typescript
+
+         import { LifecycleHookTargetProps } from '@aws-cdk/aws-autoscaling-api';
+
+
+
+   Properties to add the target to a lifecycle hook
+
+
+
+
+
+   .. py:attribute:: notificationTargetArn
+
+      The ARN to use as the notification target
+
+
+
+      :type: string
+
+

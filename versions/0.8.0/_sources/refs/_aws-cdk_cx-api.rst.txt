@@ -1,0 +1,275 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"KkuBuFVz8OfaX4h9+OMliTFAzsnL3iPqSV8+7+xAeGY="}
+
+@aws-cdk/cx-api
+===============
+
+.. mdinclude:: ./__aws-cdk_cx-api.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/cx-api
+
+AppRuntime (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AppRuntime
+
+   Information about the application's runtime components.
+
+
+
+
+   .. py:attribute:: libraries
+
+      The list of libraries loaded in the application, associated with their versions.
+
+
+      :type: string
+
+
+AssetMetadataEntry (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AssetMetadataEntry
+
+
+
+   .. py:attribute:: path
+
+      :type: string
+
+
+   .. py:attribute:: packaging
+
+      :type: string
+
+
+   .. py:attribute:: s3BucketParameter
+
+      :type: string
+
+
+   .. py:attribute:: s3KeyParameter
+
+      :type: string
+
+
+Environment (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: Environment
+
+   Models an AWS execution environment, for use within the CDK toolkit.
+
+
+
+
+   .. py:attribute:: name
+
+      The arbitrary name of this environment (user-set, or at least user-meaningful) 
+
+
+      :type: string
+
+
+   .. py:attribute:: account
+
+      The 12-digit AWS account ID for the account this environment deploys into 
+
+
+      :type: string
+
+
+   .. py:attribute:: region
+
+      The AWS region name where this environment deploys into 
+
+
+      :type: string
+
+
+ListStacksRequest (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ListStacksRequest
+
+
+
+   .. py:attribute:: type
+
+      :type: string
+
+
+   .. py:attribute:: context
+
+      :type: any or undefined
+
+
+ListStacksResponse (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ListStacksResponse
+
+
+
+   .. py:attribute:: stacks
+
+      :type: :py:class:`~@aws-cdk/cx-api.StackInfo`
+
+
+MetadataEntry (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MetadataEntry
+
+   An metadata entry in the construct.
+
+
+
+
+   .. py:attribute:: type
+
+      The type of the metadata entry.
+
+
+      :type: string
+
+
+   .. py:attribute:: data
+
+      The data.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: trace
+
+      A stack trace for when the entry was created.
+
+
+      :type: string
+
+
+MissingContext (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MissingContext
+
+   Represents a missing piece of context. (should have been an interface, but jsii still doesn't have support for structs).
+
+
+
+
+   .. py:attribute:: provider
+
+      :type: string
+
+
+   .. py:attribute:: scope
+
+      :type: string
+
+
+   .. py:attribute:: args
+
+      :type: string
+
+
+StackId (interface)
+^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StackId
+
+   Identifies a single stack
+
+
+
+
+   .. py:attribute:: name
+
+      :type: string
+
+
+StackInfo (interface)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StackInfo
+
+   Identifies and contains metadata about a stack
+
+
+   :extends: :py:class:`~@aws-cdk/cx-api.StackId`
+
+
+   .. py:attribute:: environment
+
+      :type: :py:class:`~@aws-cdk/cx-api.Environment` or undefined
+
+
+SynthesizeRequest (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SynthesizeRequest
+
+
+
+   .. py:attribute:: type
+
+      :type: string
+
+
+   .. py:attribute:: stacks
+
+      :type: string
+
+
+   .. py:attribute:: context
+
+      :type: any or undefined
+
+
+SynthesizeResponse (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SynthesizeResponse
+
+
+
+   .. py:attribute:: stacks
+
+      :type: :py:class:`~@aws-cdk/cx-api.SynthesizedStack`
+
+
+   .. py:attribute:: runtime
+
+      :type: :py:class:`~@aws-cdk/cx-api.AppRuntime` or undefined
+
+
+SynthesizedStack (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SynthesizedStack
+
+   A complete synthesized stack
+
+
+   :extends: :py:class:`~@aws-cdk/cx-api.StackInfo`
+
+
+   .. py:attribute:: missing
+
+      :type: :py:class:`~@aws-cdk/cx-api.MissingContext` or undefined
+
+
+   .. py:attribute:: metadata
+
+      :type: :py:class:`~@aws-cdk/cx-api.MetadataEntry`
+
+
+   .. py:attribute:: template
+
+      :type: any
+
+

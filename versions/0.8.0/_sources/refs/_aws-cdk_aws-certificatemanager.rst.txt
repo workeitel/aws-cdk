@@ -1,0 +1,250 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"SuKwhZVWhmT3LsYo2lnWV9VZJVHT5JOFLeVslf0DHns="}
+
+@aws-cdk/aws-certificatemanager
+===============================
+
+.. mdinclude:: ./__aws-cdk_aws-certificatemanager.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-certificatemanager
+
+Certificate
+^^^^^^^^^^^
+
+.. py:class:: Certificate(parent, name, props)
+
+   A certificate managed by Amazon Certificate Manager  IMPORTANT: if you are creating a certificate as part of your stack, the stack will not complete creating until you read and follow the instructions in the email that you will receive.  ACM will send validation emails to the following addresses:      admin@domain.com     administrator@domain.com     hostmaster@domain.com     postmaster@domain.com     webmaster@domain.com  For every domain that you register.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-certificatemanager.CertificateRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-certificatemanager.CertificateProps`
+
+   .. py:attribute:: certificateArn
+
+      The certificate's ARN
+
+
+      :type: :py:class:`~@aws-cdk/aws-certificatemanager.CertificateArn` *(readonly)*
+
+
+CertificateArn
+^^^^^^^^^^^^^^
+
+.. py:class:: CertificateArn([valueOrFunction])
+
+   Represents the ARN of a certificate
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+CertificateProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CertificateProps
+
+   Properties for your certificate
+
+
+
+
+   .. py:attribute:: domainName
+
+      Fully-qualified domain name to request a certificate for.  May contain wildcards, such as ``*.domain.com``.
+
+
+      :type: string
+
+
+   .. py:attribute:: subjectAlternativeNames
+
+      Alternative domain names on your certificate.  Use this to register alternative domain names that represent the same site.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: validationDomains
+
+      What validation domain to use for every requested domain.  Has to be a superdomain of the requested domain.
+
+
+      :type: string or undefined
+
+
+CertificateRef
+^^^^^^^^^^^^^^
+
+.. py:class:: CertificateRef(parent, name)
+
+   Interface for certificate-like objects
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-certificatemanager.CertificateRef
+
+      Import a certificate
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: 
+      :type name: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-certificatemanager.CertificateRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-certificatemanager.CertificateRef`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-certificatemanager.CertificateRefProps
+
+      Export this certificate from the stack
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-certificatemanager.CertificateRefProps`
+
+
+   .. py:attribute:: certificateArn
+
+      :type: :py:class:`~@aws-cdk/aws-certificatemanager.CertificateArn` *(readonly)* *(abstract)*
+
+
+CertificateRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CertificateRefProps
+
+   Reference to an existing Certificate
+
+
+
+
+   .. py:attribute:: certificateArn
+
+      The certificate's ARN
+
+
+      :type: :py:class:`~@aws-cdk/aws-certificatemanager.CertificateArn`
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-certificatemanager.cloudformation
+
+CertificateResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: CertificateResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``CertificateResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``CertificateResource``
+   :type properties: :py:class:`~@aws-cdk/aws-certificatemanager.cloudformation.CertificateResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: DomainValidationOptionProperty
+
+
+
+      .. py:attribute:: domainName
+
+         ``CertificateResource.DomainValidationOptionProperty.DomainName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoptions-domainname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: validationDomain
+
+         ``CertificateResource.DomainValidationOptionProperty.ValidationDomain``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html#cfn-certificatemanager-certificate-domainvalidationoption-validationdomain
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+CertificateResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: CertificateResourceProps
+
+
+
+   .. py:attribute:: domainName
+
+      ``AWS::CertificateManager::Certificate.DomainName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: domainValidationOptions
+
+      ``AWS::CertificateManager::Certificate.DomainValidationOptions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainvalidationoptions
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-certificatemanager.cloudformation.CertificateResource.DomainValidationOptionProperty` or undefined
+
+
+   .. py:attribute:: subjectAlternativeNames
+
+      ``AWS::CertificateManager::Certificate.SubjectAlternativeNames``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::CertificateManager::Certificate.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+   .. py:attribute:: validationMethod
+
+      ``AWS::CertificateManager::Certificate.ValidationMethod``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-validationmethod
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-certificatemanager
+

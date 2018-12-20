@@ -1,0 +1,1451 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>@aws-cdk/aws-sns &mdash; AWS Cloud Development Kit 0.8.0+0eede70 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="@aws-cdk/aws-sqs" href="_aws-cdk_aws-sqs.html" />
+    <link rel="prev" title="@aws-cdk/aws-ses" href="_aws-cdk_aws-ses.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AWS Cloud Development Kit
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.8.0+0eede70
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../aws-construct-lib.html">AWS Construct Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cloudformation.html">AWS CloudFormation Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools.html">Tools</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_assets.html">&#64;aws-cdk/assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-apigateway.html">&#64;aws-cdk/aws-apigateway</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-applicationautoscaling.html">&#64;aws-cdk/aws-applicationautoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-appsync.html">&#64;aws-cdk/aws-appsync</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-athena.html">&#64;aws-cdk/aws-athena</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscaling.html">&#64;aws-cdk/aws-autoscaling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-autoscalingplans.html">&#64;aws-cdk/aws-autoscalingplans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-batch.html">&#64;aws-cdk/aws-batch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-budgets.html">&#64;aws-cdk/aws-budgets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-certificatemanager.html">&#64;aws-cdk/aws-certificatemanager</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloud9.html">&#64;aws-cdk/aws-cloud9</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudformation.html">&#64;aws-cdk/aws-cloudformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudfront.html">&#64;aws-cdk/aws-cloudfront</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudtrail.html">&#64;aws-cdk/aws-cloudtrail</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html">&#64;aws-cdk/aws-cloudwatch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codebuild.html">&#64;aws-cdk/aws-codebuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codecommit.html">&#64;aws-cdk/aws-codecommit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codedeploy.html">&#64;aws-cdk/aws-codedeploy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-codepipeline.html">&#64;aws-cdk/aws-codepipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-cognito.html">&#64;aws-cdk/aws-cognito</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-config.html">&#64;aws-cdk/aws-config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-custom-resources.html">&#64;aws-cdk/aws-custom-resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-datapipeline.html">&#64;aws-cdk/aws-datapipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dax.html">&#64;aws-cdk/aws-dax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-directoryservice.html">&#64;aws-cdk/aws-directoryservice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dms.html">&#64;aws-cdk/aws-dms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-dynamodb.html">&#64;aws-cdk/aws-dynamodb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ec2.html">&#64;aws-cdk/aws-ec2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecr.html">&#64;aws-cdk/aws-ecr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ecs.html">&#64;aws-cdk/aws-ecs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-efs.html">&#64;aws-cdk/aws-efs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-eks.html">&#64;aws-cdk/aws-eks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticache.html">&#64;aws-cdk/aws-elasticache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticbeanstalk.html">&#64;aws-cdk/aws-elasticbeanstalk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancing.html">&#64;aws-cdk/aws-elasticloadbalancing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticloadbalancingv2.html">&#64;aws-cdk/aws-elasticloadbalancingv2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-elasticsearch.html">&#64;aws-cdk/aws-elasticsearch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-emr.html">&#64;aws-cdk/aws-emr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-events.html">&#64;aws-cdk/aws-events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-gamelift.html">&#64;aws-cdk/aws-gamelift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-glue.html">&#64;aws-cdk/aws-glue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-guardduty.html">&#64;aws-cdk/aws-guardduty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iam.html">&#64;aws-cdk/aws-iam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-inspector.html">&#64;aws-cdk/aws-inspector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-iot.html">&#64;aws-cdk/aws-iot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesis.html">&#64;aws-cdk/aws-kinesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisanalytics.html">&#64;aws-cdk/aws-kinesisanalytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kinesisfirehose.html">&#64;aws-cdk/aws-kinesisfirehose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-kms.html">&#64;aws-cdk/aws-kms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-lambda.html">&#64;aws-cdk/aws-lambda</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-logs.html">&#64;aws-cdk/aws-logs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-neptune.html">&#64;aws-cdk/aws-neptune</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-opsworks.html">&#64;aws-cdk/aws-opsworks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-rds.html">&#64;aws-cdk/aws-rds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-redshift.html">&#64;aws-cdk/aws-redshift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-route53.html">&#64;aws-cdk/aws-route53</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-s3.html">&#64;aws-cdk/aws-s3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sdb.html">&#64;aws-cdk/aws-sdb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-serverless.html">&#64;aws-cdk/aws-serverless</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicecatalog.html">&#64;aws-cdk/aws-servicecatalog</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-servicediscovery.html">&#64;aws-cdk/aws-servicediscovery</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ses.html">&#64;aws-cdk/aws-ses</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">&#64;aws-cdk/aws-sns</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#aws-sns-construct-library">AWS SNS Construct Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subscriptions">Subscriptions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cloudwatch-event-rule-target">CloudWatch Event Rule Target</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-&#64;aws-cdk/aws-sns">Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#emailsubscriptionoptions-interface">EmailSubscriptionOptions (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscription">Subscription</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscriptionprops-interface">SubscriptionProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#subscriptionprotocol-enum">SubscriptionProtocol (enum)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topic">Topic</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topicarn">TopicArn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topicname">TopicName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topicpolicy">TopicPolicy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topicpolicyprops-interface">TopicPolicyProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topicprops-interface">TopicProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topicref">TopicRef</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#topicrefprops-interface">TopicRefProps (interface)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-&#64;aws-cdk/aws-sns.cloudformation">cloudformation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-sqs.html">&#64;aws-cdk/aws-sqs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-ssm.html">&#64;aws-cdk/aws-ssm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-stepfunctions.html">&#64;aws-cdk/aws-stepfunctions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-waf.html">&#64;aws-cdk/aws-waf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-wafregional.html">&#64;aws-cdk/aws-wafregional</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_aws-workspaces.html">&#64;aws-cdk/aws-workspaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cdk.html">&#64;aws-cdk/cdk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_cx-api.html">&#64;aws-cdk/cx-api</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_aws-cdk_rtv.html">&#64;aws-cdk/rtv</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AWS Cloud Development Kit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+        
+      <li>&#64;aws-cdk/aws-sns</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/refs/_aws-cdk_aws-sns.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="aws-cdk-aws-sns">
+<h1>&#64;aws-cdk/aws-sns<a class="headerlink" href="#aws-cdk-aws-sns" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="aws-sns-construct-library">
+<h2>AWS SNS Construct Library<a class="headerlink" href="#aws-sns-construct-library" title="Permalink to this headline">¶</a></h2>
+<p>Add an SNS Topic to your stack:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">import</span> <span class="nx">sns</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;@aws-cdk/aws-sns&#39;</span><span class="p">);</span>
+
+<span class="kr">const</span> <span class="nx">topic</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sns</span><span class="p">.</span><span class="nx">Topic</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span> <span class="s1">&#39;Topic&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">displayName</span><span class="o">:</span> <span class="s1">&#39;Customer subscription topic&#39;</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="section" id="subscriptions">
+<h3>Subscriptions<a class="headerlink" href="#subscriptions" title="Permalink to this headline">¶</a></h3>
+<p>Various subscriptions can be added to the topic by calling the <code class="docutils literal notranslate"><span class="pre">.subscribeXxx()</span></code> methods on the
+topic.</p>
+<p>Add an HTTPS Subscription to your topic:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTopic</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sns</span><span class="p">.</span><span class="nx">Topic</span><span class="p">(</span><span class="nx">stack</span><span class="p">,</span> <span class="s1">&#39;MyTopic&#39;</span><span class="p">);</span>
+
+<span class="nx">myTopic</span><span class="p">.</span><span class="nx">subscribeUrl</span><span class="p">(</span><span class="s1">&#39;MyHttpsSubscription&#39;</span><span class="p">,</span> <span class="s1">&#39;https://foobar.com/&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Subscribe a queue to the topic:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">topic</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sns</span><span class="p">.</span><span class="nx">Topic</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyTopic&#39;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">queue</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">sqs</span><span class="p">.</span><span class="nx">Queue</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyQueue&#39;</span><span class="p">);</span>
+
+<span class="nx">topic</span><span class="p">.</span><span class="nx">subscribeQueue</span><span class="p">(</span><span class="nx">queue</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Note that subscriptions of queues in different accounts need to be manually confirmed by
+reading the initial message from the queue and visiting the link found in it.</p>
+</div>
+<div class="section" id="cloudwatch-event-rule-target">
+<h3>CloudWatch Event Rule Target<a class="headerlink" href="#cloudwatch-event-rule-target" title="Permalink to this headline">¶</a></h3>
+<p>SNS topics can be used as targets for CloudWatch event rules:</p>
+<div class="highlight-ts notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">myTopic</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Topic</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;MyTopic&#39;</span><span class="p">);</span>
+
+<span class="c1">// Use an EventRule and add the topic as a target</span>
+<span class="kr">const</span> <span class="nx">rule</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">events</span><span class="p">.</span><span class="nx">EventRule</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="s1">&#39;Rule&#39;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">scheduleExpression</span><span class="o">:</span> <span class="s1">&#39;rate(1 minute)&#39;</span>
+<span class="p">});</span>
+<span class="nx">rule</span><span class="p">.</span><span class="nx">addTarget</span><span class="p">(</span><span class="nx">myTopic</span><span class="p">);</span>
+
+<span class="c1">// Or use one of the onXxx methods on event sources</span>
+<span class="nx">codeCommitRepo</span><span class="p">.</span><span class="nx">onCommit</span><span class="p">(</span><span class="s1">&#39;OnCommit&#39;</span><span class="p">,</span> <span class="nx">myTopic</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This will result in adding a target to the event rule and will also modify
+the topic resource policy to allow CloudWatch events to publish to the topic.</p>
+</div>
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-sns">
+<span id="reference"></span><h2>Reference<a class="headerlink" href="#module-@aws-cdk/aws-sns" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="emailsubscriptionoptions-interface">
+<h3>EmailSubscriptionOptions (interface)<a class="headerlink" href="#emailsubscriptionoptions-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.EmailSubscriptionOptions">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">EmailSubscriptionOptions</code><a class="headerlink" href="#@aws-cdk/aws-sns.EmailSubscriptionOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Options for email subscriptions.</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.EmailSubscriptionOptions.json">
+<code class="descname">json</code><a class="headerlink" href="#@aws-cdk/aws-sns.EmailSubscriptionOptions.json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicates if the full notification JSON should be sent to the email address or just the message text.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="subscription">
+<h3>Subscription<a class="headerlink" href="#subscription" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.Subscription">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">Subscription</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.Subscription" title="Permalink to this definition">¶</a></dt>
+<dd><p>A new subscription.  Prefer to use the <cite>TopicRef.subscribeXxx()</cite> methods to creating instances of this class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.SubscriptionProps" title="&#64;aws-cdk/aws-sns.SubscriptionProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubscriptionProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="subscriptionprops-interface">
+<h3>SubscriptionProps (interface)<a class="headerlink" href="#subscriptionprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">SubscriptionProps</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties for creating a new subscription</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProps.protocol">
+<code class="descname">protocol</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProps.protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>What type of subscription to add.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.SubscriptionProtocol" title="&#64;aws-cdk/aws-sns.SubscriptionProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubscriptionProtocol</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProps.endpoint">
+<code class="descname">endpoint</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProps.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>The subscription endpoint.  The meaning of this value depends on the value for ‘protocol’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProps.topic">
+<code class="descname">topic</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProps.topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The topic to subscribe to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicRef" title="&#64;aws-cdk/aws-sns.TopicRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicRef</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="subscriptionprotocol-enum">
+<h3>SubscriptionProtocol (enum)<a class="headerlink" href="#subscriptionprotocol-enum" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">SubscriptionProtocol</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="data">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol.Http">
+<code class="descname">Http</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol.Http" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol.Https">
+<code class="descname">Https</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol.Https" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol.Email">
+<code class="descname">Email</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol.Email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol.EmailJson">
+<code class="descname">EmailJson</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol.EmailJson" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol.Sms">
+<code class="descname">Sms</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol.Sms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol.Sqs">
+<code class="descname">Sqs</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol.Sqs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol.Application">
+<code class="descname">Application</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol.Application" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="&#64;aws-cdk/aws-sns.SubscriptionProtocol.Lambda">
+<code class="descname">Lambda</code><a class="headerlink" href="#@aws-cdk/aws-sns.SubscriptionProtocol.Lambda" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topic">
+<h3>Topic<a class="headerlink" href="#topic" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.Topic">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">Topic</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em><span class="optional">[</span>, <em>props</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.Topic" title="Permalink to this definition">¶</a></dt>
+<dd><p>A new SNS topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicRef" title="&#64;aws-cdk/aws-sns.TopicRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicRef</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicProps" title="&#64;aws-cdk/aws-sns.TopicProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicProps</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.Topic.topicArn">
+<code class="descname">topicArn</code><a class="headerlink" href="#@aws-cdk/aws-sns.Topic.topicArn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicArn" title="&#64;aws-cdk/aws-sns.TopicArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicArn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.Topic.topicName">
+<code class="descname">topicName</code><a class="headerlink" href="#@aws-cdk/aws-sns.Topic.topicName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicName" title="&#64;aws-cdk/aws-sns.TopicName"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.Topic.autoCreatePolicy">
+<code class="descname">autoCreatePolicy</code><a class="headerlink" href="#@aws-cdk/aws-sns.Topic.autoCreatePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls automatic creation of policy objects.  Set by subclasses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicarn">
+<h3>TopicArn<a class="headerlink" href="#topicarn" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.TopicArn">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">TopicArn</code><span class="sig-paren">(</span><span class="optional">[</span><em>valueOrFunction</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.TopicArn" title="Permalink to this definition">¶</a></dt>
+<dd><p>ARN of a Topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>valueOrFunction</strong> (<em>any</em><em> or </em><em>undefined</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="topicname">
+<h3>TopicName<a class="headerlink" href="#topicname" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.TopicName">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">TopicName</code><span class="sig-paren">(</span><span class="optional">[</span><em>valueOrFunction</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.TopicName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><strong>valueOrFunction</strong> (<em>any</em><em> or </em><em>undefined</em>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="topicpolicy">
+<h3>TopicPolicy<a class="headerlink" href="#topicpolicy" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.TopicPolicy">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">TopicPolicy</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.TopicPolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies a policy to SNS topics.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicPolicyProps" title="&#64;aws-cdk/aws-sns.TopicPolicyProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicPolicyProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicPolicy.document">
+<code class="descname">document</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicPolicy.document" title="Permalink to this definition">¶</a></dt>
+<dd><p>The IAM policy document for this policy.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.PolicyDocument" title="&#64;aws-cdk/cdk.PolicyDocument"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.PolicyDocument</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicpolicyprops-interface">
+<h3>TopicPolicyProps (interface)<a class="headerlink" href="#topicpolicyprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.TopicPolicyProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">TopicPolicyProps</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicPolicyProps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicPolicyProps.topics">
+<code class="descname">topics</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicPolicyProps.topics" title="Permalink to this definition">¶</a></dt>
+<dd><p>The set of topics this policy applies to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicRef" title="&#64;aws-cdk/aws-sns.TopicRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicRef</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicprops-interface">
+<h3>TopicProps (interface)<a class="headerlink" href="#topicprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.TopicProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">TopicProps</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicProps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Properties for a new SNS topic</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicProps.displayName">
+<code class="descname">displayName</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicProps.displayName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A developer-defined string that can be used to identify this SNS topic.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicProps.topicName">
+<code class="descname">topicName</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicProps.topicName" title="Permalink to this definition">¶</a></dt>
+<dd><p>A name for the topic.  If you don’t specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the topic name. For more information, see Name Type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicref">
+<h3>TopicRef<a class="headerlink" href="#topicref" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">TopicRef</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef" title="Permalink to this definition">¶</a></dt>
+<dd><p>Either a new or imported Topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Implements:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.IEventRuleTarget" title="&#64;aws-cdk/aws-events.IEventRuleTarget"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.IEventRuleTarget</span></code></a></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Implements:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.IAlarmAction" title="&#64;aws-cdk/aws-cloudwatch.IAlarmAction"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.IAlarmAction</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Abstract:</th><td class="field-body"><p class="first">Yes</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – The parent construct</li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="staticmethod">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.import">
+<em class="property">static </em><code class="descname">import</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>props</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-sns.TopicRef<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.import" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import a Topic defined elsewhere</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – </li>
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicRefProps" title="&#64;aws-cdk/aws-sns.TopicRefProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicRefProps</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicRef" title="&#64;aws-cdk/aws-sns.TopicRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicRef</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.export">
+<code class="descname">export</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-sns.TopicRefProps<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export this Topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicRefProps" title="&#64;aws-cdk/aws-sns.TopicRefProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicRefProps</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.subscribe">
+<code class="descname">subscribe</code><span class="sig-paren">(</span><em>name</em>, <em>endpoint</em>, <em>protocol</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.subscribe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subscribe some endpoint to this topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>string</em>) – </li>
+<li><strong>endpoint</strong> (<em>string</em>) – </li>
+<li><strong>protocol</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.SubscriptionProtocol" title="&#64;aws-cdk/aws-sns.SubscriptionProtocol"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubscriptionProtocol</span></code></a>) – </li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.subscribeQueue">
+<code class="descname">subscribeQueue</code><span class="sig-paren">(</span><em>queue</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-sns.Subscription<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.subscribeQueue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a subscription from this SNS topic to an SQS queue.  The queue resource policy will be updated to allow this SNS topic to send messages to the queue.  TODO: change to QueueRef.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>queue</strong> (<a class="reference internal" href="_aws-cdk_aws-sqs.html#&#64;aws-cdk/aws-sqs.QueueRef" title="&#64;aws-cdk/aws-sqs.QueueRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-sqs.QueueRef</span></code></a>) – The target queue</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.Subscription" title="&#64;aws-cdk/aws-sns.Subscription"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subscription</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.subscribeLambda">
+<code class="descname">subscribeLambda</code><span class="sig-paren">(</span><em>lambdaFunction</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-sns.Subscription<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.subscribeLambda" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a subscription from this SNS Topic to a Lambda function.  The Lambda’s resource policy will be updated to allow this topic to invoke the function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lambdaFunction</strong> (<a class="reference internal" href="_aws-cdk_aws-lambda.html#&#64;aws-cdk/aws-lambda.LambdaRef" title="&#64;aws-cdk/aws-lambda.LambdaRef"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-lambda.LambdaRef</span></code></a>) – The Lambda function to invoke</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.Subscription" title="&#64;aws-cdk/aws-sns.Subscription"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subscription</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.subscribeEmail">
+<code class="descname">subscribeEmail</code><span class="sig-paren">(</span><em>name</em>, <em>emailAddress</em><span class="optional">[</span>, <em>options</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-sns.Subscription<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.subscribeEmail" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a subscription from this SNS topic to an email address.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – A name for the subscription</li>
+<li><strong>emailAddress</strong> (<em>string</em>) – The email address to use.</li>
+<li><strong>options</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.EmailSubscriptionOptions" title="&#64;aws-cdk/aws-sns.EmailSubscriptionOptions"><code class="xref py py-class docutils literal notranslate"><span class="pre">EmailSubscriptionOptions</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.Subscription" title="&#64;aws-cdk/aws-sns.Subscription"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subscription</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.subscribeUrl">
+<code class="descname">subscribeUrl</code><span class="sig-paren">(</span><em>name</em>, <em>url</em><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-sns.Subscription<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.subscribeUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines a subscription from this SNS topic to an <a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a> URL.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – A name for the subscription</li>
+<li><strong>url</strong> (<em>string</em>) – The URL to invoke</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.Subscription" title="&#64;aws-cdk/aws-sns.Subscription"><code class="xref py py-class docutils literal notranslate"><span class="pre">Subscription</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.addToResourcePolicy">
+<code class="descname">addToResourcePolicy</code><span class="sig-paren">(</span><em>statement</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.addToResourcePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a statement to the IAM resource policy associated with this topic.  If this topic was created in this stack (<cite>new Topic</cite>), a topic policy will be automatically created upon the first call to <cite>addToPolicy</cite>. If the topic is improted (<cite>Topic.import</cite>), then this is a no-op.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>statement</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.PolicyStatement" title="&#64;aws-cdk/cdk.PolicyStatement"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.PolicyStatement</span></code></a>) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.grantPublish">
+<code class="descname">grantPublish</code><span class="sig-paren">(</span><span class="optional">[</span><em>identity</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.grantPublish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Grant topic publishing permissions to the given identity</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>identity</strong> (<a class="reference internal" href="_aws-cdk_aws-iam.html#&#64;aws-cdk/aws-iam.IIdentityResource" title="&#64;aws-cdk/aws-iam.IIdentityResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-iam.IIdentityResource</span></code></a> or undefined) – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.metric">
+<code class="descname">metric</code><span class="sig-paren">(</span><em>metricName</em><span class="optional">[</span>, <em>props</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-cloudwatch.Metric<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.metric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct a Metric object for the current topic for the given metric</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>metricName</strong> (<em>string</em>) – </li>
+<li><strong>props</strong> (<a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.MetricCustomization" title="&#64;aws-cdk/aws-cloudwatch.MetricCustomization"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.MetricCustomization</span></code></a> or undefined) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Metric" title="&#64;aws-cdk/aws-cloudwatch.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.Metric</span></code></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.metricPublishSize">
+<code class="descname">metricPublishSize</code><span class="sig-paren">(</span><span class="optional">[</span><em>props</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-cloudwatch.Metric<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.metricPublishSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric for the size of messages published through this topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>props</strong> (<a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.MetricCustomization" title="&#64;aws-cdk/aws-cloudwatch.MetricCustomization"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.MetricCustomization</span></code></a> or undefined) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Metric" title="&#64;aws-cdk/aws-cloudwatch.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.Metric</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.metricNumberOfMessagesPublished">
+<code class="descname">metricNumberOfMessagesPublished</code><span class="sig-paren">(</span><span class="optional">[</span><em>props</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-cloudwatch.Metric<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.metricNumberOfMessagesPublished" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric for the number of messages published through this topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>props</strong> (<a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.MetricCustomization" title="&#64;aws-cdk/aws-cloudwatch.MetricCustomization"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.MetricCustomization</span></code></a> or undefined) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Metric" title="&#64;aws-cdk/aws-cloudwatch.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.Metric</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.metricNumberOfMessagesFailed">
+<code class="descname">metricNumberOfMessagesFailed</code><span class="sig-paren">(</span><span class="optional">[</span><em>props</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-cloudwatch.Metric<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.metricNumberOfMessagesFailed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric for the number of messages that failed to publish through this topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>props</strong> (<a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.MetricCustomization" title="&#64;aws-cdk/aws-cloudwatch.MetricCustomization"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.MetricCustomization</span></code></a> or undefined) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Metric" title="&#64;aws-cdk/aws-cloudwatch.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.Metric</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.metricNumberOfMessagesDelivered">
+<code class="descname">metricNumberOfMessagesDelivered</code><span class="sig-paren">(</span><span class="optional">[</span><em>props</em><span class="optional">]</span><span class="sig-paren">)</span> &#x2192; &#64;aws-cdk/aws-cloudwatch.Metric<a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.metricNumberOfMessagesDelivered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Metric for the number of messages that were successfully delivered through this topic</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>props</strong> (<a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.MetricCustomization" title="&#64;aws-cdk/aws-cloudwatch.MetricCustomization"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.MetricCustomization</span></code></a> or undefined) – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-cloudwatch.html#&#64;aws-cdk/aws-cloudwatch.Metric" title="&#64;aws-cdk/aws-cloudwatch.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-cloudwatch.Metric</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.topicArn">
+<code class="descname">topicArn</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.topicArn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicArn" title="&#64;aws-cdk/aws-sns.TopicArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicArn</span></code></a> <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.topicName">
+<code class="descname">topicName</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.topicName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicName" title="&#64;aws-cdk/aws-sns.TopicName"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicName</span></code></a> <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.autoCreatePolicy">
+<code class="descname">autoCreatePolicy</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.autoCreatePolicy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Controls automatic creation of policy objects.  Set by subclasses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">boolean <em>(readonly)</em> <em>(abstract)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.eventRuleTarget">
+<code class="descname">eventRuleTarget</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.eventRuleTarget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a RuleTarget that can be used to trigger this SNS topic as a result from a CloudWatch event.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_aws-events.html#&#64;aws-cdk/aws-events.EventRuleTargetProps" title="&#64;aws-cdk/aws-events.EventRuleTargetProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/aws-events.EventRuleTargetProps</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicRef.alarmActionArn">
+<code class="descname">alarmActionArn</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRef.alarmActionArn" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ARN that should be used for a CloudWatch Alarm action</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Arn" title="&#64;aws-cdk/cdk.Arn"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Arn</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicrefprops-interface">
+<h3>TopicRefProps (interface)<a class="headerlink" href="#topicrefprops-interface" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.TopicRefProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.</code><code class="descname">TopicRefProps</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRefProps" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reference to an external topic.</p>
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicRefProps.topicArn">
+<code class="descname">topicArn</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRefProps.topicArn" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicArn" title="&#64;aws-cdk/aws-sns.TopicArn"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicArn</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.TopicRefProps.topicName">
+<code class="descname">topicName</code><a class="headerlink" href="#@aws-cdk/aws-sns.TopicRefProps.topicName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicName" title="&#64;aws-cdk/aws-sns.TopicName"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicName</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-&#64;aws-cdk/aws-sns.cloudformation">
+<span id="cloudformation"></span><h3>cloudformation<a class="headerlink" href="#module-@aws-cdk/aws-sns.cloudformation" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="subscriptionresource">
+<h4>SubscriptionResource<a class="headerlink" href="#subscriptionresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.cloudformation.</code><code class="descname">SubscriptionResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em><span class="optional">[</span>, <em>properties</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.SubscriptionResource" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">SubscriptionResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps" title="&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubscriptionResourceProps</span></code></a> or undefined) – the properties of this <code class="docutils literal notranslate"><span class="pre">SubscriptionResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.SubscriptionResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.SubscriptionResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="subscriptionresourceprops-interface">
+<h4>SubscriptionResourceProps (interface)<a class="headerlink" href="#subscriptionresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.cloudformation.</code><code class="descname">SubscriptionResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps.endpoint">
+<code class="descname">endpoint</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SNS::Subscription.Endpoint</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-endpoint">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-endpoint</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps.protocol">
+<code class="descname">protocol</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps.protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SNS::Subscription.Protocol</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps.topicArn">
+<code class="descname">topicArn</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.SubscriptionResourceProps.topicArn" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SNS::Subscription.TopicArn</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#topicarn</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicpolicyresource">
+<h4>TopicPolicyResource<a class="headerlink" href="#topicpolicyresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicPolicyResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.cloudformation.</code><code class="descname">TopicPolicyResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em>, <em>properties</em><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicPolicyResource" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">TopicPolicyResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps" title="&#64;aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicPolicyResourceProps</span></code></a>) – the properties of this <code class="docutils literal notranslate"><span class="pre">TopicPolicyResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicPolicyResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicPolicyResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicPolicyResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicPolicyResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicpolicyresourceprops-interface">
+<h4>TopicPolicyResourceProps (interface)<a class="headerlink" href="#topicpolicyresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.cloudformation.</code><code class="descname">TopicPolicyResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps.policyDocument">
+<code class="descname">policyDocument</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps.policyDocument" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SNS::TopicPolicy.PolicyDocument</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">json or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps.topics">
+<code class="descname">topics</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicPolicyResourceProps.topics" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SNS::TopicPolicy.Topics</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicresource">
+<h4>TopicResource<a class="headerlink" href="#topicresource" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResource">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.cloudformation.</code><code class="descname">TopicResource</code><span class="sig-paren">(</span><em>parent</em>, <em>name</em><span class="optional">[</span>, <em>properties</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResource" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Extends:</th><td class="field-body"><p class="first"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Resource" title="&#64;aws-cdk/cdk.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Resource</span></code></a></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>parent</strong> (<a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Construct" title="&#64;aws-cdk/cdk.Construct"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Construct</span></code></a>) – the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> this <code class="docutils literal notranslate"><span class="pre">TopicResource</span></code> is a part of</li>
+<li><strong>name</strong> (<em>string</em>) – the name of the resource in the <code class="docutils literal notranslate"><span class="pre">cdk.Construct</span></code> tree</li>
+<li><strong>properties</strong> (<a class="reference internal" href="#&#64;aws-cdk/aws-sns.cloudformation.TopicResourceProps" title="&#64;aws-cdk/aws-sns.cloudformation.TopicResourceProps"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicResourceProps</span></code></a> or undefined) – the properties of this <code class="docutils literal notranslate"><span class="pre">TopicResource</span></code></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResource.renderProperties">
+<code class="descname">renderProperties</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; string =&gt; any<a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResource.renderProperties" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">any</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResource.resourceTypeName">
+<code class="descname">resourceTypeName</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResource.resourceTypeName" title="Permalink to this definition">¶</a></dt>
+<dd><p>The CloudFormation resource type name for this resource class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string <em>(readonly)</em> <em>(static)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResource.topicName">
+<code class="descname">topicName</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResource.topicName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="#&#64;aws-cdk/aws-sns.TopicName" title="&#64;aws-cdk/aws-sns.TopicName"><code class="xref py py-class docutils literal notranslate"><span class="pre">TopicName</span></code></a> <em>(readonly)</em></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty">
+<em class="property">class </em><code class="descname">SubscriptionProperty</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty.endpoint">
+<code class="descname">endpoint</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty.endpoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">TopicResource.SubscriptionProperty.Endpoint</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html#cfn-sns-topic-subscription-endpoint">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html#cfn-sns-topic-subscription-endpoint</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty.protocol">
+<code class="descname">protocol</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty.protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">TopicResource.SubscriptionProperty.Protocol</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html#cfn-sns-topic-subscription-protocol">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html#cfn-sns-topic-subscription-protocol</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="topicresourceprops-interface">
+<h4>TopicResourceProps (interface)<a class="headerlink" href="#topicresourceprops-interface" title="Permalink to this headline">¶</a></h4>
+<dl class="class">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResourceProps">
+<em class="property">class </em><code class="descclassname">&#64;aws-cdk/aws-sns.cloudformation.</code><code class="descname">TopicResourceProps</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResourceProps" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResourceProps.displayName">
+<code class="descname">displayName</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResourceProps.displayName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SNS::Topic.DisplayName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-displayname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-displayname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResourceProps.subscription">
+<code class="descname">subscription</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResourceProps.subscription" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SNS::Topic.Subscription</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-subscription">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-subscription</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body"><a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or <a class="reference internal" href="#&#64;aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty" title="&#64;aws-cdk/aws-sns.cloudformation.TopicResource.SubscriptionProperty"><code class="xref py py-class docutils literal notranslate"><span class="pre">SubscriptionProperty</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="&#64;aws-cdk/aws-sns.cloudformation.TopicResourceProps.topicName">
+<code class="descname">topicName</code><a class="headerlink" href="#@aws-cdk/aws-sns.cloudformation.TopicResourceProps.topicName" title="Permalink to this definition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">AWS::SNS::Topic.TopicName</span></code>
+<a class="reference external" href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-topicname">http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-topicname</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Type:</th><td class="field-body">string or <a class="reference internal" href="_aws-cdk_cdk.html#&#64;aws-cdk/cdk.Token" title="&#64;aws-cdk/cdk.Token"><code class="xref py py-class docutils literal notranslate"><span class="pre">&#64;aws-cdk/cdk.Token</span></code></a> or undefined</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="_aws-cdk_aws-sqs.html" class="btn btn-neutral float-right" title="@aws-cdk/aws-sqs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="_aws-cdk_aws-ses.html" class="btn btn-neutral" title="@aws-cdk/aws-ses" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Amazon Web Services.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.8.0+0eede70',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

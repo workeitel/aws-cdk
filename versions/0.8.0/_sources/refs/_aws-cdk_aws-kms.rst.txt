@@ -1,0 +1,387 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"OkS6w/yqPLdLQL9yw39can2EJzHsglz9oUKNxBHLLM8="}
+
+@aws-cdk/aws-kms
+================
+
+.. mdinclude:: ./__aws-cdk_aws-kms.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-kms
+
+AliasName
+^^^^^^^^^
+
+.. py:class:: AliasName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+EncryptionKey
+^^^^^^^^^^^^^
+
+.. py:class:: EncryptionKey(parent, name, [props])
+
+   Definews a KMS key.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-kms.EncryptionKeyRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-kms.EncryptionKeyProps` or undefined
+
+   .. py:attribute:: keyArn
+
+      The ARN of the key.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kms.KeyArn` *(readonly)*
+
+
+   .. py:attribute:: policy
+
+      Optional policy document that represents the resource policy of this key.  If specified, addToResourcePolicy can be used to edit this policy. Otherwise this method will no-op.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument` or undefined *(readonly)*
+
+
+EncryptionKeyAlias
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EncryptionKeyAlias(parent, name, props)
+
+   Defines a display name for a customer master key (CMK) in AWS Key Management Service (AWS KMS). Using an alias to refer to a key can help you simplify key management. For example, when rotating keys, you can just update the alias mapping instead of tracking and changing key IDs. For more information, see Working with Aliases in the AWS Key Management Service Developer Guide.  You can also add an alias for a key by calling `key.addAlias(alias)`.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-kms.EncryptionKeyAliasProps`
+
+   .. py:attribute:: aliasName
+
+      The name of the alias.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kms.AliasName`
+
+
+EncryptionKeyAliasProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EncryptionKeyAliasProps
+
+
+
+   .. py:attribute:: alias
+
+      The name of the alias. The name must start with alias followed by a forward slash, such as alias/. You can't specify aliases that begin with alias/AWS. These aliases are reserved.
+
+
+      :type: string
+
+
+   .. py:attribute:: key
+
+      The ID of the key for which you are creating the alias. Specify the key's globally unique identifier or Amazon Resource Name (ARN). You can't specify another alias.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kms.EncryptionKeyRef`
+
+
+EncryptionKeyProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EncryptionKeyProps
+
+   Construction properties for a KMS Key object
+
+
+
+
+   .. py:attribute:: description
+
+      A description of the key. Use a description that helps your users decide whether the key is appropriate for a particular task.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: enableKeyRotation
+
+      Indicates whether AWS KMS rotates the key.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: enabled
+
+      Indicates whether the key is available for use.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: policy
+
+      Custom policy document to attach to the KMS key.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument` or undefined
+
+
+EncryptionKeyRef
+^^^^^^^^^^^^^^^^
+
+.. py:class:: EncryptionKeyRef(parent, name)
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-kms.EncryptionKeyRef
+
+      Defines an imported encryption key.  `ref` can be obtained either via a call to `key.export()` or using literals.  For example:       const keyRefProps = key.export();      const keyRef1 = EncryptionKeyRef.import(this, 'MyImportedKey1', keyRefProps);      const keyRef2 = EncryptionKeyRef.import(this, 'MyImportedKey2', {          keyArn: new KeyArn('arn:aws:kms:...')      });
+
+
+      :param parent: The parent construct.
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: The name of the construct.
+      :type name: string
+      :param props: The key reference.
+      :type props: :py:class:`~@aws-cdk/aws-kms.EncryptionKeyRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-kms.EncryptionKeyRef`
+
+
+   .. py:method:: addAlias(alias) -> @aws-cdk/aws-kms.EncryptionKeyAlias
+
+      Defines a new alias for the key.
+
+
+      :param alias: 
+      :type alias: string
+      :rtype: :py:class:`~@aws-cdk/aws-kms.EncryptionKeyAlias`
+
+
+   .. py:method:: addToResourcePolicy(statement)
+
+      Adds a statement to the KMS key resource policy.
+
+
+      :param statement: 
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-kms.EncryptionKeyRefProps
+
+      Exports this key from the current stack.
+
+
+      :return: a key ref which can be used in a call to `EncryptionKey.import(ref)`.
+      :rtype: :py:class:`~@aws-cdk/aws-kms.EncryptionKeyRefProps`
+
+
+   .. py:attribute:: keyArn
+
+      The ARN of the key.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kms.KeyArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: policy
+
+      Optional policy document that represents the resource policy of this key.  If specified, addToResourcePolicy can be used to edit this policy. Otherwise this method will no-op.
+
+
+      :type: :py:class:`@aws-cdk/cdk.PolicyDocument` or undefined *(readonly)* *(abstract)*
+
+
+EncryptionKeyRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: EncryptionKeyRefProps
+
+
+
+   .. py:attribute:: keyArn
+
+      The ARN of the external KMS key.
+
+
+      :type: :py:class:`~@aws-cdk/aws-kms.KeyArn`
+
+
+KeyArn
+^^^^^^
+
+.. py:class:: KeyArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-kms.cloudformation
+
+AliasResource
+~~~~~~~~~~~~~
+
+.. py:class:: AliasResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AliasResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AliasResource``
+   :type properties: :py:class:`~@aws-cdk/aws-kms.cloudformation.AliasResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+AliasResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AliasResourceProps
+
+
+
+   .. py:attribute:: aliasName
+
+      ``AWS::KMS::Alias.AliasName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-aliasname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: targetKeyId
+
+      ``AWS::KMS::Alias.TargetKeyId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html#cfn-kms-alias-targetkeyid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+KeyResource
+~~~~~~~~~~~
+
+.. py:class:: KeyResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``KeyResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``KeyResource``
+   :type properties: :py:class:`~@aws-cdk/aws-kms.cloudformation.KeyResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: keyArn
+
+      :type: :py:class:`~@aws-cdk/aws-kms.KeyArn` *(readonly)*
+
+
+KeyResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: KeyResourceProps
+
+
+
+   .. py:attribute:: keyPolicy
+
+      ``AWS::KMS::Key.KeyPolicy``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: description
+
+      ``AWS::KMS::Key.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: enabled
+
+      ``AWS::KMS::Key.Enabled``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: enableKeyRotation
+
+      ``AWS::KMS::Key.EnableKeyRotation``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: keyUsage
+
+      ``AWS::KMS::Key.KeyUsage``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::KMS::Key.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-kms
+

@@ -1,0 +1,1660 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"dtvYEEbzCzQVQeUHZX8D5kNqj1RZRQ7x6gXz7o6ba3M="}
+
+@aws-cdk/aws-cloudfront
+=======================
+
+.. mdinclude:: ./__aws-cdk_aws-cloudfront.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-cloudfront
+
+AliasConfiguration (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AliasConfiguration
+
+   CloudFront can use a custom domain that you provide instead of a "cloudfront.net" domain. To use this feature - you must provide the list of additional domains, and the ACM Certificate that CloudFront should use for these additional domains.  Note - CloudFront only accepts one additional certificate - therefore the certificate *must* use have SANs (Subject Alternative Names) for all domains listed.  sslMethod is optional - we default to SNI if not specified. See the notes on SSLMethod if you wish to use other SSL termination types.
+
+
+
+
+   .. py:attribute:: names
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: acmCertRef
+
+      :type: :py:class:`@aws-cdk/aws-certificatemanager.CertificateArn` *(readonly)*
+
+
+   .. py:attribute:: sslMethod
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.SSLMethod` or undefined *(readonly)*
+
+
+Behavior (interface)
+^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: Behavior
+
+   A CloudFront behavior wrapper.
+
+
+
+
+   .. py:attribute:: compress
+
+      If CloudFront should automatically compress some content types.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: isDefaultBehavior
+
+      If this behavior is the default behavior for the distribution.  You must specify exactly one default distribution per CloudFront distribution. The default behavior is allowed to omit the "path" property.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: trustedSigners
+
+      Trusted signers is how CloudFront allows you to serve private content. The signers are the account IDs that are allowed to sign cookies/presigned URLs for this distribution.  If you pass a non empty value, all requests for this behavior must be signed (no public access will be allowed)
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: defaultTtlSeconds
+
+      The default amount of time CloudFront will cache an object.  This value applies only when your custom origin does not add HTTP headers, such as Cache-Control max-age, Cache-Control s-maxage, and Expires to objects.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: allowedMethods
+
+      The method this CloudFront distribution responds do.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.CloudFrontAllowedMethods` or undefined
+
+
+   .. py:attribute:: pathPattern
+
+      The path this behavior responds to. Required for all non-default behaviors. (The default behavior implicitly has "*" as the path pattern. )
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: cachedMethods
+
+      Which methods are cached by CloudFront by default.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.CloudFrontAllowedCachedMethods` or undefined
+
+
+   .. py:attribute:: forwardedValues
+
+      The values CloudFront will forward to the origin when making a request.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.ForwardedValuesProperty` or undefined
+
+
+   .. py:attribute:: minTtlSeconds
+
+      The minimum amount of time that you want objects to stay in the cache before CloudFront queries your origin.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: maxTtlSeconds
+
+      The max amount of time you want objects to stay in the cache before CloudFront queries your origin.
+
+
+      :type: number or undefined
+
+
+CloudFrontAllowedCachedMethods (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFrontAllowedCachedMethods
+
+   .. py:data:: GET_HEAD
+
+   .. py:data:: GET_HEAD_OPTIONS
+
+
+CloudFrontAllowedMethods (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFrontAllowedMethods
+
+   .. py:data:: GET_HEAD
+
+   .. py:data:: GET_HEAD_OPTIONS
+
+   .. py:data:: ALL
+
+
+CloudFrontOriginAccessIdentityS3CanonicalUserId
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFrontOriginAccessIdentityS3CanonicalUserId([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+CloudFrontWebDistribution
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFrontWebDistribution(parent, name, props)
+
+   Amazon CloudFront is a global content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to your viewers with low latency and high transfer speeds. CloudFront fronts user provided content and caches it at edge locations across the world.  Here's how you can use this construct:  ```ts  * import { CloudFront } from '@aws-cdk/aws-cloudfront'  *  * const sourceBucket = new Bucket(this, 'Bucket');  *  * const distribution = new CloudFrontDistribution(this, 'MyDistribution', {  *  originConfigs: [  *      {  *          s3OriginSource: {  *            s3BucketSource: sourceBucket  *          },  *          behaviors : [ {isDefaultBehavior}]  *      }  *  ]  * });  * ```  This will create a CloudFront distribution that uses your S3Bucket as it's origin.  You can customize the distribution using additional properties from the CloudFrontWebDistributionProps interface.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudfront.CloudFrontWebDistributionProps`
+
+   .. py:attribute:: aliasHostedZoneId
+
+      The hosted zone Id if using an alias record in Route53. This value never changes.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: loggingBucket
+
+      The logging bucket for this CloudFront distribution. If logging is not enabled for this distribution - this property will be undefined.
+
+
+      :type: :py:class:`@aws-cdk/aws-s3.BucketRef` or undefined *(readonly)*
+
+
+   .. py:attribute:: domainName
+
+      The domain name created by CloudFront for this distribution. If you are using aliases for your distribution, this is the domainName your DNS records should point to. (In Route53, you could create an ALIAS record to this value, for example. )
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.DistributionDomainName` *(readonly)*
+
+
+CloudFrontWebDistributionProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CloudFrontWebDistributionProps
+
+
+
+   .. py:attribute:: aliasConfiguration
+
+      AliasConfiguration is used to configured CloudFront to respond to requests on custom domain names.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.AliasConfiguration` or undefined
+
+
+   .. py:attribute:: comment
+
+      A comment for this distribution in the cloud front console.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: defaultRootObject
+
+      The default object to serve.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: enableIpV6
+
+      If your distribution should have IPv6 enabled.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: httpVersion
+
+      The max supported HTTP Versions.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.HttpVersion` or undefined
+
+
+   .. py:attribute:: priceClass
+
+      The price class for the distribution (this impacts how many locations CloudFront uses for your distribution, and billing)
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.PriceClass` or undefined
+
+
+   .. py:attribute:: viewerProtocolPolicy
+
+      The default viewer policy for incoming clients.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.ViewerProtocolPolicy` or undefined
+
+
+   .. py:attribute:: originConfigs
+
+      The origin configurations for this distribution. Behaviors are a part of the origin.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.SourceConfiguration`
+
+
+   .. py:attribute:: loggingConfig
+
+      Optional - if we should enable logging. You can pass an empty object ({}) to have us auto create a bucket for logging. Omission of this property indicates no logging is to be enabled.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.LoggingConfiguration` or undefined
+
+
+   .. py:attribute:: errorConfigurations
+
+      How CloudFront should handle requests that are no successful (eg PageNotFound)
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.CustomErrorResponseProperty` or undefined
+
+
+CustomOriginConfig (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CustomOriginConfig
+
+   A custom origin configuration
+
+
+
+
+   .. py:attribute:: domainName
+
+      The domain name of the custom origin. Should not include the path - that should be in the parent SourceConfiguration
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: httpPort
+
+      The origin HTTP port
+
+
+      :type: number or undefined *(readonly)*
+
+
+   .. py:attribute:: httpsPort
+
+      The origin HTTPS port
+
+
+      :type: number or undefined *(readonly)*
+
+
+   .. py:attribute:: originKeepaliveTimeoutSeconds
+
+      The keep alive timeout when making calls in seconds.
+
+
+      :type: number or undefined *(readonly)*
+
+
+   .. py:attribute:: originProtocolPolicy
+
+      The protocol (http or https) policy to use when interacting with the origin.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.OriginProtocolPolicy` or undefined *(readonly)*
+
+
+   .. py:attribute:: originReadTimeoutSeconds
+
+      The read timeout when calling the origin in seconds
+
+
+      :type: number or undefined *(readonly)*
+
+
+   .. py:attribute:: allowedOriginSSLVersions
+
+      The SSL versions to use when interacting with the origin.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.OriginSslPolicy` or undefined *(readonly)*
+
+
+DistributionDomainName
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DistributionDomainName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ErrorConfiguration (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ErrorConfiguration
+
+
+
+   .. py:attribute:: originErrorCode
+
+      The error code matched from the origin
+
+
+      :type: number
+
+
+   .. py:attribute:: respondWithErrorCode
+
+      The error code that is sent to the caller.
+
+
+      :type: number
+
+
+   .. py:attribute:: respondWithPage
+
+      The path to service instead
+
+
+      :type: string
+
+
+   .. py:attribute:: cacheTtl
+
+      How long before this error is retried.
+
+
+      :type: number or undefined
+
+
+HttpVersion (enum)
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: HttpVersion
+
+   .. py:data:: HTTP1_1
+
+   .. py:data:: HTTP2
+
+
+LoggingConfiguration (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: LoggingConfiguration
+
+   CloudFront supports logging of incoming requests and can log details to a given S3 Bucket.  If you wish to configure logging you can configure details about it.
+
+
+
+
+   .. py:attribute:: bucket
+
+      :type: :py:class:`@aws-cdk/aws-s3.BucketRef` or undefined *(readonly)*
+
+
+   .. py:attribute:: includeCookies
+
+      :type: boolean or undefined *(readonly)*
+
+
+   .. py:attribute:: prefix
+
+      :type: string or undefined *(readonly)*
+
+
+OriginProtocolPolicy (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: OriginProtocolPolicy
+
+   .. py:data:: HttpOnly
+
+   .. py:data:: MatchViewer
+
+   .. py:data:: HttpsOnly
+
+
+OriginSslPolicy (enum)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: OriginSslPolicy
+
+   .. py:data:: SSLv3
+
+   .. py:data:: TLSv1
+
+   .. py:data:: TLSv1_1
+
+   .. py:data:: TLSv1_2
+
+
+PriceClass (enum)
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: PriceClass
+
+   .. py:data:: PriceClass100
+
+   .. py:data:: PriceClass200
+
+   .. py:data:: PriceClassAll
+
+
+S3OriginConfig (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: S3OriginConfig
+
+
+
+   .. py:attribute:: s3BucketSource
+
+      The source bucket to serve content from
+
+
+      :type: :py:class:`@aws-cdk/aws-s3.Bucket` *(readonly)*
+
+
+   .. py:attribute:: originAccessIdentity
+
+      The optional origin identity cloudfront will use when calling your s3 bucket.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.CloudFrontOriginAccessIdentityResource` or undefined *(readonly)*
+
+
+SSLMethod (enum)
+^^^^^^^^^^^^^^^^
+
+.. py:class:: SSLMethod
+
+   .. py:data:: SNI
+
+   .. py:data:: VIP
+
+
+SourceConfiguration (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SourceConfiguration
+
+   A source configuration is a wrapper for CloudFront origins and behaviors. An origin is what CloudFront will "be in front of" - that is, CloudFront will pull it's assets from an origin.  If you're using s3 as a source - pass the `s3Origin` property, otherwise, pass the `customOriginSource` property.  One or the other must be passed, and it is invalid to pass both in the same SourceConfiguration.
+
+
+
+
+   .. py:attribute:: s3OriginSource
+
+      An s3 origin source - if you're using s3 for your assets
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.S3OriginConfig` or undefined *(readonly)*
+
+
+   .. py:attribute:: customOriginSource
+
+      A custom origin source - for all non-s3 sources.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.CustomOriginConfig` or undefined *(readonly)*
+
+
+   .. py:attribute:: behaviors
+
+      The behaviors associated with this source. At least one (default) behavior must be included.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.Behavior` *(readonly)*
+
+
+   .. py:attribute:: originPath
+
+      The relative path to the origin root to use for sources.
+
+
+      :type: string or undefined *(readonly)*
+
+
+   .. py:attribute:: originHeaders
+
+      Any additional headers to pass to the origin
+
+
+      :type: string or undefined *(readonly)*
+
+
+StreamingDistributionDomainName
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: StreamingDistributionDomainName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ViewerProtocolPolicy (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ViewerProtocolPolicy
+
+   .. py:data:: HTTPSOnly
+
+   .. py:data:: RedirectToHTTPS
+
+   .. py:data:: AllowAll
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-cloudfront.cloudformation
+
+CloudFrontOriginAccessIdentityResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: CloudFrontOriginAccessIdentityResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``CloudFrontOriginAccessIdentityResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``CloudFrontOriginAccessIdentityResource``
+   :type properties: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.CloudFrontOriginAccessIdentityResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: cloudFrontOriginAccessIdentityS3CanonicalUserId
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.CloudFrontOriginAccessIdentityS3CanonicalUserId` *(readonly)*
+
+   .. py:class:: CloudFrontOriginAccessIdentityConfigProperty
+
+
+
+      .. py:attribute:: comment
+
+         ``CloudFrontOriginAccessIdentityResource.CloudFrontOriginAccessIdentityConfigProperty.Comment``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig-comment
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+CloudFrontOriginAccessIdentityResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: CloudFrontOriginAccessIdentityResourceProps
+
+
+
+   .. py:attribute:: cloudFrontOriginAccessIdentityConfig
+
+      ``AWS::CloudFront::CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html#cfn-cloudfront-cloudfrontoriginaccessidentity-cloudfrontoriginaccessidentityconfig
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.CloudFrontOriginAccessIdentityResource.CloudFrontOriginAccessIdentityConfigProperty` or :py:class:`@aws-cdk/cdk.Token`
+
+
+DistributionResource
+~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DistributionResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DistributionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DistributionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: distributionDomainName
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.DistributionDomainName` *(readonly)*
+
+   .. py:class:: CacheBehaviorProperty
+
+
+
+      .. py:attribute:: allowedMethods
+
+         ``DistributionResource.CacheBehaviorProperty.AllowedMethods``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: cachedMethods
+
+         ``DistributionResource.CacheBehaviorProperty.CachedMethods``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: compress
+
+         ``DistributionResource.CacheBehaviorProperty.Compress``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-compress
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: defaultTtl
+
+         ``DistributionResource.CacheBehaviorProperty.DefaultTTL``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: forwardedValues
+
+         ``DistributionResource.CacheBehaviorProperty.ForwardedValues``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
+
+
+         :type: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.ForwardedValuesProperty` or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: lambdaFunctionAssociations
+
+         ``DistributionResource.CacheBehaviorProperty.LambdaFunctionAssociations``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.LambdaFunctionAssociationProperty` or undefined
+
+
+      .. py:attribute:: maxTtl
+
+         ``DistributionResource.CacheBehaviorProperty.MaxTTL``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-maxttl
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: minTtl
+
+         ``DistributionResource.CacheBehaviorProperty.MinTTL``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: pathPattern
+
+         ``DistributionResource.CacheBehaviorProperty.PathPattern``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: smoothStreaming
+
+         ``DistributionResource.CacheBehaviorProperty.SmoothStreaming``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: targetOriginId
+
+         ``DistributionResource.CacheBehaviorProperty.TargetOriginId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-targetoriginid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: trustedSigners
+
+         ``DistributionResource.CacheBehaviorProperty.TrustedSigners``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-trustedsigners
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: viewerProtocolPolicy
+
+         ``DistributionResource.CacheBehaviorProperty.ViewerProtocolPolicy``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-viewerprotocolpolicy
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: CookiesProperty
+
+
+
+      .. py:attribute:: forward
+
+         ``DistributionResource.CookiesProperty.Forward``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: whitelistedNames
+
+         ``DistributionResource.CookiesProperty.WhitelistedNames``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: CustomErrorResponseProperty
+
+
+
+      .. py:attribute:: errorCachingMinTtl
+
+         ``DistributionResource.CustomErrorResponseProperty.ErrorCachingMinTTL``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcachingminttl
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: errorCode
+
+         ``DistributionResource.CustomErrorResponseProperty.ErrorCode``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-errorcode
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: responseCode
+
+         ``DistributionResource.CustomErrorResponseProperty.ResponseCode``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsecode
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: responsePagePath
+
+         ``DistributionResource.CustomErrorResponseProperty.ResponsePagePath``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customerrorresponse.html#cfn-cloudfront-distribution-customerrorresponse-responsepagepath
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: CustomOriginConfigProperty
+
+
+
+      .. py:attribute:: httpPort
+
+         ``DistributionResource.CustomOriginConfigProperty.HTTPPort``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpport
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: httpsPort
+
+         ``DistributionResource.CustomOriginConfigProperty.HTTPSPort``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-httpsport
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: originKeepaliveTimeout
+
+         ``DistributionResource.CustomOriginConfigProperty.OriginKeepaliveTimeout``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originkeepalivetimeout
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: originProtocolPolicy
+
+         ``DistributionResource.CustomOriginConfigProperty.OriginProtocolPolicy``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originprotocolpolicy
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: originReadTimeout
+
+         ``DistributionResource.CustomOriginConfigProperty.OriginReadTimeout``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originreadtimeout
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: originSslProtocols
+
+         ``DistributionResource.CustomOriginConfigProperty.OriginSSLProtocols``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-customoriginconfig.html#cfn-cloudfront-distribution-customoriginconfig-originsslprotocols
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: DefaultCacheBehaviorProperty
+
+
+
+      .. py:attribute:: allowedMethods
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.AllowedMethods``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: cachedMethods
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.CachedMethods``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: compress
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.Compress``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: defaultTtl
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.DefaultTTL``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: forwardedValues
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.ForwardedValues``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
+
+
+         :type: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.ForwardedValuesProperty` or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: lambdaFunctionAssociations
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.LambdaFunctionAssociations``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.LambdaFunctionAssociationProperty` or undefined
+
+
+      .. py:attribute:: maxTtl
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.MaxTTL``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: minTtl
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.MinTTL``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: smoothStreaming
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.SmoothStreaming``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: targetOriginId
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.TargetOriginId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: trustedSigners
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.TrustedSigners``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: viewerProtocolPolicy
+
+         ``DistributionResource.DefaultCacheBehaviorProperty.ViewerProtocolPolicy``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: DistributionConfigProperty
+
+
+
+      .. py:attribute:: aliases
+
+         ``DistributionResource.DistributionConfigProperty.Aliases``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: cacheBehaviors
+
+         ``DistributionResource.DistributionConfigProperty.CacheBehaviors``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.CacheBehaviorProperty` or undefined
+
+
+      .. py:attribute:: comment
+
+         ``DistributionResource.DistributionConfigProperty.Comment``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-comment
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: customErrorResponses
+
+         ``DistributionResource.DistributionConfigProperty.CustomErrorResponses``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.CustomErrorResponseProperty` or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: defaultCacheBehavior
+
+         ``DistributionResource.DistributionConfigProperty.DefaultCacheBehavior``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.DefaultCacheBehaviorProperty` or undefined
+
+
+      .. py:attribute:: defaultRootObject
+
+         ``DistributionResource.DistributionConfigProperty.DefaultRootObject``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultrootobject
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: enabled
+
+         ``DistributionResource.DistributionConfigProperty.Enabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-enabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: httpVersion
+
+         ``DistributionResource.DistributionConfigProperty.HttpVersion``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-httpversion
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: ipv6Enabled
+
+         ``DistributionResource.DistributionConfigProperty.IPV6Enabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-ipv6enabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: logging
+
+         ``DistributionResource.DistributionConfigProperty.Logging``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.LoggingProperty` or undefined
+
+
+      .. py:attribute:: origins
+
+         ``DistributionResource.DistributionConfigProperty.Origins``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.OriginProperty` or undefined
+
+
+      .. py:attribute:: priceClass
+
+         ``DistributionResource.DistributionConfigProperty.PriceClass``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-priceclass
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: restrictions
+
+         ``DistributionResource.DistributionConfigProperty.Restrictions``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.RestrictionsProperty` or undefined
+
+
+      .. py:attribute:: viewerCertificate
+
+         ``DistributionResource.DistributionConfigProperty.ViewerCertificate``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.ViewerCertificateProperty` or undefined
+
+
+      .. py:attribute:: webAclId
+
+         ``DistributionResource.DistributionConfigProperty.WebACLId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-webaclid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ForwardedValuesProperty
+
+
+
+      .. py:attribute:: cookies
+
+         ``DistributionResource.ForwardedValuesProperty.Cookies``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.CookiesProperty` or undefined
+
+
+      .. py:attribute:: headers
+
+         ``DistributionResource.ForwardedValuesProperty.Headers``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: queryString
+
+         ``DistributionResource.ForwardedValuesProperty.QueryString``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: queryStringCacheKeys
+
+         ``DistributionResource.ForwardedValuesProperty.QueryStringCacheKeys``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: GeoRestrictionProperty
+
+
+
+      .. py:attribute:: locations
+
+         ``DistributionResource.GeoRestrictionProperty.Locations``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: restrictionType
+
+         ``DistributionResource.GeoRestrictionProperty.RestrictionType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: LambdaFunctionAssociationProperty
+
+
+
+      .. py:attribute:: eventType
+
+         ``DistributionResource.LambdaFunctionAssociationProperty.EventType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-eventtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: lambdaFunctionArn
+
+         ``DistributionResource.LambdaFunctionAssociationProperty.LambdaFunctionARN``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-lambdafunctionassociation.html#cfn-cloudfront-distribution-lambdafunctionassociation-lambdafunctionarn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: LoggingProperty
+
+
+
+      .. py:attribute:: bucket
+
+         ``DistributionResource.LoggingProperty.Bucket``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-bucket
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: includeCookies
+
+         ``DistributionResource.LoggingProperty.IncludeCookies``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-includecookies
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: prefix
+
+         ``DistributionResource.LoggingProperty.Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-logging.html#cfn-cloudfront-distribution-logging-prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: OriginCustomHeaderProperty
+
+
+
+      .. py:attribute:: headerName
+
+         ``DistributionResource.OriginCustomHeaderProperty.HeaderName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: headerValue
+
+         ``DistributionResource.OriginCustomHeaderProperty.HeaderValue``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: OriginProperty
+
+
+
+      .. py:attribute:: customOriginConfig
+
+         ``DistributionResource.OriginProperty.CustomOriginConfig``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.CustomOriginConfigProperty` or undefined
+
+
+      .. py:attribute:: domainName
+
+         ``DistributionResource.OriginProperty.DomainName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: id
+
+         ``DistributionResource.OriginProperty.Id``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: originCustomHeaders
+
+         ``DistributionResource.OriginProperty.OriginCustomHeaders``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.OriginCustomHeaderProperty` or undefined
+
+
+      .. py:attribute:: originPath
+
+         ``DistributionResource.OriginProperty.OriginPath``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: s3OriginConfig
+
+         ``DistributionResource.OriginProperty.S3OriginConfig``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.S3OriginConfigProperty` or undefined
+
+
+   .. py:class:: RestrictionsProperty
+
+
+
+      .. py:attribute:: geoRestriction
+
+         ``DistributionResource.RestrictionsProperty.GeoRestriction``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.GeoRestrictionProperty`
+
+
+   .. py:class:: S3OriginConfigProperty
+
+
+
+      .. py:attribute:: originAccessIdentity
+
+         ``DistributionResource.S3OriginConfigProperty.OriginAccessIdentity``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: ViewerCertificateProperty
+
+
+
+      .. py:attribute:: acmCertificateArn
+
+         ``DistributionResource.ViewerCertificateProperty.AcmCertificateArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: cloudFrontDefaultCertificate
+
+         ``DistributionResource.ViewerCertificateProperty.CloudFrontDefaultCertificate``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: iamCertificateId
+
+         ``DistributionResource.ViewerCertificateProperty.IamCertificateId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: minimumProtocolVersion
+
+         ``DistributionResource.ViewerCertificateProperty.MinimumProtocolVersion``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: sslSupportMethod
+
+         ``DistributionResource.ViewerCertificateProperty.SslSupportMethod``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+DistributionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DistributionResourceProps
+
+
+
+   .. py:attribute:: distributionConfig
+
+      ``AWS::CloudFront::Distribution.DistributionConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-distributionconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.DistributionResource.DistributionConfigProperty`
+
+
+   .. py:attribute:: tags
+
+      ``AWS::CloudFront::Distribution.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html#cfn-cloudfront-distribution-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+StreamingDistributionResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: StreamingDistributionResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``StreamingDistributionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``StreamingDistributionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.StreamingDistributionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: streamingDistributionDomainName
+
+      :type: :py:class:`~@aws-cdk/aws-cloudfront.StreamingDistributionDomainName` *(readonly)*
+
+   .. py:class:: LoggingProperty
+
+
+
+      .. py:attribute:: bucket
+
+         ``StreamingDistributionResource.LoggingProperty.Bucket``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-bucket
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: enabled
+
+         ``StreamingDistributionResource.LoggingProperty.Enabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-enabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: prefix
+
+         ``StreamingDistributionResource.LoggingProperty.Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-logging.html#cfn-cloudfront-streamingdistribution-logging-prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: S3OriginProperty
+
+
+
+      .. py:attribute:: domainName
+
+         ``StreamingDistributionResource.S3OriginProperty.DomainName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-domainname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: originAccessIdentity
+
+         ``StreamingDistributionResource.S3OriginProperty.OriginAccessIdentity``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-s3origin.html#cfn-cloudfront-streamingdistribution-s3origin-originaccessidentity
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: StreamingDistributionConfigProperty
+
+
+
+      .. py:attribute:: aliases
+
+         ``StreamingDistributionResource.StreamingDistributionConfigProperty.Aliases``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-aliases
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: comment
+
+         ``StreamingDistributionResource.StreamingDistributionConfigProperty.Comment``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-comment
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: enabled
+
+         ``StreamingDistributionResource.StreamingDistributionConfigProperty.Enabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-enabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: logging
+
+         ``StreamingDistributionResource.StreamingDistributionConfigProperty.Logging``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-logging
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.StreamingDistributionResource.LoggingProperty` or undefined
+
+
+      .. py:attribute:: priceClass
+
+         ``StreamingDistributionResource.StreamingDistributionConfigProperty.PriceClass``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-priceclass
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: s3Origin
+
+         ``StreamingDistributionResource.StreamingDistributionConfigProperty.S3Origin``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-s3origin
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.StreamingDistributionResource.S3OriginProperty`
+
+
+      .. py:attribute:: trustedSigners
+
+         ``StreamingDistributionResource.StreamingDistributionConfigProperty.TrustedSigners``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-streamingdistributionconfig.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig-trustedsigners
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.StreamingDistributionResource.TrustedSignersProperty`
+
+
+   .. py:class:: TrustedSignersProperty
+
+
+
+      .. py:attribute:: awsAccountNumbers
+
+         ``StreamingDistributionResource.TrustedSignersProperty.AwsAccountNumbers``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-awsaccountnumbers
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: enabled
+
+         ``StreamingDistributionResource.TrustedSignersProperty.Enabled``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-streamingdistribution-trustedsigners.html#cfn-cloudfront-streamingdistribution-trustedsigners-enabled
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+StreamingDistributionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: StreamingDistributionResourceProps
+
+
+
+   .. py:attribute:: streamingDistributionConfig
+
+      ``AWS::CloudFront::StreamingDistribution.StreamingDistributionConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-streamingdistributionconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudfront.cloudformation.StreamingDistributionResource.StreamingDistributionConfigProperty`
+
+
+   .. py:attribute:: tags
+
+      ``AWS::CloudFront::StreamingDistribution.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html#cfn-cloudfront-streamingdistribution-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag`
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-cloudfront
+

@@ -1,0 +1,967 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"UMOg7dRP0ghX4kG0m+t7Ou3NcJ6Hykkr5LCXAmYjRV4="}
+
+@aws-cdk/cx-api
+===============
+
+.. mdinclude:: ./__aws-cdk_cx-api.README.md
+
+Reference
+---------
+
+.. tabs::
+
+   .. group-tab:: C#
+
+      View in `Nuget <https://www.nuget.org/packages/Amazon.CDK.CXAPI/0.20.0>`_
+
+      **csproj**:
+
+      .. code-block:: xml
+
+         <PackageReference Include="Amazon.CDK.CXAPI" Version="0.20.0" />
+
+      **dotnet**:
+
+      .. code-block:: console
+
+         dotnet add package Amazon.CDK.CXAPI --version 0.20.0
+
+      **packages.config**:
+
+      .. code-block:: xml
+
+         <package id="Amazon.CDK.CXAPI" version="0.20.0" />
+
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/cdk-cx-api/0.20.0/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:cdk-cx-api:jar:0.20.0'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="cdk-cx-api" rev="0.20.0"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>cdk-cx-api</artifactId>
+           <version>0.20.0</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:cdk-cx-api:0.20.0'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='cdk-cx-api', version='0.20.0')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/cx-api/v/0.20.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/cx-api@0.20.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/cx-api": "^0.20.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/cx-api@0.20.0
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/cx-api/v/0.20.0>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/cx-api@0.20.0
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/cx-api": "^0.20.0"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/cx-api@0.20.0
+
+
+
+.. py:module:: @aws-cdk/cx-api
+
+AppRuntime (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AppRuntime
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.AppRuntime;
+
+      .. code-tab:: javascript
+
+         // AppRuntime is an interface
+
+      .. code-tab:: typescript
+
+         import { AppRuntime } from '@aws-cdk/cx-api';
+
+
+
+   Information about the application's runtime components.
+
+
+
+
+
+   .. py:attribute:: libraries
+
+      The list of libraries loaded in the application, associated with their versions.
+
+
+
+      :type: string => string
+
+
+AvailabilityZonesContextQuery (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AvailabilityZonesContextQuery
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.AvailabilityZonesContextQuery;
+
+      .. code-tab:: javascript
+
+         // AvailabilityZonesContextQuery is an interface
+
+      .. code-tab:: typescript
+
+         import { AvailabilityZonesContextQuery } from '@aws-cdk/cx-api';
+
+
+
+   Query to hosted zone context provider
+
+
+
+
+
+   .. py:attribute:: account
+
+      Query account
+
+
+
+      :type: string *(optional)*
+
+
+   .. py:attribute:: region
+
+      Query region
+
+
+
+      :type: string *(optional)*
+
+
+ContainerImageAssetMetadataEntry (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ContainerImageAssetMetadataEntry
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.ContainerImageAssetMetadataEntry;
+
+      .. code-tab:: javascript
+
+         // ContainerImageAssetMetadataEntry is an interface
+
+      .. code-tab:: typescript
+
+         import { ContainerImageAssetMetadataEntry } from '@aws-cdk/cx-api';
+
+
+
+
+
+   .. py:attribute:: id
+
+      Logical identifier for the asset
+
+
+
+      :type: string
+
+
+   .. py:attribute:: imageNameParameter
+
+      ECR Repository name and tag (separated by ":") where this asset is stored.
+
+
+
+      :type: string
+
+
+   .. py:attribute:: packaging
+
+      Type of asset
+
+
+
+      :type: string
+
+
+   .. py:attribute:: path
+
+      Path on disk to the asset
+
+
+
+      :type: string
+
+
+Environment (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: Environment
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.Environment;
+
+      .. code-tab:: javascript
+
+         // Environment is an interface
+
+      .. code-tab:: typescript
+
+         import { Environment } from '@aws-cdk/cx-api';
+
+
+
+   Models an AWS execution environment, for use within the CDK toolkit.
+
+
+
+
+
+   .. py:attribute:: account
+
+      The 12-digit AWS account ID for the account this environment deploys into
+
+
+
+      :type: string
+
+
+   .. py:attribute:: name
+
+      The arbitrary name of this environment (user-set, or at least user-meaningful)
+
+
+
+      :type: string
+
+
+   .. py:attribute:: region
+
+      The AWS region name where this environment deploys into
+
+
+
+      :type: string
+
+
+FileAssetMetadataEntry (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: FileAssetMetadataEntry
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.FileAssetMetadataEntry;
+
+      .. code-tab:: javascript
+
+         // FileAssetMetadataEntry is an interface
+
+      .. code-tab:: typescript
+
+         import { FileAssetMetadataEntry } from '@aws-cdk/cx-api';
+
+
+
+
+
+   .. py:attribute:: id
+
+      Logical identifier for the asset
+
+
+
+      :type: string
+
+
+   .. py:attribute:: packaging
+
+      Requested packaging style
+
+
+
+      :type: string
+
+
+   .. py:attribute:: path
+
+      Path on disk to the asset
+
+
+
+      :type: string
+
+
+   .. py:attribute:: s3BucketParameter
+
+      Name of parameter where S3 bucket should be passed in
+
+
+
+      :type: string
+
+
+   .. py:attribute:: s3KeyParameter
+
+      Name of parameter where S3 key should be passed in
+
+
+
+      :type: string
+
+
+HostedZoneContextQuery (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: HostedZoneContextQuery
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.HostedZoneContextQuery;
+
+      .. code-tab:: javascript
+
+         // HostedZoneContextQuery is an interface
+
+      .. code-tab:: typescript
+
+         import { HostedZoneContextQuery } from '@aws-cdk/cx-api';
+
+
+
+   Query to hosted zone context provider
+
+
+
+
+
+   .. py:attribute:: domainName
+
+      The domain name e.g. example.com to lookup
+
+
+
+      :type: string
+
+
+   .. py:attribute:: account
+
+      Query account
+
+
+
+      :type: string *(optional)*
+
+
+   .. py:attribute:: privateZone
+
+      True if the zone you want to find is a private hosted zone
+
+
+
+      :type: boolean *(optional)*
+
+
+   .. py:attribute:: region
+
+      Query region
+
+
+
+      :type: string *(optional)*
+
+
+   .. py:attribute:: vpcId
+
+      The VPC ID to that the private zone must be associated with
+
+      
+
+      If you provide VPC ID and privateZone is false, this will return no results
+
+      and raise an error.
+
+
+
+      :type: string *(optional)*
+
+
+MetadataEntry (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MetadataEntry
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.MetadataEntry;
+
+      .. code-tab:: javascript
+
+         // MetadataEntry is an interface
+
+      .. code-tab:: typescript
+
+         import { MetadataEntry } from '@aws-cdk/cx-api';
+
+
+
+   An metadata entry in the construct.
+
+
+
+
+
+   .. py:attribute:: trace
+
+      A stack trace for when the entry was created.
+
+
+
+      :type: string[]
+
+
+   .. py:attribute:: type
+
+      The type of the metadata entry.
+
+
+
+      :type: string
+
+
+   .. py:attribute:: data
+
+      The data.
+
+
+
+      :type: any *(optional)*
+
+
+MissingContext (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MissingContext
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.MissingContext;
+
+      .. code-tab:: javascript
+
+         // MissingContext is an interface
+
+      .. code-tab:: typescript
+
+         import { MissingContext } from '@aws-cdk/cx-api';
+
+
+
+   Represents a missing piece of context.
+
+
+
+
+
+   .. py:attribute:: props
+
+      :type: string => any
+
+
+   .. py:attribute:: provider
+
+      :type: string
+
+
+SSMParameterContextQuery (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SSMParameterContextQuery
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.SSMParameterContextQuery;
+
+      .. code-tab:: javascript
+
+         // SSMParameterContextQuery is an interface
+
+      .. code-tab:: typescript
+
+         import { SSMParameterContextQuery } from '@aws-cdk/cx-api';
+
+
+
+   Query to hosted zone context provider
+
+
+
+
+
+   .. py:attribute:: account
+
+      Query account
+
+
+
+      :type: string *(optional)*
+
+
+   .. py:attribute:: parameterName
+
+      Parameter name to query
+
+
+
+      :type: string *(optional)*
+
+
+   .. py:attribute:: region
+
+      Query region
+
+
+
+      :type: string *(optional)*
+
+
+SynthesizeResponse (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SynthesizeResponse
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.SynthesizeResponse;
+
+      .. code-tab:: javascript
+
+         // SynthesizeResponse is an interface
+
+      .. code-tab:: typescript
+
+         import { SynthesizeResponse } from '@aws-cdk/cx-api';
+
+
+
+
+
+   .. py:attribute:: stacks
+
+      :type: :py:class:`~@aws-cdk/cx-api.SynthesizedStack`\ []
+
+
+   .. py:attribute:: version
+
+      Protocol version
+
+
+
+      :type: string
+
+
+   .. py:attribute:: runtime
+
+      :type: :py:class:`~@aws-cdk/cx-api.AppRuntime`\  *(optional)*
+
+
+SynthesizedStack (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SynthesizedStack
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.SynthesizedStack;
+
+      .. code-tab:: javascript
+
+         // SynthesizedStack is an interface
+
+      .. code-tab:: typescript
+
+         import { SynthesizedStack } from '@aws-cdk/cx-api';
+
+
+
+   A complete synthesized stack
+
+
+
+
+
+   .. py:attribute:: environment
+
+      :type: :py:class:`~@aws-cdk/cx-api.Environment`\ 
+
+
+   .. py:attribute:: metadata
+
+      :type: string => :py:class:`~@aws-cdk/cx-api.MetadataEntry`\ []
+
+
+   .. py:attribute:: name
+
+      :type: string
+
+
+   .. py:attribute:: template
+
+      :type: any
+
+
+   .. py:attribute:: missing
+
+      :type: string => :py:class:`~@aws-cdk/cx-api.MissingContext`\  *(optional)*
+
+
+VpcContextQuery (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: VpcContextQuery
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.VpcContextQuery;
+
+      .. code-tab:: javascript
+
+         // VpcContextQuery is an interface
+
+      .. code-tab:: typescript
+
+         import { VpcContextQuery } from '@aws-cdk/cx-api';
+
+
+
+   Query input for looking up a VPC
+
+
+
+
+
+   .. py:attribute:: filter
+
+      Filters to apply to the VPC
+
+      
+
+      Filter parameters are the same as passed to DescribeVpcs.
+
+
+
+      :type: string => string
+
+
+   .. py:attribute:: account
+
+      Query account
+
+
+
+      :type: string *(optional)*
+
+
+   .. py:attribute:: region
+
+      Query region
+
+
+
+      :type: string *(optional)*
+
+
+VpcContextResponse (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: VpcContextResponse
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: c#
+
+         using Amazon.CDK.CXAPI;
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.cxapi.VpcContextResponse;
+
+      .. code-tab:: javascript
+
+         // VpcContextResponse is an interface
+
+      .. code-tab:: typescript
+
+         import { VpcContextResponse } from '@aws-cdk/cx-api';
+
+
+
+   Properties of a discovered VPC
+
+
+
+
+
+   .. py:attribute:: availabilityZones
+
+      AZs
+
+
+
+      :type: string[]
+
+
+   .. py:attribute:: vpcId
+
+      VPC id
+
+
+
+      :type: string
+
+
+   .. py:attribute:: isolatedSubnetIds
+
+      IDs of all isolated subnets
+
+      
+
+      Element count: #(availabilityZones) · #(isolatedGroups)
+
+
+
+      :type: string[] *(optional)*
+
+
+   .. py:attribute:: isolatedSubnetNames
+
+      Name of isolated subnet groups
+
+      
+
+      Element count: #(isolatedGroups)
+
+
+
+      :type: string[] *(optional)*
+
+
+   .. py:attribute:: privateSubnetIds
+
+      IDs of all private subnets
+
+      
+
+      Element count: #(availabilityZones) · #(privateGroups)
+
+
+
+      :type: string[] *(optional)*
+
+
+   .. py:attribute:: privateSubnetNames
+
+      Name of private subnet groups
+
+      
+
+      Element count: #(privateGroups)
+
+
+
+      :type: string[] *(optional)*
+
+
+   .. py:attribute:: publicSubnetIds
+
+      IDs of all public subnets
+
+      
+
+      Element count: #(availabilityZones) · #(publicGroups)
+
+
+
+      :type: string[] *(optional)*
+
+
+   .. py:attribute:: publicSubnetNames
+
+      Name of public subnet groups
+
+      
+
+      Element count: #(publicGroups)
+
+
+
+      :type: string[] *(optional)*
+
+

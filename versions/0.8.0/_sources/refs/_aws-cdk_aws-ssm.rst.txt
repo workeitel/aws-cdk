@@ -1,0 +1,1046 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"HK9NEB1st877Lkd24/thQBgqdGKs5eHtAxHmMkGmV5A="}
+
+@aws-cdk/aws-ssm
+================
+
+.. mdinclude:: ./__aws-cdk_aws-ssm.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-ssm
+
+ParameterType
+^^^^^^^^^^^^^
+
+.. py:class:: ParameterType([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ParameterValue
+^^^^^^^^^^^^^^
+
+.. py:class:: ParameterValue([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-ssm.cloudformation
+
+AssociationResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AssociationResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AssociationResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AssociationResource``
+   :type properties: :py:class:`~@aws-cdk/aws-ssm.cloudformation.AssociationResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: InstanceAssociationOutputLocationProperty
+
+
+
+      .. py:attribute:: s3Location
+
+         ``AssociationResource.InstanceAssociationOutputLocationProperty.S3Location``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-instanceassociationoutputlocation.html#cfn-ssm-association-instanceassociationoutputlocation-s3location
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.AssociationResource.S3OutputLocationProperty` or undefined
+
+
+   .. py:class:: ParameterValuesProperty
+
+
+
+      .. py:attribute:: parameterValues
+
+         ``AssociationResource.ParameterValuesProperty.ParameterValues``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: S3OutputLocationProperty
+
+
+
+      .. py:attribute:: outputS3BucketName
+
+         ``AssociationResource.S3OutputLocationProperty.OutputS3BucketName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3bucketname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: outputS3KeyPrefix
+
+         ``AssociationResource.S3OutputLocationProperty.OutputS3KeyPrefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-s3outputlocation.html#cfn-ssm-association-s3outputlocation-outputs3keyprefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: TargetProperty
+
+
+
+      .. py:attribute:: key
+
+         ``AssociationResource.TargetProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: values
+
+         ``AssociationResource.TargetProperty.Values``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+AssociationResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AssociationResourceProps
+
+
+
+   .. py:attribute:: documentName
+
+      ``AWS::SSM::Association.DocumentName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: associationName
+
+      ``AWS::SSM::Association.AssociationName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: documentVersion
+
+      ``AWS::SSM::Association.DocumentVersion``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: instanceId
+
+      ``AWS::SSM::Association.InstanceId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: outputLocation
+
+      ``AWS::SSM::Association.OutputLocation``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.AssociationResource.InstanceAssociationOutputLocationProperty` or undefined
+
+
+   .. py:attribute:: parameters
+
+      ``AWS::SSM::Association.Parameters``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.AssociationResource.ParameterValuesProperty` or undefined
+
+
+   .. py:attribute:: scheduleExpression
+
+      ``AWS::SSM::Association.ScheduleExpression``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: targets
+
+      ``AWS::SSM::Association.Targets``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.AssociationResource.TargetProperty` or undefined
+
+
+DocumentResource
+~~~~~~~~~~~~~~~~
+
+.. py:class:: DocumentResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DocumentResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DocumentResource``
+   :type properties: :py:class:`~@aws-cdk/aws-ssm.cloudformation.DocumentResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+DocumentResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DocumentResourceProps
+
+
+
+   .. py:attribute:: content
+
+      ``AWS::SSM::Document.Content``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-content
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: documentType
+
+      ``AWS::SSM::Document.DocumentType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::SSM::Document.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+MaintenanceWindowTaskResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: MaintenanceWindowTaskResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``MaintenanceWindowTaskResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``MaintenanceWindowTaskResource``
+   :type properties: :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: LoggingInfoProperty
+
+
+
+      .. py:attribute:: region
+
+         ``MaintenanceWindowTaskResource.LoggingInfoProperty.Region``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-region
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: s3Bucket
+
+         ``MaintenanceWindowTaskResource.LoggingInfoProperty.S3Bucket``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3bucket
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: s3Prefix
+
+         ``MaintenanceWindowTaskResource.LoggingInfoProperty.S3Prefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-logginginfo.html#cfn-ssm-maintenancewindowtask-logginginfo-s3prefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: MaintenanceWindowAutomationParametersProperty
+
+
+
+      .. py:attribute:: documentVersion
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowAutomationParametersProperty.DocumentVersion``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: parameters
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowAutomationParametersProperty.Parameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: MaintenanceWindowLambdaParametersProperty
+
+
+
+      .. py:attribute:: clientContext
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowLambdaParametersProperty.ClientContext``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-clientcontext
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: payload
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowLambdaParametersProperty.Payload``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-payload
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: qualifier
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowLambdaParametersProperty.Qualifier``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-qualifier
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: MaintenanceWindowRunCommandParametersProperty
+
+
+
+      .. py:attribute:: comment
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.Comment``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: documentHash
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.DocumentHash``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: documentHashType
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.DocumentHashType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: notificationConfig
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.NotificationConfig``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResource.NotificationConfigProperty` or undefined
+
+
+      .. py:attribute:: outputS3BucketName
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.OutputS3BucketName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: outputS3KeyPrefix
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.OutputS3KeyPrefix``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: parameters
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.Parameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
+
+
+         :type: json or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: serviceRoleArn
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.ServiceRoleArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: timeoutSeconds
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty.TimeoutSeconds``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: MaintenanceWindowStepFunctionsParametersProperty
+
+
+
+      .. py:attribute:: input
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowStepFunctionsParametersProperty.Input``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: name
+
+         ``MaintenanceWindowTaskResource.MaintenanceWindowStepFunctionsParametersProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: NotificationConfigProperty
+
+
+
+      .. py:attribute:: notificationArn
+
+         ``MaintenanceWindowTaskResource.NotificationConfigProperty.NotificationArn``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: notificationEvents
+
+         ``MaintenanceWindowTaskResource.NotificationConfigProperty.NotificationEvents``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: notificationType
+
+         ``MaintenanceWindowTaskResource.NotificationConfigProperty.NotificationType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: TargetProperty
+
+
+
+      .. py:attribute:: key
+
+         ``MaintenanceWindowTaskResource.TargetProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: values
+
+         ``MaintenanceWindowTaskResource.TargetProperty.Values``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-target.html#cfn-ssm-maintenancewindowtask-target-values
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: TaskInvocationParametersProperty
+
+
+
+      .. py:attribute:: maintenanceWindowAutomationParameters
+
+         ``MaintenanceWindowTaskResource.TaskInvocationParametersProperty.MaintenanceWindowAutomationParameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResource.MaintenanceWindowAutomationParametersProperty` or undefined
+
+
+      .. py:attribute:: maintenanceWindowLambdaParameters
+
+         ``MaintenanceWindowTaskResource.TaskInvocationParametersProperty.MaintenanceWindowLambdaParameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResource.MaintenanceWindowLambdaParametersProperty` or undefined
+
+
+      .. py:attribute:: maintenanceWindowRunCommandParameters
+
+         ``MaintenanceWindowTaskResource.TaskInvocationParametersProperty.MaintenanceWindowRunCommandParameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResource.MaintenanceWindowRunCommandParametersProperty` or undefined
+
+
+      .. py:attribute:: maintenanceWindowStepFunctionsParameters
+
+         ``MaintenanceWindowTaskResource.TaskInvocationParametersProperty.MaintenanceWindowStepFunctionsParameters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResource.MaintenanceWindowStepFunctionsParametersProperty` or undefined
+
+
+
+MaintenanceWindowTaskResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: MaintenanceWindowTaskResourceProps
+
+
+
+   .. py:attribute:: maxConcurrency
+
+      ``AWS::SSM::MaintenanceWindowTask.MaxConcurrency``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxconcurrency
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: maxErrors
+
+      ``AWS::SSM::MaintenanceWindowTask.MaxErrors``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxerrors
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: priority
+
+      ``AWS::SSM::MaintenanceWindowTask.Priority``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-priority
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: serviceRoleArn
+
+      ``AWS::SSM::MaintenanceWindowTask.ServiceRoleArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-servicerolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: targets
+
+      ``AWS::SSM::MaintenanceWindowTask.Targets``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-targets
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResource.TargetProperty`
+
+
+   .. py:attribute:: taskArn
+
+      ``AWS::SSM::MaintenanceWindowTask.TaskArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-taskarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: taskType
+
+      ``AWS::SSM::MaintenanceWindowTask.TaskType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-tasktype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: description
+
+      ``AWS::SSM::MaintenanceWindowTask.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: loggingInfo
+
+      ``AWS::SSM::MaintenanceWindowTask.LoggingInfo``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-logginginfo
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResource.LoggingInfoProperty` or undefined
+
+
+   .. py:attribute:: maintenanceWindowTaskName
+
+      ``AWS::SSM::MaintenanceWindowTask.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: taskInvocationParameters
+
+      ``AWS::SSM::MaintenanceWindowTask.TaskInvocationParameters``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.MaintenanceWindowTaskResource.TaskInvocationParametersProperty` or undefined
+
+
+   .. py:attribute:: taskParameters
+
+      ``AWS::SSM::MaintenanceWindowTask.TaskParameters``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-taskparameters
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: windowId
+
+      ``AWS::SSM::MaintenanceWindowTask.WindowId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-windowid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+ParameterResource
+~~~~~~~~~~~~~~~~~
+
+.. py:class:: ParameterResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ParameterResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ParameterResource``
+   :type properties: :py:class:`~@aws-cdk/aws-ssm.cloudformation.ParameterResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: parameterType
+
+      :type: :py:class:`~@aws-cdk/aws-ssm.ParameterType` *(readonly)*
+
+
+   .. py:attribute:: parameterValue
+
+      :type: :py:class:`~@aws-cdk/aws-ssm.ParameterValue` *(readonly)*
+
+
+ParameterResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ParameterResourceProps
+
+
+
+   .. py:attribute:: type
+
+      ``AWS::SSM::Parameter.Type``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-type
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: value
+
+      ``AWS::SSM::Parameter.Value``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-value
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: allowedPattern
+
+      ``AWS::SSM::Parameter.AllowedPattern``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: description
+
+      ``AWS::SSM::Parameter.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: parameterName
+
+      ``AWS::SSM::Parameter.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+PatchBaselineResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PatchBaselineResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``PatchBaselineResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``PatchBaselineResource``
+   :type properties: :py:class:`~@aws-cdk/aws-ssm.cloudformation.PatchBaselineResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: PatchFilterGroupProperty
+
+
+
+      .. py:attribute:: patchFilters
+
+         ``PatchBaselineResource.PatchFilterGroupProperty.PatchFilters``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfiltergroup.html#cfn-ssm-patchbaseline-patchfiltergroup-patchfilters
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.PatchBaselineResource.PatchFilterProperty` or undefined
+
+
+   .. py:class:: PatchFilterProperty
+
+
+
+      .. py:attribute:: key
+
+         ``PatchBaselineResource.PatchFilterProperty.Key``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-key
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: values
+
+         ``PatchBaselineResource.PatchFilterProperty.Values``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchfilter.html#cfn-ssm-patchbaseline-patchfilter-values
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: PatchSourceProperty
+
+
+
+      .. py:attribute:: configuration
+
+         ``PatchBaselineResource.PatchSourceProperty.Configuration``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-configuration
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: name
+
+         ``PatchBaselineResource.PatchSourceProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: products
+
+         ``PatchBaselineResource.PatchSourceProperty.Products``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-patchsource.html#cfn-ssm-patchbaseline-patchsource-products
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: RuleGroupProperty
+
+
+
+      .. py:attribute:: patchRules
+
+         ``PatchBaselineResource.RuleGroupProperty.PatchRules``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rulegroup.html#cfn-ssm-patchbaseline-rulegroup-patchrules
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.PatchBaselineResource.RuleProperty` or undefined
+
+
+   .. py:class:: RuleProperty
+
+
+
+      .. py:attribute:: approveAfterDays
+
+         ``PatchBaselineResource.RuleProperty.ApproveAfterDays``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-approveafterdays
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: complianceLevel
+
+         ``PatchBaselineResource.RuleProperty.ComplianceLevel``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: enableNonSecurity
+
+         ``PatchBaselineResource.RuleProperty.EnableNonSecurity``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: patchFilterGroup
+
+         ``PatchBaselineResource.RuleProperty.PatchFilterGroup``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.PatchBaselineResource.PatchFilterGroupProperty` or undefined
+
+
+
+PatchBaselineResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: PatchBaselineResourceProps
+
+
+
+   .. py:attribute:: patchBaselineName
+
+      ``AWS::SSM::PatchBaseline.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: approvalRules
+
+      ``AWS::SSM::PatchBaseline.ApprovalRules``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvalrules
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.PatchBaselineResource.RuleGroupProperty` or undefined
+
+
+   .. py:attribute:: approvedPatches
+
+      ``AWS::SSM::PatchBaseline.ApprovedPatches``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatches
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: approvedPatchesComplianceLevel
+
+      ``AWS::SSM::PatchBaseline.ApprovedPatchesComplianceLevel``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchescompliancelevel
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: approvedPatchesEnableNonSecurity
+
+      ``AWS::SSM::PatchBaseline.ApprovedPatchesEnableNonSecurity``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchesenablenonsecurity
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: description
+
+      ``AWS::SSM::PatchBaseline.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: globalFilters
+
+      ``AWS::SSM::PatchBaseline.GlobalFilters``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-globalfilters
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.PatchBaselineResource.PatchFilterGroupProperty` or undefined
+
+
+   .. py:attribute:: operatingSystem
+
+      ``AWS::SSM::PatchBaseline.OperatingSystem``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-operatingsystem
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: patchGroups
+
+      ``AWS::SSM::PatchBaseline.PatchGroups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-patchgroups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: rejectedPatches
+
+      ``AWS::SSM::PatchBaseline.RejectedPatches``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatches
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: sources
+
+      ``AWS::SSM::PatchBaseline.Sources``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-ssm.cloudformation.PatchBaselineResource.PatchSourceProperty` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-ssm
+

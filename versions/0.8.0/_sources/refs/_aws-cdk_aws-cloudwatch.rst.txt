@@ -1,0 +1,1672 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"8K15Hz6Nx69+LtXQDFutBI59obgz/jTGWmQpSIrtbv4="}
+
+@aws-cdk/aws-cloudwatch
+=======================
+
+.. mdinclude:: ./__aws-cdk_aws-cloudwatch.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-cloudwatch
+
+Alarm
+^^^^^
+
+.. py:class:: Alarm(parent, name, props)
+
+   An alarm on a CloudWatch metric
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudwatch.AlarmProps`
+
+   .. py:method:: onAlarm(*actions)
+
+      Trigger this action if the alarm fires  Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
+
+
+      :param \*actions: 
+      :type \*actions: :py:class:`~@aws-cdk/aws-cloudwatch.IAlarmAction`
+
+
+   .. py:method:: onInsufficientData(*actions)
+
+      Trigger this action if there is insufficient data to evaluate the alarm  Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
+
+
+      :param \*actions: 
+      :type \*actions: :py:class:`~@aws-cdk/aws-cloudwatch.IAlarmAction`
+
+
+   .. py:method:: onOk(*actions)
+
+      Trigger this action if the alarm returns from breaching state into ok state  Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
+
+
+      :param \*actions: 
+      :type \*actions: :py:class:`~@aws-cdk/aws-cloudwatch.IAlarmAction`
+
+
+   .. py:method:: toAnnotation() -> @aws-cdk/aws-cloudwatch.HorizontalAnnotation
+
+      Turn this alarm into a horizontal annotation  This is useful if you want to represent an Alarm in a non-AlarmWidget. An `AlarmWidget` can directly show an alarm, but it can only show a single alarm and no other metrics. Instead, you can convert the alarm to a HorizontalAnnotation and add it as an annotation to another graph.  This might be useful if:  - You want to show multiple alarms inside a single graph, for example if    you have both a "small margin/long period" alarm as well as a    "large margin/short period" alarm.  - You want to show an Alarm line in a graph with multiple metrics in it.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-cloudwatch.HorizontalAnnotation`
+
+
+   .. py:attribute:: alarmArn
+
+      ARN of this alarm
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.AlarmArn` *(readonly)*
+
+
+   .. py:attribute:: metric
+
+      The metric object this alarm was based on
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Metric` *(readonly)*
+
+
+AlarmArn
+^^^^^^^^
+
+.. py:class:: AlarmArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+AlarmMetricJson (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AlarmMetricJson
+
+   Properties used to construct the Metric identifying part of an Alarm
+
+
+
+
+   .. py:attribute:: dimensions
+
+      The dimensions to apply to the alarm
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Dimension` or undefined
+
+
+   .. py:attribute:: namespace
+
+      Namespace of the metric
+
+
+      :type: string
+
+
+   .. py:attribute:: metricName
+
+      Name of the metric
+
+
+      :type: string
+
+
+   .. py:attribute:: period
+
+      How many seconds to aggregate over
+
+
+      :type: number
+
+
+   .. py:attribute:: statistic
+
+      Simple aggregation function to use
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Statistic` or undefined
+
+
+   .. py:attribute:: extendedStatistic
+
+      Percentile aggregation function to use
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: unit
+
+      The unit of the alarm
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Unit` or undefined
+
+
+AlarmProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AlarmProps
+
+   Properties for Alarms
+
+
+
+
+   .. py:attribute:: metric
+
+      The metric to add the alarm on  Metric objects can be obtained from most resources, or you can construct custom Metric objects by instantiating one.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:attribute:: alarmName
+
+      Name of the alarm
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: alarmDescription
+
+      Description for the alarm
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: comparisonOperator
+
+      Comparison to use to check if metric is breaching
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.ComparisonOperator` or undefined
+
+
+   .. py:attribute:: threshold
+
+      The value against which the specified statistic is compared.
+
+
+      :type: number
+
+
+   .. py:attribute:: evaluationPeriods
+
+      The number of periods over which data is compared to the specified threshold.
+
+
+      :type: number
+
+
+   .. py:attribute:: evaluateLowSampleCountPercentile
+
+      Specifies whether to evaluate the data and potentially change the alarm state if there are too few data points to be statistically significant.  Used only for alarms that are based on percentiles.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: treatMissingData
+
+      Sets how this alarm is to handle missing data points.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.TreatMissingData` or undefined
+
+
+   .. py:attribute:: actionsEnabled
+
+      Whether the actions for this alarm are enabled
+
+
+      :type: boolean or undefined
+
+
+AlarmWidget
+^^^^^^^^^^^
+
+.. py:class:: AlarmWidget(props)
+
+   Display the metric associated with an alarm, including the alarm line
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudwatch.ConcreteWidget`
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudwatch.AlarmWidgetProps`
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+
+
+AlarmWidgetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: AlarmWidgetProps
+
+   Properties for an AlarmWidget
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudwatch.MetricWidgetProps`
+
+
+   .. py:attribute:: alarm
+
+      The alarm to show
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Alarm`
+
+
+   .. py:attribute:: leftAxisRange
+
+      Range of left Y axis
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.YAxisRange` or undefined
+
+
+Column
+^^^^^^
+
+.. py:class:: Column(*widgets)
+
+   A widget that contains other widgets in a vertical column  Widgets will be laid out next to each other
+
+
+   :implements: :py:class:`~@aws-cdk/aws-cloudwatch.IWidget`
+   :param \*widgets: 
+   :type \*widgets: :py:class:`~@aws-cdk/aws-cloudwatch.IWidget`
+
+   .. py:method:: position(x, y)
+
+      Place the widget at a given position
+
+
+      :param x: 
+      :type x: number
+      :param y: 
+      :type y: number
+
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+
+
+   .. py:attribute:: width
+
+      The amount of horizontal grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: height
+
+      The amount of vertical grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+ComparisonOperator (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ComparisonOperator
+
+   .. py:data:: GreaterThanOrEqualToThreshold
+
+   .. py:data:: GreaterThanThreshold
+
+   .. py:data:: LessThanThreshold
+
+   .. py:data:: LessThanOrEqualToThreshold
+
+
+ConcreteWidget
+^^^^^^^^^^^^^^
+
+.. py:class:: ConcreteWidget(width, height)
+
+   A real CloudWatch widget that has its own fixed size and remembers its position  This is in contrast to other widgets which exist for layout purposes.
+
+
+   :implements: :py:class:`~@aws-cdk/aws-cloudwatch.IWidget`
+   :abstract: Yes
+   :param width: 
+   :type width: number
+   :param height: 
+   :type height: number
+
+   .. py:method:: position(x, y)
+
+      Place the widget at a given position
+
+
+      :param x: 
+      :type x: number
+      :param y: 
+      :type y: number
+
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+      :abstract: Yes
+
+
+   .. py:attribute:: width
+
+      The amount of horizontal grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: height
+
+      The amount of vertical grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: x
+
+      :type: number or undefined
+
+
+   .. py:attribute:: y
+
+      :type: number or undefined
+
+
+Dashboard
+^^^^^^^^^
+
+.. py:class:: Dashboard(parent, name, [props])
+
+   A CloudWatch dashboard
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudwatch.DashboardProps` or undefined
+
+   .. py:method:: add(*widgets)
+
+      Add a widget to the dashboard.  Widgets given in multiple calls to add() will be laid out stacked on top of each other.  Multiple widgets added in the same call to add() will be laid out next to each other.
+
+
+      :param \*widgets: 
+      :type \*widgets: :py:class:`~@aws-cdk/aws-cloudwatch.IWidget`
+
+
+DashboardProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DashboardProps
+
+
+
+   .. py:attribute:: dashboardName
+
+      Name of the dashboard
+
+
+      :type: string or undefined
+
+
+Dimension (interface)
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: Dimension
+
+   Metric dimension
+
+
+
+
+   .. py:attribute:: name
+
+      Name of the dimension
+
+
+      :type: string
+
+
+   .. py:attribute:: value
+
+      Value of the dimension
+
+
+      :type: any
+
+
+GraphWidget
+^^^^^^^^^^^
+
+.. py:class:: GraphWidget(props)
+
+   A dashboard widget that displays MarkDown
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudwatch.ConcreteWidget`
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudwatch.GraphWidgetProps`
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+
+
+GraphWidgetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: GraphWidgetProps
+
+   Properties for a GraphWidget
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudwatch.MetricWidgetProps`
+
+
+   .. py:attribute:: left
+
+      Metrics to display on left Y axis
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Metric` or undefined
+
+
+   .. py:attribute:: right
+
+      Metrics to display on right Y axis
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Metric` or undefined
+
+
+   .. py:attribute:: leftAnnotations
+
+      Annotations for the left Y axis
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.HorizontalAnnotation` or undefined
+
+
+   .. py:attribute:: rightAnnotations
+
+      Annotations for the right Y axis
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.HorizontalAnnotation` or undefined
+
+
+   .. py:attribute:: stacked
+
+      Whether the graph should be shown as stacked lines
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: leftAxisRange
+
+      Range of left Y axis
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.YAxisRange` or undefined
+
+
+   .. py:attribute:: rightAxisRange
+
+      Range of right Y axis
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.YAxisRange` or undefined
+
+
+HorizontalAnnotation (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: HorizontalAnnotation
+
+   Horizontal annotation to be added to a graph
+
+
+
+
+   .. py:attribute:: value
+
+      The value of the annotation
+
+
+      :type: number
+
+
+   .. py:attribute:: label
+
+      Label for the annotation
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: color
+
+      Hex color code to be used for the annotation
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: fill
+
+      Add shading above or below the annotation
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Shading` or undefined
+
+
+   .. py:attribute:: visible
+
+      Whether the annotation is visible
+
+
+      :type: boolean or undefined
+
+
+IAlarmAction (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IAlarmAction
+
+   Interface for objects that can be the targets of CloudWatch alarm actions
+
+
+
+
+   .. py:attribute:: alarmActionArn
+
+      Return the ARN that should be used for a CloudWatch Alarm action
+
+
+      :type: :py:class:`@aws-cdk/cdk.Arn` *(readonly)*
+
+
+IWidget (interface)
+^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IWidget
+
+   A single dashboard widget
+
+
+
+
+   .. py:attribute:: width
+
+      The amount of horizontal grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: height
+
+      The amount of vertical grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+   .. py:method:: position(x, y)
+
+      Place the widget at a given position
+
+
+      :param x: 
+      :type x: number
+      :param y: 
+      :type y: number
+
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+
+
+Metric
+^^^^^^
+
+.. py:class:: Metric(props)
+
+   A metric emitted by a service  The metric is a combination of a metric identifier (namespace, name and dimensions) and an aggregation function (statistic, period and unit).  It also contains metadata which is used only in graphs, such as color and label. It makes sense to embed this in here, so that compound constructs can attach that metadata to metrics they expose.  This class does not represent a resource, so hence is not a construct. Instead, Metric is an abstraction that makes it easy to specify metrics for use in both alarms and graphs.
+
+
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudwatch.MetricProps`
+
+   .. py:staticmethod:: grantPutMetricData([identity])
+
+      Grant permissions to the given identity to write metrics.
+
+
+      :param identity: The IAM identity to give permissions to.
+      :type identity: :py:class:`@aws-cdk/aws-iam.IIdentityResource` or undefined
+
+
+   .. py:method:: with(props) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Return a copy of Metric with properties changed.  All properties except namespace and metricName can be changed.
+
+
+      :param props: The set of properties to change.
+      :type props: :py:class:`~@aws-cdk/aws-cloudwatch.MetricCustomization`
+      :rtype: :py:class:`~@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: newAlarm(parent, name, props) -> @aws-cdk/aws-cloudwatch.Alarm
+
+      Make a new Alarm for this metric  Combines both properties that may adjust the metric (aggregation) as well as alarm properties.
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: 
+      :type name: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-cloudwatch.NewAlarmProps`
+      :rtype: :py:class:`~@aws-cdk/aws-cloudwatch.Alarm`
+
+
+   .. py:method:: dimensionsAsList() -> @aws-cdk/aws-cloudwatch.Dimension[]
+
+      Return the dimensions of this Metric as a list of Dimension.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-cloudwatch.Dimension`
+
+
+   .. py:attribute:: dimensions
+
+      :type: any or undefined *(readonly)*
+
+
+   .. py:attribute:: namespace
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: metricName
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: periodSec
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: statistic
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: unit
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Unit` or undefined *(readonly)*
+
+
+   .. py:attribute:: label
+
+      :type: string or undefined *(readonly)*
+
+
+   .. py:attribute:: color
+
+      :type: string or undefined *(readonly)*
+
+
+MetricCustomization (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MetricCustomization
+
+   Properties of a metric that can be changed
+
+
+
+
+   .. py:attribute:: dimensions
+
+      Dimensions of the metric
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: periodSec
+
+      The period over which the specified statistic is applied.  Specify time in seconds, in multiples of 60.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: statistic
+
+      What function to use for aggregating.  Can be one of the following:  - "Minimum" | "min" - "Maximum" | "max" - "Average" | "avg" - "Sum" | "sum" - "SampleCount | "n" - "pNN.NN"
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: unit
+
+      Unit for the metric that is associated with the alarm
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Unit` or undefined
+
+
+   .. py:attribute:: label
+
+      Label for this metric when added to a Graph in a Dashboard
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: color
+
+      Color for this metric when added to a Graph in a Dashboard
+
+
+      :type: string or undefined
+
+
+MetricProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MetricProps
+
+   Properties for a metric
+
+
+
+
+   .. py:attribute:: dimensions
+
+      Dimensions of the metric
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: namespace
+
+      Namespace of the metric.
+
+
+      :type: string
+
+
+   .. py:attribute:: metricName
+
+      Name of the metric.
+
+
+      :type: string
+
+
+   .. py:attribute:: periodSec
+
+      The period over which the specified statistic is applied.  Specify time in seconds, in multiples of 60.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: statistic
+
+      What function to use for aggregating.  Can be one of the following (case insensitive)  - "minimum" | "min" - "maximum" | "max" - "average" | "avg" - "sum" - "samplecount | "n" - "pNN.NN"
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: unit
+
+      Unit for the metric that is associated with the alarm
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Unit` or undefined
+
+
+   .. py:attribute:: label
+
+      Label for this metric when added to a Graph in a Dashboard
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: color
+
+      Color for this metric when added to a Graph in a Dashboard
+
+
+      :type: string or undefined
+
+
+MetricWidgetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: MetricWidgetProps
+
+   Basic properties for widgets that display metrics
+
+
+
+
+   .. py:attribute:: title
+
+      Title for the graph
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: region
+
+      The region the metrics of this graph should be taken from
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Region` or undefined
+
+
+   .. py:attribute:: width
+
+      Width of the widget, in a grid of 24 units wide
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: height
+
+      Height of the widget
+
+
+      :type: number or undefined
+
+
+NewAlarmProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: NewAlarmProps
+
+   Properties to make an alarm from a metric
+
+
+
+
+   .. py:attribute:: periodSec
+
+      The period over which the specified statistic is applied.  Specify time in seconds, in multiples of 60.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: statistic
+
+      What function to use for aggregating.  Can be one of the following:  - "Minimum" | "min" - "Maximum" | "max" - "Average" | "avg" - "Sum" | "sum" - "SampleCount | "n" - "pNN.NN"
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: alarmName
+
+      Name of the alarm
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: alarmDescription
+
+      Description for the alarm
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: comparisonOperator
+
+      Comparison to use to check if metric is breaching
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.ComparisonOperator` or undefined
+
+
+   .. py:attribute:: threshold
+
+      The value against which the specified statistic is compared.
+
+
+      :type: number
+
+
+   .. py:attribute:: evaluationPeriods
+
+      The number of periods over which data is compared to the specified threshold.
+
+
+      :type: number
+
+
+   .. py:attribute:: evaluateLowSampleCountPercentile
+
+      Specifies whether to evaluate the data and potentially change the alarm state if there are too few data points to be statistically significant.  Used only for alarms that are based on percentiles.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: treatMissingData
+
+      Sets how this alarm is to handle missing data points.
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.TreatMissingData` or undefined
+
+
+   .. py:attribute:: actionsEnabled
+
+      Whether the actions for this alarm are enabled
+
+
+      :type: boolean or undefined
+
+
+Region
+^^^^^^
+
+.. py:class:: Region([valueOrFunction])
+
+   An AWS region
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+Row
+^^^
+
+.. py:class:: Row(*widgets)
+
+   A widget that contains other widgets in a horizontal row  Widgets will be laid out next to each other
+
+
+   :implements: :py:class:`~@aws-cdk/aws-cloudwatch.IWidget`
+   :param \*widgets: 
+   :type \*widgets: :py:class:`~@aws-cdk/aws-cloudwatch.IWidget`
+
+   .. py:method:: position(x, y)
+
+      Place the widget at a given position
+
+
+      :param x: 
+      :type x: number
+      :param y: 
+      :type y: number
+
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+
+
+   .. py:attribute:: width
+
+      The amount of horizontal grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: height
+
+      The amount of vertical grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+Shading (enum)
+^^^^^^^^^^^^^^
+
+.. py:class:: Shading
+
+   .. py:data:: None
+
+   .. py:data:: Above
+
+   .. py:data:: Below
+
+
+SingleValueWidget
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: SingleValueWidget(props)
+
+   A dashboard widget that displays the most recent value for every metric
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudwatch.ConcreteWidget`
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudwatch.SingleValueWidgetProps`
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+
+
+SingleValueWidgetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SingleValueWidgetProps
+
+   Properties for a SingleValueWidget
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudwatch.MetricWidgetProps`
+
+
+   .. py:attribute:: metrics
+
+      Metrics to display
+
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.Metric`
+
+
+Spacer
+^^^^^^
+
+.. py:class:: Spacer(props)
+
+   A widget that doesn't display anything but takes up space
+
+
+   :implements: :py:class:`~@aws-cdk/aws-cloudwatch.IWidget`
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudwatch.SpacerProps`
+
+   .. py:method:: position(_x, _y)
+
+      Place the widget at a given position
+
+
+      :param _x: 
+      :type _x: number
+      :param _y: 
+      :type _y: number
+
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+
+
+   .. py:attribute:: width
+
+      The amount of horizontal grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+   .. py:attribute:: height
+
+      The amount of vertical grid units the widget will take up
+
+
+      :type: number *(readonly)*
+
+
+SpacerProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: SpacerProps
+
+   Props of the spacer
+
+
+
+
+   .. py:attribute:: width
+
+      Width of the spacer
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: height
+
+      Height of the spacer
+
+
+      :type: number or undefined
+
+
+Statistic (enum)
+^^^^^^^^^^^^^^^^
+
+.. py:class:: Statistic
+
+   .. py:data:: SampleCount
+
+   .. py:data:: Average
+
+   .. py:data:: Sum
+
+   .. py:data:: Minimum
+
+   .. py:data:: Maximum
+
+
+TextWidget
+^^^^^^^^^^
+
+.. py:class:: TextWidget(props)
+
+   A dashboard widget that displays MarkDown
+
+
+   :extends: :py:class:`~@aws-cdk/aws-cloudwatch.ConcreteWidget`
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-cloudwatch.TextWidgetProps`
+
+   .. py:method:: position(x, y)
+
+      Place the widget at a given position
+
+
+      :param x: 
+      :type x: number
+      :param y: 
+      :type y: number
+
+
+   .. py:method:: toJson() -> any[]
+
+      Return the widget JSON for use in the dashboard
+
+
+      :rtype: any
+
+
+TextWidgetProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TextWidgetProps
+
+   Properties for a Text widget
+
+
+
+
+   .. py:attribute:: markdown
+
+      The text to display, in MarkDown format
+
+
+      :type: string
+
+
+   .. py:attribute:: width
+
+      Width of the widget, in a grid of 24 units wide
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: height
+
+      Height of the widget
+
+
+      :type: number or undefined
+
+
+TreatMissingData (enum)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: TreatMissingData
+
+   .. py:data:: Breaching
+
+   .. py:data:: NotBreaching
+
+   .. py:data:: Ignore
+
+   .. py:data:: Missing
+
+
+Unit (enum)
+^^^^^^^^^^^
+
+.. py:class:: Unit
+
+   .. py:data:: Seconds
+
+   .. py:data:: Microseconds
+
+   .. py:data:: Milliseconds
+
+   .. py:data:: Bytes_
+
+   .. py:data:: Kilobytes
+
+   .. py:data:: Megabytes
+
+   .. py:data:: Gigabytes
+
+   .. py:data:: Terabytes
+
+   .. py:data:: Bits
+
+   .. py:data:: Kilobits
+
+   .. py:data:: Megabits
+
+   .. py:data:: Gigabits
+
+   .. py:data:: Terabits
+
+   .. py:data:: Percent
+
+   .. py:data:: Count
+
+   .. py:data:: BytesPerSecond
+
+   .. py:data:: KilobytesPerSecond
+
+   .. py:data:: MegabytesPerSecond
+
+   .. py:data:: GigabytesPerSecond
+
+   .. py:data:: TerabytesPerSecond
+
+   .. py:data:: BitsPerSecond
+
+   .. py:data:: KilobitsPerSecond
+
+   .. py:data:: MegabitsPerSecond
+
+   .. py:data:: GigabitsPerSecond
+
+   .. py:data:: TerabitsPerSecond
+
+   .. py:data:: CountPerSecond
+
+   .. py:data:: None
+
+
+YAxisRange (interface)
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: YAxisRange
+
+   A minimum and maximum value for either the left or right Y axis
+
+
+
+
+   .. py:attribute:: min
+
+      The minimum value
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: max
+
+      The maximum value
+
+
+      :type: number or undefined
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-cloudwatch.cloudformation
+
+AlarmResource
+~~~~~~~~~~~~~
+
+.. py:class:: AlarmResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``AlarmResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``AlarmResource``
+   :type properties: :py:class:`~@aws-cdk/aws-cloudwatch.cloudformation.AlarmResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: alarmArn
+
+      :type: :py:class:`~@aws-cdk/aws-cloudwatch.AlarmArn` *(readonly)*
+
+   .. py:class:: DimensionProperty
+
+
+
+      .. py:attribute:: name
+
+         ``AlarmResource.DimensionProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html#cfn-cloudwatch-alarm-dimension-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: value
+
+         ``AlarmResource.DimensionProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html#cfn-cloudwatch-alarm-dimension-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+AlarmResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: AlarmResourceProps
+
+
+
+   .. py:attribute:: comparisonOperator
+
+      ``AWS::CloudWatch::Alarm.ComparisonOperator``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-comparisonoperator
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: evaluationPeriods
+
+      ``AWS::CloudWatch::Alarm.EvaluationPeriods``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-evaluationperiods
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: metricName
+
+      ``AWS::CloudWatch::Alarm.MetricName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-metricname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: namespace
+
+      ``AWS::CloudWatch::Alarm.Namespace``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-namespace
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: period
+
+      ``AWS::CloudWatch::Alarm.Period``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-period
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: threshold
+
+      ``AWS::CloudWatch::Alarm.Threshold``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-threshold
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: actionsEnabled
+
+      ``AWS::CloudWatch::Alarm.ActionsEnabled``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-actionsenabled
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: alarmActions
+
+      ``AWS::CloudWatch::Alarm.AlarmActions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-alarmactions
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: alarmDescription
+
+      ``AWS::CloudWatch::Alarm.AlarmDescription``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-alarmdescription
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: alarmName
+
+      ``AWS::CloudWatch::Alarm.AlarmName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-alarmname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dimensions
+
+      ``AWS::CloudWatch::Alarm.Dimensions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-dimension
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-cloudwatch.cloudformation.AlarmResource.DimensionProperty` or undefined
+
+
+   .. py:attribute:: evaluateLowSampleCountPercentile
+
+      ``AWS::CloudWatch::Alarm.EvaluateLowSampleCountPercentile``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-evaluatelowsamplecountpercentile
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: extendedStatistic
+
+      ``AWS::CloudWatch::Alarm.ExtendedStatistic``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-extendedstatistic
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: insufficientDataActions
+
+      ``AWS::CloudWatch::Alarm.InsufficientDataActions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-insufficientdataactions
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: okActions
+
+      ``AWS::CloudWatch::Alarm.OKActions``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-okactions
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: statistic
+
+      ``AWS::CloudWatch::Alarm.Statistic``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-statistic
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: treatMissingData
+
+      ``AWS::CloudWatch::Alarm.TreatMissingData``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-treatmissingdata
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: unit
+
+      ``AWS::CloudWatch::Alarm.Unit``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-unit
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+DashboardResource
+~~~~~~~~~~~~~~~~~
+
+.. py:class:: DashboardResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DashboardResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DashboardResource``
+   :type properties: :py:class:`~@aws-cdk/aws-cloudwatch.cloudformation.DashboardResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+DashboardResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DashboardResourceProps
+
+
+
+   .. py:attribute:: dashboardBody
+
+      ``AWS::CloudWatch::Dashboard.DashboardBody``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html#cfn-cloudwatch-dashboard-dashboardbody
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: dashboardName
+
+      ``AWS::CloudWatch::Dashboard.DashboardName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html#cfn-cloudwatch-dashboard-dashboardname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-cloudwatch
+

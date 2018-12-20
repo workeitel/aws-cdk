@@ -1,0 +1,2756 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"I37qXFcWZ+8LpdZ8W8ky5Q0rSE5axncSIYdtdiCfUQQ="}
+
+@aws-cdk/aws-rds
+================
+
+.. tabs::
+
+   .. group-tab:: Java
+
+      View in `Maven Central <https://repo1.maven.org/maven2/software/amazon/awscdk/rds/0.8.2/>`_
+
+      **Apache Buildr**:
+
+      .. code-block:: none
+
+         'software.amazon.awscdk:rds:jar:0.8.2'
+
+      **Apache Ivy**:
+
+      .. code-block:: xml
+
+         <dependency groupId="software.amazon.awscdk" name="rds" rev="0.8.2"/>
+
+      **Apache Maven**:
+
+      .. code-block:: xml
+
+         <dependency>
+           <groupId>software.amazon.awscdk</groupId>
+           <artifactId>rds</artifactId>
+           <version>0.8.2</version>
+         </dependency>
+
+      **Gradle / Grails**:
+
+      .. code-block:: none
+
+         compile 'software.amazon.awscdk:rds:0.8.2'
+
+      **Groovy Grape**:
+
+      .. code-block:: none
+
+         @Grapes(
+         @Grab(group='software.amazon.awscdk', module='rds', version='0.8.2')
+         )
+
+
+   .. group-tab:: JavaScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-rds/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-rds@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-rds": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-rds@0.8.2
+
+
+   .. group-tab:: TypeScript
+
+      View in `NPM <https://www.npmjs.com/package/@aws-cdk/aws-rds/v/0.8.2>`_
+
+      **npm**:
+
+      .. code-block:: console
+
+         $ npm i @aws-cdk/aws-rds@0.8.2
+
+      **package.json**:
+
+      .. code-block:: js
+
+         {
+           "@aws-cdk/aws-rds": "^0.8.2"
+         }
+
+      **yarn**:
+
+      .. code-block:: console
+
+         $ yarn add @aws-cdk/aws-rds@0.8.2
+
+
+
+.. mdinclude:: ./__aws-cdk_aws-rds.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-rds
+
+BackupProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BackupProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.BackupProps;
+
+      .. code-tab:: javascript
+
+         // BackupProps is an interface
+
+      .. code-tab:: typescript
+
+         import { BackupProps } from '@aws-cdk/aws-rds';
+
+
+
+   Backup configuration for RDS databases
+
+
+
+
+   .. py:attribute:: retentionDays
+
+      How many days to retain the backup
+
+
+      :type: number
+
+
+   .. py:attribute:: preferredWindow
+
+      A daily time range in 24-hours UTC format in which backups preferably execute.  Must be at least 30 minutes long.  Example: '01:00-02:00'
+
+
+      :type: string or undefined
+
+
+ClusterIdentifier
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: ClusterIdentifier([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.ClusterIdentifier;
+
+      .. code-tab:: javascript
+
+         const { ClusterIdentifier } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { ClusterIdentifier } from '@aws-cdk/aws-rds';
+
+
+
+   Identifier of a cluster
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+DBClusterEndpointAddress
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DBClusterEndpointAddress([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DBClusterEndpointAddress;
+
+      .. code-tab:: javascript
+
+         const { DBClusterEndpointAddress } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DBClusterEndpointAddress } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+DBClusterEndpointPort
+^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DBClusterEndpointPort([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DBClusterEndpointPort;
+
+      .. code-tab:: javascript
+
+         const { DBClusterEndpointPort } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DBClusterEndpointPort } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+DBClusterReadEndpointAddress
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DBClusterReadEndpointAddress([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DBClusterReadEndpointAddress;
+
+      .. code-tab:: javascript
+
+         const { DBClusterReadEndpointAddress } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DBClusterReadEndpointAddress } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+DBInstanceEndpointAddress
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DBInstanceEndpointAddress([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DBInstanceEndpointAddress;
+
+      .. code-tab:: javascript
+
+         const { DBInstanceEndpointAddress } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DBInstanceEndpointAddress } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+DBInstanceEndpointPort
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DBInstanceEndpointPort([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DBInstanceEndpointPort;
+
+      .. code-tab:: javascript
+
+         const { DBInstanceEndpointPort } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DBInstanceEndpointPort } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+DatabaseCluster
+^^^^^^^^^^^^^^^
+
+.. py:class:: DatabaseCluster(parent, name, props)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DatabaseCluster;
+
+      .. code-tab:: javascript
+
+         const { DatabaseCluster } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DatabaseCluster } from '@aws-cdk/aws-rds';
+
+
+
+   Create a clustered database with a given number of instances.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-rds.DatabaseClusterRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-rds.DatabaseClusterProps`
+
+   .. py:attribute:: clusterIdentifier
+
+      Identifier of the cluster
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.ClusterIdentifier` *(readonly)*
+
+
+   .. py:attribute:: instanceIdentifiers
+
+      Identifiers of the replicas
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.InstanceIdentifier` *(readonly)*
+
+
+   .. py:attribute:: clusterEndpoint
+
+      The endpoint to use for read/write operations
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Endpoint` *(readonly)*
+
+
+   .. py:attribute:: readerEndpoint
+
+      Endpoint to use for load-balanced read-only operations.
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Endpoint` *(readonly)*
+
+
+   .. py:attribute:: instanceEndpoints
+
+      Endpoints which address each individual replica.
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Endpoint` *(readonly)*
+
+
+   .. py:attribute:: defaultPortRange
+
+      Default port to connect to this database
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.IPortRange` *(readonly)*
+
+
+   .. py:attribute:: connections
+
+      Access to the network connections
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)*
+
+
+   .. py:attribute:: securityGroupId
+
+      Security group identifier of this database
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.SecurityGroupId` *(readonly)*
+
+
+DatabaseClusterEngine (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DatabaseClusterEngine
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DatabaseClusterEngine;
+
+      .. code-tab:: javascript
+
+         const { DatabaseClusterEngine } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DatabaseClusterEngine } from '@aws-cdk/aws-rds';
+
+
+
+   The engine for the database cluster
+
+
+   .. py:data:: Aurora
+
+   .. py:data:: Neptune
+
+
+DatabaseClusterProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DatabaseClusterProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DatabaseClusterProps;
+
+      .. code-tab:: javascript
+
+         // DatabaseClusterProps is an interface
+
+      .. code-tab:: typescript
+
+         import { DatabaseClusterProps } from '@aws-cdk/aws-rds';
+
+
+
+   Properties for a new database cluster
+
+
+
+
+   .. py:attribute:: engine
+
+      What kind of database to start
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DatabaseClusterEngine`
+
+
+   .. py:attribute:: instances
+
+      How many replicas/instances to create  Has to be at least 1.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: instanceProps
+
+      Settings for the individual instances that are launched
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.InstanceProps`
+
+
+   .. py:attribute:: masterUser
+
+      Username and password for the administrative user
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Login`
+
+
+   .. py:attribute:: backup
+
+      Backup settings
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.BackupProps` or undefined
+
+
+   .. py:attribute:: port
+
+      What port to listen on  If not supplied, the default for the engine is used.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: clusterIdentifier
+
+      An optional identifier for the cluster  If not supplied, a name is automatically generated.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: instanceIdentifierBase
+
+      Base identifier for instances  Every replica is named by appending the replica number to this string, 1-based.  If not given, the clusterIdentifier is used with the word "Instance" appended.  If clusterIdentifier is also not given, the identifier is automatically generated.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: defaultDatabaseName
+
+      Name of a database which is automatically created inside the cluster
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: kmsKeyArn
+
+      ARN of KMS key if you want to enable storage encryption
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.KeyArn` or undefined
+
+
+   .. py:attribute:: preferredMaintenanceWindow
+
+      A daily time range in 24-hours UTC format in which backups preferably execute.  Must be at least 30 minutes long.  Example: '01:00-02:00'
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: parameters
+
+      Additional parameters to pass to the database engine
+
+
+      :type: any or undefined
+
+
+DatabaseClusterRef
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DatabaseClusterRef(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DatabaseClusterRef;
+
+      .. code-tab:: javascript
+
+         const { DatabaseClusterRef } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DatabaseClusterRef } from '@aws-cdk/aws-rds';
+
+
+
+   Create a clustered database with a given number of instances.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-ec2.IDefaultConnectable`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-rds.DatabaseClusterRef
+
+      Import an existing DatabaseCluster from properties
+
+
+      :param parent: 
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: 
+      :type name: string
+      :param props: 
+      :type props: :py:class:`~@aws-cdk/aws-rds.DatabaseClusterRefProps`
+      :rtype: :py:class:`~@aws-cdk/aws-rds.DatabaseClusterRef`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-rds.DatabaseClusterRefProps
+
+      Export a Database Cluster for importing in another stack
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-rds.DatabaseClusterRefProps`
+
+
+   .. py:attribute:: defaultPortRange
+
+      Default port to connect to this database
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.IPortRange` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: connections
+
+      Access to the network connections
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.Connections` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: clusterIdentifier
+
+      Identifier of the cluster
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.ClusterIdentifier` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: instanceIdentifiers
+
+      Identifiers of the replicas
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.InstanceIdentifier` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: clusterEndpoint
+
+      The endpoint to use for read/write operations
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Endpoint` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: readerEndpoint
+
+      Endpoint to use for load-balanced read-only operations.
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Endpoint` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: instanceEndpoints
+
+      Endpoints which address each individual replica.
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Endpoint` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: securityGroupId
+
+      The security group for this database cluster
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.SecurityGroupId` *(readonly)* *(abstract)*
+
+
+DatabaseClusterRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: DatabaseClusterRefProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DatabaseClusterRefProps;
+
+      .. code-tab:: javascript
+
+         // DatabaseClusterRefProps is an interface
+
+      .. code-tab:: typescript
+
+         import { DatabaseClusterRefProps } from '@aws-cdk/aws-rds';
+
+
+
+   Properties that describe an existing cluster instance
+
+
+
+
+   .. py:attribute:: port
+
+      The database port
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Port`
+
+
+   .. py:attribute:: securityGroupId
+
+      The security group for this database cluster
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.SecurityGroupId`
+
+
+   .. py:attribute:: clusterIdentifier
+
+      Identifier for the cluster
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.ClusterIdentifier`
+
+
+   .. py:attribute:: instanceIdentifiers
+
+      Identifier for the instances
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.InstanceIdentifier`
+
+
+   .. py:attribute:: clusterEndpointAddress
+
+      Cluster endpoint address
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBClusterEndpointAddress`
+
+
+   .. py:attribute:: readerEndpointAddress
+
+      Reader endpoint address
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBClusterEndpointAddress`
+
+
+   .. py:attribute:: instanceEndpointAddresses
+
+      Endpoint addresses of individual instances
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBClusterEndpointAddress`
+
+
+DatabaseInstance
+^^^^^^^^^^^^^^^^
+
+.. py:class:: DatabaseInstance(parent, id)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.DatabaseInstance;
+
+      .. code-tab:: javascript
+
+         const { DatabaseInstance } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { DatabaseInstance } from '@aws-cdk/aws-rds';
+
+
+
+   Create a database instance  This can be a standalone database instance, or part of a cluster.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param id: 
+   :type id: string
+
+Endpoint
+^^^^^^^^
+
+.. py:class:: Endpoint(address, port)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.Endpoint;
+
+      .. code-tab:: javascript
+
+         const { Endpoint } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { Endpoint } from '@aws-cdk/aws-rds';
+
+
+
+   Connection endpoint of a database cluster or instance  Consists of a combination of hostname and port.
+
+
+   :param address: 
+   :type address: :py:class:`~@aws-cdk/aws-rds.DBClusterEndpointAddress`
+   :param port: 
+   :type port: :py:class:`~@aws-cdk/aws-rds.Port`
+
+   .. py:attribute:: hostname
+
+      The hostname of the endpoint
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBClusterEndpointAddress` *(readonly)*
+
+
+   .. py:attribute:: port
+
+      The port of the endpoint
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Port` *(readonly)*
+
+
+   .. py:attribute:: socketAddress
+
+      The combination of "HOSTNAME:PORT" for this endpoint
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.SocketAddress` *(readonly)*
+
+
+InstanceIdentifier
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: InstanceIdentifier([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.InstanceIdentifier;
+
+      .. code-tab:: javascript
+
+         const { InstanceIdentifier } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { InstanceIdentifier } from '@aws-cdk/aws-rds';
+
+
+
+   Identifier of an instance
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+InstanceProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: InstanceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.InstanceProps;
+
+      .. code-tab:: javascript
+
+         // InstanceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { InstanceProps } from '@aws-cdk/aws-rds';
+
+
+
+   Instance properties for database instances
+
+
+
+
+   .. py:attribute:: instanceType
+
+      What type of instance to start for the replicas
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.InstanceType`
+
+
+   .. py:attribute:: vpc
+
+      What subnets to run the RDS instances in.  Must be at least 2 subnets in two different AZs.
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.VpcNetworkRef`
+
+
+   .. py:attribute:: vpcPlacement
+
+      Where to place the instances within the VPC
+
+
+      :type: :py:class:`@aws-cdk/aws-ec2.VpcPlacementStrategy` or undefined
+
+
+Login (interface)
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: Login
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.Login;
+
+      .. code-tab:: javascript
+
+         // Login is an interface
+
+      .. code-tab:: typescript
+
+         import { Login } from '@aws-cdk/aws-rds';
+
+
+
+   Username and password combination
+
+
+
+
+   .. py:attribute:: username
+
+      Username
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Username`
+
+
+   .. py:attribute:: password
+
+      Password  Do not put passwords in your CDK code directly. Import it from a Stack Parameter or the SSM Parameter Store instead.
+
+
+      :type: :py:class:`~@aws-cdk/aws-rds.Password`
+
+
+Password
+^^^^^^^^
+
+.. py:class:: Password([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.Password;
+
+      .. code-tab:: javascript
+
+         const { Password } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { Password } from '@aws-cdk/aws-rds';
+
+
+
+   An RDS password
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+Port
+^^^^
+
+.. py:class:: Port([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.Port;
+
+      .. code-tab:: javascript
+
+         const { Port } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { Port } from '@aws-cdk/aws-rds';
+
+
+
+   Port part of an address
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+SocketAddress
+^^^^^^^^^^^^^
+
+.. py:class:: SocketAddress([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.SocketAddress;
+
+      .. code-tab:: javascript
+
+         const { SocketAddress } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { SocketAddress } from '@aws-cdk/aws-rds';
+
+
+
+   A complete socket address (hostname + ":" + port)
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+Username
+^^^^^^^^
+
+.. py:class:: Username([valueOrFunction, [displayName]])
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.Username;
+
+      .. code-tab:: javascript
+
+         const { Username } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { Username } from '@aws-cdk/aws-rds';
+
+
+
+   An RDS username
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: What this token will evaluate to, literal or function.
+   :type valueOrFunction: any or undefined
+   :param displayName: A human-readable display hint for this Token
+   :type displayName: string or undefined
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-rds.cloudformation
+
+DBClusterParameterGroupResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBClusterParameterGroupResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBClusterParameterGroupResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.DBClusterParameterGroupResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBClusterParameterGroupResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DBClusterParameterGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DBClusterParameterGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.DBClusterParameterGroupResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+DBClusterParameterGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBClusterParameterGroupResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBClusterParameterGroupResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.DBClusterParameterGroupResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBClusterParameterGroupResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: description
+
+      ``AWS::RDS::DBClusterParameterGroup.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: family
+
+      ``AWS::RDS::DBClusterParameterGroup.Family``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-family
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: parameters
+
+      ``AWS::RDS::DBClusterParameterGroup.Parameters``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-parameters
+
+
+      :type: json or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: tags
+
+      ``AWS::RDS::DBClusterParameterGroup.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html#cfn-rds-dbclusterparametergroup-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+DBClusterResource
+~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBClusterResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBClusterResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.DBClusterResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBClusterResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DBClusterResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DBClusterResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.DBClusterResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: dbClusterEndpointAddress
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBClusterEndpointAddress` *(readonly)*
+
+
+   .. py:attribute:: dbClusterEndpointPort
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBClusterEndpointPort` *(readonly)*
+
+
+   .. py:attribute:: dbClusterReadEndpointAddress
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBClusterReadEndpointAddress` *(readonly)*
+
+
+DBClusterResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBClusterResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBClusterResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.DBClusterResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBClusterResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: engine
+
+      ``AWS::RDS::DBCluster.Engine``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: availabilityZones
+
+      ``AWS::RDS::DBCluster.AvailabilityZones``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: backupRetentionPeriod
+
+      ``AWS::RDS::DBCluster.BackupRetentionPeriod``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: databaseName
+
+      ``AWS::RDS::DBCluster.DatabaseName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbClusterIdentifier
+
+      ``AWS::RDS::DBCluster.DBClusterIdentifier``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusteridentifier
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbClusterParameterGroupName
+
+      ``AWS::RDS::DBCluster.DBClusterParameterGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbSubnetGroupName
+
+      ``AWS::RDS::DBCluster.DBSubnetGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbsubnetgroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: engineVersion
+
+      ``AWS::RDS::DBCluster.EngineVersion``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: kmsKeyId
+
+      ``AWS::RDS::DBCluster.KmsKeyId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-kmskeyid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: masterUsername
+
+      ``AWS::RDS::DBCluster.MasterUsername``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masterusername
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: masterUserPassword
+
+      ``AWS::RDS::DBCluster.MasterUserPassword``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-masteruserpassword
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: port
+
+      ``AWS::RDS::DBCluster.Port``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-port
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: preferredBackupWindow
+
+      ``AWS::RDS::DBCluster.PreferredBackupWindow``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredbackupwindow
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: preferredMaintenanceWindow
+
+      ``AWS::RDS::DBCluster.PreferredMaintenanceWindow``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredmaintenancewindow
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: replicationSourceIdentifier
+
+      ``AWS::RDS::DBCluster.ReplicationSourceIdentifier``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-replicationsourceidentifier
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: snapshotIdentifier
+
+      ``AWS::RDS::DBCluster.SnapshotIdentifier``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: storageEncrypted
+
+      ``AWS::RDS::DBCluster.StorageEncrypted``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::RDS::DBCluster.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+   .. py:attribute:: vpcSecurityGroupIds
+
+      ``AWS::RDS::DBCluster.VpcSecurityGroupIds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+DBInstanceResource
+~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBInstanceResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBInstanceResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.DBInstanceResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBInstanceResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DBInstanceResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DBInstanceResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.DBInstanceResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: dbInstanceEndpointAddress
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBInstanceEndpointAddress` *(readonly)*
+
+
+   .. py:attribute:: dbInstanceEndpointPort
+
+      :type: :py:class:`~@aws-cdk/aws-rds.DBInstanceEndpointPort` *(readonly)*
+
+
+DBInstanceResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBInstanceResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBInstanceResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.DBInstanceResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBInstanceResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: dbInstanceClass
+
+      ``AWS::RDS::DBInstance.DBInstanceClass``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceclass
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: allocatedStorage
+
+      ``AWS::RDS::DBInstance.AllocatedStorage``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allocatedstorage
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: allowMajorVersionUpgrade
+
+      ``AWS::RDS::DBInstance.AllowMajorVersionUpgrade``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allowmajorversionupgrade
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: autoMinorVersionUpgrade
+
+      ``AWS::RDS::DBInstance.AutoMinorVersionUpgrade``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-autominorversionupgrade
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: availabilityZone
+
+      ``AWS::RDS::DBInstance.AvailabilityZone``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-availabilityzone
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: backupRetentionPeriod
+
+      ``AWS::RDS::DBInstance.BackupRetentionPeriod``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-backupretentionperiod
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: characterSetName
+
+      ``AWS::RDS::DBInstance.CharacterSetName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-charactersetname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: copyTagsToSnapshot
+
+      ``AWS::RDS::DBInstance.CopyTagsToSnapshot``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-copytagstosnapshot
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbClusterIdentifier
+
+      ``AWS::RDS::DBInstance.DBClusterIdentifier``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbclusteridentifier
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbInstanceIdentifier
+
+      ``AWS::RDS::DBInstance.DBInstanceIdentifier``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceidentifier
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbName
+
+      ``AWS::RDS::DBInstance.DBName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbParameterGroupName
+
+      ``AWS::RDS::DBInstance.DBParameterGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbparametergroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbSecurityGroups
+
+      ``AWS::RDS::DBInstance.DBSecurityGroups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbSnapshotIdentifier
+
+      ``AWS::RDS::DBInstance.DBSnapshotIdentifier``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: dbSubnetGroupName
+
+      ``AWS::RDS::DBInstance.DBSubnetGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsubnetgroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: domain
+
+      ``AWS::RDS::DBInstance.Domain``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domain
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: domainIamRoleName
+
+      ``AWS::RDS::DBInstance.DomainIAMRoleName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domainiamrolename
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: engine
+
+      ``AWS::RDS::DBInstance.Engine``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-engine
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: engineVersion
+
+      ``AWS::RDS::DBInstance.EngineVersion``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-engineversion
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: iops
+
+      ``AWS::RDS::DBInstance.Iops``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-iops
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: kmsKeyId
+
+      ``AWS::RDS::DBInstance.KmsKeyId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-kmskeyid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: licenseModel
+
+      ``AWS::RDS::DBInstance.LicenseModel``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-licensemodel
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: masterUsername
+
+      ``AWS::RDS::DBInstance.MasterUsername``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masterusername
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: masterUserPassword
+
+      ``AWS::RDS::DBInstance.MasterUserPassword``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masteruserpassword
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: monitoringInterval
+
+      ``AWS::RDS::DBInstance.MonitoringInterval``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringinterval
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: monitoringRoleArn
+
+      ``AWS::RDS::DBInstance.MonitoringRoleArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringrolearn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: multiAz
+
+      ``AWS::RDS::DBInstance.MultiAZ``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-multiaz
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: optionGroupName
+
+      ``AWS::RDS::DBInstance.OptionGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-optiongroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: port
+
+      ``AWS::RDS::DBInstance.Port``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: preferredBackupWindow
+
+      ``AWS::RDS::DBInstance.PreferredBackupWindow``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredbackupwindow
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: preferredMaintenanceWindow
+
+      ``AWS::RDS::DBInstance.PreferredMaintenanceWindow``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredmaintenancewindow
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: publiclyAccessible
+
+      ``AWS::RDS::DBInstance.PubliclyAccessible``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-publiclyaccessible
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: sourceDbInstanceIdentifier
+
+      ``AWS::RDS::DBInstance.SourceDBInstanceIdentifier``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: sourceRegion
+
+      ``AWS::RDS::DBInstance.SourceRegion``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-sourceregion
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: storageEncrypted
+
+      ``AWS::RDS::DBInstance.StorageEncrypted``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storageencrypted
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: storageType
+
+      ``AWS::RDS::DBInstance.StorageType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storagetype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::RDS::DBInstance.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+   .. py:attribute:: timezone
+
+      ``AWS::RDS::DBInstance.Timezone``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-timezone
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: vpcSecurityGroups
+
+      ``AWS::RDS::DBInstance.VPCSecurityGroups``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+DBParameterGroupResource
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBParameterGroupResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBParameterGroupResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.DBParameterGroupResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBParameterGroupResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DBParameterGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DBParameterGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.DBParameterGroupResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+DBParameterGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBParameterGroupResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBParameterGroupResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.DBParameterGroupResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBParameterGroupResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: description
+
+      ``AWS::RDS::DBParameterGroup.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html#cfn-rds-dbparametergroup-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: family
+
+      ``AWS::RDS::DBParameterGroup.Family``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html#cfn-rds-dbparametergroup-family
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: parameters
+
+      ``AWS::RDS::DBParameterGroup.Parameters``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html#cfn-rds-dbparametergroup-parameters
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::RDS::DBParameterGroup.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html#cfn-rds-dbparametergroup-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+DBSecurityGroupIngressResource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBSecurityGroupIngressResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBSecurityGroupIngressResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.DBSecurityGroupIngressResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBSecurityGroupIngressResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DBSecurityGroupIngressResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DBSecurityGroupIngressResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.DBSecurityGroupIngressResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+DBSecurityGroupIngressResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBSecurityGroupIngressResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBSecurityGroupIngressResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.DBSecurityGroupIngressResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBSecurityGroupIngressResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: dbSecurityGroupName
+
+      ``AWS::RDS::DBSecurityGroupIngress.DBSecurityGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-dbsecuritygroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: cidrip
+
+      ``AWS::RDS::DBSecurityGroupIngress.CIDRIP``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-cidrip
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: ec2SecurityGroupId
+
+      ``AWS::RDS::DBSecurityGroupIngress.EC2SecurityGroupId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: ec2SecurityGroupName
+
+      ``AWS::RDS::DBSecurityGroupIngress.EC2SecurityGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: ec2SecurityGroupOwnerId
+
+      ``AWS::RDS::DBSecurityGroupIngress.EC2SecurityGroupOwnerId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html#cfn-rds-securitygroup-ingress-ec2securitygroupownerid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+DBSecurityGroupResource
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBSecurityGroupResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBSecurityGroupResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.DBSecurityGroupResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBSecurityGroupResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DBSecurityGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DBSecurityGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.DBSecurityGroupResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: IngressProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.rds.cloudformation.DBSecurityGroupResource.IngressProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.DBSecurityGroupResource.IngressProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.DBSecurityGroupResource.IngressProperty } from '@aws-cdk/aws-rds';
+
+
+
+
+
+      .. py:attribute:: cidrip
+
+         ``DBSecurityGroupResource.IngressProperty.CIDRIP``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-cidrip
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: ec2SecurityGroupId
+
+         ``DBSecurityGroupResource.IngressProperty.EC2SecurityGroupId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: ec2SecurityGroupName
+
+         ``DBSecurityGroupResource.IngressProperty.EC2SecurityGroupName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: ec2SecurityGroupOwnerId
+
+         ``DBSecurityGroupResource.IngressProperty.EC2SecurityGroupOwnerId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupownerid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+DBSecurityGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBSecurityGroupResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBSecurityGroupResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.DBSecurityGroupResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBSecurityGroupResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: dbSecurityGroupIngress
+
+      ``AWS::RDS::DBSecurityGroup.DBSecurityGroupIngress``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-dbsecuritygroupingress
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-rds.cloudformation.DBSecurityGroupResource.IngressProperty`
+
+
+   .. py:attribute:: groupDescription
+
+      ``AWS::RDS::DBSecurityGroup.GroupDescription``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-groupdescription
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: ec2VpcId
+
+      ``AWS::RDS::DBSecurityGroup.EC2VpcId``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-ec2vpcid
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::RDS::DBSecurityGroup.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html#cfn-rds-dbsecuritygroup-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+DBSubnetGroupResource
+~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBSubnetGroupResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBSubnetGroupResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.DBSubnetGroupResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBSubnetGroupResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``DBSubnetGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``DBSubnetGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.DBSubnetGroupResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+DBSubnetGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: DBSubnetGroupResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.DBSubnetGroupResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.DBSubnetGroupResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.DBSubnetGroupResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: dbSubnetGroupDescription
+
+      ``AWS::RDS::DBSubnetGroup.DBSubnetGroupDescription``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-dbsubnetgroupdescription
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: subnetIds
+
+      ``AWS::RDS::DBSubnetGroup.SubnetIds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-subnetids
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: dbSubnetGroupName
+
+      ``AWS::RDS::DBSubnetGroup.DBSubnetGroupName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-dbsubnetgroupname
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::RDS::DBSubnetGroup.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+EventSubscriptionResource
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: EventSubscriptionResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.EventSubscriptionResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.EventSubscriptionResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.EventSubscriptionResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``EventSubscriptionResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``EventSubscriptionResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.EventSubscriptionResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+EventSubscriptionResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: EventSubscriptionResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.EventSubscriptionResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.EventSubscriptionResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.EventSubscriptionResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: snsTopicArn
+
+      ``AWS::RDS::EventSubscription.SnsTopicArn``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-snstopicarn
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: enabled
+
+      ``AWS::RDS::EventSubscription.Enabled``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-enabled
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: eventCategories
+
+      ``AWS::RDS::EventSubscription.EventCategories``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-eventcategories
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: sourceIds
+
+      ``AWS::RDS::EventSubscription.SourceIds``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourceids
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: sourceType
+
+      ``AWS::RDS::EventSubscription.SourceType``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-sourcetype
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+OptionGroupResource
+~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: OptionGroupResource(parent, name, properties)
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.OptionGroupResource;
+
+      .. code-tab:: javascript
+
+         const { cloudformation.OptionGroupResource } = require('@aws-cdk/aws-rds');
+
+      .. code-tab:: typescript
+
+         import { cloudformation.OptionGroupResource } from '@aws-cdk/aws-rds';
+
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``OptionGroupResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``OptionGroupResource``
+   :type properties: :py:class:`~@aws-cdk/aws-rds.cloudformation.OptionGroupResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+   .. py:class:: OptionConfigurationProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.rds.cloudformation.OptionGroupResource.OptionConfigurationProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.OptionGroupResource.OptionConfigurationProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.OptionGroupResource.OptionConfigurationProperty } from '@aws-cdk/aws-rds';
+
+
+
+
+
+      .. py:attribute:: dbSecurityGroupMemberships
+
+         ``OptionGroupResource.OptionConfigurationProperty.DBSecurityGroupMemberships``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-dbsecuritygroupmemberships
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: optionName
+
+         ``OptionGroupResource.OptionConfigurationProperty.OptionName``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionname
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: optionSettings
+
+         ``OptionGroupResource.OptionConfigurationProperty.OptionSettings``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionsettings
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-rds.cloudformation.OptionGroupResource.OptionSettingProperty` or undefined
+
+
+      .. py:attribute:: optionVersion
+
+         ``OptionGroupResource.OptionConfigurationProperty.OptionVersion``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfiguration-optionversion
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: port
+
+         ``OptionGroupResource.OptionConfigurationProperty.Port``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-port
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: vpcSecurityGroupMemberships
+
+         ``OptionGroupResource.OptionConfigurationProperty.VpcSecurityGroupMemberships``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: OptionSettingProperty
+
+      **Language-specific names:**
+
+      .. tabs::
+
+         .. code-tab:: java
+
+            import software.amazon.awscdk.services.rds.cloudformation.OptionGroupResource.OptionSettingProperty;
+
+         .. code-tab:: javascript
+
+            // cloudformation.OptionGroupResource.OptionSettingProperty is an interface
+
+         .. code-tab:: typescript
+
+            import { cloudformation.OptionGroupResource.OptionSettingProperty } from '@aws-cdk/aws-rds';
+
+
+
+
+
+      .. py:attribute:: name
+
+         ``OptionGroupResource.OptionSettingProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: value
+
+         ``OptionGroupResource.OptionSettingProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html#cfn-rds-optiongroup-optionconfigurations-optionsettings-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+
+OptionGroupResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: OptionGroupResourceProps
+
+   **Language-specific names:**
+
+   .. tabs::
+
+      .. code-tab:: java
+
+         import software.amazon.awscdk.services.rds.cloudformation.OptionGroupResourceProps;
+
+      .. code-tab:: javascript
+
+         // cloudformation.OptionGroupResourceProps is an interface
+
+      .. code-tab:: typescript
+
+         import { cloudformation.OptionGroupResourceProps } from '@aws-cdk/aws-rds';
+
+
+
+
+
+   .. py:attribute:: engineName
+
+      ``AWS::RDS::OptionGroup.EngineName``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-enginename
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: majorEngineVersion
+
+      ``AWS::RDS::OptionGroup.MajorEngineVersion``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-majorengineversion
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: optionConfigurations
+
+      ``AWS::RDS::OptionGroup.OptionConfigurations``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optionconfigurations
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-rds.cloudformation.OptionGroupResource.OptionConfigurationProperty`
+
+
+   .. py:attribute:: optionGroupDescription
+
+      ``AWS::RDS::OptionGroup.OptionGroupDescription``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-optiongroupdescription
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: tags
+
+      ``AWS::RDS::OptionGroup.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html#cfn-rds-optiongroup-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-rds
+

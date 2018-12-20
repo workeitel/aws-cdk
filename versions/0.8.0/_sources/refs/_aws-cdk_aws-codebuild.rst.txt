@@ -1,0 +1,1473 @@
+.. @jsii-pacmak:meta@ {"fingerprint":"6bwvduC7f2fhMGWbBBgmPur7S2RcEMUBEkrQ/KIVOAs="}
+
+@aws-cdk/aws-codebuild
+======================
+
+.. mdinclude:: ./__aws-cdk_aws-codebuild.README.md
+
+Reference
+---------
+
+.. py:module:: @aws-cdk/aws-codebuild
+
+BitBucketSource
+^^^^^^^^^^^^^^^
+
+.. py:class:: BitBucketSource(httpsCloneUrl)
+
+   BitBucket Source definition for a CodeBuild project
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildSource`
+   :param httpsCloneUrl: 
+   :type httpsCloneUrl: string
+
+   .. py:method:: toSourceJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty`
+
+
+BuildArtifacts
+^^^^^^^^^^^^^^
+
+.. py:class:: BuildArtifacts()
+
+   :abstract: Yes
+
+   .. py:method:: toArtifactsJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty`
+      :abstract: Yes
+
+
+   .. py:method:: bind(_project)
+
+      :param _project: 
+      :type _project: :py:class:`~@aws-cdk/aws-codebuild.Project`
+
+
+BuildEnvironment (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BuildEnvironment
+
+
+
+   .. py:attribute:: buildImage
+
+      The image used for the builds.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.IBuildImage` or undefined
+
+
+   .. py:attribute:: computeType
+
+      The type of compute to use for this build. See the {@link ComputeType} enum for the possible values.
+      #buildImage#defaultComputeType}
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ComputeType` or undefined
+
+
+   .. py:attribute:: priviledged
+
+      Indicates how the project builds Docker images. Specify true to enable running the Docker daemon inside a Docker container. This value must be set to true only if this build project will be used to build Docker images, and the specified build environment image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated builds that attempt to interact with the Docker daemon will fail.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: environmentVariables
+
+      The environment variables that your builds can use.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.BuildEnvironmentVariable` or undefined
+
+
+BuildEnvironmentVariable (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BuildEnvironmentVariable
+
+
+
+   .. py:attribute:: type
+
+      The type of environment variable.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.BuildEnvironmentVariableType` or undefined
+
+
+   .. py:attribute:: value
+
+      The value of the environment variable (or the name of the parameter in the SSM parameter store.)
+
+
+      :type: any
+
+
+BuildEnvironmentVariableType (enum)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: BuildEnvironmentVariableType
+
+   .. py:data:: PlainText
+
+   .. py:data:: ParameterStore
+
+
+BuildSource
+^^^^^^^^^^^
+
+.. py:class:: BuildSource()
+
+   Source Provider definition for a CodeBuild project TODO: Abstract class should be an interface
+
+
+   :abstract: Yes
+
+   .. py:method:: bind(_project)
+
+      Called by the project when the source is added so that the source can perform binding operations on the source. For example, it can grant permissions to the code build project to read from the S3 bucket.
+
+
+      :param _project: 
+      :type _project: :py:class:`~@aws-cdk/aws-codebuild.Project`
+
+
+   .. py:method:: toSourceJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty`
+      :abstract: Yes
+
+
+CodeCommitSource
+^^^^^^^^^^^^^^^^
+
+.. py:class:: CodeCommitSource(repo)
+
+   CodeCommit Source definition for a CodeBuild project
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildSource`
+   :param repo: 
+   :type repo: :py:class:`@aws-cdk/aws-codecommit.Repository`
+
+   .. py:method:: bind(project)
+
+      Called by the project when the source is added so that the source can perform binding operations on the source. For example, it can grant permissions to the code build project to read from the S3 bucket.
+
+
+      :param project: 
+      :type project: :py:class:`~@aws-cdk/aws-codebuild.Project`
+
+
+   .. py:method:: toSourceJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty`
+
+
+CodePipelineBuildArtifacts
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CodePipelineBuildArtifacts()
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildArtifacts`
+
+   .. py:method:: toArtifactsJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty`
+
+
+CodePipelineSource
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CodePipelineSource()
+
+   CodePipeline Source definition for a CodeBuild project
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildSource`
+
+   .. py:method:: toSourceJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty`
+
+
+   .. py:method:: bind(_project)
+
+      Called by the project when the source is added so that the source can perform binding operations on the source. For example, it can grant permissions to the code build project to read from the S3 bucket.
+
+
+      :param _project: 
+      :type _project: :py:class:`~@aws-cdk/aws-codebuild.Project`
+
+
+CommonProjectProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: CommonProjectProps
+
+
+
+   .. py:attribute:: description
+
+      A description of the project. Use the description to identify the purpose of the project.
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: buildSpec
+
+      Filename or contents of buildspec in JSON format.
+
+
+      :type: any or undefined
+
+
+   .. py:attribute:: role
+
+      Service Role to assume while running the build. If not specified, a role will be created.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined
+
+
+   .. py:attribute:: encryptionKey
+
+      Encryption key to use to read and write artifacts If not specified, a role will be created.
+
+
+      :type: :py:class:`@aws-cdk/aws-kms.EncryptionKeyRef` or undefined
+
+
+   .. py:attribute:: cacheBucket
+
+      Bucket to store cached source artifacts If not specified, source artifacts will not be cached.
+
+
+      :type: :py:class:`@aws-cdk/aws-s3.BucketRef` or undefined
+
+
+   .. py:attribute:: cacheDir
+
+      Subdirectory to store cached artifacts
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: environment
+
+      Build environment to use for the build.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.BuildEnvironment` or undefined
+
+
+   .. py:attribute:: badge
+
+      Indicates whether AWS CodeBuild generates a publicly accessible URL for your project's build badge. For more information, see Build Badges Sample in the AWS CodeBuild User Guide.
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: timeout
+
+      The number of minutes after which AWS CodeBuild stops the build if it's not complete. For valid values, see the timeoutInMinutes field in the AWS CodeBuild User Guide.
+
+
+      :type: number or undefined
+
+
+   .. py:attribute:: environmentVariables
+
+      Additional environment variables to add to the build environment.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.BuildEnvironmentVariable` or undefined
+
+
+   .. py:attribute:: projectName
+
+      The physical, human-readable name of the CodeBuild Project.
+
+
+      :type: string or undefined
+
+
+ComputeType (enum)
+^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ComputeType
+
+   .. py:data:: Small
+
+   .. py:data:: Medium
+
+   .. py:data:: Large
+
+
+GitHubEnterpriseSource
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: GitHubEnterpriseSource(cloneUrl)
+
+   GitHub Enterprice Source definition for a CodeBuild project
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildSource`
+   :param cloneUrl: 
+   :type cloneUrl: string
+
+   .. py:method:: toSourceJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty`
+
+
+GitHubSource
+^^^^^^^^^^^^
+
+.. py:class:: GitHubSource(httpscloneUrl, oauthToken)
+
+   GitHub Source definition for a CodeBuild project
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildSource`
+   :param httpscloneUrl: 
+   :type httpscloneUrl: string
+   :param oauthToken: 
+   :type oauthToken: any
+
+   .. py:method:: toSourceJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty`
+
+
+IBuildImage (interface)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: IBuildImage
+
+   Represents a Docker image used for the CodeBuild Project builds. Use the concrete subclasses, either: {@link LinuxBuildImage} or {@link WindowsBuildImage}.
+
+
+
+
+   .. py:attribute:: type
+
+      The type of build environment.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: imageId
+
+      The Docker image identifier that the build environment uses.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: defaultComputeType
+
+      The default {@link ComputeType} to use with this image, if one was not specified in {@link BuildEnvironment#computeType} explicitly.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ComputeType` *(readonly)*
+
+
+   .. py:method:: validate(buildEnvironment) -> string[]
+
+      Allows the image a chance to validate whether the passed configuration is correct.
+
+
+      :param buildEnvironment: the current build environment
+      :type buildEnvironment: :py:class:`~@aws-cdk/aws-codebuild.BuildEnvironment`
+      :rtype: string
+
+
+LinuxBuildImage
+^^^^^^^^^^^^^^^
+
+.. py:class:: LinuxBuildImage(imageId)
+
+   A CodeBuild image running Linux. This class has a bunch of public constants that represent the most popular images. If you need to use with an image that isn't in the named constants, you can always instantiate it directly.
+
+
+   :implements: :py:class:`~@aws-cdk/aws-codebuild.IBuildImage`
+   :param imageId: 
+   :type imageId: string
+
+   .. py:method:: validate(_) -> string[]
+
+      Allows the image a chance to validate whether the passed configuration is correct.
+
+
+      :param _: 
+      :type _: :py:class:`~@aws-cdk/aws-codebuild.BuildEnvironment`
+      :rtype: string
+
+
+   .. py:attribute:: UBUNTU_14_04_BASE
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_ANDROID_JAVA8_24_4_1
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_ANDROID_JAVA8_26_1_1
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_DOCKER_17_09_0
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_GOLANG_1_10
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_OPEN_JDK_8
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_OPEN_JDK_9
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_NODEJS_10_1_0
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_NODEJS_8_11_0
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_NODEJS_6_3_1
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_PHP_5_6
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_PHP_7_0
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_PYTHON_3_6_5
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_PYTHON_3_5_2
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_PYTHON_3_4_5
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_PYTHON_3_3_6
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_PYTHON_2_7_12
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_RUBY_2_5_1
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_RUBY_2_3_1
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_RUBY_2_2_5
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_DOTNET_CORE_1_1
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_DOTNET_CORE_2_0
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: UBUNTU_14_04_DOTNET_CORE_2_1
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.LinuxBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: type
+
+      The type of build environment.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: defaultComputeType
+
+      The default {@link ComputeType} to use with this image, if one was not specified in {@link BuildEnvironment#computeType} explicitly.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ComputeType` *(readonly)*
+
+
+   .. py:attribute:: imageId
+
+      :type: string *(readonly)*
+
+
+NoBuildArtifacts
+^^^^^^^^^^^^^^^^
+
+.. py:class:: NoBuildArtifacts()
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildArtifacts`
+
+   .. py:method:: toArtifactsJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty`
+
+
+Project
+^^^^^^^
+
+.. py:class:: Project(parent, name, props)
+
+   A representation of a CodeBuild Project.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.ProjectRef`
+   :param parent: 
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codebuild.ProjectProps`
+
+   .. py:method:: addToRolePolicy(statement)
+
+      Add a permission only if there's a policy attached.
+
+
+      :param statement: The permissions statement to add
+      :type statement: :py:class:`@aws-cdk/cdk.PolicyStatement`
+
+
+   .. py:attribute:: role
+
+      The IAM role for this project.
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` *(readonly)*
+
+
+   .. py:attribute:: projectArn
+
+      The ARN of the project.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ProjectArn` *(readonly)*
+
+
+   .. py:attribute:: projectName
+
+      The name of the project.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ProjectName` *(readonly)*
+
+
+ProjectArn
+^^^^^^^^^^
+
+.. py:class:: ProjectArn([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Arn`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ProjectName
+^^^^^^^^^^^
+
+.. py:class:: ProjectName([valueOrFunction])
+
+   :extends: :py:class:`@aws-cdk/cdk.Token`
+   :param valueOrFunction: 
+   :type valueOrFunction: any or undefined
+
+ProjectProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ProjectProps
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.CommonProjectProps`
+
+
+   .. py:attribute:: source
+
+      The source of the build.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.BuildSource`
+
+
+   .. py:attribute:: artifacts
+
+      Defines where build artifacts will be stored. Could be: PipelineBuildArtifacts, NoBuildArtifacts and S3BucketBuildArtifacts.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.BuildArtifacts` or undefined
+
+
+ProjectRef
+^^^^^^^^^^
+
+.. py:class:: ProjectRef(parent, name)
+
+   Represents a reference to a CodeBuild Project.  If you're managing the Project alongside the rest of your CDK resources, use the {@link Project} class.  If you want to reference an already existing Project (or one defined in a different CDK Stack), use the {@link import} method.
+
+
+   :extends: :py:class:`@aws-cdk/cdk.Construct`
+   :implements: :py:class:`@aws-cdk/aws-events.IEventRuleTarget`
+   :abstract: Yes
+   :param parent: The parent construct
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: 
+   :type name: string
+
+   .. py:staticmethod:: import(parent, name, props) -> @aws-cdk/aws-codebuild.ProjectRef
+
+      Import a Project defined either outside the CDK, or in a different CDK Stack (and exported using the {@link export} method).
+
+
+      :param parent: the parent Construct for this Construct
+      :type parent: :py:class:`@aws-cdk/cdk.Construct`
+      :param name: the logical name of this Construct
+      :type name: string
+      :param props: the properties of the referenced Project
+      :type props: :py:class:`~@aws-cdk/aws-codebuild.ProjectRefProps`
+      :return: a reference to the existing Project
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.ProjectRef`
+
+
+   .. py:method:: export() -> @aws-cdk/aws-codebuild.ProjectRefProps
+
+      Export this Project. Allows referencing this Project in a different CDK Stack.
+
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.ProjectRefProps`
+
+
+   .. py:method:: onStateChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule triggered when the build project state changes. You can filter specific build status events using an event pattern filter on the `build-status` detail field:        const rule = project.onStateChange('OnBuildStarted', target);       rule.addEventPattern({           detail: {               'build-status': [                   "IN_PROGRESS",                   "SUCCEEDED",                   "FAILED",                   "STOPPED"               ]           }       });  You can also use the methods `onBuildFailed` and `onBuildSucceeded` to define rules for these specific state changes.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onPhaseChange(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines a CloudWatch event rule that triggers upon phase change of this build project.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onBuildStarted(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines an event rule which triggers when a build starts.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onBuildFailed(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines an event rule which triggers when a build fails.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: onBuildSucceeded(name, [target, [options]]) -> @aws-cdk/aws-events.EventRule
+
+      Defines an event rule which triggers when a build completes successfully.
+
+
+      :param name: 
+      :type name: string
+      :param target: 
+      :type target: :py:class:`@aws-cdk/aws-events.IEventRuleTarget` or undefined
+      :param options: 
+      :type options: :py:class:`@aws-cdk/aws-events.EventRuleProps` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-events.EventRule`
+
+
+   .. py:method:: metric(metricName, props) -> @aws-cdk/aws-cloudwatch.Metric
+
+      :param metricName: The name of the metric
+      :type metricName: string
+      :param props: Customization properties
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization`
+      :return: a CloudWatch metric associated with this build project.
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricBuilds([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Measures the number of builds triggered.  Units: Count  Valid CloudWatch statistics: Sum
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricDuration([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Measures the duration of all builds over time.  Units: Seconds  Valid CloudWatch statistics: Average (recommended), Maximum, Minimum
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricSucceededBuilds([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Measures the number of successful builds.  Units: Count  Valid CloudWatch statistics: Sum
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:method:: metricFailedBuilds([props]) -> @aws-cdk/aws-cloudwatch.Metric
+
+      Measures the number of builds that failed because of client error or because of a timeout.  Units: Count  Valid CloudWatch statistics: Sum
+
+
+      :param props: 
+      :type props: :py:class:`@aws-cdk/aws-cloudwatch.MetricCustomization` or undefined
+      :rtype: :py:class:`@aws-cdk/aws-cloudwatch.Metric`
+
+
+   .. py:attribute:: projectArn
+
+      The ARN of this Project. 
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ProjectArn` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: projectName
+
+      The human-visible name of this Project. 
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ProjectName` *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: role
+
+      The IAM service Role of this Project. Undefined for imported Projects. 
+
+
+      :type: :py:class:`@aws-cdk/aws-iam.Role` or undefined *(readonly)* *(abstract)*
+
+
+   .. py:attribute:: eventRuleTarget
+
+      Allows using build projects as event rule targets.
+
+
+      :type: :py:class:`@aws-cdk/aws-events.EventRuleTargetProps` *(readonly)*
+
+
+ProjectRefProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: ProjectRefProps
+
+   Properties of a reference to a CodeBuild Project.
+
+
+
+
+   .. py:attribute:: projectName
+
+      The human-readable name of the CodeBuild Project we're referencing. The Project must be in the same account and region as the root Stack.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ProjectName`
+
+
+S3BucketBuildArtifacts
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: S3BucketBuildArtifacts(props)
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildArtifacts`
+   :param props: 
+   :type props: :py:class:`~@aws-cdk/aws-codebuild.S3BucketBuildArtifactsProps`
+
+   .. py:method:: bind(project)
+
+      :param project: 
+      :type project: :py:class:`~@aws-cdk/aws-codebuild.Project`
+
+
+   .. py:method:: toArtifactsJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty`
+
+
+S3BucketBuildArtifactsProps (interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. py:class:: S3BucketBuildArtifactsProps
+
+
+
+   .. py:attribute:: bucket
+
+      The name of the output bucket.
+
+
+      :type: :py:class:`@aws-cdk/aws-s3.BucketRef`
+
+
+   .. py:attribute:: path
+
+      The path inside of the bucket for the build output .zip file or folder. If a value is not specified, then build output will be stored at the root of the bucket (or under the <build-id> directory if `includeBuildId` is set to true).
+
+
+      :type: string or undefined
+
+
+   .. py:attribute:: name
+
+      The name of the build output ZIP file or folder inside the bucket.  The full S3 object key will be "<path>/build-ID/<name>" or "<path>/<artifactsName>" depending on whether `includeBuildId` is set to true.
+
+
+      :type: string
+
+
+   .. py:attribute:: includeBuildID
+
+      Indicates if the build ID should be included in the path. If this is set to true, then the build artifact will be stored in "<path>/<build-id>/<name>".
+
+
+      :type: boolean or undefined
+
+
+   .. py:attribute:: packageZip
+
+      If this is true, all build output will be packaged into a single .zip file. Otherwise, all files will be uploaded to <path>/<name>
+
+
+      :type: boolean or undefined
+
+
+S3BucketSource
+^^^^^^^^^^^^^^
+
+.. py:class:: S3BucketSource(bucket, path)
+
+   S3 bucket definition for a CodeBuild project.
+
+
+   :extends: :py:class:`~@aws-cdk/aws-codebuild.BuildSource`
+   :param bucket: 
+   :type bucket: :py:class:`@aws-cdk/aws-s3.BucketRef`
+   :param path: 
+   :type path: string
+
+   .. py:method:: toSourceJSON() -> @aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty
+
+      :rtype: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty`
+
+
+   .. py:method:: bind(project)
+
+      Called by the project when the source is added so that the source can perform binding operations on the source. For example, it can grant permissions to the code build project to read from the S3 bucket.
+
+
+      :param project: 
+      :type project: :py:class:`~@aws-cdk/aws-codebuild.Project`
+
+
+SourceType (enum)
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: SourceType
+
+   .. py:data:: CodeCommit
+
+   .. py:data:: CodePipeline
+
+   .. py:data:: GitHub
+
+   .. py:data:: GitHubEnterPrise
+
+   .. py:data:: BitBucket
+
+   .. py:data:: S3
+
+
+WindowsBuildImage
+^^^^^^^^^^^^^^^^^
+
+.. py:class:: WindowsBuildImage(imageId)
+
+   A CodeBuild image running Windows. This class has a bunch of public constants that represent the most popular images. If you need to use with an image that isn't in the named constants, you can always instantiate it directly.
+
+
+   :implements: :py:class:`~@aws-cdk/aws-codebuild.IBuildImage`
+   :param imageId: 
+   :type imageId: string
+
+   .. py:method:: validate(buildEnvironment) -> string[]
+
+      Allows the image a chance to validate whether the passed configuration is correct.
+
+
+      :param buildEnvironment: 
+      :type buildEnvironment: :py:class:`~@aws-cdk/aws-codebuild.BuildEnvironment`
+      :rtype: string
+
+
+   .. py:attribute:: WIN_SERVER_CORE_2016_BASE
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.WindowsBuildImage` *(readonly)* *(static)*
+
+
+   .. py:attribute:: type
+
+      The type of build environment.
+
+
+      :type: string *(readonly)*
+
+
+   .. py:attribute:: defaultComputeType
+
+      The default {@link ComputeType} to use with this image, if one was not specified in {@link BuildEnvironment#computeType} explicitly.
+
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ComputeType` *(readonly)*
+
+
+   .. py:attribute:: imageId
+
+      :type: string *(readonly)*
+
+
+
+cloudformation
+^^^^^^^^^^^^^^
+.. py:module:: @aws-cdk/aws-codebuild.cloudformation
+
+ProjectResource
+~~~~~~~~~~~~~~~
+
+.. py:class:: ProjectResource(parent, name, properties)
+
+   :extends: :py:class:`@aws-cdk/cdk.Resource`
+   :param parent: the ``cdk.Construct`` this ``ProjectResource`` is a part of
+   :type parent: :py:class:`@aws-cdk/cdk.Construct`
+   :param name: the name of the resource in the ``cdk.Construct`` tree
+   :type name: string
+   :param properties: the properties of this ``ProjectResource``
+   :type properties: :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResourceProps`
+
+   .. py:method:: renderProperties() -> string => any
+
+      :rtype: any
+
+
+   .. py:attribute:: resourceTypeName
+
+      The CloudFormation resource type name for this resource class.
+
+
+      :type: string *(readonly)* *(static)*
+
+
+   .. py:attribute:: projectArn
+
+      :type: :py:class:`~@aws-cdk/aws-codebuild.ProjectArn` *(readonly)*
+
+   .. py:class:: ArtifactsProperty
+
+
+
+      .. py:attribute:: location
+
+         ``ProjectResource.ArtifactsProperty.Location``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-location
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: name
+
+         ``ProjectResource.ArtifactsProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: namespaceType
+
+         ``ProjectResource.ArtifactsProperty.NamespaceType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-namespacetype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: packaging
+
+         ``ProjectResource.ArtifactsProperty.Packaging``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-packaging
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: path
+
+         ``ProjectResource.ArtifactsProperty.Path``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-path
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: type
+
+         ``ProjectResource.ArtifactsProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: EnvironmentProperty
+
+
+
+      .. py:attribute:: computeType
+
+         ``ProjectResource.EnvironmentProperty.ComputeType``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: environmentVariables
+
+         ``ProjectResource.EnvironmentProperty.EnvironmentVariables``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-environmentvariables
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.EnvironmentVariableProperty` or undefined
+
+
+      .. py:attribute:: image
+
+         ``ProjectResource.EnvironmentProperty.Image``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-image
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: privilegedMode
+
+         ``ProjectResource.EnvironmentProperty.PrivilegedMode``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-privilegedmode
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: type
+
+         ``ProjectResource.EnvironmentProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: EnvironmentVariableProperty
+
+
+
+      .. py:attribute:: name
+
+         ``ProjectResource.EnvironmentVariableProperty.Name``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html#cfn-codebuild-project-environmentvariable-name
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: type
+
+         ``ProjectResource.EnvironmentVariableProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html#cfn-codebuild-project-environmentvariable-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: value
+
+         ``ProjectResource.EnvironmentVariableProperty.Value``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html#cfn-codebuild-project-environmentvariable-value
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: ProjectCacheProperty
+
+
+
+      .. py:attribute:: location
+
+         ``ProjectResource.ProjectCacheProperty.Location``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: type
+
+         ``ProjectResource.ProjectCacheProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: ProjectTriggersProperty
+
+
+
+      .. py:attribute:: webhook
+
+         ``ProjectResource.ProjectTriggersProperty.Webhook``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:class:: SourceAuthProperty
+
+
+
+      .. py:attribute:: resource
+
+         ``ProjectResource.SourceAuthProperty.Resource``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-resource
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: type
+
+         ``ProjectResource.SourceAuthProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: SourceProperty
+
+
+
+      .. py:attribute:: auth
+
+         ``ProjectResource.SourceProperty.Auth``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-auth
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceAuthProperty` or undefined
+
+
+      .. py:attribute:: buildSpec
+
+         ``ProjectResource.SourceProperty.BuildSpec``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildspec
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: gitCloneDepth
+
+         ``ProjectResource.SourceProperty.GitCloneDepth``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
+
+
+         :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: insecureSsl
+
+         ``ProjectResource.SourceProperty.InsecureSsl``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-insecuressl
+
+
+         :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: location
+
+         ``ProjectResource.SourceProperty.Location``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-location
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+      .. py:attribute:: type
+
+         ``ProjectResource.SourceProperty.Type``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-type
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:class:: VpcConfigProperty
+
+
+
+      .. py:attribute:: securityGroupIds
+
+         ``ProjectResource.VpcConfigProperty.SecurityGroupIds``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-securitygroupids
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: subnets
+
+         ``ProjectResource.VpcConfigProperty.Subnets``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-subnets
+
+
+         :type: :py:class:`@aws-cdk/cdk.Token` or string or :py:class:`@aws-cdk/cdk.Token`
+
+
+      .. py:attribute:: vpcId
+
+         ``ProjectResource.VpcConfigProperty.VpcId``
+         http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-vpcconfig.html#cfn-codebuild-project-vpcconfig-vpcid
+
+
+         :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+
+ProjectResourceProps (interface)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. py:class:: ProjectResourceProps
+
+
+
+   .. py:attribute:: artifacts
+
+      ``AWS::CodeBuild::Project.Artifacts``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-artifacts
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.ArtifactsProperty`
+
+
+   .. py:attribute:: environment
+
+      ``AWS::CodeBuild::Project.Environment``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.EnvironmentProperty`
+
+
+   .. py:attribute:: serviceRole
+
+      ``AWS::CodeBuild::Project.ServiceRole``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-servicerole
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token`
+
+
+   .. py:attribute:: source
+
+      ``AWS::CodeBuild::Project.Source``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-source
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.SourceProperty`
+
+
+   .. py:attribute:: badgeEnabled
+
+      ``AWS::CodeBuild::Project.BadgeEnabled``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-badgeenabled
+
+
+      :type: boolean or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: cache
+
+      ``AWS::CodeBuild::Project.Cache``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.ProjectCacheProperty` or undefined
+
+
+   .. py:attribute:: description
+
+      ``AWS::CodeBuild::Project.Description``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-description
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: encryptionKey
+
+      ``AWS::CodeBuild::Project.EncryptionKey``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-encryptionkey
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: projectName
+
+      ``AWS::CodeBuild::Project.Name``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
+
+
+      :type: string or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: tags
+
+      ``AWS::CodeBuild::Project.Tags``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-tags
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Token` or :py:class:`@aws-cdk/cdk.Tag` or undefined
+
+
+   .. py:attribute:: timeoutInMinutes
+
+      ``AWS::CodeBuild::Project.TimeoutInMinutes``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-timeoutinminutes
+
+
+      :type: number or :py:class:`@aws-cdk/cdk.Token` or undefined
+
+
+   .. py:attribute:: triggers
+
+      ``AWS::CodeBuild::Project.Triggers``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-triggers
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.ProjectTriggersProperty` or undefined
+
+
+   .. py:attribute:: vpcConfig
+
+      ``AWS::CodeBuild::Project.VpcConfig``
+      http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-vpcconfig
+
+
+      :type: :py:class:`@aws-cdk/cdk.Token` or :py:class:`~@aws-cdk/aws-codebuild.cloudformation.ProjectResource.VpcConfigProperty` or undefined
+
+
+
+.. py:currentmodule:: @aws-cdk/aws-codebuild
+
