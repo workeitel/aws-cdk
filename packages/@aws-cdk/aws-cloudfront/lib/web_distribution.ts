@@ -4,6 +4,7 @@ import s3 = require('@aws-cdk/aws-s3');
 import cdk = require('@aws-cdk/core');
 import { CfnDistribution } from './cloudfront.generated';
 import { IDistribution } from './distribution';
+import { IOriginAccessIdentity } from './origin_access_identity';
 
 export enum HttpVersion {
   HTTP1_1 = "http1.1",
@@ -235,6 +236,9 @@ export enum OriginProtocolPolicy {
   HTTPS_ONLY = "https-only",
 }
 
+/**
+ * S3 origin configuration for CloudFront
+ */
 export interface S3OriginConfig {
   /**
    * The source bucket to serve content from
@@ -243,8 +247,18 @@ export interface S3OriginConfig {
 
   /**
    * The optional ID of the origin identity cloudfront will use when calling your s3 bucket.
+   *
+   * @deprecated Use originAccessIdentity instead
+   * @default No Origin Access Identity which requires the S3 bucket to be public accessible
    */
   readonly originAccessIdentityId?: string;
+
+  /**
+   * The optional Oriagin Access Identity of the origin identity cloudfront will use when calling your s3 bucket.
+   *
+   * @default No Origin Access Identity which requires the S3 bucket to be public accessible
+   */
+  readonly originAccessIdentity?: IOriginAccessIdentity;
 }
 
 /**
@@ -687,6 +701,25 @@ export class CloudFrontWebDistribution extends cdk.Construct implements IDistrib
         });
       }
 
+      let s3OriginConfig;
+      if (originConfig.s3OriginSource) {
+        // first case for backwards compatibility
+        if (originConfig.s3OriginSource.originAccessIdentityId) {
+          s3OriginConfig = { originAccessIdentity: `origin-access-identity/cloudfront/${originConfig.s3OriginSource.originAccessIdentityId}` };
+        } else if (originConfig.s3OriginSource.originAccessIdentity) {
+          // grant CloudFront OriginAccessIdentity read access to S3 bucket
+          originConfig.s3OriginSource.s3BucketSource.grantRead(originConfig.s3OriginSource.originAccessIdentity);
+          s3OriginConfig = {
+            originAccessIdentity:
+              `origin-access-identity/cloudfront/${
+              originConfig.s3OriginSource.originAccessIdentity.originAccessIdentityName
+            }`
+          };
+        } else {
+          s3OriginConfig = {};
+        }
+      }
+
       const originProperty: CfnDistribution.OriginProperty = {
         id: originId,
         domainName: originConfig.s3OriginSource
@@ -694,11 +727,7 @@ export class CloudFrontWebDistribution extends cdk.Construct implements IDistrib
           : originConfig.customOriginSource!.domainName,
         originPath: originConfig.originPath,
         originCustomHeaders: originHeaders.length > 0 ? originHeaders : undefined,
-        s3OriginConfig: originConfig.s3OriginSource && originConfig.s3OriginSource.originAccessIdentityId
-          ? { originAccessIdentity: `origin-access-identity/cloudfront/${originConfig.s3OriginSource.originAccessIdentityId}` }
-          : originConfig.s3OriginSource
-          ? { }
-          : undefined,
+        s3OriginConfig,
         customOriginConfig: originConfig.customOriginSource
           ? {
             httpPort: originConfig.customOriginSource.httpPort || 80,
